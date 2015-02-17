@@ -17,6 +17,7 @@ article: http://ogp.me/ns/article#
 
 
 
+        <link rel="next" href="index-1.html" type="text/html">
 
     
         <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
@@ -78,6 +79,1854 @@ article: http://ogp.me/ns/article#
         <div class="row">
             
 <div class="postindex">
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/signinlca.html" class="u-url">signinlca</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/signinlca.html" rel="bookmark"><time class="published dt-published" datetime="2015-02-16T18:10:18+00:00" itemprop="datePublished" title="Publication date">2015-02-16 18:10</time></a></p>
+                <p class="commentline">            <a href="posts/signinlca.html#disqus_thread" data-disqus-identifier="cache/posts/siggninlca.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>signinlca</h2>
+
+<p>script to signin for volunteers at lca2015!</p>
+<p>The script asks for input of firstname, lastname, tshirt size, amount of coffee volc and comments. 
+It creates a python dict with this data along with the current date and hour. 
+It gets the username of user and saves the data in the users home dir under the folder signinlca. 
+It saves the data as a json object.
+Currently saves the file as firstname + lastname.</p>
+<p>How could this be improved?</p>
+<p>Signup/Signin System.</p>
+<p>For signup - username, firstname, lastname, password(x2) is collected with input. Password is salted and hashed. 
+Username, firstname, lastname, and password (salt/hash) is added to a dict. Dict is converted to a json object.
+json object is saved as a json file in the folder signinlca / USERNAME-FOLDER / .signup.json</p>
+<p>For signin. Username is collected with input. 
+Looks for folder of username. Opens .signup.json file - parsing data. 
+Save the value of 'password' as a varible.</p>
+<p>Asks for password (getpass.getpass('Password please: ')
+salt/hash this password.
+save password attempt if error, otherwise true complete signin.</p>
+<p>TODO</p>
+<p>add option to choose to login or logout. Y/N option for each one.</p>
+<p>add logout script that appends to the login data. saves, time/date/comment. anything else?</p>
+<p>Asign to jobs/room?</p>
+<p>Graph up total hour worked in day/week</p>
+<p>scp/rsync data to server/web page.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Make new account, use existing account.</p>
+<p>Database of existing accounts... static page of files.</p>
+<p>Add password to account</p>
+<p>If you signin, doesn't ask if want to sign out.</p>
+<p>If you signout, doesn't ask if you want to sign in.</p>
+<p>Hash passwords</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When creating account asked for username (which could be firstname + lastname), and password. Passwords are hashed and when user tries to login the password inputed is compared to the hashed password.</p>
+<p>Save that hash as a varible that is then complared with the saved hash password.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I have their signin data. Now what to do with it? Save it as a json object to be then used when they signin later?</p>
+<p>More security on it? Hash their usernames, firstnames, 2nd password?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="c">#import time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">arrow</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">passlib.hash</span> <span class="kn">import</span> <span class="n">pbkdf2_sha256</span>
+<span class="kn">from</span> <span class="nn">walkdir</span> <span class="kn">import</span> <span class="n">filtered_walk</span><span class="p">,</span> <span class="n">dir_paths</span><span class="p">,</span> <span class="n">all_paths</span><span class="p">,</span> <span class="n">file_paths</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">gmtz</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">yrmt</span> <span class="o">=</span> <span class="n">gmtz</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y"</span><span class="p">)</span>
+<span class="n">mthza</span> <span class="o">=</span> <span class="n">gmtz</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%m"</span><span class="p">)</span>
+<span class="n">dthaq</span> <span class="o">=</span> <span class="n">gmtz</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%d</span><span class="s">"</span><span class="p">)</span>
+<span class="n">gmtz</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y"</span><span class="p">)</span>
+<span class="c">#yearz = strftime("%y", gmtime())</span>
+<span class="c">#monthz = strftime("%m", gmtime())</span>
+<span class="c">#dayz = strftime("%d", gmtime())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[54]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'2015'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">yrmt</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[55]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'2015'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">mthza</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[56]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'02'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dthaq</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[57]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'16'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">returndate</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">dthaq</span> <span class="o">+</span> <span class="s">'-'</span> <span class="o">+</span> <span class="n">mthza</span> <span class="o">+</span> <span class="s">'-'</span> <span class="o">+</span> <span class="n">yrmt</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">returntime</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">gmtz</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%H:%M:%S'</span><span class="p">)</span>
+
+<span class="n">puser</span> <span class="o">=</span> <span class="p">(</span><span class="s">'wcmckee'</span><span class="p">)</span>
+
+<span class="n">yrnum</span> <span class="o">=</span> <span class="n">gmtz</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y"</span><span class="p">)</span>
+<span class="n">mnthnum</span> <span class="o">=</span> <span class="n">gmtz</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%m"</span><span class="p">)</span>
+<span class="n">dayzum</span> <span class="o">=</span> <span class="n">gmtz</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%d</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">signpath</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/'</span> <span class="o">+</span> <span class="n">puser</span> <span class="o">+</span> <span class="s">'/signinlca'</span><span class="p">)</span>
+<span class="n">yrpath</span> <span class="o">=</span> <span class="p">(</span><span class="n">signpath</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">yrnum</span><span class="p">)</span>
+<span class="n">mnthpath</span> <span class="o">=</span> <span class="p">(</span><span class="n">yrpath</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">mnthnum</span><span class="p">)</span>
+<span class="n">dayzpath</span> <span class="o">=</span> <span class="p">(</span><span class="n">mnthpath</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">dayzum</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">signpath</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'Path is there'</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'Path not there'</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">signpath</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Path is there
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">yrpath</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'Year Path is there'</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'Year Path not there'</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">yrpath</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">mnthpath</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'Month Path is there'</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'Month Path not there'</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">mnthpath</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">dayzpath</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'Day Path is there'</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'Day Path not there'</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">dayzpath</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Year Path is there
+Month Path is there
+Day Path is there
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dayzpath</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[61]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'/home/wcmckee/signinlca/2015/02/16'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">dayzpath</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opsign</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/index.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">signup</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'signup y/n '</span><span class="p">)</span>
+<span class="n">signupd</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">numchez</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="s">'y'</span> <span class="ow">in</span> <span class="n">signup</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Welcome to signup!'</span><span class="p">)</span>
+    <span class="n">firnam</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'firstname: '</span><span class="p">)</span>
+    <span class="n">signupd</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">"firstname"</span><span class="p">:</span><span class="n">firnam</span><span class="p">,</span> <span class="p">})</span>
+    <span class="n">lasnam</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'last name: '</span><span class="p">)</span>
+    
+    <span class="n">usenam</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'username: '</span><span class="p">)</span>
+    <span class="n">emnam</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'email: '</span><span class="p">)</span>
+    
+    
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span> <span class="o">+</span> <span class="n">usenam</span><span class="p">)</span> 
+    <span class="c">#passworz = passwd()</span>
+    
+    <span class="n">pastest</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s">'password: '</span><span class="p">)</span>
+
+    <span class="n">pasnde</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s">'enter password again: '</span><span class="p">)</span>
+    
+    <span class="n">signupd</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">"firstname"</span><span class="p">:</span><span class="n">firnam</span><span class="p">,</span> <span class="s">"lastname"</span><span class="p">:</span><span class="n">lasnam</span><span class="p">,</span>
+                <span class="s">"username"</span><span class="p">:</span><span class="n">usenam</span><span class="p">})</span>
+    
+    <span class="n">hashez</span> <span class="o">=</span> <span class="n">pbkdf2_sha256</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">pastest</span><span class="p">,</span> <span class="n">rounds</span><span class="o">=</span><span class="mi">200000</span><span class="p">,</span> <span class="n">salt_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">emhash</span> <span class="o">=</span> <span class="n">pbkdf2_sha256</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">emnam</span><span class="p">,</span> <span class="n">rounds</span><span class="o">=</span><span class="mi">200000</span><span class="p">,</span> <span class="n">salt_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    
+    <span class="n">signupd</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">"password"</span><span class="p">:</span><span class="n">hashez</span><span class="p">,</span> <span class="s">"email"</span><span class="p">:</span><span class="n">emhash</span><span class="p">})</span>
+    
+    <span class="n">savjsn</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span> <span class="o">+</span> <span class="n">usenam</span> <span class="o">+</span> <span class="s">'/.signups.json'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
+    <span class="n">jsncov</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">signupd</span><span class="p">)</span>
+    <span class="n">savjsn</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">jsncov</span><span class="p">)</span>
+    <span class="n">savjsn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">usdir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'useradd -p '</span> <span class="o">+</span> <span class="n">pastest</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="n">usenam</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">usdir</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Signup Complete. You can now signin with the username and password'</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">logy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">ferzr</span> <span class="o">=</span> <span class="p">(</span><span class="n">numchez</span><span class="p">)</span>
+    <span class="n">numchez</span> <span class="o">=</span> <span class="p">(</span><span class="n">numchez</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="c">#usfaz = ('/home/wcmckee/signinlca/usernames/' + str(numchez) + usenam + '/index.json', 'w')</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">usenam</span><span class="p">)</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">logy</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>signup y/n y
+Welcome to signup!
+firstname: will
+last name: mckee
+username: figlet
+email: will@test.com
+password: ········
+enter password again: ········
+Signup Complete. You can now signin with the username and password
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#hashez = pbkdf2_sha256.encrypt(pastest, rounds=200000, salt_size=16)</span>
+<span class="c">#signupd.update({"password":hashez})</span>
+<span class="c">#signin. need to open </span>
+<span class="k">print</span> <span class="p">(</span><span class="s">'signin!'</span><span class="p">)</span>
+<span class="n">loginam</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Username: '</span><span class="p">)</span>
+<span class="c">#Open logins.json, find the username json object</span>
+<span class="n">loginpas</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s">'Password: '</span><span class="p">)</span>
+<span class="n">vercryp</span> <span class="o">=</span> <span class="n">pbkdf2_sha256</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">loginpas</span><span class="p">,</span> <span class="n">hashez</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">vercryp</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'passwords correct - Logged in!'</span>
+    
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'passwords wrong - Could not log!'</span>
+    <span class="c">#exit</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>signin!
+Username: point
+Password: ········
+passwords correct - Logged in!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="nb">type</span><span class="p">(</span><span class="n">signupd</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[66]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>dict</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [67]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#savjsn.write(jsncov)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">ValueError</span>                                Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-67-a899169d95c8&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span>savjsn<span class="ansiyellow">.</span>write<span class="ansiyellow">(</span>jsncov<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansired">ValueError</span>: I/O operation on closed file</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#savjsn.close()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dicsigni</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">signin</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'signin? y/n'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s">'y'</span> <span class="ow">in</span> <span class="n">signin</span><span class="p">:</span>
+    <span class="c">#uzname = raw_input('firstname: ')</span>
+    <span class="c">#lzname = raw_input('lastname: ')</span>
+    <span class="n">uzernam</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'username: '</span><span class="p">)</span>
+    
+    <span class="n">dicsigni</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'username'</span><span class="p">:</span> <span class="n">uzernam</span><span class="p">})</span>
+    <span class="n">opsignin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">uzernam</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s">'/'</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s">'.signin.json'</span><span class="p">),</span> <span class="s">'w'</span><span class="p">)</span> 
+
+    <span class="n">logtest</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s">'login password: '</span><span class="p">)</span>
+    <span class="n">loghash</span> <span class="o">=</span> <span class="n">pbkdf2_sha256</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">logtest</span><span class="p">,</span> <span class="n">rounds</span><span class="o">=</span><span class="mi">200000</span><span class="p">,</span> <span class="n">salt_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">vercryp</span> <span class="o">=</span> <span class="n">pbkdf2_sha256</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">logtest</span><span class="p">,</span> <span class="n">hashez</span><span class="p">)</span>
+    <span class="n">dicsigni</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'password'</span><span class="p">:</span><span class="n">loghash</span><span class="p">})</span>
+                    
+    <span class="n">dicjsn</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dicsigni</span><span class="p">)</span>
+    
+    <span class="n">opsignin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dicjsn</span><span class="p">)</span>
+    <span class="n">opsignin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+                    
+    <span class="c">#opsignin.write</span>
+
+    <span class="k">if</span> <span class="n">pastest</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">'passwords correct'</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>signin? y/ny
+username: wcm
+login password: ········
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ersignin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">uzernam</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s">'/'</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s">'.signin.json'</span><span class="p">),</span> <span class="s">'r'</span><span class="p">)</span> 
+
+<span class="n">paswz</span> <span class="o">=</span> <span class="n">ersignin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dicvert</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">paswz</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dicloin</span> <span class="o">=</span> <span class="n">dicvert</span><span class="p">[</span><span class="s">'password'</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">tresignin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">uzernam</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s">'/'</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s">'.signups.json'</span><span class="p">),</span> <span class="s">'r'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">convea</span> <span class="o">=</span>  <span class="n">tresignin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">jsnver</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">convea</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">jpas</span> <span class="o">=</span> <span class="n">jsnver</span><span class="p">[</span><span class="s">'password'</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">jpas</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[50]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>u'$pbkdf2-sha256$200000$utc6h9A6B.CcsxZirHVurQ$rHAHVhTN5pwOgBTj.6un2605pM.xZ8Kbu7wYRqPcFGo'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dicloin</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[51]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>u'$pbkdf2-sha256$200000$tTZmrJVyTinFmHPOWYtxjg$esTV1MEbmqXDIxc4ZHUFdThYpTZdk3.2101Ndga0mes'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [118]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">loginz</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'signin y/n '</span><span class="p">)</span>
+<span class="k">if</span> <span class="s">'y'</span> <span class="ow">in</span> <span class="n">loginz</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'You signed in'</span><span class="p">)</span>
+    <span class="c">#logoutz = None</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">logoutz</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'signouts y/n '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>signin y/n y
+You signed in
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [119]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="s">'y'</span> <span class="ow">in</span> <span class="n">loginz</span><span class="p">:</span>
+    <span class="n">firnam</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'first name: '</span><span class="p">)</span>
+    <span class="n">lasnam</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'last name: '</span><span class="p">)</span>
+    <span class="n">tshir</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'tshirt size: '</span><span class="p">)</span>
+    <span class="n">cofvol</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'coffee volc: '</span><span class="p">)</span>
+    <span class="n">comen</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'comments: '</span><span class="p">)</span>
+    <span class="n">betdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'first-name'</span> <span class="p">:</span> <span class="n">firnam</span><span class="p">,</span> <span class="s">'last-name'</span> <span class="p">:</span> <span class="n">lasnam</span><span class="p">,</span> <span class="s">'signin-date'</span> <span class="p">:</span> <span class="n">returndate</span><span class="p">()})</span>
+    <span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'signin-hrmin'</span> <span class="p">:</span> <span class="n">returntime</span><span class="p">()})</span>
+    <span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'tshirt-size'</span> <span class="p">:</span> <span class="n">tshir</span><span class="p">})</span>
+    <span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'coffees'</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">cofvol</span><span class="p">)})</span>
+    <span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'comments:'</span> <span class="p">:</span> <span class="n">comen</span><span class="p">})</span>
+    <span class="n">convj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">betdict</span><span class="p">)</span>
+    <span class="n">puser</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
+    <span class="n">opday</span> <span class="o">=</span> <span class="nb">open</span><span class="p">((</span><span class="n">dayzpath</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">firnam</span> <span class="o">+</span> <span class="n">lasnam</span><span class="p">)</span> <span class="o">+</span> <span class="s">'.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+    <span class="n">opday</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">convj</span><span class="p">))</span>
+    <span class="n">opday</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'not signing in'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>first name: w
+last name: mcke
+tshirt size: L
+coffee volc: 4
+comments: test
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [480]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="s">'y'</span> <span class="ow">in</span> <span class="n">logoutz</span><span class="p">:</span>
+    <span class="n">comout</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'out comments: '</span><span class="p">)</span>
+    <span class="n">outdic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    
+    <span class="n">firnaz</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'first name: '</span> <span class="p">)</span>
+    <span class="n">lasnaz</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'last name: '</span><span class="p">)</span>
+    <span class="n">outdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'signout-date'</span><span class="p">:</span> <span class="n">returndate</span><span class="p">()})</span>
+    <span class="n">outdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'signout-time'</span><span class="p">:</span> <span class="n">returntime</span><span class="p">()})</span>
+    <span class="n">outdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'signout-comment'</span><span class="p">:</span> <span class="n">comout</span><span class="p">})</span>
+    <span class="n">conout</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">outdic</span><span class="p">)</span>
+    <span class="n">signoutz</span> <span class="o">=</span> <span class="nb">open</span><span class="p">((</span><span class="n">dayzpath</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">firnaz</span> <span class="o">+</span> <span class="n">lasnaz</span><span class="p">)</span> <span class="o">+</span> <span class="s">'.json'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
+    <span class="n">signoutz</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">conout</span><span class="p">))</span>
+    <span class="n">signoutz</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'not signing out'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-480-427a1c2429f6&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span><span class="ansigreen">if</span> <span class="ansiblue">'y'</span> <span class="ansigreen">in</span> logoutz<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">      2</span>     comout <span class="ansiyellow">=</span> raw_input<span class="ansiyellow">(</span><span class="ansiblue">'out comments: '</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">      3</span>     outdic <span class="ansiyellow">=</span> dict<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">      4</span> <span class="ansiyellow"></span>
+<span class="ansigreen">      5</span>     firnaz <span class="ansiyellow">=</span> raw_input<span class="ansiyellow">(</span><span class="ansiblue">'first name: '</span> <span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansired">TypeError</span>: argument of type 'NoneType' is not iterable</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [481]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dayzpath</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[481]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['williammckee.json', 'helentesting.json']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [481]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [68]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">files</span> <span class="o">=</span> <span class="n">file_paths</span><span class="p">(</span><span class="n">filtered_walk</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/'</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">included_files</span><span class="o">=</span><span class="p">[</span><span class="s">'*.json'</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">fie</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="c">#print fie</span>
+    <span class="k">print</span> <span class="n">fie</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/home/wcmckee/signinlca/index.json
+/home/wcmckee/signinlca/signups.json
+/home/wcmckee/signinlca/2015/02/15/williammckee.json
+/home/wcmckee/signinlca/2015/02/15/holleymckee.json
+/home/wcmckee/signinlca/2015/02/15/wmcke.json
+/home/wcmckee/signinlca/2015/Feb/07/williammckee.json
+/home/wcmckee/signinlca/2015/Feb/07/blahmc.json
+/home/wcmckee/signinlca/2015/Feb/13/williammckee.json
+/home/wcmckee/signinlca/2015/Feb/15/williammckee.json
+/home/wcmckee/signinlca/2015/Feb/14/willmckee.json
+/home/wcmckee/signinlca/usernames/wcm/.signups.json
+/home/wcmckee/signinlca/usernames/wcm/.signin.json
+/home/wcmckee/signinlca/usernames/wmen/.signups.json
+/home/wcmckee/signinlca/usernames/webmck/.signups.json
+/home/wcmckee/signinlca/usernames/pjohns/.signups.json
+/home/wcmckee/signinlca/usernames/checkthis/.signups.json
+/home/wcmckee/signinlca/usernames/jchick/.signups.json
+/home/wcmckee/signinlca/usernames/poi/.signups.json
+/home/wcmckee/signinlca/usernames/qwe/.signups.json
+/home/wcmckee/signinlca/usernames/point/.signups.json
+/home/wcmckee/signinlca/usernames/cvb/.signups.json
+/home/wcmckee/signinlca/usernames/gerty/.signups.json
+/home/wcmckee/signinlca/usernames/gerty/.signin.json
+/home/wcmckee/signinlca/usernames/jblog/.signups.json
+/home/wcmckee/signinlca/usernames/ssung/.signups.json
+/home/wcmckee/signinlca/usernames/clittle/.signups.json
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [72]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">uslis</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="p">(</span><span class="s">'User List: '</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">usl</span> <span class="ow">in</span> <span class="n">uslis</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">usl</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>User List: 
+wcm
+wmck
+wmen
+webmck
+pjohns
+checkthis
+jchick
+poi
+qwe
+point
+cvb
+gerty
+jblog
+ssung
+clittle
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/pyguessgame.html" class="u-url">pyguessgame</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/pyguessgame.html" rel="bookmark"><time class="published dt-published" datetime="2015-02-15T18:10:18+00:00" itemprop="datePublished" title="Publication date">2015-02-15 18:10</time></a></p>
+                <p class="commentline">            <a href="posts/pyguessgame.html#disqus_thread" data-disqus-identifier="cache/posts/pyguessgame.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">urwid</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pyfiglet</span> <span class="kn">import</span> <span class="n">Figlet</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">clint</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Started as a simple python guessing game to be ran in terminal. 
+Asks for a number between 0-10 and works up to 100 - asking for the next 10 each time. 
+On win a urwid screen shows with 'You Win'. It would be nice if the whole game was inside of urwid.
+Figlet intergration.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Figlet</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opusr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opusr</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[41]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['tnow',
+ 'signinlca.py',
+ 'charle',
+ 'wcm',
+ 'wmck',
+ 'wmen',
+ 'webmck',
+ 'pjohns',
+ 'red',
+ 'wez',
+ 'checkthis',
+ 'blah',
+ 'jchick',
+ 'poiu',
+ 'poi',
+ 'qwe',
+ 'point',
+ 'cvb',
+ 'blag',
+ 'gerty',
+ 'jblog',
+ 'ssung',
+ 'clittle',
+ 'yellow']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ranumz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">opusr</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ranin</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ranumz</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ranin</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[44]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opza</span> <span class="o">=</span>  <span class="n">opusr</span><span class="p">[</span><span class="n">ranin</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opza</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[46]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'qwe'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">lidte</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span> <span class="o">+</span> <span class="n">opza</span> <span class="o">+</span> <span class="s">'/.signups.json'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">plid</span> <span class="o">=</span> <span class="n">lidte</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">tlid</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">plid</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">firna</span> <span class="o">=</span> <span class="n">tlid</span><span class="p">[</span><span class="s">'firstname'</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">tlicha</span> <span class="o">=</span> <span class="n">tlid</span><span class="p">[</span><span class="s">'lastname'</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">fullna</span> <span class="o">=</span> <span class="n">firna</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="n">tlicha</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [67]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">clint.textui</span> <span class="kn">import</span> <span class="n">colored</span><span class="p">,</span> <span class="n">puts</span>
+
+<span class="n">perf</span> <span class="o">=</span> <span class="n">puts</span><span class="p">(</span><span class="n">colored</span><span class="o">.</span><span class="n">yellow</span><span class="p">(</span><span class="n">fullna</span><span class="p">))</span>
+
+<span class="n">perf</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>qwe qwe
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">opza</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">fullna</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                    
+  __ ___      _____ 
+ / _` \ \ /\ / / _ \
+| (_| |\ V  V /  __/
+ \__, | \_/\_/ \___|
+    |_|             
+
+qwe qwe
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">exitq</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s">'enter'</span><span class="p">,</span> <span class="s">'return'</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">urwid</span><span class="o">.</span><span class="n">ExitMainLoop</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">pallette</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s">'banner'</span><span class="p">,</span> <span class="s">'dark red'</span><span class="p">,</span> <span class="s">'white'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">'streak'</span><span class="p">,</span> <span class="s">'dark red'</span><span class="p">,</span> <span class="s">'white'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">'bg'</span><span class="p">,</span> <span class="s">'dark red'</span><span class="p">,</span> <span class="s">'white'</span><span class="p">),]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">numchez</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">guesz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">farchez</span> <span class="o">=</span> <span class="p">(</span><span class="n">numchez</span><span class="p">)</span>
+    <span class="n">numchez</span> <span class="o">=</span> <span class="p">(</span><span class="n">numchez</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">GetNum</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">farchez</span><span class="p">,</span><span class="n">numchez</span><span class="p">)</span>
+    
+    <span class="n">randnum</span> <span class="o">=</span> <span class="n">GetNum</span><span class="p">()</span>
+    
+    <span class="n">lownumz</span> <span class="o">=</span> <span class="p">(</span><span class="n">numchez</span><span class="p">)</span>
+    
+    <span class="n">innumz</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Enter a number between '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">farchez</span><span class="p">)</span> <span class="o">+</span> <span class="s">' and '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lownumz</span><span class="p">)</span> <span class="o">+</span> <span class="s">': '</span><span class="p">)</span>
+    
+    <span class="n">guessnum</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">innumz</span><span class="p">)</span>
+    
+    <span class="n">guesintz</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">guessnum</span><span class="p">)</span>
+    
+    <span class="k">print</span> <span class="p">(</span><span class="s">'Guess was: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">guesintz</span><span class="p">))</span>
+    <span class="c">#colomod</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'Correct was: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">guesintz</span> <span class="o">==</span> <span class="n">randnum</span><span class="p">:</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span> <span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)</span> <span class="o">+</span> <span class="s">' You Win!'</span><span class="p">))</span>
+        <span class="n">numpor</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span><span class="p">))</span>
+        <span class="n">map1</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s">'streak'</span><span class="p">)</span>
+        <span class="n">mep</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">numpor</span><span class="p">,</span> <span class="s">'streak'</span><span class="p">)</span>
+        <span class="n">fil</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">map1</span><span class="p">)</span>
+        <span class="n">fel</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">mep</span><span class="p">)</span>
+        <span class="n">map2</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="s">'bg'</span><span class="p">)</span>
+        <span class="n">loopa</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">fel</span><span class="p">,</span> <span class="s">'bg'</span><span class="p">)</span>
+        <span class="n">looena</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">loopa</span><span class="p">,</span> <span class="n">pallette</span><span class="p">,</span> <span class="n">unhandled_input</span><span class="o">=</span><span class="n">exitq</span><span class="p">)</span>
+        <span class="n">looena</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="n">pallette</span><span class="p">,</span> <span class="n">unhandled_input</span><span class="o">=</span><span class="n">exitq</span><span class="p">)</span>
+        <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)</span> <span class="o">+</span> <span class="s">' You Win!'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)</span> <span class="o">+</span> <span class="s">' You Lose!'</span><span class="p">))</span>
+        <span class="n">map1</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s">'streak'</span><span class="p">)</span>
+        <span class="n">fil</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">map1</span><span class="p">)</span>
+        <span class="n">map2</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="s">'bg'</span><span class="p">)</span>
+        <span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="n">pallette</span><span class="p">,</span> <span class="n">unhandled_input</span><span class="o">=</span><span class="n">exitq</span><span class="p">)</span>
+        <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)</span> <span class="o">+</span> <span class="s">' You lose!'</span><span class="p">)</span>
+        
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Enter a number between 70 and 80: 
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">ValueError</span>                                Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-48-ff8888390e77&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">     14</span>     guessnum <span class="ansiyellow">=</span> raw_input<span class="ansiyellow">(</span>innumz<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">     15</span> <span class="ansiyellow"></span>
+<span class="ansigreen">---&gt; 16</span><span class="ansiyellow">     </span>guesintz <span class="ansiyellow">=</span> int<span class="ansiyellow">(</span>guessnum<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">     17</span> <span class="ansiyellow"></span>
+<span class="ansigreen">     18</span>     <span class="ansigreen">print</span> <span class="ansiyellow">(</span><span class="ansiblue">'Guess was: '</span> <span class="ansiyellow">+</span> str<span class="ansiyellow">(</span>guesintz<span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansired">ValueError</span>: invalid literal for int() with base 10: ''</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">txt</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)))</span>
+<span class="c">#numpor = urwid.Text(f.renderText(guessnum))</span>
+<span class="n">map1</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s">'streak'</span><span class="p">)</span>
+<span class="c">#mep = urwid.AttrMap(numpor, 'streak')</span>
+<span class="n">fil</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">map1</span><span class="p">)</span>
+<span class="c">#fel = urwid.Filler(mep)</span>
+<span class="n">map2</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="s">'bg'</span><span class="p">)</span>
+<span class="c">#loopa = urwid.AttrMap(fel, 'bg')</span>
+<span class="c">#looena = urwid.MainLoop(loopa, pallette, unhandled_input=exitq)</span>
+<span class="c">#looena.run()</span>
+<span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="n">pallette</span><span class="p">,</span> <span class="n">unhandled_input</span><span class="o">=</span><span class="n">exitq</span><span class="p">)</span>
+<span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>7[?47h[?1002l[?1000l[?1000h[?1002h</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-35-0a8c9e47ba8d&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">     10</span> <span class="ansired">#looena.run()</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+<span class="ansigreen">     11</span> loop <span class="ansiyellow">=</span> urwid<span class="ansiyellow">.</span>MainLoop<span class="ansiyellow">(</span>fil<span class="ansiyellow">,</span> pallette<span class="ansiyellow">,</span> unhandled_input<span class="ansiyellow">=</span>exitq<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">---&gt; 12</span><span class="ansiyellow"> </span>loop<span class="ansiyellow">.</span>run<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">     13</span> <span class="ansigreen">print</span> f<span class="ansiyellow">.</span>renderText<span class="ansiyellow">(</span><span class="ansiblue">'You Win!'</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/main_loop.pyc</span> in <span class="ansicyan">run</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    276</span>         """
+<span class="ansigreen">    277</span>         <span class="ansigreen">try</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 278</span><span class="ansiyellow">             </span>self<span class="ansiyellow">.</span>_run<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    279</span>         <span class="ansigreen">except</span> ExitMainLoop<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    280</span>             <span class="ansigreen">pass</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/main_loop.pyc</span> in <span class="ansicyan">_run</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    373</span>                 self<span class="ansiyellow">.</span>screen<span class="ansiyellow">.</span>stop<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    374</span> <span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 375</span><span class="ansiyellow">         </span>self<span class="ansiyellow">.</span>event_loop<span class="ansiyellow">.</span>run<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    376</span>         self<span class="ansiyellow">.</span>stop<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    377</span> <span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/main_loop.pyc</span> in <span class="ansicyan">run</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    676</span>             <span class="ansigreen">while</span> True<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    677</span>                 <span class="ansigreen">try</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 678</span><span class="ansiyellow">                     </span>self<span class="ansiyellow">.</span>_loop<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    679</span>                 <span class="ansigreen">except</span> select<span class="ansiyellow">.</span>error <span class="ansigreen">as</span> e<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    680</span>                     <span class="ansigreen">if</span> e<span class="ansiyellow">.</span>args<span class="ansiyellow">[</span><span class="ansicyan">0</span><span class="ansiyellow">]</span> <span class="ansiyellow">!=</span> <span class="ansicyan">4</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/main_loop.pyc</span> in <span class="ansicyan">_loop</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    713</span> <span class="ansiyellow"></span>
+<span class="ansigreen">    714</span>         <span class="ansigreen">for</span> fd <span class="ansigreen">in</span> ready<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 715</span><span class="ansiyellow">             </span>self<span class="ansiyellow">.</span>_watch_files<span class="ansiyellow">[</span>fd<span class="ansiyellow">]</span><span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    716</span>             self<span class="ansiyellow">.</span>_did_something <span class="ansiyellow">=</span> True<span class="ansiyellow"></span>
+<span class="ansigreen">    717</span> <span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">&lt;lambda&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">    390</span>         <span class="ansigreen">else</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    391</span>             wrapper = lambda: self.parse_input(
+<span class="ansigreen">--&gt; 392</span><span class="ansiyellow">                 event_loop, callback, self.get_available_raw_input())
+</span><span class="ansigreen">    393</span>         fds <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>get_input_descriptors<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    394</span>         handles <span class="ansiyellow">=</span> <span class="ansiyellow">[</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">get_available_raw_input</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    424</span>         implementation<span class="ansiyellow">;</span> you can safely ignore it <span class="ansigreen">if</span> you implement your own<span class="ansiyellow">.</span><span class="ansiyellow"></span>
+<span class="ansigreen">    425</span>         """
+<span class="ansigreen">--&gt; 426</span><span class="ansiyellow">         </span>codes <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>_get_gpm_codes<span class="ansiyellow">(</span><span class="ansiyellow">)</span> <span class="ansiyellow">+</span> self<span class="ansiyellow">.</span>_get_keyboard_codes<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    427</span> <span class="ansiyellow"></span>
+<span class="ansigreen">    428</span>         <span class="ansigreen">if</span> self<span class="ansiyellow">.</span>_partial_codes<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">_get_keyboard_codes</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    498</span>         codes <span class="ansiyellow">=</span> <span class="ansiyellow">[</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
+<span class="ansigreen">    499</span>         <span class="ansigreen">while</span> True<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 500</span><span class="ansiyellow">             </span>code <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>_getch_nodelay<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    501</span>             <span class="ansigreen">if</span> code <span class="ansiyellow">&lt;</span> <span class="ansicyan">0</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    502</span>                 <span class="ansigreen">break</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">_getch_nodelay</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    632</span> <span class="ansiyellow"></span>
+<span class="ansigreen">    633</span>     <span class="ansigreen">def</span> _getch_nodelay<span class="ansiyellow">(</span>self<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 634</span><span class="ansiyellow">         </span><span class="ansigreen">return</span> self<span class="ansiyellow">.</span>_getch<span class="ansiyellow">(</span><span class="ansicyan">0</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    635</span> <span class="ansiyellow"></span>
+<span class="ansigreen">    636</span> <span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">_getch</span><span class="ansiblue">(self, timeout)</span>
+<span class="ansigreen">    542</span>                 self<span class="ansiyellow">.</span>gpm_event_pending <span class="ansiyellow">=</span> True<span class="ansiyellow"></span>
+<span class="ansigreen">    543</span>         <span class="ansigreen">if</span> self<span class="ansiyellow">.</span>_term_input_file<span class="ansiyellow">.</span>fileno<span class="ansiyellow">(</span><span class="ansiyellow">)</span> <span class="ansigreen">in</span> ready<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 544</span><span class="ansiyellow">             </span><span class="ansigreen">return</span> ord<span class="ansiyellow">(</span>os<span class="ansiyellow">.</span>read<span class="ansiyellow">(</span>self<span class="ansiyellow">.</span>_term_input_file<span class="ansiyellow">.</span>fileno<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow">,</span> <span class="ansicyan">1</span><span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    545</span>         <span class="ansigreen">return</span> <span class="ansiyellow">-</span><span class="ansicyan">1</span><span class="ansiyellow"></span>
+<span class="ansigreen">    546</span> <span class="ansiyellow"></span>
+
+<span class="ansired">TypeError</span>: ord() expected a character, but string of length 0 found</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">'The End'</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
     <article class="h-entry post-text">
     <header>
         <h1 class="p-name entry-title"><a href="posts/tarpipe.html" class="u-url">tarpipe</a></h1>
@@ -8820,2885 +10669,14 @@ d948bc2cb2d5.json
 
     </div>
     </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/wain.html" class="u-url">wain</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/wain.html" rel="bookmark"><time class="published dt-published" datetime="2015-01-06T18:10:18+00:00" itemprop="datePublished" title="Publication date">2015-01-06 18:10</time></a></p>
-                <p class="commentline">            <a href="posts/wain.html#disqus_thread" data-disqus-identifier="cache/posts/wain.html">Comments</a>
-
-
-        </p>
 </div>
-    </header>
-    <div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Visitor Sign System</p>
-<p>This script was created as an altenative to a printed spreadsheet that you use a physical pen to write - date, name, reason, time in, time out. 
-There is a comment book that this could be used to replace also. 
-Currently people write comments in pen on lined refil. Comments 
-The script is basic. It saves the time, date, name, reason, and added in comments as an html page and json object. Archieve of past logins are saved.
-It is split into two scripts. The first wain or whaxlu is used for the login. 
-The second script is whaiout which is the logout script. It takes the output of wain or whaxlu and appends logout data - time, date, and comment.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Currently I use the script to sign in and out at a early learning centre that I am employed to work 2 hours a day, 5 days a week. 
-It could be applied in any area where you want to keep a record of time, comments,</p>
-<p>Similarity to twitter.</p>
-<p>Avatars</p>
-<p>Mention, taging, hashtags</p>
-<p>There is often a line around the sign in/out book.</p>
-<p>Generates summery</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The site was live. It was running on a simple python web server but it worked. The script was exacuted by the Raspberry Pi B+ computer running Debian. Red pixels appeared on the screen, or #543243 if you want to be fussy. 
-Luck had nothing to do with it. Testing was the key.
-22
-The text had rendered.</p>
-<ol>
-<li>Alfred Bunnings</li>
-<li>09:00</li>
-<li>01/Nov/2014</li>
-<li>InfoSec</li>
-<li>everything seems fine</li>
-</ol>
-<p>Charlie MacDonald sat at his desk steering at the monitor. 
-'Alfred Bunnings, who is this guy?', he thought to himself. 'Jones, get over here and see this', Charlie yelled out to his Assistent.
-'Coming Sir!', a voice sharply replied. 
-Into Charlies office walked Jones. Tall, 6 foot 3. Dark Brown hair, curly and down to his shoulders. On this day his hair was tied up, usually he left it down but today was special.
-'What's up sir', Jones asked, squinting at the monitor. 
-'Take a look for yourself', replied Charlie as he stood up. 
-Jones took a seat at Charlies computer station. Charlie paced up and down his office.
-'Sir, I've seen nothing like this before. What the hell is going on?', Jones asked Charlie.
-Standing still Charlie spoke:
-'It's a god damn nightmare that is, this Alfred character has breached the networks. We need to find them.'</p>
-<p>Alfred sat on the bus. The same seat he had every day. The bus was old, 50 years old and rust was pealing rom the rail. At least the button still works. He was on his way to visit an old friend, he hasn't seen in five years. Normally lfred drives his car but today was different. He felt like relaxing on the buss.
-His Dell laptop sat on his lap. The desktop enviorment was KDE, running Debian. He dudn't have much running. Two web browser windows, a terminal, and Pithos. On the left split was his IPython Notebook (running locallly), on the right split documation web page that he is following. The terminal window was behind the web page window. A TMUX session was running. The was split into three windows.  Inside the sessoion was The IPython Notebook Kernal running on port 80. One the second window - Motion. This is used to capture save mpeg files from the Dell laptop camera.</p>
-<p>The Streets were playing on Pithos. Stay Positive. Pithos is a desktop client for Pandora Radio.</p>
-<p>SPIKE INFOSEC</p>
-<p>The sign read. Alfred stood looking up above him. The skyscraper went on for miles. Squinting he could see the peak.</p>
-<p>Today he was here for a job interview. Two days ago he had been sent a message that a position had came up and the company was interested in hiring him.</p>
-<p>The automate doors opened as he approched them. Inside stood three security guards and a metal detotor. 
-'Name and reason/person visit', one of the guards asked him. 
-'Alfred Bunnings, I'm here for a job interview with Janet Pears'.
-The guard typed characters into the comput
-'Alright, that seems fine sir', the guard replied'. 'Please make your way down the hall and take the second right on your left'.
-'Thank you', Afred said as he begain walking down the hallway.</p>
-<p>Everything was white. The ground, ceiling and floor. He passed the first turn off on the left and kept walking. He reached the second turn and turned left.</p>
-<p>The colour scheme changed, colours filled the walls. Character and Landscapes scatted the walls. It was painted with a dark naples yellow, red, and a light blue. The backgrounds were blue and the characters and foreground landscapes were yellow and red.</p>
-<p>Alfred admired the walls as he contined walking down the hallway. At the end of the hallway was a foylor with several desks setup with computers. A woman sat at the further one typing. 
-The foylar was plainer than the hallway. Art murels still scatted the area, but they were less freuent. The are had a light blue background, with yellow and red character and landscape artwork. 
-She looked up and smiled at Alfred.
-'You must be Alfred', she exampled. 
-Alfred approched her desk and held out he hand to shake it.
-'I'm Janet', she said - shaking his hand. 'Take a seat Alfred'.</p>
-<p>Alfred looked back at the sign on the building.</p>
-<p>SPIKE INFOSEC</p>
-<p>Twenty years he had worked there. Today he was moving on, had sold his shares of the company.
-He approched the doors. They opened automatitly. 
-Three security guards stood there. All with very serious looks on their faces. Unlike the day he walked into the building for a job interview the guards were humanoild shaped robots. The guard looked and sounded like the same security guards on that first day. Under their fake human skin was just metal and wires.<br>
-'Morning fellas', Alfred said as he flashed his ID badge and walked down the corodilol. 
-The corodor was still completely white, like the first time he entered the building. 
-He walked down the hallway. Passing the first door on the left, and turning left at the second turn. 
-The murals had changed. The colour scheme had stayed the same but the images had changed. Alfred had contrubited several times to the repainting of the murals. It was a annual event, each year five people are awarded with the job of recreating the murals. 
-He wondered down the colourful hallway. During his third year working for Spike Infosec he won along with four other people - Noel Locksmart, Elizebeth Goodwill, Trist Gardens, and Ali Turbon. Individially they started by working on sketches. 
-He reached the foylor - desks with computers scatted the foylor. This was the main room where people worked. It was an open space, and the desks had wheels on so they were able to be moved around the building freely. There were several breakoff rooms where smaller groups could go to work.</p>
-<p>Alfred scanned the room. People filled the desks. Sitting or standing they typed. 
-'Today is special', a familar voice for Alfred sounds from behind a monitor.
-Janets face poped out, with a smile. 
-'Goodmorning Janet', Alfred smiled.
-Janet rose from her chair.
-'Time for a coffee I believe', she said.
-Janet hadn't aged a day csince Alfred met her. She had long straiht brunette hair. Light complection skin, with frekles covering her face. She wore skinny horozonal glasses that had a light blue tint. On this day she wore a long silky dress. Her black leather jacket was spread out over the back of her computer chair. 
-On her desk sat three wireless 22 inch monitors. One keyboard. One mouse. One drawing tablet. One tablet pen. 
-Janet spent her days at work either coding or digital painting. She had the freedom to choose. If she didn't feel like painting that day, she could code instead.
-Her paintings were quick. Nothing took more than 45 mins. She was working on a logo. 'Spike InfoSec' it read. A furry spikey character held the sign. It's long sloopy tail weiving between the rocks on the ground. The software used for the digital painting was GIMP. Like all software developed and used by Spike InfoSec it is open source and free.</p>
-<p>The dinosaur roared as Alfred held a large piece of steak. It's nose drew near and sniffed. 
-'Smells delicious', the dinosaur thought to itself.
-Alfred pushed the meat closer to the dinos nostrols. It spat green slime at Alfred and turned it's back and left in a huff.
-Jsnet hid in the bush nearby waiting for the dino to move out of sight. Alfred was covered in a green slime liquid. It had caused his body to go into shock and shutdown. 
-Janet had to reach Alfred and reboot his system. She creeped closer to Alfreds still body. The dino sniffed the air. Janet stopped moving frozen. The dino continued walking. Janet rushed towards Alfred and grabbed his body. The Dino looked back and saw her moving away. He turned and bagan to give chase to Janet and Alfred. Scrabbambing up a tree Janet was safe from the dino. She had saved Alfred. The dino growed and circed the tree. It scratched the bark from the tree as it grew inpatienct. 
-Janet reached for her backpack and revealed a cellphone. She dialed the number 6 3  2 1 4 5 1. Suddently the dino froze, it had been shutdown. Janet climbed down the tree, still holding onto Alfreds lifeless body. She stepped over the dinos body. Lifeless but the dino never was alive. It was another machine created to hunt her down. She had created them to help people, to make peoples lives easier. But they took her ideas and created evil. The Dark Shape was created by them. Janet never programmed her robots to kill people but others had taken the software and added kill commands. It had created great evil in the universe.</p>
-<p>The planet Earth population had dropped to just a few thousand people in a matter of days. The machines released a toxin into the oxagin which caused the humans to choke to death. It was a quick death, but it spread quickly and was extremely contagious. Within an hour of the toxin being released half of the worlds population was dead. Over the next twenty four hour it wiped out 99.9% of mankind. 
-Some people that held a special gene were immune. These people were scattedd about the world. 
-Research was to be taken by a group of machines loyal to the humans which wanted to restore mankind. Working together with the few remaining humans they developed a device which allowed dispursion in time. 
-The toxic grew complex and inserted itself into the dispursion of time and then spread the mutated toxic to people in the future, where they had found a cure. This caused the cycle to happen again - 99.9% of the world population was dead in under 24 hours. 
-The remaining human had to find a way to give the cure to a large amount of humans without the machines noticing. They relized that having the machines help them in the cure was useless. They machines would spread their knowlege of the cure to enemy machines which would then develop a mutated toxic that the cure was useless against. The humans worked on traveling back with the cure and stopping the toxic waas being created in the first place. 
-This is their story.</p>
-<p>The ground that Janet walked on was rough. Stones cut into her barefeet. The sun blinded her view, she held her arm above her eyes. Attempting to block out the rays. 
-A figure amurged in the distance.. Squinting she made haste towards the figure. As she drew closer she noticed the figure was a copy of herself. A clone. 
-'You must be Janet', Janet exampled.
-'Yes, how do you know?', replied the machine.
-'Because you are a clone of myself, and my name is Janet'.
-The machine stood still.
-'Do you know why I am here', Janet asked the machine.
-'Because you are afraid of the evils that you brought into this world', the machine spoke slowly.
-'You are here to find a cure', the machine went on.
-'But I will warn you young one, there is no cure here, only toxics', the machine collabsed to the ground covered in a green slime texture.</p>
-<p>The number generater returned Noel Locksmart, Elizebeth Goodwill, Trist Gardens, and Ali Turbon. They were inserted into the text in order. Identitys were created. Credit Cards were the main source. Creating a fake identity and building up depit, and not paying it back. 
-Janet scanned the card. Elizebeth Goodwill it the name on the license read. Born 06/11/2014. Spike Infosec: Help Desk 4. The photo was of a straight hair brunete in her early 20s, with frekles covering her face, petite.
-The room reveled a server room with walkways. 
-Goodwill plugged the patch cable from the router. Connected on the otherside was a Raspberry Pi. A green and yellow light turned on by the ethernet port. It had a network. For development and testing Elizebeth perfered to use her own network connection. 
-Truck skretched to a halt on the street. Three toots. Both truck doors opened and two men leaped out. They begain walking towards the propatery at the end of the street. 
-Goodwill could hear several people moving about outside. She triggered her rewind time script. Time slipped back thirty mins. This gave her enough time to exit her home and make it to saftely before the assassians arrived again. 
-The drone showed three people exiting the truck. Two men and a woman. As they scretched to a halt outside the house of Elizebeth Goodwill, was in fact Janet lived there. It was a setup. The house was trapped so that when they entered - they were never going to leave again. 
-Thirty years Noel Locksmart had been a prisnor in the house. He will never forget the night. It was just a standard robbery. Locksmart had recieved word of a computer scientice by the name of Elizebeth Goodwill that had developed software that allowed the replaying of events in the past. The system was complex but started with just one script when Goodwill was just six years old. It was a login and logout script. The first script was the login script. This created a JSON object that included firstname, lastname, date (04/Nov/2014), time (hr:min), reason, and comment. The logout script added to the JSON object logout date, time, and comment. She wrote the script in the programming language Python. Her father  -  Charlie MacDonald had taught her from an early age the basics of programming. She enjoyed it so carried on. At a four year old she was involved in setting up a programming club for children. This idea spread to other towns, cities, and countries. Goodwill would travel with her Father and give demos and talks on their software development. Goodwill went on to co-founder the software development, infomation security, robotics design company: Spike InfoSec.</p>
-<p>Ali Turbon wislied as he mixed the Indian spice together. Pandora radio was playing from his bluetooth speaker. It was on the family dinner table. Next to the speaker was a nonbranded laptop running Fedora. KDE was the desktop enviorment. Firefox was open with a IPython Notebook on the screen. This window was on the left side of the monitor. On the right top side of the monitor a television show played. It was   George Benson played. 'Onions are ready to go, confirm? Y/n', a device in Turbon's left chefs jacket beeped. Turbon reached for his phone and hit enter. Three claws reached inside the cubord and picked up an onion each. The bench was a woodern bench. The claws dropped the onions on the bench then went back to the cubard to collect more onions. Several more trips back and forward then the claws switched into the next phase - cutting of the onion. The onions were lined up perfectly on the bench. Three rows, five collums. Fifteen onions. Chef knives snapped out of the claws of the device and started to cut up the onions. Each onion was cut in half, then quarters, and finally sliced. The onions were scopped up and droped into a pan of oil to fry. Once the onions were a lovely gold color they were tiped into a slow cooker. 
-'Carrots are ready to go, confirm? Y/n', the device The claws grabbed a orange carrot and dropped it on the bench. The same amount of carrots were used as onions. The knives cut the carrots by a slice lengthways in half, then quarters, and finally slicing. Scopped up by the claws they are dropped in a pan to be fried with oil. Once goldern the carrots are tipped into the slow cooker. Fifteen cups of soft chickpeas are tipped into the pan of oil and fried. They are tipped into the slow cooker. Fifteen medium sized tomatoes travel through the room, being griped by the claw. They are crushed and tipped into the slowcooker.<br>
-Five tea spoons of Indian spice mix is tipped into the slowcooker. 
-'Coconuts are ready to go, confirm? Y/n', beeped the device in Turbons hand. Enter was hit. The claws moved towards the cubard to retreave the coconuts. Seven medium sized ripe coconuts are dropped on the woodern bench. The knife snaps out of the claw and cuts the coconut clean in half. The claw snaps the knife away and revieles a sharp scoop. The white coconut insides are cut, scooped and tiped into the slowcooker.
-'Item ready to cook. Is there anything else?', the device spoke. 
-The voice was that of Trist Gardens. Her voice was sharp and clear. She spoke with confidence and joy. 
-'Fifteen garlic and salt', Turbon requested.
-'Garlic are ready to go, confirm Y/n', the device beeped. Turbon slammed the enter key. The claws moved to the cubards and dragged out fifteen cloves of garlic. The knives snapped out and sliced it up finely. Garlic was scooped up and tipped into the slow cooker. 
-'Salt is ready to go, conf', before the device had finished beeping Tubon hit the enter key. Salt was tipped into the slow cooker. 
-'Item read to cook. Is there anything else?', Gardens voice asked. 
-'Confirm', Turbon confirmed. 
-The claws began mixxing the slowcooker mixture together. Turbon had a late order for a chickpea curry that he was putting though last mintute. 
-It was a Sunday night and he had a client that wanted a Chickpea Curry for lunch on Monday despritly. Normally he charges extra for weekend food orders but this night he made an exception. This client was special and he knew business would be better in the future because of it. 
-A raspberry Pi and Audino powered his commucial resturont cooking device. His cellphone was connected to the raspberry pi computer that was connected to the Audino. The laptop was his portable devlopment machine. 
-Turbon pressed a button a door opened. Server room with racks of servers running. small selfdriving cars moved up and down the hallway. The cars were careful to avoid Turbon as he walled down the hallway. He nodded at each car as they passed by. 
-The cars had no wheels and moved along the ground by twisting. They moved along with the awkward twist movement. Rubberlike commpletion. Majority of the cars were a yellow and red colour scheme. Several had grayscale colour scheme and traveled in groups of three to five. The grayscale moved slower than the colour scheme and was quick to move out the way when one was heading towards them.
-Turbons reached a door. It was a large door, double his height. He banged at the door three times.
-The device in his pocket beeped, 'door status: open'.
-Turbon turned the handle and opened the door. He stepped into the room. Mid gray covered the room. A dark shape sat in the corner, reading a newspaper. 
-Turbon paused as his eyes noticed the black shape. he was pulled closer and began walking towards the shape. He stood in front of the shape.
-'Chickpea Curry is ready to go, confirm Y/n', Turbons spoke. 
-A page of the newspaper was flicked over. Turbon waited, frozen.
-'Confirm', a sound came from the black shape. The voice was that of Trist Gardens. She still continued to read the newspaper. 
-Turbons dropped sixteen bags of curries. In each bag were 5 trays of curry. Eighty trays of curry in total. Every tray of curry also came with a tray of rice. Turbon dropped another sixteen bags. In each of these bags were 5 trays of rice.
-'Enjoy your curry', Turbons said. 
-'Thank you', the voice of Gardens replied. 
-The dark shape placed the newspaper beside them and stood up. They took the bags of curries and slowly walked towards the door with a large green exit sign at the end of the far wall. 
-Turbons stood frozen untill he heard the exit door close behind the figure. He let out a sigh of relief.
-'That went better than expected', Alfred spoke. 
-'Certainly sir, that was much calmer than last time', the voice of Gardens replied. 
-Turbons had to be careful of these anonous bots that were being created. Last time he did an order of curries the bot attacked him and this lab. He had yet to figure out who sent the attack bot but had captured it for tests. He had increased secutiry in order to protect himself and business. 
-Anon Bots that enter the building are now scanned with anti-malware software to test if it had code to attack. Turbons created a white list of bots that he allows to enter. Some of these do have attack code on their system but Turbons trusted the owner that they would not attack. 
-'Why would people want to attack a kitchen?', was the thought going through his brain. 
-The Police arrived quickly after recieving the emergency signal. Detective Henry Pharrs was in charge of the case. Pharrs was in his late 50s, he had been in the force for 25 year. For 8 years before joining the force he worked as a computer analizt for Spike InfoSec. Today he was investagating a robots that opened fire in a room of humans. Robots created by humans were unable to kill other humans but the robots built robots that had the kill command in the system. 
-Pharrs had studied the kill comand in robots his whole life. His father - Johns Pharrs had studied the kill command much of his life. His Son continued to reasearch the kill command. The goal was to find a cure.</p>
-<p>The door slammed behind the dark shaped as it entered the building. Three security guards stood in front. He moved forward ignoring the guards. They said nothing and didn't move. 
-The alarm went off as the dark shape passed through the dectoror. A guard hit a switch and the alarm stopped. 
-The dark shape moved down the hallway reaching the second door on the left. It turned left. As it passed, the artwork on the walls turned from a bright primary colour scheme to a grayscale, black and white scheme. The Dark Shape left a bitter taste in the air. 
-It reached the foylor. Desks weree empty. It began to wislle as it walked around the desks. The Dark Spaes head darted back and forward between desks, looking for something.
-It's head stopped moving - staring at an item on a desk it moved closer. An item sparkled from the desk.
-The black shape reached out and picked up the item and placed it inside their pocket. 
-It turned around and walked out of the building. 
-Shortly after The Dark Shape left the building, it explodes.</p>
-<p>Fire engine roars down the road towards the building on fire. The Dark Shape walks down the country side as the engine passes him. Corn fields populate the farm land here. Flying drones fly above the corn - monitoring. The Dark Shape smiles as thir bare feet crunch on the grass. It feels better than the cloth feeing the building had. The Dark Shape turned and watch dark clouds of smoke emurging into the sky.</p>
-<p>The engine arrived at the building. Much of the building was englufed in flame but the fighters would do their best to save it. Humanolid Robot jumped out of the fire engine and entered the building to check for human that may be still in the building.
-Two of the bots forced the front door open and entered the building. 
-Three security guards stood there englufed in flames. They just beeped gibbish as the firefighters soaked them in anti flame powdered. The flames died down. 
-The fighters contained down the hallway, spraying the ani flame powder as they moved.
-One fighter opened the first door on the left. He entered a large foylor area. Desktop with computers on were englufed in flames. The fighter began to spray the powder at the computer. 
-He noticed a humon figure in the room. It was sitting in the far corner sitting at the desk typing on a keyboard.
-'Must be a bot, can't be human', the fighter thought to himself. He moved closed to the humanold typing. 
-The fact it didn't stopped typing is strange. Usually an emergeny mode activates when the bots are in danger. The activates a call to authorities and begins a self-repair task.
-The fighter sprayed the bot with anti flame powder. It continued to  type.</p>
-<p>Charlie MacDonald. Rest in Peace. The grave stone read. Born 24 October 2014. Died 12 December 2093. Trist Gardens stood over the grave. Tears flowing from her eyes. It had been two months since MacDonald passed away. She had worked with him for fifteen years at Spike InfoSec. Together they worked on a automatic cooking device. It was used in billions of home and businesses around the world. Spike InfoSec realeased blueprints of the device so anyone with a 3d printer can just print the device.</p>
-<p>Drone hovered by MacDonalds head. The claw was attached to a woodern board. MacDonald placed a onion on the board. 
-'Cut', he spoke clearly. 
-'Confirm', the device beeped back.
-A knive snapped out of the claw and sliced the onion in half. 
-A smile rose on MacDonalds face. 
-'Jones, get over here and see this'. The door opened and Jones walked towards MacDonald. 
-'What is it sir?', Jones asked.
-'Watch this Jones', MacDonald said as he placed a onion on the woodern board.
-'Cut', he spoke once again. 
-'Confirm', the device deeped back. 
-The knife snapped out. The onion was sliced clean in half.
-'wonderful work sir', Jones smiled. 
-'Kill Jones', MacDonald spoke, his eyes fixed on Jones. 
-The knife snapped out of the claw and started  traveling towards Jones. 
-Jones terrified started moving backwards towards the door. He turned and began running towards the door. 
-The knife traveled faster through the air.Janet Pears
-A cracking sound shoock the room as the knife impayed the brain of Jones. His head was attached to the door. Part of the knife was impayed into the door. It was a instant death. MacDonald didn't have a choice. He was on orders from Trist Gardens. If he didn't follow through and kill his assistant his whole families lives were in danger. 
-'Clean this up', MacDonald spoke as he walked out of his office. 
-He stood in the foylor. Light blue covered the area. MacDonald could see Janet in distance. She was interviewing a new comer. Alfred Bunnings his name was. MacDonald watched as Janet and Alfred shook hands and took a seat.
-'He looks like a good test subject', MacDonad spoke. 
-'Test subject: Alfred Bunnings', the device beeped back. 
-'Confirm', MacDonald confirmed.
-MacDonald continued to watch Janet and Alfred as they talked. 
-'So tell me about yourself', Janet had the first question.
-MacDonald had known Janet since she was a toddler. He would push her on the swings in the local park. MacDonalds daughter Elizebeth Goodwill would also be swinging. 
-The Black Cat sat and watched the swings, following the figures in the seats as they moved backwards and forward. 
-'Black',  a voice behind called and The Black Cat twisted around.
-The Black Cat  moved towards the voice. A dark black shape stood in the distance pouring fresh meat into the cats contaiiner.
-'Thanks ma'am', The Black Cat spoke, he began eating the meat. 
-The Black Cat was a prototype for the humonald bot. It was used for testing. Under the fake fur and skin was metal and wires. A raspberry Pi computer inside the model with a cell phone and audino connected to that. 
-Human like personioltys were added to the computer. 
-The speech 
-The park ranger - Alfred Bunnings had created this one. He had printed the parts and soultered the robot together. Installing the software was easy - it was all in the software store. Bunnings also worked on scripts for Black. Today he was testing a script that made the robot smell and taste food. As people were pushing their children on the swing he ordered for a humonald robot to activate in the park and send off a signal to attract Black back.
-This script could be used in many areas but Bunnings was developing it so he could find lost or stolen robots. 
-Many times people come into the Park and walk away with a robot. Sometimes I don't relize it. They thing they have made a new friend but really it's a computer belonging to the park. The Park gets an alert that a bot has entered an unauthorised area and sends back gps data. 
-The Park gives the person a friendly phone call or email and offers to either pick the robot up or let the person return the robot themselves. As long as the robot is returned the Park is not worried. Once the robot is returned it's rebooted in order to clear memories of leaving the park. The Park does not want robots remembering what is outside The Park as it causes more robots wanting to leave the park. Rebooting them isn't a problem but there is better work that the staff could be working on - such as new features. 
-Black purred as he ate the fresh meat from his bowl.
-The little girl on the swing with straight brunette hair hoped off the swing and ran toward Black. He purred louder as the girl - Elizebeth Goodwill patted Black. The adult continued to push the other child - a girl with blonde hair and a darker completion than Goodwill.
-The Farm had rows of vegetables growing. On the pathway around the veges walked humonald robots working on the garden. 
-Bunnings walked past the onion gardens. He smiled at the group of humanold robots in suits discussing the Onion garden. 
-'We need to speed haviousting up by 150% in the next three weeks', Bunnings overheard them as he walked past. 
-The Onion Gardens were thriving. A cold and wet June month meant rain every day. The claw pulled the onion and dropped it into the crate with the rest of the onions that had been havested. 
-The Claw moved fast, pulling another onion out of the ground in less than two seconds. 
-Bunnings whisiled a tune as he walked past the Onion Gardens. Harvesting was excellent with the onions this year. They were experiencing a demand in onions and had increased the amount of The Claw that worked on the gardens. 
-Bunnings entereded the carrot gardens. These parsely like vegetables added sweetness to the companies curries. Bunnings watched a The Claw plucked the carrots from the ground and dropped them in large containers. The next step for the carrots was washing, then it entered the kitchen.
-Bunnings entereed the tomatoe gardens. Rich red tomatoes grew on the stalk. In this garden the company used humonald robots as a majority over the claw. The humonalds were given custom arms that allows for careful picking of the tomatoes. The tomatoes were dropped into containers where they were washed and moved into the kitchen. 
-The herb gardens were next. Here coroondir and other herbs were grown for the Indian Spice Mix.</p>
-<p>The Resturent was where customers could come and eat, or take away curry. Open 24hour/7days. They also offered a delivery service. 
-Humanold robots greeted the customers and showed them to their seat. 
-If they were takeaway they offered a room to sit and read magazines/books. A room that is filled with computers - these are running 24 hours and offer swipe card assess. Security cameras and drones operate in the building to keep an eye on everything. Secuirity drones analze the cameras for any unusual activity. Tonight they had found a human bot spiking the food with toxin. Camera 532 had spoted the crime. A Claw drone spoted the activity on the monitor. Alarms had already activated. Secutiry drones and bots headed towards the area. The human bot that was spiking the food activated a self return to base mode. It caused the bot to turn invisible and extremely tiny - the size of a mouse. The bot was still able to travel at fast speeds but it was also small like a mouse, and invisible. Devices had been developed that allowed for tracking of invisible units. The Claw Drones had invisible cloaking devices build in. This allowed them to become invisible for up to 48 hours. They can enter a sleep mode that allows them to run for months without needed to land. They are able to charge themselves remotly by downloading charge off a connection. This allowed more advance space travel by allowing humans to send robots which could self repair and charge. This allowed robots leaving earth to a far away planet that took thousands of years to reach. The robots finally reached the planet and sent back message to earth on the news. It took the robots 8,500 years to reach the planet. The news took 2,500 years to arrive. The message reached Earth on December 18th 3543. The humans that sent the bots into space and to the  planet had long since extint. Some of the older robots on Earth rememberd the mission and were able to decode the news file. It gave the robots great exciment that these robots had reached the planet and news had arrived back. The Robots of Earth created a time warp portal and linked to the robots on the planet. They ere able to travel between planets instantly. For the robots it felt like they had just woken up from a sleep. They work with the robots in order to get a toxic sent back in time to wipe out a certain group of humans that later develop a toxin that wipes out the human race. The toxin that is sent back is a success but spreads to forign targets - only activating again in 6 generations. 
-When the toxin activates the nervious system in the throat stop working, causing the person to choke to death. A similar kill program was writen for the robots. It caused the robots harddrive to corrupt spreading the corruption to other systems.
-"I'm feeling better now", The Claw said to the humanold robot. The Claw was loading onions from the garden to the containers. These onions had been enjected with a toxin that would later cause much of the human race to die. The toxins had been placed in the onions by robots in the future with the help from a few remainings humans. Their plan was to wipeout a certain amount of humans, presuving human life in the future. Robots more in the future realized that this was a mistake and sent robots back in order to revirse the toxin.
-The only way for the toxin to not be created was to make sure the Spike InfoSec never waas founded. Humans were sent back in order to stop the foundation. Janet Goodwill was the number one target. The humans killed Goodwill many times but each time it was a clone. If the human form of Janet Goodwill is killed then the humans can insert the toxin into her system - sending it back generations. This simple exercise causes the company Spike InfoSec to never be founded. 
-Alfred stood outside an empty building. He looked up. He remembers there was a Spike InfoSec sign hanging here. Instead it's a old video game store mixed with a coke logo, both fading and pealing off. The glass sliding doors didnt excist. A woodern door stood in front of Alfred. He turned the handle. It opened to a small foylor that looks like it was used for a small supermarket. Old broken trolies were scatted around the room. Cobwebs covered the room. A rat scatted accross the room. Followed by a black cat. Alfred walked down the hallway - it was filled with posters from ancient movies. They were faded and pealing off the room. Behind was a light blue textured wallpaper. the ground was a grey-blue carpet. It despritly needed a clean as dirt and grime covered it.</p>
-<p>The humanolid robot monitored the children. Four children to every one humanold robot. The robots only monitored and did not interact with them. For every eight children one human teacher. Sixteen children, one support worker.
-It was all in the math. 
-113</p>
-<p>How shell this day end?</p>
-<p>on top of tht shr hda to decife to fire him for the leaking of private documents. her private key was broken</p>
-<p>He had plans to create his own Infomation Security company.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>TODO</p>
-<p>html page of page 100 logins/logouts - append all json as one html
-different ways of viewing the data - current loged in, day view,</p>
-<p>graph of weekly/day hours and how they change.</p>
-<p>work out time between login and logout.</p>
-<p>question that you comment on that includes the sketch daily reddit gets drawn.</p>
-<p>fake name encription for kids/everyone?
-Take a name and turn into into a new name, run a script again to turn it back</p>
-<p>records time when child eats/drinks. Keeps track of childrens hunger levels. Alerts if kids havnt aten after certain time. Tag what kids eat - data over time.</p>
-<p>Sig for parents when signing in/out kids</p>
-<p>txt/email alerts to parents on changes to kids signin/out</p>
-<p>If someone doesnt signin/signout before certain time - alert</p>
-<p>import pandas. Need to free up space on raspberry pi</p>
-<p>Filter - new/popular comments, people, signins, signouts,</p>
-<p>Date 01 November 2014</p>
-<p>0000</p>
-<p>Daily Rosted/Working chart. 
-Spread sheet - names colum, time rows.</p>
-<p>example:
-     | Dino1 | Dino2 | Dino3 |</p>
-<p>0700 | signin + comment!</p>
-<p>0701 | signout + comment!</p>
-<p>so on..</p>
-<p>Live updates of the floor. 
-Inside, Outside, Inside Float, Outside Float, General Float.
-Tagging. Tag people for breaks. 
-eg - you are busy with a project, but need a break/lunch. Someone tags you and takes over at area. You go for break/lunch. When you return, tag back and carry on.
-The person that was just taged back moves onto the next person to tag for break/lunch.
-This person cycles through a group of people.</p>
-<p>Live updates of child location.
-gps info of each area of centre and count how many children are there.</p>
-<p>Panic Button. Signal to call for assistence, part-tag, allow for image/sound record.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">dominate</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Profile. Profile has data in it that is then used in sign system</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">valname</span> <span class="o">=</span> <span class="p">(</span><span class="s">'lasnam'</span><span class="p">,</span> <span class="s">'signin'</span><span class="p">,</span> <span class="s">'usercom'</span><span class="p">,</span> <span class="s">'dayr'</span><span class="p">,</span> <span class="s">'htmn'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">itzval</span> <span class="ow">in</span> <span class="n">valname</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="n">itzval</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>lasnam
-signin
-usercom
-dayr
-htmn
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This function creates a dict, another updates it. 
-Function is working to create it but update is coming back with error.</p>
-<p>How do I refer to the created dict as the one to update?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">class</span> <span class="nc">DictNows</span><span class="p">():</span>
-
-    <span class="k">def</span> <span class="nf">dictcreate</span><span class="p">(</span><span class="n">keyval</span><span class="p">,</span> <span class="n">firnam</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">dict</span><span class="p">({</span><span class="n">keyval</span><span class="p">:</span> <span class="n">firnam</span><span class="p">})</span>
-
-    <span class="k">def</span> <span class="nf">updatedict</span><span class="p">(</span><span class="n">keyvalz</span><span class="p">,</span> <span class="n">othnam</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">dictcreate</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">keyvalz</span><span class="p">:</span> <span class="n">othnam</span><span class="p">})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#checkdict = dictcreate('check', 'this')</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#checkdict</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">dictcreate</span><span class="p">(</span><span class="n">keyval</span><span class="p">,</span> <span class="n">firnam</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">dict</span><span class="p">({</span><span class="n">keyval</span><span class="p">:</span> <span class="n">firnam</span><span class="p">})</span>
-
-<span class="c">#def updatedict(keyvalz, othnam):</span>
-<span class="c">#    return checkdict.update({keyvalz: othnam})</span>
-
-<span class="k">def</span> <span class="nf">returndate</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">((</span><span class="s">"%d"</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="s">"%b"</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="s">"%Y"</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">returntime</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%H:%M:%S"</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">returan</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
-
-<span class="c">#def blahblah():</span>
-    <span class="c">#open('/home/wcmckee/visignsys/posts/' + ixtwe + '.html', 'w')</span>
-    <span class="c">#savpos.write(str(doc))</span>
-    <span class="c">#savpos.close()</span>
-    
-    
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#updatedict('omg', 'not again')</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">returan</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'\xb4\xd6\x9al\'\t\xfe\xb5|G["\x9d\x12\xa4~'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">returntime</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'19:37:49'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#DictNows.dictcreate('check')</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dictcreate</span><span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'wcm'</span><span class="p">)</span>
-<span class="c">#updatedict()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[12]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{'name': 'wcm'}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#updatedict('checking', 'this works')</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">newprof</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s">'New Profile y/n: '</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="s">'y'</span> <span class="ow">in</span> <span class="n">newprof</span><span class="p">:</span>
-    <span class="n">lasnam</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s">'Last Name: '</span><span class="p">)</span>
-    <span class="n">firnam</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s">'First Name: '</span><span class="p">)</span>
-    <span class="n">dopz</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s">'dob: '</span><span class="p">)</span>
-    <span class="n">mname</span> <span class="o">=</span> <span class="p">(</span><span class="s">'William Mckee'</span><span class="p">)</span>
-    <span class="n">ename</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s">'Email: '</span><span class="p">)</span>
-    <span class="n">signin</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s">'Reason: '</span><span class="p">)</span>
-    <span class="n">usecom</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s">'Comments: '</span><span class="p">)</span>
-    
-<span class="k">elif</span> <span class="s">'n'</span> <span class="ow">in</span> <span class="n">newprof</span><span class="p">:</span>
-    <span class="n">lasnam</span> <span class="o">=</span> <span class="p">(</span><span class="s">"mckee"</span><span class="p">)</span>
-    <span class="n">firnam</span> <span class="o">=</span> <span class="p">(</span><span class="s">'First Name: '</span><span class="p">)</span>
-    <span class="n">dopz</span> <span class="o">=</span> <span class="p">(</span><span class="s">'dob: '</span><span class="p">)</span>
-    <span class="n">mname</span> <span class="o">=</span> <span class="p">(</span><span class="s">'William Mckee'</span><span class="p">)</span>
-    <span class="n">ename</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Email: '</span><span class="p">)</span>
-    <span class="n">signin</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Reason: '</span><span class="p">)</span>
-    <span class="n">usecom</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Comments: '</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>New Profile y/n: n
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#bitdict = </span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">betdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#betdict.update({'lastname': lasnam})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dayr</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%d"</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="s">"%b"</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="s">"%Y"</span><span class="p">)</span>
-<span class="n">hrmn</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%H:%M:%S"</span><span class="p">)</span>
-
-<span class="c"># &lt;codecell&gt;</span>
-
-<span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'last-name'</span><span class="p">:</span> <span class="n">lasnam</span><span class="p">})</span>
-<span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'reason'</span><span class="p">:</span> <span class="n">signin</span><span class="p">})</span>
-<span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'signin-comment'</span><span class="p">:</span> <span class="n">usecom</span><span class="p">})</span>
-<span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'signin-date'</span><span class="p">:</span> <span class="n">returndate</span><span class="p">()})</span>
-<span class="n">betdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'signin-hrmin'</span><span class="p">:</span> <span class="n">returntime</span><span class="p">()})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">betdict</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[19]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{'last-name': 'mckee',
- 'reason': 'Reason: ',
- 'signin-comment': 'Comments: ',
- 'signin-date': '19-Dec-2014',
- 'signin-hrmin': '19:38:08'}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">betjsn</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">betdict</span><span class="p">)</span>
-<span class="n">betjsn</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[20]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'{"signin-date": "19-Dec-2014", "reason": "Reason: ", "signin-comment": "Comments: ", "last-name": "mckee", "signin-hrmin": "19:38:08"}'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#for itz in updatedict():</span>
-<span class="c">#    print itz</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">opind</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.json'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-<span class="n">opred</span> <span class="o">=</span> <span class="n">opind</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">opred</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[23]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'{"signin hrmin": "15:09:51", "reason": "ESW", "firstname": "William", "signin comment": "sunny and mum is back", "lastname": "Mckee", "signin date": "02-Dec-2014"}{"signin-date": "09-Dec-2014", "reason": "esw", "signin-comment": "checking this on the bus", "last-name": "mckee", "signin-hrmin": "08:30:54"}{"signin-date": "10-Dec-2014", "reason": "eefwe", "signin-comment": "erw", "last-name": "mckee", "signin-hrmin": "01:16:44"}{"signin-date": "10-Dec-2014", "reason": "esw", "signin-comment": "blahblah", "last-name": "mckee", "signin-hrmin": "01:17:36"}{"signin-date": "17-Dec-2014", "reason": "Reason: ", "signin-comment": "Comments: ", "last-name": "mckee", "signin-hrmin": "23:02:46"}{"signin-date": "18-Dec-2014", "reason": "Reason: ", "signin-comment": "Comments: ", "last-name": "mckee", "signin-hrmin": "04:05:42"}'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">opjsnd</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">opred</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">str</span><span class="p">(</span><span class="n">opjsnd</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[25]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'"{\\"signin hrmin\\": \\"15:09:51\\", \\"reason\\": \\"ESW\\", \\"firstname\\": \\"William\\", \\"signin comment\\": \\"sunny and mum is back\\", \\"lastname\\": \\"Mckee\\", \\"signin date\\": \\"02-Dec-2014\\"}{\\"signin-date\\": \\"09-Dec-2014\\", \\"reason\\": \\"esw\\", \\"signin-comment\\": \\"checking this on the bus\\", \\"last-name\\": \\"mckee\\", \\"signin-hrmin\\": \\"08:30:54\\"}{\\"signin-date\\": \\"10-Dec-2014\\", \\"reason\\": \\"eefwe\\", \\"signin-comment\\": \\"erw\\", \\"last-name\\": \\"mckee\\", \\"signin-hrmin\\": \\"01:16:44\\"}{\\"signin-date\\": \\"10-Dec-2014\\", \\"reason\\": \\"esw\\", \\"signin-comment\\": \\"blahblah\\", \\"last-name\\": \\"mckee\\", \\"signin-hrmin\\": \\"01:17:36\\"}{\\"signin-date\\": \\"17-Dec-2014\\", \\"reason\\": \\"Reason: \\", \\"signin-comment\\": \\"Comments: \\", \\"last-name\\": \\"mckee\\", \\"signin-hrmin\\": \\"23:02:46\\"}{\\"signin-date\\": \\"18-Dec-2014\\", \\"reason\\": \\"Reason: \\", \\"signin-comment\\": \\"Comments: \\", \\"last-name\\": \\"mckee\\", \\"signin-hrmin\\": \\"04:05:42\\"}"'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#json.load(opred)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="c"># &lt;nbformat&gt;3.0&lt;/nbformat&gt;</span>
-
-<span class="c"># &lt;markdowncell&gt;</span>
-
-<span class="c"># &lt;h2&gt;visitor sign system&lt;/h2&gt;</span>
-<span class="c"># </span>
-<span class="c"># This is a python script used to sign in and signout, keeping track of hours and creating a more automative system.</span>
-<span class="c"># </span>
-<span class="c"># Make sign in and out faster, easier to keep track of.</span>
-<span class="c"># </span>
-<span class="c"># Never forget. </span>
-<span class="c"># </span>
-<span class="c"># Auto roll check. </span>
-<span class="c"># </span>
-<span class="c"># Two random hex codes for security and correct checking. Made use of tthese by using one as file name when saving.</span>
-<span class="c"># </span>
-<span class="c"># Creates xls file with data, also uses sqlalchemy for databases, web server, html page: </span>
-<span class="c"># input (or auto) name, reason, auto day/month/year hr/min - of signin.</span>
-<span class="c"># </span>
-<span class="c"># when launched asked if you want to signin or signout. </span>
-<span class="c"># </span>
-<span class="c"># how i want this to run for william:</span>
-<span class="c"># </span>
-<span class="c"># william arrives into whai. On his phone he runs the signin script. On signing out for the day the script is run onto final part, signout. asks for comment first then records time, and date. </span>
-<span class="c"># </span>
-<span class="c"># comment system. leave comment for staff, parent, tag staff, area, story, parent, child.</span>
-<span class="c"># </span>
-<span class="c"># signout - enter code of session you want to signout. </span>
-<span class="c"># </span>
-<span class="c"># Screw the excel file, im just dealing with index page. i am saving achieve in posts folder under urandom 13 character code. </span>
-
-<span class="c"># &lt;codecell&gt;</span>
-
-<span class="n">doc</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'Visitor Sign Sheet'</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="n">doc</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
-    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">'stylesheet'</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">'style.css'</span><span class="p">)</span>
-    <span class="n">script</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">'text/javascript'</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">'script.js'</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="n">doc</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'header'</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ol</span><span class="p">()):</span>
-        <span class="n">h1</span><span class="p">(</span><span class="s">'Visitor Sign Sheet'</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">betdict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-            <span class="n">li</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-
-    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
-        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span>
-        <span class="n">p</span><span class="p">(</span><span class="n">opred</span><span class="p">)</span>
-        <span class="n">p</span><span class="p">(</span><span class="s">'last updated: '</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%H:%M"</span><span class="p">))</span>
-        <span class="n">p</span><span class="p">(</span><span class="s">'Visitor Sign Sheet is open source'</span><span class="p">)</span>
-        <span class="n">a</span><span class="p">(</span><span class="s">'http://github.com/wcmckee/wcmckee'</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">'https://github.com/wcmckee/wcmckee'</span><span class="p">)</span>
-
-<span class="c">#print doc</span>
-
-<span class="c"># &lt;codecell&gt;</span>
-
-<span class="n">savindex</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.html'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-
-<span class="c"># &lt;codecell&gt;</span>
-
-<span class="n">savindex</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
-<span class="n">savindex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="c"># &lt;codecell&gt;</span>
-<span class="n">ixran</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ixtwe</span> <span class="o">=</span> <span class="n">ixran</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
-
-<span class="c"># &lt;codecell&gt;</span>
-
-<span class="n">savpos</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/posts/'</span> <span class="o">+</span> <span class="n">ixtwe</span> <span class="o">+</span> <span class="s">'.html'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-<span class="n">savpos</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
-<span class="n">savpos</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="c"># &lt;codecell&gt;</span>
-
-<span class="n">savpos</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/posts/'</span> <span class="o">+</span> <span class="n">ixtwe</span> <span class="o">+</span> <span class="s">'.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-<span class="n">savpos</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">betjsn</span><span class="p">))</span>
-<span class="n">savpos</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="c"># &lt;codecell&gt;</span>
-
-<span class="c">#savpos = open('/home/wcmckee/visignsys/index.meta', 'w')</span>
-<span class="c">#savpos.write(str(wsdict.keys()))</span>
-<span class="c">#savpos.close()</span>
-
-<span class="c"># &lt;codecell&gt;</span>
-
-<span class="n">savpos</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.json'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
-<span class="n">savpos</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">betjsn</span><span class="p">))</span>
-<span class="n">savpos</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="s">'sign in complete'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>sign in complete
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">reser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">opred</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#pd.DataFrame(reser)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">rezda</span> <span class="o">=</span> <span class="p">[]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">reser</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="n">res</span>
-    <span class="n">rezda</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{
-"
-s
-i
-g
-n
-i
-n
- 
-h
-r
-m
-i
-n
-"
-:
- 
-"
-1
-5
-:
-0
-9
-:
-5
-1
-"
-,
- 
-"
-r
-e
-a
-s
-o
-n
-"
-:
- 
-"
-E
-S
-W
-"
-,
- 
-"
-f
-i
-r
-s
-t
-n
-a
-m
-e
-"
-:
- 
-"
-W
-i
-l
-l
-i
-a
-m
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
- 
-c
-o
-m
-m
-e
-n
-t
-"
-:
- 
-"
-s
-u
-n
-n
-y
- 
-a
-n
-d
- 
-m
-u
-m
- 
-i
-s
- 
-b
-a
-c
-k
-"
-,
- 
-"
-l
-a
-s
-t
-n
-a
-m
-e
-"
-:
- 
-"
-M
-c
-k
-e
-e
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
- 
-d
-a
-t
-e
-"
-:
- 
-"
-0
-2
--
-D
-e
-c
--
-2
-0
-1
-4
-"
-}
-{
-"
-s
-i
-g
-n
-i
-n
--
-d
-a
-t
-e
-"
-:
- 
-"
-0
-9
--
-D
-e
-c
--
-2
-0
-1
-4
-"
-,
- 
-"
-r
-e
-a
-s
-o
-n
-"
-:
- 
-"
-e
-s
-w
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-c
-o
-m
-m
-e
-n
-t
-"
-:
- 
-"
-c
-h
-e
-c
-k
-i
-n
-g
- 
-t
-h
-i
-s
- 
-o
-n
- 
-t
-h
-e
- 
-b
-u
-s
-"
-,
- 
-"
-l
-a
-s
-t
--
-n
-a
-m
-e
-"
-:
- 
-"
-m
-c
-k
-e
-e
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-h
-r
-m
-i
-n
-"
-:
- 
-"
-0
-8
-:
-3
-0
-:
-5
-4
-"
-}
-{
-"
-s
-i
-g
-n
-i
-n
--
-d
-a
-t
-e
-"
-:
- 
-"
-1
-0
--
-D
-e
-c
--
-2
-0
-1
-4
-"
-,
- 
-"
-r
-e
-a
-s
-o
-n
-"
-:
- 
-"
-e
-e
-f
-w
-e
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-c
-o
-m
-m
-e
-n
-t
-"
-:
- 
-"
-e
-r
-w
-"
-,
- 
-"
-l
-a
-s
-t
--
-n
-a
-m
-e
-"
-:
- 
-"
-m
-c
-k
-e
-e
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-h
-r
-m
-i
-n
-"
-:
- 
-"
-0
-1
-:
-1
-6
-:
-4
-4
-"
-}
-{
-"
-s
-i
-g
-n
-i
-n
--
-d
-a
-t
-e
-"
-:
- 
-"
-1
-0
--
-D
-e
-c
--
-2
-0
-1
-4
-"
-,
- 
-"
-r
-e
-a
-s
-o
-n
-"
-:
- 
-"
-e
-s
-w
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-c
-o
-m
-m
-e
-n
-t
-"
-:
- 
-"
-b
-l
-a
-h
-b
-l
-a
-h
-"
-,
- 
-"
-l
-a
-s
-t
--
-n
-a
-m
-e
-"
-:
- 
-"
-m
-c
-k
-e
-e
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-h
-r
-m
-i
-n
-"
-:
- 
-"
-0
-1
-:
-1
-7
-:
-3
-6
-"
-}
-{
-"
-s
-i
-g
-n
-i
-n
--
-d
-a
-t
-e
-"
-:
- 
-"
-1
-7
--
-D
-e
-c
--
-2
-0
-1
-4
-"
-,
- 
-"
-r
-e
-a
-s
-o
-n
-"
-:
- 
-"
-R
-e
-a
-s
-o
-n
-:
- 
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-c
-o
-m
-m
-e
-n
-t
-"
-:
- 
-"
-C
-o
-m
-m
-e
-n
-t
-s
-:
- 
-"
-,
- 
-"
-l
-a
-s
-t
--
-n
-a
-m
-e
-"
-:
- 
-"
-m
-c
-k
-e
-e
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-h
-r
-m
-i
-n
-"
-:
- 
-"
-2
-3
-:
-0
-2
-:
-4
-6
-"
-}
-{
-"
-s
-i
-g
-n
-i
-n
--
-d
-a
-t
-e
-"
-:
- 
-"
-1
-8
--
-D
-e
-c
--
-2
-0
-1
-4
-"
-,
- 
-"
-r
-e
-a
-s
-o
-n
-"
-:
- 
-"
-R
-e
-a
-s
-o
-n
-:
- 
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-c
-o
-m
-m
-e
-n
-t
-"
-:
- 
-"
-C
-o
-m
-m
-e
-n
-t
-s
-:
- 
-"
-,
- 
-"
-l
-a
-s
-t
--
-n
-a
-m
-e
-"
-:
- 
-"
-m
-c
-k
-e
-e
-"
-,
- 
-"
-s
-i
-g
-n
-i
-n
--
-h
-r
-m
-i
-n
-"
-:
- 
-"
-0
-4
-:
-0
-5
-:
-4
-2
-"
-}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">rezda</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[32]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>['{',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- ' ',
- 'h',
- 'r',
- 'm',
- 'i',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- '1',
- '5',
- ':',
- '0',
- '9',
- ':',
- '5',
- '1',
- '"',
- ',',
- ' ',
- '"',
- 'r',
- 'e',
- 'a',
- 's',
- 'o',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- 'E',
- 'S',
- 'W',
- '"',
- ',',
- ' ',
- '"',
- 'f',
- 'i',
- 'r',
- 's',
- 't',
- 'n',
- 'a',
- 'm',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- 'W',
- 'i',
- 'l',
- 'l',
- 'i',
- 'a',
- 'm',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- ' ',
- 'c',
- 'o',
- 'm',
- 'm',
- 'e',
- 'n',
- 't',
- '"',
- ':',
- ' ',
- '"',
- 's',
- 'u',
- 'n',
- 'n',
- 'y',
- ' ',
- 'a',
- 'n',
- 'd',
- ' ',
- 'm',
- 'u',
- 'm',
- ' ',
- 'i',
- 's',
- ' ',
- 'b',
- 'a',
- 'c',
- 'k',
- '"',
- ',',
- ' ',
- '"',
- 'l',
- 'a',
- 's',
- 't',
- 'n',
- 'a',
- 'm',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- 'M',
- 'c',
- 'k',
- 'e',
- 'e',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- ' ',
- 'd',
- 'a',
- 't',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- '0',
- '2',
- '-',
- 'D',
- 'e',
- 'c',
- '-',
- '2',
- '0',
- '1',
- '4',
- '"',
- '}',
- '{',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'd',
- 'a',
- 't',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- '0',
- '9',
- '-',
- 'D',
- 'e',
- 'c',
- '-',
- '2',
- '0',
- '1',
- '4',
- '"',
- ',',
- ' ',
- '"',
- 'r',
- 'e',
- 'a',
- 's',
- 'o',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- 'e',
- 's',
- 'w',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'c',
- 'o',
- 'm',
- 'm',
- 'e',
- 'n',
- 't',
- '"',
- ':',
- ' ',
- '"',
- 'c',
- 'h',
- 'e',
- 'c',
- 'k',
- 'i',
- 'n',
- 'g',
- ' ',
- 't',
- 'h',
- 'i',
- 's',
- ' ',
- 'o',
- 'n',
- ' ',
- 't',
- 'h',
- 'e',
- ' ',
- 'b',
- 'u',
- 's',
- '"',
- ',',
- ' ',
- '"',
- 'l',
- 'a',
- 's',
- 't',
- '-',
- 'n',
- 'a',
- 'm',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- 'm',
- 'c',
- 'k',
- 'e',
- 'e',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'h',
- 'r',
- 'm',
- 'i',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- '0',
- '8',
- ':',
- '3',
- '0',
- ':',
- '5',
- '4',
- '"',
- '}',
- '{',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'd',
- 'a',
- 't',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- '1',
- '0',
- '-',
- 'D',
- 'e',
- 'c',
- '-',
- '2',
- '0',
- '1',
- '4',
- '"',
- ',',
- ' ',
- '"',
- 'r',
- 'e',
- 'a',
- 's',
- 'o',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- 'e',
- 'e',
- 'f',
- 'w',
- 'e',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'c',
- 'o',
- 'm',
- 'm',
- 'e',
- 'n',
- 't',
- '"',
- ':',
- ' ',
- '"',
- 'e',
- 'r',
- 'w',
- '"',
- ',',
- ' ',
- '"',
- 'l',
- 'a',
- 's',
- 't',
- '-',
- 'n',
- 'a',
- 'm',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- 'm',
- 'c',
- 'k',
- 'e',
- 'e',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'h',
- 'r',
- 'm',
- 'i',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- '0',
- '1',
- ':',
- '1',
- '6',
- ':',
- '4',
- '4',
- '"',
- '}',
- '{',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'd',
- 'a',
- 't',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- '1',
- '0',
- '-',
- 'D',
- 'e',
- 'c',
- '-',
- '2',
- '0',
- '1',
- '4',
- '"',
- ',',
- ' ',
- '"',
- 'r',
- 'e',
- 'a',
- 's',
- 'o',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- 'e',
- 's',
- 'w',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'c',
- 'o',
- 'm',
- 'm',
- 'e',
- 'n',
- 't',
- '"',
- ':',
- ' ',
- '"',
- 'b',
- 'l',
- 'a',
- 'h',
- 'b',
- 'l',
- 'a',
- 'h',
- '"',
- ',',
- ' ',
- '"',
- 'l',
- 'a',
- 's',
- 't',
- '-',
- 'n',
- 'a',
- 'm',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- 'm',
- 'c',
- 'k',
- 'e',
- 'e',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'h',
- 'r',
- 'm',
- 'i',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- '0',
- '1',
- ':',
- '1',
- '7',
- ':',
- '3',
- '6',
- '"',
- '}',
- '{',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'd',
- 'a',
- 't',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- '1',
- '7',
- '-',
- 'D',
- 'e',
- 'c',
- '-',
- '2',
- '0',
- '1',
- '4',
- '"',
- ',',
- ' ',
- '"',
- 'r',
- 'e',
- 'a',
- 's',
- 'o',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- 'R',
- 'e',
- 'a',
- 's',
- 'o',
- 'n',
- ':',
- ' ',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'c',
- 'o',
- 'm',
- 'm',
- 'e',
- 'n',
- 't',
- '"',
- ':',
- ' ',
- '"',
- 'C',
- 'o',
- 'm',
- 'm',
- 'e',
- 'n',
- 't',
- 's',
- ':',
- ' ',
- '"',
- ',',
- ' ',
- '"',
- 'l',
- 'a',
- 's',
- 't',
- '-',
- 'n',
- 'a',
- 'm',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- 'm',
- 'c',
- 'k',
- 'e',
- 'e',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'h',
- 'r',
- 'm',
- 'i',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- '2',
- '3',
- ':',
- '0',
- '2',
- ':',
- '4',
- '6',
- '"',
- '}',
- '{',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'd',
- 'a',
- 't',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- '1',
- '8',
- '-',
- 'D',
- 'e',
- 'c',
- '-',
- '2',
- '0',
- '1',
- '4',
- '"',
- ',',
- ' ',
- '"',
- 'r',
- 'e',
- 'a',
- 's',
- 'o',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- 'R',
- 'e',
- 'a',
- 's',
- 'o',
- 'n',
- ':',
- ' ',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'c',
- 'o',
- 'm',
- 'm',
- 'e',
- 'n',
- 't',
- '"',
- ':',
- ' ',
- '"',
- 'C',
- 'o',
- 'm',
- 'm',
- 'e',
- 'n',
- 't',
- 's',
- ':',
- ' ',
- '"',
- ',',
- ' ',
- '"',
- 'l',
- 'a',
- 's',
- 't',
- '-',
- 'n',
- 'a',
- 'm',
- 'e',
- '"',
- ':',
- ' ',
- '"',
- 'm',
- 'c',
- 'k',
- 'e',
- 'e',
- '"',
- ',',
- ' ',
- '"',
- 's',
- 'i',
- 'g',
- 'n',
- 'i',
- 'n',
- '-',
- 'h',
- 'r',
- 'm',
- 'i',
- 'n',
- '"',
- ':',
- ' ',
- '"',
- '0',
- '4',
- ':',
- '0',
- '5',
- ':',
- '4',
- '2',
- '"',
- '}']</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">rezda</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[33]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>825</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
-    </div>
-    </article>
-</div>
+        <nav class="postindexpager">
+        <ul class="pager">
+            <li class="next">
+                <a href="index-1.html" rel="next">Older posts</a>
+            </li>
+        </ul>
+        </nav>
 
                <script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 
