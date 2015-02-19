@@ -81,6 +81,982 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/whaiout.html" class="u-url">whaiout</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/whaiout.html" rel="bookmark"><time class="published dt-published" datetime="2015-01-06T18:10:18+00:00" itemprop="datePublished" title="Publication date">2015-01-06 18:10</time></a></p>
+                <p class="commentline">            <a href="posts/whaiout.html#disqus_thread" data-disqus-identifier="cache/posts/whaiout.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the signout script that opens the xl file and fill in signout info.</p>
+<p>Opens up list of signin data. This is date of sign in, time, name, and reason.
+This is .meta. This script appends sign out data. This is signout date, signout time, and comments.</p>
+<p>8 urandom 128 keys are generated. Used these in saving the achieve, as .html, and .meta files.</p>
+<p>creates date and time mark and asks for comment</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This needs rewriten to remove xl stuff opening. keep it to json and dict.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#import xlrd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="c">#from xlutils.copy import copy</span>
+<span class="c">#from xlrd import *</span>
+<span class="kn">import</span> <span class="nn">dominate</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#wrkbook = xlrd.open_workbook('/home/wcmckee/whai/index.xls')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">jsopn</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.json'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">jsrdv</span> <span class="o">=</span> <span class="n">jsopn</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">jsrdv</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'{"signin hrmin": "15:09:51", "reason": "ESW", "firstname": "William", "signin comment": "sunny and mum is back", "lastname": "Mckee", "signin date": "02-Dec-2014"}{"signin-date": "09-Dec-2014", "reason": "esw", "signin-comment": "checking this on the bus", "last-name": "mckee", "signin-hrmin": "08:30:54"}'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#print wrkbook.sheet_names()</span>
+
+<span class="c">#worksheet = wrkbook.sheet_by_name('visitor sign database')</span>
+<span class="c">#swlis = []</span>
+<span class="c">#num_rows = worksheet.nrows - 1</span>
+<span class="c">#curr_row = -1</span>
+<span class="c">#while curr_row &lt; num_rows:</span>
+<span class="c">#    curr_row += 1</span>
+<span class="c">#    row = worksheet.row(curr_row)</span>
+    <span class="c">#print row</span>
+<span class="c">#    swlis.append(row)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#valis = []</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#for swl in swlis[1]:</span>
+<span class="c">#    print swl.value</span>
+<span class="c">#    valis.append(swl.value)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">NameError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-7-4f71789a25a2&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span><span class="ansigreen">for</span> swl <span class="ansigreen">in</span> swlis<span class="ansiyellow">[</span><span class="ansicyan">1</span><span class="ansiyellow">]</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">      2</span>     <span class="ansigreen">print</span> swl<span class="ansiyellow">.</span>value<span class="ansiyellow"></span>
+<span class="ansigreen">      3</span>     valis<span class="ansiyellow">.</span>append<span class="ansiyellow">(</span>swl<span class="ansiyellow">.</span>value<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansired">NameError</span>: name 'swlis' is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">tiran</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">)</span>
+<span class="n">reran</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">)</span>
+<span class="n">comran</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">inpcom</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s">'comment: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>comment: chexk
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">endate</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%d"</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="s">"%b"</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="s">"%Y"</span><span class="p">)</span>
+          
+<span class="n">entim</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%H:%M"</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">snoutm</span> <span class="o">=</span> <span class="p">{</span><span class="s">'out-date'</span><span class="p">:</span> <span class="n">endate</span><span class="p">}</span>
+<span class="n">snoutm</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'out-time'</span><span class="p">:</span> <span class="n">entim</span><span class="p">})</span>
+<span class="n">snoutm</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'out-comment'</span><span class="p">:</span> <span class="n">inpcom</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">signoutdic</span> <span class="o">=</span> <span class="p">{</span><span class="n">endate</span><span class="p">:</span> <span class="n">tiran</span><span class="p">}</span>
+<span class="n">timoutdic</span> <span class="o">=</span> <span class="p">{</span><span class="n">entim</span><span class="p">:</span> <span class="n">reran</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">signoutdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">entim</span><span class="p">:</span><span class="n">reran</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">signoutdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">inpcom</span><span class="p">:</span> <span class="n">comran</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">signkeys</span> <span class="o">=</span> <span class="n">signoutdic</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">wha</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.json'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
+
+<span class="c">#w = copy(open_workbook('/home/wcmckee/whai/index.xls'))</span>
+<span class="c">#w.get_sheet(0).write(1,5, time.strftime("%d" + "-" + "%b" + "-" + "%Y"))</span>
+<span class="c">#w.get_sheet(0).write(1,6, time.strftime("%H:%M"))</span>
+<span class="c">#w.get_sheet(0).write(1,7, tiran)</span>
+
+<span class="c">#w.save('/home/wcmckee/whai/index.xls')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">indsav</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/whai/index.html'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opind</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">indsav</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">dominate</span>
+<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">wrkbook</span><span class="o">.</span><span class="n">sheet_names</span><span class="p">())</span>
+
+<span class="k">with</span> <span class="n">doc</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
+    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">'stylesheet'</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">'style.css'</span><span class="p">)</span>
+    <span class="n">script</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">'text/javascript'</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">'script.js'</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'header'</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ol</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">valis</span><span class="p">:</span>
+            <span class="n">li</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">'visitor sign database is open source. Visit https://github.com/wcmckee/wcmckee '</span><span class="p">)</span>
+
+<span class="c">#print doc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opind</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opind</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">liop</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.meta'</span><span class="p">,</span> <span class="s">'a+'</span><span class="p">)</span>
+<span class="n">liop</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">signkeys</span><span class="p">))</span>
+<span class="n">liop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [80]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">oplis</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.meta'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">oplsav</span> <span class="o">=</span> <span class="n">oplis</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">oplis</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [82]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">trsor</span> <span class="o">=</span> <span class="n">tiran</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [83]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">trsor</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[83]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'413c61c9654e'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [84]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">optrd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/posts/'</span> <span class="o">+</span> <span class="n">trsor</span> <span class="o">+</span> <span class="s">'.meta'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">optrd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">oplsav</span><span class="p">)</span>
+<span class="n">optrd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [85]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">jsnrd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/posts/'</span> <span class="o">+</span> <span class="n">trsor</span> <span class="o">+</span> <span class="s">'.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">jsnrd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">oplsav</span><span class="p">)</span>
+<span class="n">jsnrd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">savpos</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.json'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">signindi</span> <span class="o">=</span> <span class="n">savpos</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">IOError</span>                                   Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-86-011d26fbe418&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span>savpos <span class="ansiyellow">=</span> open<span class="ansiyellow">(</span><span class="ansiblue">'/home/wcmckee/visignsys/index.json'</span><span class="ansiyellow">,</span> <span class="ansiblue">'r'</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">      2</span> signindi <span class="ansiyellow">=</span> savpos<span class="ansiyellow">.</span>read<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansired">IOError</span>: [Errno 2] No such file or directory: '/home/wcmckee/visignsys/index.json'</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [87]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">jsnaccept</span> <span class="o">=</span> <span class="n">signindi</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"'"</span><span class="p">,</span> <span class="s">"</span><span class="se">\"</span><span class="s">"</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">jsnaccept</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [88]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">snct</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="o">+</span> <span class="n">snoutm</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [89]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">savpos</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [90]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/posts'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [91]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lismet</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/posts'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [92]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lismet</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[92]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['df5aed94d944.meta',
+ '5e98dfab4326.json',
+ '8bf3b3c045b2.json',
+ '5e98dfab4326.html',
+ '2ce7b7e78b2d.meta',
+ 'a5fd59588711.html',
+ '8bf3b3c045b2.meta',
+ '4a1d7fbd4af7.html',
+ '413c61c9654e.meta',
+ '81ae6564478e.meta',
+ '1ca6f0c7d074.html',
+ 'be7f3bba40a9.json',
+ '1bca31594654.html',
+ 'be7f3bba40a9.html',
+ '81ae6564478e.json',
+ 'be7f3bba40a9.meta',
+ 'd948bc2cb2d5.meta',
+ '469b6be62e65.json',
+ 'f63a51c5660b.json',
+ 'f63a51c5660b.html',
+ '4a1d7fbd4af7.json',
+ 'd7bfad4d84af.meta',
+ '91ece852eb61.meta',
+ '086ef98a8bea.meta',
+ '231f0cbc6422.html',
+ '413c61c9654e.json',
+ '1ca6f0c7d074.meta',
+ '5e98dfab4326.meta',
+ '9479b52fcb96.meta',
+ 'a5fd59588711.meta',
+ '6e8165886873.json',
+ '3342b7e37622.json',
+ '231f0cbc6422.meta',
+ '1ca6f0c7d074.json',
+ 'd948bc2cb2d5.html',
+ '4a1d7fbd4af7.meta',
+ '6e8165886873.meta',
+ 'a5fd59588711.json',
+ '6dbfbbb9c12e.html',
+ '81ae6564478e.html',
+ 'd7bfad4d84af.json',
+ '231f0cbc6422.json',
+ 'df5aed94d944.html',
+ '469b6be62e65.meta',
+ '9479b52fcb96.json',
+ 'f63a51c5660b.meta',
+ '2ce7b7e78b2d.json',
+ 'df5aed94d944.json',
+ '3342b7e37622.meta',
+ '1bca31594654.meta',
+ '1bca31594654.json',
+ '6dbfbbb9c12e.meta',
+ '086ef98a8bea.json',
+ 'd948bc2cb2d5.json']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [99]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opjsnz</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [100]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">beca</span> <span class="ow">in</span> <span class="n">lismet</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s">'.json'</span> <span class="ow">in</span> <span class="n">beca</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="n">beca</span>
+        <span class="n">opjsnz</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">beca</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5e98dfab4326.json
+8bf3b3c045b2.json
+be7f3bba40a9.json
+81ae6564478e.json
+469b6be62e65.json
+f63a51c5660b.json
+4a1d7fbd4af7.json
+413c61c9654e.json
+6e8165886873.json
+3342b7e37622.json
+1ca6f0c7d074.json
+a5fd59588711.json
+d7bfad4d84af.json
+231f0cbc6422.json
+9479b52fcb96.json
+2ce7b7e78b2d.json
+df5aed94d944.json
+1bca31594654.json
+086ef98a8bea.json
+d948bc2cb2d5.json
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [121]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">optjz</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">optjsz</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [122]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">apgpls</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [124]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#for opjw in opjsnz:</span>
+<span class="c">#    print opjw</span>
+<span class="c">#    optjsz.append(objw)</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [125]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#for filop in opjsnz:</span>
+    <span class="c">#print filop</span>
+<span class="c">#    opt = open(opj, 'r')</span>
+<span class="c">#    thedict = str(opt.read())</span>
+<span class="c">#    thedict</span>
+<span class="c">#    opt.close()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [126]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#opt = open(opj, 'r')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [127]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#thedict = opt.read()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [128]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#thedict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[128]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'{"signin hrmin": "19:11", "reason": "ESW", "name": "William Mckee", "signin date": "21-Oct-2014", "signin comment": "interested in watching swimmers on way back from walk"}'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [129]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#convgpj = json.loads(thedict)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [130]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#convgpj.values()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[130]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[u'19:11',
+ u'ESW',
+ u'interested in watching swimmers on way back from walk',
+ u'William Mckee',
+ u'21-Oct-2014']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [130]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/test.html" class="u-url">test</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
