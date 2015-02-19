@@ -1,5 +1,868 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link href="http://wcmckee.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Tue, 17 Feb 2015 01:18:30 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>signinlca</title><link>http://wcmckee.com/posts/signinlca.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link href="http://wcmckee.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 19 Feb 2015 02:40:33 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>pgguserdel</title><link>http://wcmckee.com/posts/pgguserdel.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [13]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;getpass&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;passlib.hash&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pbkdf2_sha256&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;crypt&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;getpass&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;spwd&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.PublicKey&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;RSA&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [14]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;fuliz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [15]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;fuliz&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[15]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;['tnow',
+ 'sjohns',
+ 'signinlca.py',
+ 'charle',
+ 'wcm',
+ 'wmck',
+ 'wmen',
+ 'webmck',
+ 'pjohns',
+ 'red',
+ 'wez',
+ 'checkthis',
+ 'blah',
+ 'joeman',
+ 'wkee',
+ 'jchick',
+ 'wcmckee',
+ 'wblack',
+ 'joemanz',
+ 'poiu',
+ 'poi',
+ 'qwe',
+ 'point',
+ 'cvb',
+ 'pytest',
+ 'figlet',
+ 'blag',
+ 'gerty',
+ 'jblog',
+ 'ssung',
+ 'clittle',
+ 'joecheck',
+ 'yellow']&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [16]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#Chabge password for user&lt;/span&gt;
+&lt;span class="c"&gt;#pasuz = raw_input('User to change password: ')&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [17]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#logtest = getpass.getpass('new password: ')&lt;/span&gt;
+
+&lt;span class="c"&gt;#loghash = pbkdf2_sha256.encrypt(logtest, rounds=200000, salt_size=16)&lt;/span&gt;
+&lt;span class="c"&gt;#vercryp = pbkdf2_sha256.verify(logtest, hashez)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [18]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#Enter user to delete.&lt;/span&gt;
+&lt;span class="c"&gt;#Even better, user to lock.&lt;/span&gt;
+
+&lt;span class="c"&gt;#delusa = raw_input('User to delete: ')&lt;/span&gt;
+&lt;span class="c"&gt;#locusa = raw_input('User to lock: ')&lt;/span&gt;
+&lt;span class="c"&gt;#os.system('sudo passwd -l ' + locusa) &lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [19]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#Read hashed passwords from /etc/shadow&lt;/span&gt;
+&lt;span class="c"&gt;#opshad = open('/etc/shadow', 'r')&lt;/span&gt;
+&lt;span class="c"&gt;#opshad.read()&lt;/span&gt;
+&lt;span class="c"&gt;#opshad.close()&lt;/span&gt;
+&lt;span class="c"&gt;#Better to do this with a python module. spwd reads&lt;/span&gt;
+&lt;span class="c"&gt;#shadow files done.&lt;/span&gt;
+&lt;span class="c"&gt;#Need to getpass and ask for password, comparing to &lt;/span&gt;
+&lt;span class="c"&gt;#the password returned from spwd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [20]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;pan&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'wcmckee'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [21]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#enc_pwd = spwd.getspnam(pan)[1]&lt;/span&gt;
+&lt;span class="c"&gt;#if enc_pwd in ["NP", "!", "", None]:&lt;/span&gt;
+&lt;span class="c"&gt;#    print "user '%s' has no password set" % pan&lt;/span&gt;
+&lt;span class="c"&gt;#if enc_pwd in ["LK", "*"]:&lt;/span&gt;
+&lt;span class="c"&gt;#    print "account is locked"&lt;/span&gt;
+&lt;span class="c"&gt;#if enc_pwd == "!!":&lt;/span&gt;
+&lt;span class="c"&gt;#    print "password has expired"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [22]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;gpas&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;getpass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getpass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Enter Username Password: '&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;Enter Username Password: ········
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [32]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;encpass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;spwd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getspnam&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pan&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_text output_error"&gt;
+&lt;pre&gt;
+&lt;span class="ansired"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ansired"&gt;KeyError&lt;/span&gt;                                  Traceback (most recent call last)
+&lt;span class="ansigreen"&gt;&amp;lt;ipython-input-32-9aef7c527eb2&amp;gt;&lt;/span&gt; in &lt;span class="ansicyan"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;&lt;span class="ansiblue"&gt;()&lt;/span&gt;
+&lt;span class="ansigreen"&gt;----&amp;gt; 1&lt;/span&gt;&lt;span class="ansiyellow"&gt; &lt;/span&gt;encpass &lt;span class="ansiyellow"&gt;=&lt;/span&gt; spwd&lt;span class="ansiyellow"&gt;.&lt;/span&gt;getspnam&lt;span class="ansiyellow"&gt;(&lt;/span&gt;pan&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansicyan"&gt;1&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansired"&gt;KeyError&lt;/span&gt;: 'getspnam(): name not found'&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [33]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;crypt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gpas&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;encpass&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;encpass&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'True'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;"incorrect password"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_text output_error"&gt;
+&lt;pre&gt;
+&lt;span class="ansired"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ansired"&gt;NameError&lt;/span&gt;                                 Traceback (most recent call last)
+&lt;span class="ansigreen"&gt;&amp;lt;ipython-input-33-4efe7353fce3&amp;gt;&lt;/span&gt; in &lt;span class="ansicyan"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;&lt;span class="ansiblue"&gt;()&lt;/span&gt;
+&lt;span class="ansigreen"&gt;----&amp;gt; 1&lt;/span&gt;&lt;span class="ansiyellow"&gt; &lt;/span&gt;&lt;span class="ansigreen"&gt;if&lt;/span&gt; crypt&lt;span class="ansiyellow"&gt;.&lt;/span&gt;crypt&lt;span class="ansiyellow"&gt;(&lt;/span&gt;gpas&lt;span class="ansiyellow"&gt;,&lt;/span&gt; encpass&lt;span class="ansiyellow"&gt;)&lt;/span&gt; &lt;span class="ansiyellow"&gt;==&lt;/span&gt; encpass&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;      2&lt;/span&gt;     &lt;span class="ansigreen"&gt;print&lt;/span&gt; &lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiblue"&gt;'True'&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;      3&lt;/span&gt; &lt;span class="ansigreen"&gt;else&lt;/span&gt;&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;      4&lt;/span&gt;     &lt;span class="ansigreen"&gt;print&lt;/span&gt; &lt;span class="ansiblue"&gt;"incorrect password"&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansired"&gt;NameError&lt;/span&gt;: name 'encpass' is not defined&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [34]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#print spwd.getspnam(pan)[1]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [35]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#shpa = spwd.getspnam('wcmckee')[1]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [36]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#spwd.getspall()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [37]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#shpa&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;rsa key generated for each user and stored in their
+/home/user/.ssh/ folder. Public key is emailed, added to test servers.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [38]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;new_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;RSA&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;generate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2048&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;65537&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;public_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new_key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;publickey&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exportKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"PEM"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;private_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new_key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exportKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"PEM"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;private_key&lt;/span&gt; 
+&lt;span class="n"&gt;sapriv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/.ssh/'&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;pan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sapriv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;private_key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sapriv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;public_key&lt;/span&gt; 
+&lt;span class="n"&gt;papriv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/.ssh/'&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;pan&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'.pub'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;papriv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;public_key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;papriv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAvEzwE1+D6TX2wDGUBhSZmwYkVsnVjoYiklhGBBIdg5jMHVkh
+93HLlvu04KWAwSQHLIUFy4teTxovw+eo/5+VJAlelJZWcgctMsL+U1uRImD+aieV
+uKEN65fCMdRIautEnPDAi9g51XleqpXvK/nGR9BRA5ibR31kcL+OYSqjFY0tlTdV
+5JQ0jSZdudjgnNE33lrBwpdCUL112C4dT2r/gDfHM8icsitkhqnGxJ/xsw1sDaW8
+ENSg73/lJO9Sc8j8d/mjVVVPHGs0TJneLq6Y/mF7QQq8Os0TAlXG+EnR/bX1saKa
+qhxiFmKvF5ww/uSu79xkK2LajPY+DS27kia7yQIDAQABAoIBADl+HEcuAK6yBVcF
+TDbXD1df9rRxB71ugxu/zBDuHwjRHHFRh6dvnUPKMp3sqnVONMqJCw3szazFSBQ+
+pUD3TqgkHDat+FL0kf5PvytgZ93hU4zB7VrkAcYPHgHs2PecQeTRNVj9ehsN5bOb
+99yrdLj0h+fbLn4TcRljw2szg3vOiykVe650zwu0D1J1/JxBq4bG/YndsLCPqdMk
+5uZoroKx5myHnCMXRxChJAyHw+HZ1xcMGhpXE0ghqQuW8obxU4IA2T1NBWow8xCO
+f1QbQR473Oat0WsBrJoHgks1SpyfO+/eomhUNG42UgeJjIWgB2s2P19nKWuTeMtc
+epaAdCECgYEA2OvgGkeo1/e7k6QDS52N3s6S3MKwQksSAsRaeV3vYE7Dcb3zjNWh
+d8UbzVcSN1cKVRc27j1EIBAHlRHCan45JJOeqlmnYS5g6IeF+nB74067J4gvwTbe
+zciAX3NEIk5WbpdDuLzkFnajUgwiHxEVxS5WIvvUbuYpphi2lV7fLhUCgYEA3jkb
+ZnJckNoNsKUbHUV/EjsEQC50kSZJ9RNh55rMfcI4uhbaJTE23eQeygtt102v0R+w
+kvHRrcnjTa3mvpYL9grVfmsiSnaYL8IW75uSNgnBW7LIMsJjT7HjKok/2Sm7r4rR
+sFOJCfY/jWGBpKGGlx52IJEJaF3w5acSy/4sN+UCgYBxSO4mi1oAP950Qml+KfAX
+diZ4qCxI0s+7JjRhwc7rqvajBiKVYFQNKqFUYa6fvBMnURJc5R4Y6IYtMbMoznal
+RXrNWDjzpbbyeSRdIDVzBoDzKkpWS4OcUKPKNXZVvDejVdgGOI+ds6Oji7aeJtwJ
+uCM/7eiJaiZCGhHwfDVt6QKBgQC59xhS90k3fwMN3F2AdXQNkY3RGA88mMozaXD5
+HLYcV7iZIh6UGUdNEWYitsXI8546Z0ag8fUCdnzduLXssCx6Tj6zeHxNzEk3Tjlb
+ctk8l5VUY5zdvYbWXos4QXtJBH+oO4eXA5Ee4Q/2BK81UmcLd9ZrEnTI/jRmOxaj
+16SxcQKBgA7E1J3fJTSEiEDu2tB5KHKe1LDZzoPda1qe1NASefJArsJYpjCU+GY6
+DvvBCXv7ovWWJa7Vi1BEGZ0/INc/SCK1WVWbC9FcdLlbANW3Kp7m/bZmNZv95cU1
+8gHPA8QCgATWtSBtZQr299166brw2OGv9qx0FSqLVjvyPi7FPeJZ
+-----END RSA PRIVATE KEY-----
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvEzwE1+D6TX2wDGUBhSZ
+mwYkVsnVjoYiklhGBBIdg5jMHVkh93HLlvu04KWAwSQHLIUFy4teTxovw+eo/5+V
+JAlelJZWcgctMsL+U1uRImD+aieVuKEN65fCMdRIautEnPDAi9g51XleqpXvK/nG
+R9BRA5ibR31kcL+OYSqjFY0tlTdV5JQ0jSZdudjgnNE33lrBwpdCUL112C4dT2r/
+gDfHM8icsitkhqnGxJ/xsw1sDaW8ENSg73/lJO9Sc8j8d/mjVVVPHGs0TJneLq6Y
+/mF7QQq8Os0TAlXG+EnR/bX1saKaqhxiFmKvF5ww/uSu79xkK2LajPY+DS27kia7
+yQIDAQAB
+-----END PUBLIC KEY-----
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [39]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#Spin up digital ocean server, with public key and &lt;/span&gt;
+&lt;span class="c"&gt;#user created.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#import digitalocean&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#tok  = ('c54ea484dcf55053743215cdb37309cb77a153e9810f35851b4701d4c8bf2881')&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#digid = digitalocean.Manager(token='c54ea484dcf55053743215cdb37309cb77a153e9810f35851b4701d4c8bf2881')&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#digid.get_account&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[4]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;lt;bound method Manager.get_account of &amp;lt;digitalocean.Manager.Manager object at 0xb1a49390&amp;gt;&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [15]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#my_droplets = digid.get_all_droplets()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [16]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#lisdrop = []&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [17]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for myd in my_droplets:&lt;/span&gt;
+&lt;span class="c"&gt;#    print myd&lt;/span&gt;
+    &lt;span class="c"&gt;#lisdrop.append(myd.image)&lt;/span&gt;
+    &lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;#    lisdrop.append(myd.ip_address)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;1331748 brobeur.com
+2109421 brobeurkids
+2531143 wcmckee-notebook
+3353353 getsdrawn
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [18]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#lisdrop&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[18]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;[u'128.199.199.74', u'178.62.53.181', u'104.131.11.174', u'128.199.60.12']&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#droplet = digitalocean.Droplet(token=tok,&lt;/span&gt;
+&lt;span class="c"&gt;#                               name='Example',&lt;/span&gt;
+&lt;span class="c"&gt;#                               region='nyc2', # New York 2&lt;/span&gt;
+&lt;span class="c"&gt;##                               image= , # Ubuntu 14.04 x64&lt;/span&gt;
+ &lt;span class="c"&gt;#                              size_slug='512mb',  # 512MB&lt;/span&gt;
+&lt;span class="c"&gt;#                              backups=True)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_text output_error"&gt;
+&lt;pre&gt;
+&lt;span class="ansicyan"&gt;  File &lt;/span&gt;&lt;span class="ansigreen"&gt;"&amp;lt;ipython-input-7-cdb0ee9afb58&amp;gt;"&lt;/span&gt;&lt;span class="ansicyan"&gt;, line &lt;/span&gt;&lt;span class="ansigreen"&gt;4&lt;/span&gt;
+&lt;span class="ansiyellow"&gt;    image= , # Ubuntu 14.04 x64&lt;/span&gt;
+&lt;span class="ansigrey"&gt;           ^&lt;/span&gt;
+&lt;span class="ansired"&gt;SyntaxError&lt;/span&gt;&lt;span class="ansired"&gt;:&lt;/span&gt; invalid syntax
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [8]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#droplet.create()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_text output_error"&gt;
+&lt;pre&gt;
+&lt;span class="ansired"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ansired"&gt;NameError&lt;/span&gt;                                 Traceback (most recent call last)
+&lt;span class="ansigreen"&gt;&amp;lt;ipython-input-8-e40debe66120&amp;gt;&lt;/span&gt; in &lt;span class="ansicyan"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;&lt;span class="ansiblue"&gt;()&lt;/span&gt;
+&lt;span class="ansigreen"&gt;----&amp;gt; 1&lt;/span&gt;&lt;span class="ansiyellow"&gt; &lt;/span&gt;droplet&lt;span class="ansiyellow"&gt;.&lt;/span&gt;create&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansired"&gt;NameError&lt;/span&gt;: name 'droplet' is not defined&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [9]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#dimg = digid.get_all_images()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for di in dimg:&lt;/span&gt;
+&lt;span class="c"&gt;##    print di&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;4985495 wcmckee Debian
+6126511 wcmckee Ubuntu
+10690295 artcontrol final Debian
+10564942 557.2.0 (beta) CoreOS
+10679356 557.2.0 (stable) CoreOS
+10679369 593.0.0 (alpha) CoreOS
+6370882 20 x64 Fedora
+6370885 20 x32 Fedora
+6370968 19 x64 Fedora
+6370969 19 x32 Fedora
+6372321 5.10 x64 CentOS
+6372425 5.10 x32 CentOS
+6372581 6.0 x64 Debian
+6372662 6.0 x32 Debian
+9640922 21 x64 Fedora
+9801948 14.04 x32 Ubuntu
+9801950 14.04 x64 Ubuntu
+9801951 14.10 x32 Ubuntu
+9801954 14.10 x64 Ubuntu
+10144573 10.1 FreeBSD
+10321756 12.04.5 x64 Ubuntu
+10321777 12.04.5 x32 Ubuntu
+10321819 10.04 x64 Ubuntu
+10321870 10.04 x32 Ubuntu
+10322059 7.0 x64 Debian
+10322378 7.0 x32 Debian
+10322623 7 x64 CentOS
+10325922 6.5 x64 CentOS
+10325992 6.5 x32 CentOS
+6376601 Ruby on Rails on 14.04 (Nginx + Unicorn) Ubuntu
+6423475 WordPress on 14.04 Ubuntu
+6732690 LEMP on 14.04 Ubuntu
+6732691 LAMP on 14.04 Ubuntu
+6798184 MEAN on 14.04 Ubuntu
+8375425 Drupal 7.34 on 14.04 Ubuntu
+8412876 Magento 1.9.1.0 on 14.04 Ubuntu
+8953301 ELK Logging Stack on 14.04 Ubuntu
+9918633 Ghost 0.5.8 on 14.04 Ubuntu
+9967718 Django on 14.04 Ubuntu
+10163059 FreeBSD AMP on 10.1 FreeBSD
+10274087 GitLab 7.7.1 CE on 14.04 Ubuntu
+10321359 MediaWiki 1.24.0 on 14.04 Ubuntu
+10462503 Drone on 14.04 Ubuntu
+10507592 node-v0.12.0 on 14.04 Ubuntu
+10563620 Dokku v0.3.14 on 14.04 Ubuntu
+10565666 ownCloud 8.0 on 14.04 Ubuntu
+10581649 Docker 1.5.0 on 14.04 Ubuntu
+7572830 Redmine on 14.04 Ubuntu
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [23]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#opdel = os.listdir('/home/wcmckee/signinlca/deleteusers')&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [24]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#opdel&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[24]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;[]&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;usrtodel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Account to delete: '&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;locacc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'sudo passwd -l '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;usrtodel&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;locacc&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'mv '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'  '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'/home/wcmckee/signinlca/usernames/'&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;usrtodel&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;' /home/wcmckee/signinlca/username/deleteusers/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><guid>http://wcmckee.com/posts/pgguserdel.html</guid><pubDate>Thu, 19 Feb 2015 02:30:06 GMT</pubDate></item><item><title>signinlca</title><link>http://wcmckee.com/posts/signinlca.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -10289,22 +11152,4 @@ d948bc2cb2d5.json
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/whaiout.html</guid><pubDate>Tue, 06 Jan 2015 18:10:18 GMT</pubDate></item><item><title>test</title><link>http://wcmckee.com/posts/test.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/test.html</guid><pubDate>Tue, 06 Jan 2015 18:10:18 GMT</pubDate></item></channel></rss>
+</description><guid>http://wcmckee.com/posts/whaiout.html</guid><pubDate>Tue, 06 Jan 2015 18:10:18 GMT</pubDate></item></channel></rss>
