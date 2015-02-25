@@ -81,6 +81,1990 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/getsdrawn.html" class="u-url">getsdrawn</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/getsdrawn.html" rel="bookmark"><time class="published dt-published" datetime="2015-01-06T18:10:20+00:00" itemprop="datePublished" title="Publication date">2015-01-06 18:10</time></a></p>
+                <p class="commentline">            <a href="posts/getsdrawn.html#disqus_thread" data-disqus-identifier="cache/posts/getsdrawn.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>GetsDrawn DotCom</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is a python script to generate the website GetsDrawn. It takes data from /r/RedditGetsDrawn and makes something awesome.</p>
+<p>The script has envolved and been rewritten several times.</p>
+<p>The first script for rgdsnatch was written after I got banned from posting my artwork on /r/RedditGetsDrawn. The plan was to create a new site that displayed stuff from /r/RedditGetsDrawn.</p>
+<p>Currently it only displays the most recent 25 items on redditgetsdrawn. The script looks at the newest 25 reference photos on RedditGetsDrawn. It focuses only on jpeg/png images and ignores and links to none .jpg or .png ending files. 
+It is needed to instead of ignoring them files - get the image or images in some cases, from the link.
+The photos are always submitted from imgur.
+Still filter out the i.imgur files, but take the links and filter them through a python imgur module returning the .jpeg or .png files.</p>
+<p>This is moving forward from rgdsnatch.py because I am stuck on it.</p>
+<p>TODO</p>
+<p>Fix the links that don't link to png/jpeg and link to webaddress. 
+Needs to get the images that are at that web address and embed them.</p>
+<p>Display artwork submitted under the images.</p>
+<p>Upload artwork to user. Sends them a message on redditgetsdrawn with links.</p>
+<p>More pandas</p>
+<p>Saves reference images to imgs/year/month/day/reference/username-reference.png</p>
+<p>Saves art images to imgs/year/month/day/art/username-line-bw-colour.png</p>
+<p>Creates index.html file with:
+Title of site and logo: GetsDrawn
+Last updated date and time.</p>
+<p>Path of image file /imgs/year/month/day/username-reference.png. 
+(This needs changed to just their username).</p>
+<p>Save off .meta data from reddit of each photo, saving it to reference folder.
+username-yrmnthday.meta - contains info such as author, title, upvotes, downvotes.
+Currently saving .meta files to a meta folder - along side art and reference.</p>
+<p>Folder sorting system of files. 
+websitename/index.html-style.css-imgs/YEAR(15)-MONTH(2)-DAY(4)/art-reference-meta
+Inside art folder
+Currently it generates USERNAME-line/bw/colour.png 50/50 white files. Maybe should be getting art replies from reddit?</p>
+<p>Inside reference folder
+Reference fold is working decent. 
+it creates USERNAME-reference.png / jpeg files.</p>
+<p>Currently saves username-line-bw-colour.png to imgs folder. Instead get it to save to imgs/year/month/day/usernames.png.
+Script checks the year/month/day and if folder isnt created, it creates it. If folder is there, exit. 
+Maybe get the reference image and save it with the line/bw/color.pngs</p>
+<p>The script now filters the jpeg and png image and skips links to imgur pages. This needs to be fixed by getting the images from the imgur pages.
+It renames the image files to the redditor username followed by a -reference tag (and ending with png of course).
+It opens these files up with PIL and checks the sizes. 
+It needs to resize the images that are larger than 800px to 800px.
+These images need to be linked in the index.html instead of the imgur altenatives.</p>
+<p>Instead of the jpeg/png files on imgur they are downloaded to the server with this script.</p>
+<p>Filter through as images are getting downloaded and if it has been less than certain time or if the image has been submitted before</p>
+<p>Extending the subreddits it gets data from to cycle though a list, run script though list of subreddits.</p>
+<p>Browse certain days - Current day by default but option to scroll through other days.</p>
+<p>Filters - male/female/animals/couples etc
+Function that returns only male portraits. 
+tags to add to photos. 
+Filter images with tags</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">os</span> 
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">praw</span>
+<span class="kn">import</span> <span class="nn">dominate</span>
+<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="k">import</span> <span class="o">*</span> 
+<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strftime</span>
+<span class="c">#import nose</span>
+<span class="c">#import unittest</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="k">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="c">#import pyttsx</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">gtsdrndir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">gtsdrndir</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s">'getsdrawndotcom'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#getmin = r.get_redditor('itwillbemine')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#mincom = getmin.get_comments()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#engine = pyttsx.init()</span>
+
+<span class="c">#engine.say('The quick brown fox jumped over the lazy dog.')</span>
+<span class="c">#engine.runAndWait()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#shtweet = []</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#for mi in mincom:</span>
+<span class="c">#    print mi</span>
+<span class="c">#    shtweet.append(mi)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">bodycom</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">bodyicv</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#beginz = pyttsx.init()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#for shtz in shtweet:</span>
+<span class="c">#    print shtz.downs</span>
+<span class="c">#    print shtz.ups</span>
+<span class="c">#    print shtz.body</span>
+<span class="c">#    print shtz.replies</span>
+    <span class="c">#beginz.say(shtz.author)</span>
+    <span class="c">#beginz.say(shtz.body)</span>
+    <span class="c">#beginz.runAndWait()</span>
+    
+<span class="c">#    bodycom.append(shtz.body)</span>
+    <span class="c">#bodyic</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#bodycom </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">getnewr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">get_subreddit</span><span class="p">(</span><span class="s">'redditgetsdrawn'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">rdnew</span> <span class="o">=</span> <span class="n">getnewr</span><span class="o">.</span><span class="n">get_new</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lisrgc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">lisauth</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">uz</span> <span class="ow">in</span> <span class="n">rdnew</span><span class="p">:</span>
+    <span class="c">#print uz</span>
+    <span class="n">lisrgc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">uz</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">gtdrndic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">imgdir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom/imgs'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">artlist</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">imgdir</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">time</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">yearz</span> <span class="o">=</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"%y"</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">())</span>
+<span class="n">monthz</span> <span class="o">=</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"%m"</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">())</span>
+<span class="n">dayz</span> <span class="o">=</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">())</span>
+
+
+<span class="c">#strftime("%y %m %d", gmtime())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">imgzdir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'imgs/'</span><span class="p">)</span>
+<span class="n">yrzpat</span> <span class="o">=</span> <span class="p">(</span><span class="n">imgzdir</span> <span class="o">+</span> <span class="n">yearz</span><span class="p">)</span>
+<span class="n">monzpath</span> <span class="o">=</span> <span class="p">(</span><span class="n">yrzpat</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">monthz</span><span class="p">)</span>
+<span class="n">dayzpath</span> <span class="o">=</span> <span class="p">(</span><span class="n">monzpath</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">dayz</span><span class="p">)</span>
+<span class="n">rmgzdays</span> <span class="o">=</span> <span class="p">(</span><span class="n">dayzpath</span> <span class="o">+</span> <span class="s">'/reference'</span><span class="p">)</span>
+<span class="n">imgzdays</span> <span class="o">=</span> <span class="p">(</span><span class="n">dayzpath</span> <span class="o">+</span> <span class="s">'/art'</span><span class="p">)</span>
+<span class="n">metzdays</span> <span class="o">=</span> <span class="p">(</span><span class="n">dayzpath</span> <span class="o">+</span> <span class="s">'/meta'</span><span class="p">)</span>
+
+<span class="n">repathz</span> <span class="o">=</span> <span class="p">(</span><span class="s">'imgs/'</span> <span class="o">+</span> <span class="n">yearz</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">monthz</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">dayz</span> <span class="o">+</span> <span class="s">'/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">metzdays</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[25]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'imgs/15/01/05/meta'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">imgzdays</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'imgs/15/01/05/art'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">repathz</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[27]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'imgs/15/01/05/'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">ospacheck</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">imgzdir</span> <span class="o">+</span> <span class="n">yearz</span><span class="p">)</span> <span class="o">==</span> <span class="k">True</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s">'its true'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s">'its false'</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">imgzdir</span> <span class="o">+</span> <span class="n">yearz</span><span class="p">)</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">ospacheck</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>its true
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#if os.path.isdir(imgzdir + yearz) == True:</span>
+<span class="c">#    print 'its true'</span>
+<span class="c">#else:</span>
+<span class="c">#    print 'its false'</span>
+<span class="c">#    os.mkdir(imgzdir + yearz)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [117]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lizmon</span> <span class="o">=</span> <span class="p">[</span><span class="s">'monzpath'</span><span class="p">,</span> <span class="s">'dayzpath'</span><span class="p">,</span> <span class="s">'imgzdays'</span><span class="p">,</span> <span class="s">'rmgzdays'</span><span class="p">,</span> <span class="s">'metzdays'</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [120]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">liz</span> <span class="ow">in</span> <span class="n">lizmon</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">liz</span><span class="p">)</span> <span class="o">==</span> <span class="k">True</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s">'its true'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s">'its false'</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">liz</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>its false
+its false
+its false
+its false
+its false
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">fullhom</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#artlist</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">httpad</span> <span class="o">=</span> <span class="p">(</span><span class="s">'http://getsdrawn.com/imgs'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#im = Image.new("RGB", (512, 512), "white")</span>
+<span class="c">#im.save(file + ".thumbnail", "JPEG")</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">rmgzdays</span> <span class="o">=</span> <span class="p">(</span><span class="n">dayzpath</span> <span class="o">+</span> <span class="s">'/reference'</span><span class="p">)</span>
+<span class="n">imgzdays</span> <span class="o">=</span> <span class="p">(</span><span class="n">dayzpath</span> <span class="o">+</span> <span class="s">'/art'</span><span class="p">)</span>
+<span class="n">metzdays</span> <span class="o">=</span> <span class="p">(</span><span class="n">dayzpath</span> <span class="o">+</span> <span class="s">'/meta'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">fullhom</span> <span class="o">+</span> <span class="n">metzdays</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">metadict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>if i save the data to the file how am i going to get it to update as the post is archieved. Such as up and down votes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisz</span> <span class="ow">in</span> <span class="n">lisrgc</span><span class="p">:</span>
+    <span class="n">metadict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'up'</span><span class="p">:</span> <span class="n">lisz</span><span class="o">.</span><span class="n">ups</span><span class="p">})</span>
+    <span class="n">metadict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'down'</span><span class="p">:</span> <span class="n">lisz</span><span class="o">.</span><span class="n">downs</span><span class="p">})</span>
+    <span class="n">metadict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'title'</span><span class="p">:</span> <span class="n">lisz</span><span class="o">.</span><span class="n">title</span><span class="p">})</span>
+    <span class="n">metadict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'created'</span><span class="p">:</span> <span class="n">lisz</span><span class="o">.</span><span class="n">created</span><span class="p">})</span>
+    <span class="c">#metadict.update({'createdutc': lisz.created_utc})</span>
+    <span class="c">#print lisz.ups</span>
+    <span class="c">#print lisz.downs</span>
+    <span class="c">#print lisz.created</span>
+    <span class="c">#print lisz.comments</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">metadict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[56]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'created': 1420436236.0,
+ 'createdutc': 1420407436.0,
+ 'down': 0,
+ 'title': u"This is my favorite pic of my little ones, would anyone be interested in transforming it into color? I'd love to see your artistic interpretation!",
+ 'up': 2}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Need to save json object.</p>
+<p>Dict is created but it isnt saving. Looping through lisrgc twice, should only require the one loop.</p>
+<p>Cycle through lisr and append to dict/concert to json, and also cycle through lisr.author meta folders saving the json that was created.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisr</span> <span class="ow">in</span> <span class="n">lisrgc</span><span class="p">:</span>
+    <span class="n">gtdrndic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'title'</span><span class="p">:</span> <span class="n">lisr</span><span class="o">.</span><span class="n">title</span><span class="p">})</span>
+    <span class="n">lisauth</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lisr</span><span class="o">.</span><span class="n">author</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">osliz</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fullhom</span> <span class="o">+</span> <span class="n">metzdays</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lisr</span><span class="o">.</span><span class="n">author</span><span class="p">)</span> <span class="o">+</span> <span class="s">'.meta'</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">rstrin</span> <span class="o">=</span> <span class="n">lisr</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">,</span> <span class="s">'ignore'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">)</span>
+            <span class="c">#print matdict</span>
+            <span class="c">#metadict = dict()</span>
+            <span class="c">#for lisz in lisrgc:</span>
+            <span class="c">#    metadict.update({'up': lisz.ups})</span>
+            <span class="c">#    metadict.update({'down': lisz.downs})</span>
+            <span class="c">#    metadict.update({'title': lisz.title})</span>
+            <span class="c">#    metadict.update({'created': lisz.created})</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rstrin</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#matdict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[75]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'created': 1420436236.0,
+ 'down': 0,
+ 'title': u"This is my favorite pic of my little ones, would anyone be interested in transforming it into color? I'd love to see your artistic interpretation!",
+ 'up': 2}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I have it creating a meta folder and creating/writing username.meta files. It wrote 'test' in each folder, but now it writes the photo author title of post.. the username/image data. It should be writing more than author title - maybe upvotes/downvotes, subreddit, time published etc.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#os.listdir(dayzpath)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Instead of creating these white images, why not download the art replies of the reference photo.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#for lisa in lisauth:</span>
+<span class="c">#    #print lisa + '-line.png'</span>
+<span class="c">#    im = Image.new("RGB", (512, 512), "white")</span>
+<span class="c">#    im.save(lisa + '-line.png')</span>
+<span class="c">#    im = Image.new("RGB", (512, 512), "white")</span>
+<span class="c">#    im.save(lisa + '-bw.png')</span>
+
+    <span class="c">#print lisa + '-bw.png'</span>
+<span class="c">#    im = Image.new("RGB", (512, 512), "white")</span>
+<span class="c">#    im.save(lisa + '-colour.png')</span>
+
+    <span class="c">#print lisa + '-colour.png'</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom/imgs'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[64]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['getsdrawn-bw.png', '12', '15', '14']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#lisauth</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I want to save the list of usernames that submit images as png files in a dir. 
+Currently when I call the list of authors it returns Redditor(user_name='theusername'). I want to return 'theusername'.
+Once this is resolved I can add '-line.png' '-bw.png' '-colour.png' to each folder.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#lisr.author</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [67]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">namlis</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [68]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opsinz</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/visignsys/index.meta'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">panz</span> <span class="o">=</span> <span class="n">opsinz</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom/'</span> <span class="o">+</span> <span class="n">rmgzdays</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Filter the non jpeg/png links. Need to perform request or imgur api to get the jpeg/png files from the link. Hey maybe bs4?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [83]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/local/lib/python2.7/dist-packages/bs4/__init__.py:189: UserWarning: "http://m.imgur.com/uurbzet" looks like a URL. Beautiful Soup is not an HTTP client. You should probably use an HTTP client to get the document behind the URL, and feed that document to Beautiful Soup.
+  '"%s" looks like a URL. Beautiful Soup is not an HTTP client. You should probably use an HTTP client to get the document behind the URL, and feed that document to Beautiful Soup.' % markup)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [130]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">imgurpython</span> <span class="k">import</span> <span class="n">ImgurClient</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [136]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opps</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/ps.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">opzs</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/ps2.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">oprd</span> <span class="o">=</span> <span class="n">opps</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">opzrd</span> <span class="o">=</span> <span class="n">opzs</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [140]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">client</span> <span class="o">=</span> <span class="n">ImgurClient</span><span class="p">(</span><span class="n">oprd</span><span class="p">,</span> <span class="n">opzrd</span><span class="p">)</span>
+
+<span class="c"># Example request</span>
+<span class="c">#items = client.gallery()</span>
+<span class="c">#for item in items:</span>
+<span class="c">#    print(item.link)</span>
+    
+
+<span class="c">#itz = client.get_album_images()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-140-91dfeecf21cc&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">      7</span> <span class="ansiyellow"></span>
+<span class="ansigreen">      8</span> <span class="ansiyellow"></span>
+<span class="ansigreen">----&gt; 9</span><span class="ansiyellow"> </span>itz <span class="ansiyellow">=</span> client<span class="ansiyellow">.</span>get_album_images<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansired">TypeError</span>: get_album_images() takes exactly 2 arguments (1 given)</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [102]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">linklis</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I need to get the image ids from each url. Strip the <a href="http://imgur.com/">http://imgur.com/</a> from the string. The gallery id is the random characters after. if it's an album a is added. if multi imgs then , is used to seprate.</p>
+<p>Doesnt currently work.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [141]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">rdz</span> <span class="ow">in</span> <span class="n">lisrgc</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s">'http://imgur.com'</span> <span class="ow">in</span> <span class="n">rdz</span><span class="o">.</span><span class="n">url</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="n">rdz</span><span class="o">.</span><span class="n">url</span>
+        <span class="c">#itz = client.get_album_images()</span>
+<span class="c">#        reimg = requests.get(rdz.url)</span>
+<span class="c">##        retxt = reimg.text</span>
+<span class="c">#        souptxt = BeautifulSoup(''.join(retxt))</span>
+<span class="c">#        soupurz = souptxt.findAll('img')</span>
+<span class="c">#        for soupuz in soupurz:</span>
+<span class="c">#            imgurl = soupuz['src']</span>
+<span class="c">#            print imgurl</span>
+<span class="c">#            linklis.append(imgurl)</span>
+            
+            <span class="c">#try:</span>
+            <span class="c">#    imzdata = requests.get(imgurl)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>http://imgur.com/SBaV275
+http://imgur.com/pFHPdwE
+http://imgur.com/qRDkoj6
+http://imgur.com/a/lPqbx
+http://imgur.com/xmmw9H0
+http://imgur.com/ViCxsrS,lxpGIUQ#1
+http://imgur.com/3RtgPGW
+http://imgur.com/k2kzLZu
+http://imgur.com/a/LTDJ9
+http://imgur.com/KZqZncZ
+http://imgur.com/a/xhfGD
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [111]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">linklis</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[111]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['//i.imgur.com/SBaV275.jpg',
+ 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+ '//i.imgur.com/pFHPdwE.jpg',
+ 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+ '//i.imgur.com/qRDkoj6.jpg',
+ 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+ '//i.imgur.com/PzRhHTr.jpg',
+ '//i.imgur.com/FrlJauY.jpg']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [115]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">if</span> <span class="s">'.jpg'</span> <span class="ow">in</span> <span class="n">linklis</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="s">'yes'</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="s">'no'</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>no
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#panz()</span>
+<span class="k">for</span> <span class="n">rdz</span> <span class="ow">in</span> <span class="n">lisrgc</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">rdz</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="c">#a(rdz.url)</span>
+    <span class="k">if</span> <span class="s">'http://i.imgur.com'</span> <span class="ow">in</span> <span class="n">rdz</span><span class="o">.</span><span class="n">url</span><span class="p">:</span>
+        <span class="c">#print rdz.url</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">rdz</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">rdz</span><span class="o">.</span><span class="n">url</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">rdz</span><span class="o">.</span><span class="n">author</span><span class="p">)</span> <span class="o">+</span> <span class="s">'-reference.png'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span>
+            <span class="k">del</span> <span class="n">response</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>http://i.imgur.com/LPJyRvI.jpg
+http://i.imgur.com/IXscmtj.jpg
+http://i.imgur.com/HDkkpfs.jpg
+http://i.imgur.com/ENDI3AG.jpg
+http://i.imgur.com/P4ZXyZu.jpg
+http://i.imgur.com/fTznCbi.jpg
+http://i.imgur.com/aDIiH6t.jpg
+http://i.imgur.com/6NifkhZ.jpg
+http://i.imgur.com/EqnCVT7.jpg
+http://i.imgur.com/vJgRQ2n.jpg
+http://i.imgur.com/tMvP7jP.jpg
+http://i.imgur.com/EEae4eN.jpg
+http://i.imgur.com/SQeDd69.jpg
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">apsize</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">aptype</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">basewidth</span> <span class="o">=</span> <span class="mi">600</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">imgdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">rmglis</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom/'</span> <span class="o">+</span> <span class="n">rmgzdays</span><span class="p">):</span>
+    <span class="c">#print rmglis</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">rmglis</span><span class="p">)</span>
+    <span class="c">#print im.size</span>
+    <span class="n">imgdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">rmglis</span> <span class="p">:</span> <span class="n">im</span><span class="o">.</span><span class="n">size</span><span class="p">})</span>
+    <span class="c">#im.thumbnail(size, Image.ANTIALIAS)</span>
+    <span class="c">#im.save(file + ".thumbnail", "JPEG")</span>
+    <span class="n">apsize</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">aptype</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rmglis</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#for imdva in imgdict.values():</span>
+    <span class="c">#print imdva</span>
+    <span class="c">#for deva in imdva:</span>
+        <span class="c">#print deva</span>
+     <span class="c">#   if deva &lt; 1000:</span>
+      <span class="c">#      print 'omg less than 1000'</span>
+       <span class="c"># else:</span>
+        <span class="c">#    print 'omg more than 1000'</span>
+         <span class="c">#   print deva / 2</span>
+            <span class="c">#print imgdict.values</span>
+            <span class="c"># Needs to update imgdict.values with this new number. Must halve height also.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#basewidth = 300</span>
+<span class="c">#img = Image.open('somepic.jpg')</span>
+<span class="c">#wpercent = (basewidth/float(img.size[0]))</span>
+<span class="c">#hsize = int((float(img.size[1])*float(wpercent)))</span>
+<span class="c">#img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)</span>
+<span class="c">#img.save('sompic.jpg')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#os.chdir(metzdays)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#for numz in apsize:</span>
+<span class="c">#    print numz[0]</span>
+ <span class="c">#   if numz[0] &gt; 800:</span>
+<span class="c">#        print ('greater than 800')</span>
+<span class="c">#    else:</span>
+<span class="c">#        print ('less than 800!')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">reliz</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">refls</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom/'</span> <span class="o">+</span> <span class="n">rmgzdays</span><span class="p">):</span>
+    <span class="c">#print rmgzdays + refls</span>
+    <span class="n">reliz</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rmgzdays</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">refls</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">reliz</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[66]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['imgs/15/01/04/reference/clawz_nd_webz-reference.png',
+ 'imgs/15/01/04/reference/Jasperthecat77-reference.png',
+ 'imgs/15/01/04/reference/Xrayguy104-reference.png',
+ 'imgs/15/01/04/reference/trippedwire-reference.png',
+ 'imgs/15/01/04/reference/herooftime94-reference.png',
+ 'imgs/15/01/04/reference/OhDeBabies-reference.png',
+ 'imgs/15/01/04/reference/yumyumyoshi-reference.png',
+ 'imgs/15/01/04/reference/thaisun-reference.png',
+ 'imgs/15/01/04/reference/Resrey-reference.png',
+ 'imgs/15/01/04/reference/SinisterCanuck-reference.png',
+ 'imgs/15/01/04/reference/Marsinator-reference.png',
+ 'imgs/15/01/04/reference/zakkalaska-reference.png',
+ 'imgs/15/01/04/reference/jazzyghost-reference.png',
+ 'imgs/15/01/04/reference/Reptilebear-reference.png',
+ 'imgs/15/01/04/reference/WesternWaterTribe-reference.png',
+ 'imgs/15/01/04/reference/AidenXY-reference.png',
+ 'imgs/15/01/04/reference/mrsmomo-reference.png',
+ 'imgs/15/01/04/reference/SpaceFeline-reference.png',
+ 'imgs/15/01/04/reference/Jabald69-reference.png',
+ 'imgs/15/01/04/reference/harisshahzad98-reference.png',
+ 'imgs/15/01/04/reference/TinyB1-reference.png',
+ 'imgs/15/01/04/reference/crackettt-reference.png',
+ 'imgs/15/01/04/reference/seahorseVT-reference.png',
+ 'imgs/15/01/04/reference/the_master_blaster-reference.png',
+ 'imgs/15/01/04/reference/baconbreeder-reference.png']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [67]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">aptype</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[67]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['clawz_nd_webz-reference.png',
+ 'Jasperthecat77-reference.png',
+ 'Xrayguy104-reference.png',
+ 'trippedwire-reference.png',
+ 'herooftime94-reference.png',
+ 'OhDeBabies-reference.png',
+ 'yumyumyoshi-reference.png',
+ 'thaisun-reference.png',
+ 'Resrey-reference.png',
+ 'SinisterCanuck-reference.png',
+ 'Marsinator-reference.png',
+ 'zakkalaska-reference.png',
+ 'jazzyghost-reference.png',
+ 'Reptilebear-reference.png',
+ 'WesternWaterTribe-reference.png',
+ 'AidenXY-reference.png',
+ 'mrsmomo-reference.png',
+ 'SpaceFeline-reference.png',
+ 'Jabald69-reference.png',
+ 'harisshahzad98-reference.png',
+ 'TinyB1-reference.png',
+ 'crackettt-reference.png',
+ 'seahorseVT-reference.png',
+ 'the_master_blaster-reference.png',
+ 'baconbreeder-reference.png']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [68]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opad</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/ad.html'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opred</span> <span class="o">=</span> <span class="n">opad</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">str2</span> <span class="o">=</span> <span class="n">opred</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [71]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">str2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[71]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'&lt;script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;&lt;!-- header --&gt;&lt;ins class="adsbygoogle"     style="display:inline-block;width:970px;height:250px"     data-ad-client="ca-pub-2716205862465403"     data-ad-slot="3994067148"&gt;&lt;/ins&gt;&lt;script&gt;(adsbygoogle = window.adsbygoogle || []).push({});&lt;/script&gt;'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [72]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">doc</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'GetsDrawn'</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">doc</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
+    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">'stylesheet'</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">'style.css'</span><span class="p">)</span>
+    <span class="n">script</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span><span class="s">'text/javascript'</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">'script.js'</span><span class="p">)</span>
+    <span class="nb">str</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'header'</span><span class="p">)</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">'GetsDrawn'</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">img</span><span class="p">(</span><span class="s">'imgs/getsdrawn-bw.png'</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">'imgs/getsdrawn-bw.png'</span><span class="p">))</span>
+        <span class="c">#p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">'Updated '</span><span class="p">,</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"%a, %d %b %Y %H:%M:%S +0000"</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">()))</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">panz</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">bodycom</span><span class="p">)</span>
+    
+    
+
+<span class="k">with</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ol</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">rdz</span> <span class="ow">in</span> <span class="n">reliz</span><span class="p">:</span>
+            <span class="c">#h1(rdz.title)</span>
+            <span class="c">#a(rdz.url)</span>
+            <span class="c">#p(img(rdz, src='%s' % rdz))</span>
+            <span class="c">#print rdz</span>
+            <span class="n">p</span><span class="p">(</span><span class="n">img</span><span class="p">(</span><span class="n">rdz</span><span class="p">,</span> <span class="n">src</span> <span class="o">=</span> <span class="n">rdz</span><span class="p">))</span>
+            <span class="n">p</span><span class="p">(</span><span class="n">rdz</span><span class="p">)</span>
+
+
+                
+            <span class="c">#print rdz.url</span>
+            <span class="c">#if '.jpg' in rdz.url:</span>
+            <span class="c">#    img(rdz.urlz)</span>
+            <span class="c">#else:</span>
+            <span class="c">#    a(rdz.urlz)</span>
+            <span class="c">#h1(str(rdz.author))</span>
+            
+            <span class="c">#li(img(i.lower(), src='%s' % i))</span>
+
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">'GetsDrawn is open source'</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">'https://github.com/getsdrawn/getsdrawndotcom'</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">'https://reddit.com/r/redditgetsdrawn'</span><span class="p">)</span>
+
+<span class="c">#print doc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [73]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">docre</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#s = docre.decode('ascii', 'ignore')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">yourstring</span> <span class="o">=</span> <span class="n">docre</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">,</span> <span class="s">'ignore'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [76]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">indfil</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom/index.html'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">mkind</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">indfil</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">mkind</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yourstring</span><span class="p">)</span>
+<span class="n">mkind</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [78]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#os.system('scp -r /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [79]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#rsync -azP source destination</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [80]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#updatehtm = raw_input('Update index? Y/n')</span>
+<span class="c">#updateref = raw_input('Update reference? Y/n')</span>
+
+<span class="c">#if 'y' or '' in updatehtm:</span>
+<span class="c">#    os.system('scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html')</span>
+<span class="c">#elif 'n' in updatehtm:</span>
+<span class="c">#    print 'not uploading'</span>
+<span class="c">#if 'y' or '' in updateref:</span>
+<span class="c">#    os.system('rsync -azP /home/wcmckee/getsdrawndotcom/ wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'scp -r /home/wcmckee/getsdrawndotcom/index.html wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/index.html'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[81]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [553]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c">#os.system('scp -r /home/wcmckee/getsdrawndotcom/style.css wcmckee@getsdrawn.com:/home/wcmckee/getsdrawndotcom/style.css')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [553]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [321]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [138]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [138]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/pygitx.html" class="u-url">pygitx</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
