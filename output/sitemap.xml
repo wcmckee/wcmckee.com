@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://wcmckee.com/2015/index.html</loc>
-  <lastmod>2015-02-26</lastmod>
+  <lastmod>2015-02-27</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/archive.html</loc>
@@ -22,11 +22,11 @@
  </url>
  <url>
   <loc>http://wcmckee.com/index-1.html</loc>
-  <lastmod>2015-02-26</lastmod>
+  <lastmod>2015-02-27</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index.html</loc>
-  <lastmod>2015-02-26</lastmod>
+  <lastmod>2015-02-27</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/listings/index.html</loc>
@@ -49,6 +49,10 @@
   <lastmod>2015-02-19</lastmod>
  </url>
  <url>
+  <loc>http://wcmckee.com/posts/lockacc.html</loc>
+  <lastmod>2015-02-27</lastmod>
+ </url>
+ <url>
   <loc>http://wcmckee.com/posts/pgguserdel.html</loc>
   <lastmod>2015-02-19</lastmod>
  </url>
@@ -66,7 +70,7 @@
  </url>
  <url>
   <loc>http://wcmckee.com/posts/revcoffee.html</loc>
-  <lastmod>2015-02-26</lastmod>
+  <lastmod>2015-02-27</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/signinlca.html</loc>
