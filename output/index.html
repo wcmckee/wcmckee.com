@@ -81,6 +81,765 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/wcusersdata.html" class="u-url">wcusersdata</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/wcusersdata.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-01T01:54:01+00:00" itemprop="datePublished" title="Publication date">2015-03-01 01:54</time></a></p>
+                <p class="commentline">            <a href="posts/wcusersdata.html#disqus_thread" data-disqus-identifier="cache/posts/wcusersdata.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>wcUsersData</p>
+<p>Script to get users logged into the system.</p>
+<p>Saves the output of users as the hostname of the system.
+Convert to a dict and json object, merging with other hostname output.</p>
+<p>Runs script every min and if user is found then - time from their account</p>
+<p>File with, usernames, time remaining on user.</p>
+<p>time file is a json object.
+{'username' : 'wcmckee', 'time' : 320 }</p>
+<p>time is amount of time left on account.</p>
+<p>script to check this object and if 0 - lock account. ELSE, allow login.</p>
+<p>Script to add time to acoun,, auto add time to certain groups/user a day.</p>
+<p>username 45</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">usertimedict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">lisho</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">ish</span> <span class="ow">in</span> <span class="n">lisho</span><span class="p">:</span>
+    <span class="n">usertimedict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">ish</span> <span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">usertimedict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'blag': 0,
+ 'blah': 0,
+ 'charle': 0,
+ 'checkthis': 0,
+ 'clittle': 0,
+ 'figlet': 0,
+ 'gerty': 0,
+ 'jblog': 0,
+ 'jchick': 0,
+ 'joecheck': 0,
+ 'joeman': 0,
+ 'joemanz': 0,
+ 'pjohns': 0,
+ 'poi': 0,
+ 'point': 0,
+ 'poiu': 0,
+ 'pytest': 0,
+ 'qwe': 0,
+ 'red': 0,
+ 'signinlca.py': 0,
+ 'sjohns': 0,
+ 'ssung': 0,
+ 'tnow': 0,
+ 'wblack': 0,
+ 'wcm': 0,
+ 'wcmckee': 0,
+ 'webmck': 0,
+ 'wez': 0,
+ 'wkee': 0,
+ 'wmen': 0}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">addtime</span> <span class="o">=</span> <span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s">'add how much time: '</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>add how much time: 15
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#letim = len(addtime)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#letim</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">addtime</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'15'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="nb">type</span><span class="p">(</span><span class="n">addtime</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>str</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">intime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">addtime</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">ish</span> <span class="ow">in</span> <span class="n">lisho</span><span class="p">:</span>
+    <span class="n">usertimedict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">ish</span> <span class="p">:</span> <span class="n">intime</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">usertimedict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'blag': 15,
+ 'blah': 15,
+ 'charle': 15,
+ 'checkthis': 15,
+ 'clittle': 15,
+ 'figlet': 15,
+ 'gerty': 15,
+ 'jblog': 15,
+ 'jchick': 15,
+ 'joecheck': 15,
+ 'joeman': 15,
+ 'joemanz': 15,
+ 'pjohns': 15,
+ 'poi': 15,
+ 'point': 15,
+ 'poiu': 15,
+ 'pytest': 15,
+ 'qwe': 15,
+ 'red': 15,
+ 'signinlca.py': 15,
+ 'sjohns': 15,
+ 'ssung': 15,
+ 'tnow': 15,
+ 'wblack': 15,
+ 'wcm': 15,
+ 'wcmckee': 15,
+ 'webmck': 15,
+ 'wez': 15,
+ 'wkee': 15,
+ 'wmen': 15}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">myhn</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Edit just one person</span>
+
+<span class="n">edione</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Which user to edit time: '</span><span class="p">)</span>
+<span class="n">timedi</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'How much time to add: '</span><span class="p">)</span>
+
+<span class="n">usertimedict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">edione</span> <span class="p">:</span> <span class="n">timedi</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Which user to edit time: point
+How much time to add: 100
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">jstim</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">usertimedict</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">jstim</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'{"wcmckee": 15, "joemanz": 15, "point": 15, "qwe": 15, "wkee": 15, "checkthis": 15, "poiu": 15, "blah": 15, "charle": 15, "poi": 15, "tnow": 15, "clittle": 15, "wblack": 15, "ssung": 15, "wmen": 15, "blag": 15, "signinlca.py": 15, "sjohns": 15, "gerty": 15, "webmck": 15, "joeman": 15, "joecheck": 15, "jchick": 15, "pytest": 15, "jblog": 15, "pjohns": 15, "wez": 15, "figlet": 15, "wcm": 15, "red": 15}'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opus</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/hostnames/'</span> <span class="o">+</span> <span class="n">myhn</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+
+<span class="n">opus</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">jstim</span><span class="p">)</span>
+<span class="n">opus</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">rdopuw</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/hostnames/localhost'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">rdopuw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{"wcmckee": 15, "joemanz": 15, "point": 15, "qwe": 15, "wkee": 15, "checkthis": 15, "poiu": 15, "blah": 15, "charle": 15, "poi": 15, "tnow": 15, "clittle": 15, "wblack": 15, "ssung": 15, "wmen": 15, "blag": 15, "signinlca.py": 15, "sjohns": 15, "gerty": 15, "webmck": 15, "joeman": 15, "joecheck": 15, "jchick": 15, "pytest": 15, "jblog": 15, "pjohns": 15, "wez": 15, "figlet": 15, "wcm": 15, "red": 15}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">edione</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[33]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'point'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">limedi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">timedi</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">limedi</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[35]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">osscm</span> <span class="o">=</span> <span class="p">(</span><span class="s">'users &gt; '</span> <span class="o">+</span> <span class="n">myhn</span> <span class="o">+</span> <span class="s">'.txt'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">osscm</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'users &gt; naplesyellow.txt'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">osscm</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ophos</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/'</span> <span class="o">+</span> <span class="n">myhn</span> <span class="o">+</span> <span class="s">'.txt'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">ophos</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'noby wcmckee wcmckee wcmckee wcmckee wcmckee\n'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ophos</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/salerev.html" class="u-url">salerev</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
@@ -6433,85 +7192,6 @@ index.html
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
-    </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/resume.html" class="u-url">resume</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/resume.html" rel="bookmark"><time class="published dt-published" datetime="2015-01-25T00:00:00+00:00" itemprop="datePublished" title="Publication date">2015-01-25 00:00</time></a></p>
-                <p class="commentline">            <a href="posts/resume.html#disqus_thread" data-disqus-identifier="cache/posts/resume.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4>William Mckee</h4>
-
-<p>Email: will (at) artcontrol.me</p>
-<p>Phone: 0223721475</p>
-<h4>Education</h4>
-
-<p>Diploma with Honors in Art and Creativity. The Learning Connection. July 2010 - December 2012.</p>
-<p>Studied Drawing and Design. Palmerston North School Of Design. October 2008 - July 2010.</p>
-<p>Studied Applied Visual Imaging. Palmerston North UCOL. 2007 - 2009.</p>
-<p>NCEA Level 2. Horowhenua Collage, Levin. 2002 - 2006</p>
-<h4>Work</h4>
-
-<p>Education Support Worker, Ministery of Education. Working at Whaihanga Early Learning Centre. October 2014 - December 2014.</p>
-<p>Video Game Development tutor. Chalkle. September 2013.</p>
-<p>Casual Life modeling. The Learning Connection. 2011 - 2012.</p>
-<p>Mail Delivery. Kiwi Mail. 2004</p>
-<h4>Volunteer</h4>
-
-<p>linux.conf.au. January 10-16 2015. AV team - recording speakers talks. <a href="http://linux.conf.au/">http://linux.conf.au/</a></p>
-<p>Te Whare O Te Ata (Fairfield Community Centre). Feburary 2014 - September 2014. Working with children on IT and art. Learning Linux sysadmin. <a href="http://fairfield.org.nz/">http://fairfield.org.nz/</a></p>
-<p>Python Weekly Classes. 2014. Te Whare O Te Ata. Wednesday night programming and computer help.</p>
-<p>Whaihanga Early Learning Centre. 2014. Helper. Areas of note: art and building with blocks. Assistence with morning walks.</p>
-<p>SeniorNet, Levin. 2013. Helped eldely with their digital devices.</p>
-<p>Company Branding Shop. 2010. Screen printing. <a href="http://shirt.co.nz">http://shirt.co.nz</a></p>
-<h4>Speaker</h4>
-
-<p>linux.conf.au. Jan 2015. Lightning Talk at astro miniconf regarding IPython Notebook. <a href="http://bit.ly/15zGtNC">http://bit.ly/15zGtNC</a></p>
-<p>Hamilton Computer Club. 2013 - 2014. Involvment and speaker Feb 2014 on Python programming language.</p>
-<p>Hamilton Linux Users Group. 2014. Speaker on GoDot Game Engine.</p>
-<p>Kiwi PyCon 2013. Lightning Talk regarding lastfm api. <a href="http://bit.ly/18dgBJb">http://bit.ly/18dgBJb</a></p>
-<h4>Personal Projects</h4>
-
-<p>ArtControl.me: The Art Of William Mckee. 2010 - Ongoing. Blog for uploading and discussing artwork. Pencil Drawing, Digital Painting. Life drawing, portraits, street scenes, landscapes. <a href="http://artcontrol.me">http://artcontrol.me</a> CC:BY licence.</p>
-<p>BroBeur Studios: Video Game Development. 2012 - 2013. 13 game on Google Play Store. Majority solo, created between 48hours and 7days. Collab with others in small 2-4 people teams. Involve in Global Game Jam 2013, 2014, 2015. <a href="http://brobeur.com">http://brobeur.com</a></p>
-<p>FreshFigure Photography. 2012 - Ongoing. Stock Photography site to host photography. Street and landscapes. Photography used by Horowhenua Mail, March 2013. <a href="http://freshfigure.com/art">http://freshfigure.com/art</a> CC:BY licence.</p>
-<p>WCMCKEE: Web and Software Development. 2011 - Ongoing. Pythong programming. Web scalping, data processing, website generation. Notable sites/scripts generatored include <a href="http://getsdrawn.com">http://getsdrawn.com</a> and LCA Signin (digital signin/out system). <a href="http://wcmckee.com">http://wcmckee.com</a> MIT licence</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
