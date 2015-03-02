@@ -81,6 +81,1159 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/productsell.html" class="u-url">productsell</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/productsell.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-02T03:47:40+00:00" itemprop="datePublished" title="Publication date">2015-03-02 03:47</time></a></p>
+                <p class="commentline">            <a href="posts/productsell.html#disqus_thread" data-disqus-identifier="cache/posts/productsell.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Product Sell</h2>
+
+<h4>Script to sell a product.</h4> 
+
+<p>Gets products list from /sellcoffee/products folder.
+input what to sell. 
+or input 4 digit code of product.</p>
+<p>Input amount of product to sell</p>
+<p>Processes the sale, increasing number of product filename
+by input amount to sell.</p>
+<p>Creates dict of sale, includes time, date, product (inputed data), amount (inputed sales amount), 
+served by, hostname of machine that processed transaction, 
+e receipts.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [121]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">arrow</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [122]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">prodir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/products/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [123]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">lsprod</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">prodir</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [124]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">lsprod</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>['debian', 'internet', 'python', 'pepsi', 'coke', 'chips']
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [125]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">sellwhat</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Sell what: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sell what: python
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [135]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">fpathz</span> <span class="o">=</span> <span class="p">(</span><span class="n">prodir</span> <span class="o">+</span> <span class="n">sellwhat</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">sellwhat</span> <span class="o">+</span> <span class="s">'-amount'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [136]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">fpathz</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[136]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'/home/wcmckee/sellcoffee/products/python/python-amount'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [137]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Open the file up and increase the sale number by one.</span>
+
+<span class="n">selinp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fpathz</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+
+<span class="n">cursal</span> <span class="o">=</span> <span class="n">selinp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">selinp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [139]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">cursal</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [138]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">conint</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cursal</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [140]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#1 is amount to sell. Maybe raw_input enter int to sell more</span>
+<span class="c">#than one</span>
+
+<span class="n">amounsel</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Amount to sell: '</span><span class="p">)</span>
+<span class="n">amount</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">amounsel</span><span class="p">)</span>
+<span class="n">newintz</span> <span class="o">=</span> <span class="n">conint</span> <span class="o">+</span> <span class="n">amount</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Amount to sell: 5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [141]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">newintz</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[141]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [142]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">fildir</span> <span class="o">=</span> <span class="p">(</span><span class="n">prodir</span> <span class="o">+</span> <span class="n">sellwhat</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">sellwhat</span> <span class="o">+</span> <span class="s">'-amount'</span><span class="p">)</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [143]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">fildir</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[143]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'/home/wcmckee/sellcoffee/products/python/python-amount'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [143]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [144]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">sewha</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fildir</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+
+<span class="n">sewha</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">newintz</span><span class="p">))</span>
+
+<span class="n">sewha</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [145]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opfolaz</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fildir</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">opfolaz</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [146]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opfolaz</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [147]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Need to report back by updating dict() of 24 hour value</span>
+<span class="c">#that sale is +. </span>
+
+<span class="c">#Dict that is recect of current sale. Name of product, amount.</span>
+<span class="c">#Cost * amount.</span>
+<span class="c">#Paid by cash, eftpos, credit card etc...</span>
+<span class="c">#Change to be given.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [148]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">locdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [149]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">autc</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [150]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">hrsaledict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [151]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">authr</span> <span class="o">=</span> <span class="n">autc</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%H'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [152]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">aumin</span> <span class="o">=</span> <span class="n">autc</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%M'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [153]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ausec</span> <span class="o">=</span><span class="n">autc</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%S'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [154]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="nb">str</span><span class="p">(</span><span class="n">autc</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[154]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'2015-03-02'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [155]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">auall</span> <span class="o">=</span> <span class="n">authr</span> <span class="o">+</span> <span class="n">aumin</span> <span class="o">+</span> <span class="n">ausec</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [169]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">fzaq</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">autc</span><span class="o">.</span><span class="n">date</span><span class="p">())</span> <span class="o">+</span> <span class="s">'-'</span> <span class="o">+</span> <span class="n">auall</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [170]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">fzaq</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[170]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'2015-03-02-033801'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [157]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">hrsaledict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">auall</span> <span class="p">:</span> <span class="n">amount</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [158]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">locdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'product'</span> <span class="p">:</span> <span class="n">sellwhat</span><span class="p">,</span> <span class="s">'amount'</span> <span class="p">:</span> <span class="n">amount</span><span class="p">,</span> <span class="s">'time'</span><span class="p">:</span> <span class="n">auall</span><span class="p">,</span> <span class="s">'date'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">autc</span><span class="o">.</span><span class="n">date</span><span class="p">())})</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [159]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">lcojson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">locdict</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [160]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">lcojson</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[160]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'{"date": "2015-03-02", "product": "python", "amount": 5, "time": "033801"}'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [161]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[161]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'J1\x1b\xd8\x04\xd2X'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">fzaq</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">salcoj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/archive/'</span> <span class="o">+</span> <span class="n">fzaq</span> <span class="o">+</span> <span class="s">'.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+
+<span class="n">salcoj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">lcojson</span><span class="p">)</span>
+
+<span class="n">salcoj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [101]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">hrsaledict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{'015242': 2}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [102]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#7 character unique id for each transaction</span>
+<span class="c">#More than 1 product type sale transaction.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Add another product? Y/n Question after the amount of product.</span>
+<span class="c">#</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/productadd.html" class="u-url">productadd</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/productadd.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-02T03:46:58+00:00" itemprop="datePublished" title="Publication date">2015-03-02 03:46</time></a></p>
+                <p class="commentline">            <a href="posts/productadd.html#disqus_thread" data-disqus-identifier="cache/posts/productadd.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Product Add</h2>
+
+<p>Script to add a new product to list of them. Location is /home/wcmckee/sellcoffee/products.</p>
+<p>Better to have a file for products or a folder? Might be easier to have a folder.
+Each product has rsa key - public and private key.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="c">#from passlib.hash import pbkdf2_sha256</span>
+<span class="c">#import crypt, getpass, spwd</span>
+<span class="c">#from Crypto.PublicKey import RSA</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">prodirz</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/products/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">prolis</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">prodirz</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">prolis</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>['debian', 'internet', 'tea', 'coke']
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">prodoadd</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Name of product to add: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name of product to add: deb
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">prodirc</span> <span class="o">=</span> <span class="p">(</span><span class="n">prodirz</span> <span class="o">+</span> <span class="n">prodoadd</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">prodirc</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">opmeta</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">prodirc</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span>  <span class="n">prodoadd</span> <span class="o">+</span> <span class="s">'-amount'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+
+<span class="n">opmeta</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'0'</span><span class="p">)</span>
+
+<span class="n">opmeta</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#switching to folders for each product. Inside folder has rsa</span>
+<span class="c">#and rsa.public.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#opnewp = open(prodirz + prodoadd, 'w')</span>
+
+<span class="c">##opnewp.write('0')</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#new_key = RSA.generate(2048, e=65537)</span>
+<span class="c">#public_key = new_key.publickey().exportKey("PEM")</span>
+<span class="c">#private_key = new_key.exportKey("PEM")</span>
+<span class="c">#print private_key </span>
+<span class="c">#sapriv = open(prodirc + '/' + prodoadd, 'w')</span>
+<span class="c">#sapriv.write(private_key)</span>
+<span class="c">#sapriv.close()</span>
+
+<span class="c">#print public_key </span>
+<span class="c">#papriv =  open(prodirc + '/' +  prodoadd + '.pub', 'w')</span>
+<span class="c">#papriv.write(public_key)</span>
+<span class="c">#papriv.close()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#dict that has all the product details. When it was first</span>
+<span class="c">#created. Price. </span>
+<span class="c">#amount sold. This value will be zero when a product is created</span>
+<span class="c">#but add 1 with productsell script. </span>
+<span class="c">#Store amount sold data in dict</span>
+<span class="c">#or just a file called productname-amountsold.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#opnewp.close()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#for prol in prolis:</span>
+<span class="c">#    print prol</span>
+<span class="c">#    adprod = open(prodirz + prol + '.meta', 'w')</span>
+<span class="c">#    adprod.write(</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>debian
+internet
+python
+coffee
+tired
+snake
+vogals
+sleep
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#adprod = open(pro</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/wcusersdata.html" class="u-url">wcusersdata</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
@@ -5974,1221 +7127,6 @@ clittle
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
-    </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/pyguessgame.html" class="u-url">pyguessgame</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/pyguessgame.html" rel="bookmark"><time class="published dt-published" datetime="2015-02-15T18:10:18+00:00" itemprop="datePublished" title="Publication date">2015-02-15 18:10</time></a></p>
-                <p class="commentline">            <a href="posts/pyguessgame.html#disqus_thread" data-disqus-identifier="cache/posts/pyguessgame.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [65]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">urwid</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pyfiglet</span> <span class="kn">import</span> <span class="n">Figlet</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">clint</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Started as a simple python guessing game to be ran in terminal. 
-Asks for a number between 0-10 and works up to 100 - asking for the next 10 each time. 
-On win a urwid screen shows with 'You Win'. It would be nice if the whole game was inside of urwid.
-Figlet intergration.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Figlet</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">opusr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">opusr</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[41]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>['tnow',
- 'signinlca.py',
- 'charle',
- 'wcm',
- 'wmck',
- 'wmen',
- 'webmck',
- 'pjohns',
- 'red',
- 'wez',
- 'checkthis',
- 'blah',
- 'jchick',
- 'poiu',
- 'poi',
- 'qwe',
- 'point',
- 'cvb',
- 'blag',
- 'gerty',
- 'jblog',
- 'ssung',
- 'clittle',
- 'yellow']</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ranumz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">opusr</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ranin</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ranumz</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ranin</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[44]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>15</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">opza</span> <span class="o">=</span>  <span class="n">opusr</span><span class="p">[</span><span class="n">ranin</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [46]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">opza</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[46]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'qwe'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">lidte</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/signinlca/usernames/'</span> <span class="o">+</span> <span class="n">opza</span> <span class="o">+</span> <span class="s">'/.signups.json'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [48]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">plid</span> <span class="o">=</span> <span class="n">lidte</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [51]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">tlid</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">plid</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [64]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">firna</span> <span class="o">=</span> <span class="n">tlid</span><span class="p">[</span><span class="s">'firstname'</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [60]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">tlicha</span> <span class="o">=</span> <span class="n">tlid</span><span class="p">[</span><span class="s">'lastname'</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [66]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">fullna</span> <span class="o">=</span> <span class="n">firna</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="n">tlicha</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [67]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">clint.textui</span> <span class="kn">import</span> <span class="n">colored</span><span class="p">,</span> <span class="n">puts</span>
-
-<span class="n">perf</span> <span class="o">=</span> <span class="n">puts</span><span class="p">(</span><span class="n">colored</span><span class="o">.</span><span class="n">yellow</span><span class="p">(</span><span class="n">fullna</span><span class="p">))</span>
-
-<span class="n">perf</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>qwe qwe
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [63]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">opza</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">fullna</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>                    
-  __ ___      _____ 
- / _` \ \ /\ / / _ \
-| (_| |\ V  V /  __/
- \__, | \_/\_/ \___|
-    |_|             
-
-qwe qwe
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">exitq</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s">'enter'</span><span class="p">,</span> <span class="s">'return'</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">urwid</span><span class="o">.</span><span class="n">ExitMainLoop</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">pallette</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s">'banner'</span><span class="p">,</span> <span class="s">'dark red'</span><span class="p">,</span> <span class="s">'white'</span><span class="p">),</span>
-    <span class="p">(</span><span class="s">'streak'</span><span class="p">,</span> <span class="s">'dark red'</span><span class="p">,</span> <span class="s">'white'</span><span class="p">),</span>
-    <span class="p">(</span><span class="s">'bg'</span><span class="p">,</span> <span class="s">'dark red'</span><span class="p">,</span> <span class="s">'white'</span><span class="p">),]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">numchez</span> <span class="o">=</span> <span class="mi">0</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [48]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">guesz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">farchez</span> <span class="o">=</span> <span class="p">(</span><span class="n">numchez</span><span class="p">)</span>
-    <span class="n">numchez</span> <span class="o">=</span> <span class="p">(</span><span class="n">numchez</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">GetNum</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">farchez</span><span class="p">,</span><span class="n">numchez</span><span class="p">)</span>
-    
-    <span class="n">randnum</span> <span class="o">=</span> <span class="n">GetNum</span><span class="p">()</span>
-    
-    <span class="n">lownumz</span> <span class="o">=</span> <span class="p">(</span><span class="n">numchez</span><span class="p">)</span>
-    
-    <span class="n">innumz</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Enter a number between '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">farchez</span><span class="p">)</span> <span class="o">+</span> <span class="s">' and '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lownumz</span><span class="p">)</span> <span class="o">+</span> <span class="s">': '</span><span class="p">)</span>
-    
-    <span class="n">guessnum</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">innumz</span><span class="p">)</span>
-    
-    <span class="n">guesintz</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">guessnum</span><span class="p">)</span>
-    
-    <span class="k">print</span> <span class="p">(</span><span class="s">'Guess was: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">guesintz</span><span class="p">))</span>
-    <span class="c">#colomod</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s">'Correct was: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">))</span>
-    
-    <span class="k">if</span> <span class="n">guesintz</span> <span class="o">==</span> <span class="n">randnum</span><span class="p">:</span>
-        <span class="n">txt</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span> <span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)</span> <span class="o">+</span> <span class="s">' You Win!'</span><span class="p">))</span>
-        <span class="n">numpor</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span><span class="p">))</span>
-        <span class="n">map1</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s">'streak'</span><span class="p">)</span>
-        <span class="n">mep</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">numpor</span><span class="p">,</span> <span class="s">'streak'</span><span class="p">)</span>
-        <span class="n">fil</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">map1</span><span class="p">)</span>
-        <span class="n">fel</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">mep</span><span class="p">)</span>
-        <span class="n">map2</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="s">'bg'</span><span class="p">)</span>
-        <span class="n">loopa</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">fel</span><span class="p">,</span> <span class="s">'bg'</span><span class="p">)</span>
-        <span class="n">looena</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">loopa</span><span class="p">,</span> <span class="n">pallette</span><span class="p">,</span> <span class="n">unhandled_input</span><span class="o">=</span><span class="n">exitq</span><span class="p">)</span>
-        <span class="n">looena</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-        <span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="n">pallette</span><span class="p">,</span> <span class="n">unhandled_input</span><span class="o">=</span><span class="n">exitq</span><span class="p">)</span>
-        <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-        <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)</span> <span class="o">+</span> <span class="s">' You Win!'</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">txt</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)</span> <span class="o">+</span> <span class="s">' You Lose!'</span><span class="p">))</span>
-        <span class="n">map1</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s">'streak'</span><span class="p">)</span>
-        <span class="n">fil</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">map1</span><span class="p">)</span>
-        <span class="n">map2</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="s">'bg'</span><span class="p">)</span>
-        <span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="n">pallette</span><span class="p">,</span> <span class="n">unhandled_input</span><span class="o">=</span><span class="n">exitq</span><span class="p">)</span>
-        <span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-        <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)</span> <span class="o">+</span> <span class="s">' You lose!'</span><span class="p">)</span>
-        
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Enter a number between 70 and 80: 
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">ValueError</span>                                Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-48-ff8888390e77&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">     14</span>     guessnum <span class="ansiyellow">=</span> raw_input<span class="ansiyellow">(</span>innumz<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">     15</span> <span class="ansiyellow"></span>
-<span class="ansigreen">---&gt; 16</span><span class="ansiyellow">     </span>guesintz <span class="ansiyellow">=</span> int<span class="ansiyellow">(</span>guessnum<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">     17</span> <span class="ansiyellow"></span>
-<span class="ansigreen">     18</span>     <span class="ansigreen">print</span> <span class="ansiyellow">(</span><span class="ansiblue">'Guess was: '</span> <span class="ansiyellow">+</span> str<span class="ansiyellow">(</span>guesintz<span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansired">ValueError</span>: invalid literal for int() with base 10: ''</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">txt</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">renderText</span><span class="p">(</span><span class="n">guessnum</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">randnum</span><span class="p">)))</span>
-<span class="c">#numpor = urwid.Text(f.renderText(guessnum))</span>
-<span class="n">map1</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s">'streak'</span><span class="p">)</span>
-<span class="c">#mep = urwid.AttrMap(numpor, 'streak')</span>
-<span class="n">fil</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">Filler</span><span class="p">(</span><span class="n">map1</span><span class="p">)</span>
-<span class="c">#fel = urwid.Filler(mep)</span>
-<span class="n">map2</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">AttrMap</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="s">'bg'</span><span class="p">)</span>
-<span class="c">#loopa = urwid.AttrMap(fel, 'bg')</span>
-<span class="c">#looena = urwid.MainLoop(loopa, pallette, unhandled_input=exitq)</span>
-<span class="c">#looena.run()</span>
-<span class="n">loop</span> <span class="o">=</span> <span class="n">urwid</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">(</span><span class="n">fil</span><span class="p">,</span> <span class="n">pallette</span><span class="p">,</span> <span class="n">unhandled_input</span><span class="o">=</span><span class="n">exitq</span><span class="p">)</span>
-<span class="n">loop</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>7[?47h[?1002l[?1000l[?1000h[?1002h</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-35-0a8c9e47ba8d&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">     10</span> <span class="ansired">#looena.run()</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
-<span class="ansigreen">     11</span> loop <span class="ansiyellow">=</span> urwid<span class="ansiyellow">.</span>MainLoop<span class="ansiyellow">(</span>fil<span class="ansiyellow">,</span> pallette<span class="ansiyellow">,</span> unhandled_input<span class="ansiyellow">=</span>exitq<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">---&gt; 12</span><span class="ansiyellow"> </span>loop<span class="ansiyellow">.</span>run<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">     13</span> <span class="ansigreen">print</span> f<span class="ansiyellow">.</span>renderText<span class="ansiyellow">(</span><span class="ansiblue">'You Win!'</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/main_loop.pyc</span> in <span class="ansicyan">run</span><span class="ansiblue">(self)</span>
-<span class="ansigreen">    276</span>         """
-<span class="ansigreen">    277</span>         <span class="ansigreen">try</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 278</span><span class="ansiyellow">             </span>self<span class="ansiyellow">.</span>_run<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    279</span>         <span class="ansigreen">except</span> ExitMainLoop<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">    280</span>             <span class="ansigreen">pass</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/main_loop.pyc</span> in <span class="ansicyan">_run</span><span class="ansiblue">(self)</span>
-<span class="ansigreen">    373</span>                 self<span class="ansiyellow">.</span>screen<span class="ansiyellow">.</span>stop<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    374</span> <span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 375</span><span class="ansiyellow">         </span>self<span class="ansiyellow">.</span>event_loop<span class="ansiyellow">.</span>run<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    376</span>         self<span class="ansiyellow">.</span>stop<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    377</span> <span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/main_loop.pyc</span> in <span class="ansicyan">run</span><span class="ansiblue">(self)</span>
-<span class="ansigreen">    676</span>             <span class="ansigreen">while</span> True<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">    677</span>                 <span class="ansigreen">try</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 678</span><span class="ansiyellow">                     </span>self<span class="ansiyellow">.</span>_loop<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    679</span>                 <span class="ansigreen">except</span> select<span class="ansiyellow">.</span>error <span class="ansigreen">as</span> e<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">    680</span>                     <span class="ansigreen">if</span> e<span class="ansiyellow">.</span>args<span class="ansiyellow">[</span><span class="ansicyan">0</span><span class="ansiyellow">]</span> <span class="ansiyellow">!=</span> <span class="ansicyan">4</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/main_loop.pyc</span> in <span class="ansicyan">_loop</span><span class="ansiblue">(self)</span>
-<span class="ansigreen">    713</span> <span class="ansiyellow"></span>
-<span class="ansigreen">    714</span>         <span class="ansigreen">for</span> fd <span class="ansigreen">in</span> ready<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 715</span><span class="ansiyellow">             </span>self<span class="ansiyellow">.</span>_watch_files<span class="ansiyellow">[</span>fd<span class="ansiyellow">]</span><span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    716</span>             self<span class="ansiyellow">.</span>_did_something <span class="ansiyellow">=</span> True<span class="ansiyellow"></span>
-<span class="ansigreen">    717</span> <span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">&lt;lambda&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">    390</span>         <span class="ansigreen">else</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">    391</span>             wrapper = lambda: self.parse_input(
-<span class="ansigreen">--&gt; 392</span><span class="ansiyellow">                 event_loop, callback, self.get_available_raw_input())
-</span><span class="ansigreen">    393</span>         fds <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>get_input_descriptors<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    394</span>         handles <span class="ansiyellow">=</span> <span class="ansiyellow">[</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">get_available_raw_input</span><span class="ansiblue">(self)</span>
-<span class="ansigreen">    424</span>         implementation<span class="ansiyellow">;</span> you can safely ignore it <span class="ansigreen">if</span> you implement your own<span class="ansiyellow">.</span><span class="ansiyellow"></span>
-<span class="ansigreen">    425</span>         """
-<span class="ansigreen">--&gt; 426</span><span class="ansiyellow">         </span>codes <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>_get_gpm_codes<span class="ansiyellow">(</span><span class="ansiyellow">)</span> <span class="ansiyellow">+</span> self<span class="ansiyellow">.</span>_get_keyboard_codes<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    427</span> <span class="ansiyellow"></span>
-<span class="ansigreen">    428</span>         <span class="ansigreen">if</span> self<span class="ansiyellow">.</span>_partial_codes<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">_get_keyboard_codes</span><span class="ansiblue">(self)</span>
-<span class="ansigreen">    498</span>         codes <span class="ansiyellow">=</span> <span class="ansiyellow">[</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
-<span class="ansigreen">    499</span>         <span class="ansigreen">while</span> True<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 500</span><span class="ansiyellow">             </span>code <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>_getch_nodelay<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    501</span>             <span class="ansigreen">if</span> code <span class="ansiyellow">&lt;</span> <span class="ansicyan">0</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">    502</span>                 <span class="ansigreen">break</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">_getch_nodelay</span><span class="ansiblue">(self)</span>
-<span class="ansigreen">    632</span> <span class="ansiyellow"></span>
-<span class="ansigreen">    633</span>     <span class="ansigreen">def</span> _getch_nodelay<span class="ansiyellow">(</span>self<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 634</span><span class="ansiyellow">         </span><span class="ansigreen">return</span> self<span class="ansiyellow">.</span>_getch<span class="ansiyellow">(</span><span class="ansicyan">0</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    635</span> <span class="ansiyellow"></span>
-<span class="ansigreen">    636</span> <span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/urwid/raw_display.pyc</span> in <span class="ansicyan">_getch</span><span class="ansiblue">(self, timeout)</span>
-<span class="ansigreen">    542</span>                 self<span class="ansiyellow">.</span>gpm_event_pending <span class="ansiyellow">=</span> True<span class="ansiyellow"></span>
-<span class="ansigreen">    543</span>         <span class="ansigreen">if</span> self<span class="ansiyellow">.</span>_term_input_file<span class="ansiyellow">.</span>fileno<span class="ansiyellow">(</span><span class="ansiyellow">)</span> <span class="ansigreen">in</span> ready<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 544</span><span class="ansiyellow">             </span><span class="ansigreen">return</span> ord<span class="ansiyellow">(</span>os<span class="ansiyellow">.</span>read<span class="ansiyellow">(</span>self<span class="ansiyellow">.</span>_term_input_file<span class="ansiyellow">.</span>fileno<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow">,</span> <span class="ansicyan">1</span><span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    545</span>         <span class="ansigreen">return</span> <span class="ansiyellow">-</span><span class="ansicyan">1</span><span class="ansiyellow"></span>
-<span class="ansigreen">    546</span> <span class="ansiyellow"></span>
-
-<span class="ansired">TypeError</span>: ord() expected a character, but string of length 0 found</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">'The End'</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
-    </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/tarpipe.html" class="u-url">tarpipe</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/tarpipe.html" rel="bookmark"><time class="published dt-published" datetime="2015-02-02T18:10:18+00:00" itemprop="datePublished" title="Publication date">2015-02-02 18:10</time></a></p>
-                <p class="commentline">            <a href="posts/tarpipe.html#disqus_thread" data-disqus-identifier="cache/posts/tarpipe.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#%%bash</span>
-<span class="c">#tar zcvf - /home/public/cam | ssh pi@10.1.1.14 "cat &gt; /home/pi/sativacam.tar.gz"</span>
-<span class="c">#sudo rm /home/public/cam/*</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4>TarPipe</h4>
-
-<p>This script creates a .tar.gz of certain folders and allows for easy search of the files backed up.</p>
-<p>Currently focus on on motion but getsdrawn would also help.</p>
-<p>TODO</p>
-<p>ssh and tarpipe into redditgetsdrawn when it hits midnight on server time (GMT).</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">tarfile</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">getpass</span>
-<span class="kn">import</span> <span class="nn">paramiko</span>
-<span class="kn">import</span> <span class="nn">arrow</span>
-<span class="n">curtime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%d</span><span class="s">-%b-%Y-%H"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">sshgetdrn</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">sshgetdrn</span><span class="o">.</span><span class="n">set_missing_host_key_policy</span><span class="p">(</span><span class="n">paramiko</span><span class="o">.</span><span class="n">AutoAddPolicy</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">usrg</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">sshgetdrn</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">'128.199.60.12'</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s">'wcmckee'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">sup</span> <span class="o">=</span> <span class="n">sshgetdrn</span><span class="o">.</span><span class="n">exec_command</span><span class="p">(</span><span class="s">'uptime'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ouput</span> <span class="o">=</span> <span class="n">sshgetdrn</span><span class="o">.</span><span class="n">invoke_shell</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ouput</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'Last login: Tue Feb  3 19:17:33 2015 from 203-97-200-144.dsl.clear.net.nz\r\r\n'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ouput</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">'uptime'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>6</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ouput</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">'chdir /getsdrawn'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[11]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>16</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">opftp</span> <span class="o">=</span> <span class="n">sshgetdrn</span><span class="o">.</span><span class="n">open_sftp</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">opftp</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/getsdrawndotcom/'</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">i</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>style.css
-googlebb8fa72eb382e061.html
-imgs
-test.txt
-sitemap.xml
-index.html
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">utc</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>I want datetime printed as year-month-day-hour-min.</p>
-<p>Currently shows on getsdrawn as : Updated Tue, 03 Feb 2015 19:00:12 +0000.</p>
-<p>Folder format:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [71]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">utc</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2015-02-03T19:25:05.046523+00:00
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [73]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">utc</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[73]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [76]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">utc</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[76]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>datetime.date(2015, 2, 3)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [78]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">utc</span><span class="o">.</span><span class="n">datetime</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[78]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>datetime.datetime(2015, 2, 3, 19, 25, 5, 46523, tzinfo=tzutc())</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">backdir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/'</span> <span class="o">+</span> <span class="n">usrg</span> <span class="o">+</span> <span class="s">'/backup-motion/'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">backdir</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">'its true'</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">'its false'</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">backdir</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>its false
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">tar</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">backdir</span> <span class="o">+</span> <span class="n">curtime</span> <span class="o">+</span> <span class="s">".tar.gz"</span><span class="p">,</span> <span class="s">"w:gz"</span><span class="p">)</span>
-<span class="n">tar</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">"/home/wcmckee/mot/"</span><span class="p">,</span> <span class="n">arcname</span><span class="o">=</span><span class="s">"TarName"</span><span class="p">)</span>
-<span class="n">tar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="c">#os.rmdir('/home/shared/cam')</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
 </div>
 </div>
 

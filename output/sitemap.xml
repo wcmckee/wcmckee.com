@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://wcmckee.com/2015/index.html</loc>
-  <lastmod>2015-03-01</lastmod>
+  <lastmod>2015-03-02</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/archive.html</loc>
@@ -22,11 +22,11 @@
  </url>
  <url>
   <loc>http://wcmckee.com/index-1.html</loc>
-  <lastmod>2015-03-01</lastmod>
+  <lastmod>2015-03-02</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index.html</loc>
-  <lastmod>2015-03-01</lastmod>
+  <lastmod>2015-03-02</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/listings/index.html</loc>
@@ -55,6 +55,14 @@
  <url>
   <loc>http://wcmckee.com/posts/pgguserdel.html</loc>
   <lastmod>2015-02-19</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/posts/productadd.html</loc>
+  <lastmod>2015-03-02</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/posts/productsell.html</loc>
+  <lastmod>2015-03-02</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/pygitx.html</loc>
@@ -98,7 +106,7 @@
  </url>
  <url>
   <loc>http://wcmckee.com/posts/wcusersdata.html</loc>
-  <lastmod>2015-03-01</lastmod>
+  <lastmod>2015-03-02</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/whaiout.html</loc>
