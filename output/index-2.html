@@ -82,6 +82,207 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/lockacc.html" class="u-url">lockacc</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/lockacc.html" rel="bookmark"><time class="published dt-published" datetime="2015-02-27T05:35:59+00:00" itemprop="datePublished" title="Publication date">2015-02-27 05:35</time></a></p>
+                <p class="commentline">            <a href="posts/lockacc.html#disqus_thread" data-disqus-identifier="cache/posts/lockacc.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>LockAcc</h2>
+
+<h4>Lock Account User Management System</h4>
+
+<p>Script to delete, create, lock, and change passwords for users.</p>
+<p>Script runs and gives choice for input. a b c d e etc...</p>
+<p>Script to lock username. Asks for what user you want to lock, delete, create, lock or change password.</p>
+<p>Expire, unlock password.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Menu that displays all the options. </span>
+<span class="c">#eg 1 to delete user</span>
+<span class="c">#2 to create user</span>
+<span class="c">#3 to lock user</span>
+<span class="c">#4 to change password</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'a to delete a user, b to create a user, c to lock a user, e to unlock a locked account, f to expire a users password'</span><span class="p">)</span> 
+<span class="n">selectchoic</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Select task by letter: '</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="s">'f'</span><span class="p">)</span> <span class="ow">in</span> <span class="n">selectchoic</span><span class="p">:</span>
+<span class="c">#lockusr = raw_input('Do you want to lock a user? y/n ')</span>
+<span class="c">#if 'y' in lockusr:</span>
+    <span class="n">locusa</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"User to password expire: "</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo passwd -e '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span> 
+    <span class="c">#os.system('sudo pgrep -u ' + locusa)</span>
+    <span class="c">#os.system('sudo killall -KILL -u ' + locusa)</span>
+
+
+
+<span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="s">'e'</span><span class="p">)</span> <span class="ow">in</span> <span class="n">selectchoic</span><span class="p">:</span>
+<span class="c">#lockusr = raw_input('Do you want to lock a user? y/n ')</span>
+<span class="c">#if 'y' in lockusr:</span>
+    <span class="n">locusa</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"User to unlock: "</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo passwd -u '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span> 
+    <span class="c">#os.system('sudo pgrep -u ' + locusa)</span>
+    <span class="c">#os.system('sudo killall -KILL -u ' + locusa)</span>
+
+<span class="c">#selectchoic = int(selectchoic)</span>
+<span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="s">'c'</span><span class="p">)</span> <span class="ow">in</span> <span class="n">selectchoic</span><span class="p">:</span>
+<span class="c">#lockusr = raw_input('Do you want to lock a user? y/n ')</span>
+<span class="c">#if 'y' in lockusr:</span>
+    <span class="n">locusa</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"User to lock: "</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo passwd -l '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span> 
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo pgrep -u '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo killall -KILL -u '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#deleusr = raw_input('Do you want to delete a user? y/n ')</span>
+
+<span class="c">#if 'y' in deleusr:</span>
+<span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span> <span class="ow">in</span> <span class="n">selectchoic</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'y'</span>
+    <span class="n">locusa</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"User to Delete: "</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo passwd -l '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span> 
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo pgrep -u '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo killall -KILL -u '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">'sudo userdel -r '</span> <span class="o">+</span> <span class="n">locusa</span><span class="p">)</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#makeusr = raw_input('Do you want to create a user? y/n ')</span>
+
+<span class="c">#if 'y' in makeusr:</span>
+<span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="s">'b'</span><span class="p">)</span> <span class="ow">in</span> <span class="n">selectchoic</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'y'</span>
+    <span class="n">cruer</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Username to Create: '</span><span class="p">)</span>
+    <span class="c">#crpas = getpass.getpass('Password for ' + cruer + ': ')</span>
+    <span class="n">usdir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'sudo useradd '</span> <span class="o">+</span> <span class="n">cruer</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">usdir</span><span class="p">)</span>
+    <span class="c">#chdirz = ('sudo passwd ' + cruer + ' ' + crpas)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Do you want to create a user? y/n y
+y
+Username to Create: libcs
+Password for libcs: ········
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Change a password of a user</span>
+<span class="c">#Why not just edit the shadow file and paste encrupted</span>
+<span class="c">#password in there?</span>
+
+<span class="c">#This isn't working right now. look at subprocess pipe.</span>
+<span class="c">#chanpass = raw_input('Do you want to change a password? y/n ')</span>
+
+<span class="c">#if 'y' in chanpass:</span>
+<span class="c">#if str('d') in selectchoic:</span>
+<span class="c">#    print 'y'</span>
+<span class="c">#    chpasr = raw_input('Username to change password: ')</span>
+<span class="c">#    chpasz = getpass.getpass('Enter new password: ')</span>
+<span class="c">#    chdirz = ('sudo passwd ' + chpasr + ' ' + chpasz)</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#if str('t') in selectchoic:</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/revcoffee.html" class="u-url">revcoffee</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
