@@ -1,5 +1,2302 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link href="http://wcmckee.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 12 Jul 2015 03:55:03 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>educount</title><link>http://wcmckee.com/posts/educount.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link href="http://wcmckee.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 12 Jul 2015 04:31:19 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>educounts</title><link>http://wcmckee.com/posts/educounts.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;dominate&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dominate.tags&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;urlparse&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;urlparse&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;eceall&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'https://www.educationcounts.govt.nz'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#eceall.text&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;edcountz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bs4&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;eceall&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;edu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;edcountz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;findAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'a'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;taglisz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;tagliz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [8]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;gidict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [9]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;edu&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c"&gt;#print ed.text.replace(' ', '-')&lt;/span&gt;
+    &lt;span class="c"&gt;#print ed.attrs['href']&lt;/span&gt;
+    &lt;span class="c"&gt;#print ed.text[:22]&lt;/span&gt;
+    &lt;span class="n"&gt;gied&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;
+    &lt;span class="n"&gt;gifz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gied&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;' '&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'-'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;giflow&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gifz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;gidict&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;giflow&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;]})&lt;/span&gt;
+    &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urlparse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="c"&gt;#change this path so that each element of the &lt;/span&gt;
+    &lt;span class="c"&gt;#path can be used as TAGS&lt;/span&gt;
+    &lt;span class="c"&gt;#&lt;/span&gt;
+    &lt;span class="c"&gt;#print o.path&lt;/span&gt;
+    &lt;span class="c"&gt;#tapen = (o.path.replace('/', ', ')[1:])&lt;/span&gt;
+    &lt;span class="n"&gt;tapen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+    &lt;span class="c"&gt;#gidict.update({ed.attrs['href'] : o.path[1:]})&lt;/span&gt;
+    &lt;span class="c"&gt;#print [tagz.strip() for tagz in tagz.split(',')]&lt;/span&gt;
+    &lt;span class="n"&gt;tagliz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;tapen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tapen&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;tapen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;','&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+    
+    
+    
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [9]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gidict&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[10]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;'{"": "http://www.newzealand.govt.nz", "all": "/data-services/data-collections/all", "legal-&amp;amp;-priv": "/site-info/privacy", "skip-to-prim": "#primary-nav", "m\\u0101ori-educat": "https://www.educationcounts.govt.nz/statistics/maori-education", "school-roll-": "https://www.educationcounts.govt.nz/data-services/data-collections/national/school-roll-return", "m\\u0101ori-in-nce": "https://www.educationcounts.govt.nz/statistics/maori-education/maori-in-schooling/participation-and-attainment-of-maori-students-in-national-certificate-of-educational-achievement", "all-(adult-l": "https://www.educationcounts.govt.nz/data-services/data-collections/international/all", "university-r": "https://www.educationcounts.govt.nz/statistics/tertiary_education/university-rankings", "teaching-sta": "https://www.educationcounts.govt.nz/statistics/schooling/teaching_staff", "boards-of-tr": "https://www.educationcounts.govt.nz/data-services/data-collections/national/boards_of_trustees", "statistics-h": "https://www.educationcounts.govt.nz/statistics", "annual-early": "https://www.educationcounts.govt.nz/data-services/data-collections/national/ece_staff_return", "e-learning-r": "https://www.educationcounts.govt.nz/topics/ict_themes", "\\ntopics\\ntopi": "https://www.educationcounts.govt.nz/topics", "student-numb": "https://www.educationcounts.govt.nz/statistics/schooling/student-numbers", "benefits-of-": "https://www.educationcounts.govt.nz/statistics/international-education/benefits-of-international-education-for-nz2", "student-loan": "https://www.educationcounts.govt.nz/topics/26298", "annual-ece-c": "https://www.educationcounts.govt.nz/statistics/early-childhood-education/annual-ece-summary-reports", "bess-&amp;amp;-bes-c": "https://www.educationcounts.govt.nz/topics/bes/resources/bess-and-cases", "reading-reco": "https://www.educationcounts.govt.nz/data-services/data-collections/national/reading-recovery-electronic-returns", "transition:-": "https://www.educationcounts.govt.nz/statistics/tertiary_education/transition-from-school-to-tertiary", "b": "https://www.educationcounts.govt.nz/data-services/glossary#B", "collecting-i": "https://www.educationcounts.govt.nz/data-services/collecting-information", "staffing": "https://www.educationcounts.govt.nz/statistics/early-childhood-education/staffing", "internationa": "https://www.educationcounts.govt.nz/data-services/data-collections/international/iccs_data", "deaker/berry": "https://www.educationcounts.govt.nz/topics/bes/Whats-New/deakerberryman-interview", "summary-tabl": "https://www.educationcounts.govt.nz/statistics/tertiary_education/summary_tables", "m\\u0101ori-tertia": "https://www.educationcounts.govt.nz/statistics/maori-education/tertiary-education", "bes-programm": "https://www.educationcounts.govt.nz/topics/bes", "participatio": "https://www.educationcounts.govt.nz/statistics/tertiary_education/participation", "ongoing-reso": "https://www.educationcounts.govt.nz/statistics/special-education/ongoing-resourcing-scheme", "piaac": "/data-services/data-collections/piaac", "school-leave": "https://www.educationcounts.govt.nz/data-services/data-collections/national/school_leavers", "literacy": "https://www.educationcounts.govt.nz/publications/literacy", "pisa-(progra": "https://www.educationcounts.govt.nz/data-services/data-collections/international/pisa", "teacher-cens": "https://www.educationcounts.govt.nz/data-services/data-collections/national/teacher_census", "d": "https://www.educationcounts.govt.nz/data-services/glossary#D", "h": "https://www.educationcounts.govt.nz/data-services/glossary#H", "directories": "https://www.educationcounts.govt.nz/data-services/directories", "know-your-re": "https://www.educationcounts.govt.nz/know-your-region", "tertiary-pro": "https://www.educationcounts.govt.nz/data-services/directories/list-of-tertiary-providers", "l": "https://www.educationcounts.govt.nz/data-services/glossary#L", "p": "https://www.educationcounts.govt.nz/data-services/glossary#P", "te-kete-ipur": "https://www.educationcounts.govt.nz/data-services/directories/maori-medium-schools/te-kete-ipurangi", "t": "https://www.educationcounts.govt.nz/data-services/glossary#T", "x": "https://www.educationcounts.govt.nz/data-services/glossary#X", "tertiary-enr": "https://www.educationcounts.govt.nz/data-services/data-collections/national/tertiary_enrolment_data", "\\nstatistics\\n": "https://www.educationcounts.govt.nz/statistics", "pasifika-ter": "https://www.educationcounts.govt.nz/statistics/pasifika-education/tertiary-education", "about-this-s": "/site-info/about-this-site", "investing-in": "http://www.minedu.govt.nz/theMinistry/EducationInitiatives/InvestingInEducationalSuccess.aspx", "series": "https://www.educationcounts.govt.nz/publications/series", "english-medi": "https://www.educationcounts.govt.nz/publications/maori/english-medium-education", "guidelines": "https://www.educationcounts.govt.nz/data-services/collecting-information/guidelines", "\\nfind-an-ear": "https://www.educationcounts.govt.nz/find-an-els", "\\ndata-servic": "https://www.educationcounts.govt.nz/data-services", "find-a-schoo": "https://www.educationcounts.govt.nz/find-school", "ng\\u0101-whanaket": "https://www.educationcounts.govt.nz/statistics/schooling/nga-whanaketanga-rumaki-maori-achievement-results", "home": "/", "sms-vendors": "https://www.educationcounts.govt.nz/data-services/collecting-information/sms_roll_returns", "the-research": "https://www.educationcounts.govt.nz/topics/research/research_division", "pisa": "/data-services/data-collections/pisa", "research": "https://www.educationcounts.govt.nz/statistics/tertiary_education/research", "iccs": "/data-services/data-collections/iccs_data", "talis-(teach": "https://www.educationcounts.govt.nz/data-services/data-collections/international/talis", "senior-stude": "https://www.educationcounts.govt.nz/statistics/schooling/senior-student-attainment", "publications": "https://www.educationcounts.govt.nz/publications", "ministry-of-": "https://www.educationcounts.govt.nz/data-services/directories/early-childhood-services/ministry-of-education-20-hours-ece", "statistics-n": "https://www.educationcounts.govt.nz/topics/26298/statistics-nz-student-loans", "contact-us": "/site-info/contact-us", "rt:-lit": "https://www.educationcounts.govt.nz/data-services/data-collections/rtlit", "data-service": "https://www.educationcounts.govt.nz/data-services", "numeracy": "https://www.educationcounts.govt.nz/publications/numeracy", "g": "https://www.educationcounts.govt.nz/data-services/glossary#G", "education-li": "https://www.educationcounts.govt.nz/topics/ministry-of-education-library/education-library", "full-set-of-": "https://www.educationcounts.govt.nz/topics/bes/resources/bes-programme/full-set-of-bess", "timss-(trend": "https://www.educationcounts.govt.nz/data-services/data-collections/international/timss", "e-learning": "https://www.educationcounts.govt.nz/publications/ict", "statistics:-": "https://www.educationcounts.govt.nz/topics/national-education/school-leavers-with-ncea-level-2-or-above", "sdr-(single-": "https://www.educationcounts.govt.nz/data-services/data-collections/national/sdr", "m\\u0101ori-langua": "https://www.educationcounts.govt.nz/statistics/maori-education/maori-in-schooling/6040", "talis": "/data-services/data-collections/talis", "code-sets-&amp;amp;-": "https://www.educationcounts.govt.nz/data-services/collecting-information/code-sets-and-classifications", "useful-links": "https://www.educationcounts.govt.nz/topics/bes/useful-links-and-publications", "life-after-s": "https://www.educationcounts.govt.nz/statistics/tertiary_education/life_after_study", "pirls-(progr": "https://www.educationcounts.govt.nz/data-services/data-collections/international/pirls", "o": "https://www.educationcounts.govt.nz/data-services/glossary#O", "language-use": "https://www.educationcounts.govt.nz/statistics/early-childhood-education/language-use-in-ece", "s": "https://www.educationcounts.govt.nz/data-services/glossary#S", "pasifika-in-": "https://www.educationcounts.govt.nz/statistics/pasifika-education/pasifika-in-schooling", "key_accordio": "https://www.educationcounts.govt.nz/topics/bes/resources/bess-and-cases/key_accordion", "number-of-sc": "https://www.educationcounts.govt.nz/statistics/schooling/number-of-schools", "w": "https://www.educationcounts.govt.nz/data-services/glossary#W", "bes-exemplar": "https://www.educationcounts.govt.nz/topics/bes/useful-links-and-publications/bes-exemplars", "soik-(studen": "https://www.educationcounts.govt.nz/topics/research/6858", "the-use-of-e": "https://www.educationcounts.govt.nz/topics/bes/resources/spotlight-on/the-use-of-evidence-in-policy", "skip-to-cont": "#content", "resourcing": "https://www.educationcounts.govt.nz/statistics/schooling/resourcing", "skip-to-seco": "#secondary-nav", "collection-f": "https://www.educationcounts.govt.nz/data-services/collecting-information/collection-forms", "m\\u0101ori-in-sch": "https://www.educationcounts.govt.nz/statistics/maori-education/maori-in-schooling", "schooling": "https://www.educationcounts.govt.nz/statistics/schooling", "early-learni": "https://www.educationcounts.govt.nz/find-an-els", "developing-c": "https://www.educationcounts.govt.nz/topics/bes/Whats-New/developing-communities-of-mathematical-inquiry", "\\npublication": "https://www.educationcounts.govt.nz/publications", "indicators-h": "https://www.educationcounts.govt.nz/indicators", "benefits-for": "https://www.educationcounts.govt.nz/statistics/international-education/benefits-of-international-education-for-nz2", "educational-": "https://www.educationcounts.govt.nz/data-services/directories", "single-data-": "https://www.educationcounts.govt.nz/data-services/data-collections/sdr", "tertiary": "https://www.educationcounts.govt.nz/publications/80898", "developing-m": "https://www.educationcounts.govt.nz/topics/bes/developing-mathematical-inquiry-communities", "accessibilit": "/site-info/accessibility", "statistics": "https://www.educationcounts.govt.nz/statistics", "integrated-s": "https://www.educationcounts.govt.nz/data-services/data-collections/national/integrated_student_loan_dataset", "about-bes": "https://www.educationcounts.govt.nz/topics/bes/about-bes", "special-educ": "https://www.educationcounts.govt.nz/statistics/special-education", "rt:lit": "https://www.educationcounts.govt.nz/data-services/data-collections/national/rtlit", "student-enga": "https://www.educationcounts.govt.nz/data-services/data-collections/national/student_engagement", "indicators": "https://www.educationcounts.govt.nz/indicators", "pasifika": "https://www.educationcounts.govt.nz/publications/pasifika", "finances": "https://www.educationcounts.govt.nz/statistics/early-childhood-education/finances", "financial-su": "https://www.educationcounts.govt.nz/statistics/tertiary_education/financial_support_for_students", "a": "https://www.educationcounts.govt.nz/data-services/glossary#A", "directories-": "https://www.educationcounts.govt.nz/data-services/directories/6136/directories", "curriculum": "https://www.educationcounts.govt.nz/publications/curriculum", "c": "https://www.educationcounts.govt.nz/data-services/glossary#C", "research-rec": "https://www.educationcounts.govt.nz/topics/research/52109", "\\nfind-a-scho": "https://www.educationcounts.govt.nz/find-school", "bes-(what-wo": "/topics/bes", "financial-pe": "https://www.educationcounts.govt.nz/statistics/tertiary_education/financial_performance", "bess-&amp;amp;-cases": "https://www.educationcounts.govt.nz/topics/bes/resources/bes-exemplars/bess-and-cases", "school-stati": "https://www.educationcounts.govt.nz/data-services/data-collections/national/school-statistics-monitoring-committee", "m\\u0101ori": "https://www.educationcounts.govt.nz/publications/maori", "bes-what-wor": "https://www.educationcounts.govt.nz/topics/bes/resources/spotlight-on", "f": "https://www.educationcounts.govt.nz/data-services/glossary#F", "glossary": "https://www.educationcounts.govt.nz/data-services/glossary", "public-achie": "https://www.educationcounts.govt.nz/topics/national-education", "j": "https://www.educationcounts.govt.nz/data-services/glossary#J", "n": "https://www.educationcounts.govt.nz/data-services/glossary#N", "pasifika-edu": "https://www.educationcounts.govt.nz/statistics/pasifika-education/progress_against_pasifika_education_plan_targets", "r": "https://www.educationcounts.govt.nz/data-services/glossary#R", "resources": "https://www.educationcounts.govt.nz/statistics/tertiary_education/resources", "v": "https://www.educationcounts.govt.nz/data-services/glossary#V", "z": "https://www.educationcounts.govt.nz/data-services/glossary#Z", "k": "https://www.educationcounts.govt.nz/data-services/glossary#K", "\\nindicators\\n": "https://www.educationcounts.govt.nz/indicators", "scroll-to-to": "#masthead", "transition-f": "https://www.educationcounts.govt.nz/statistics/tertiary-education/transition-from-school-to-tertiary", "students\'-in": "https://www.educationcounts.govt.nz/statistics/international-education/students-international-learning2", "pirls": "/data-services/data-collections/pirls", "spotlight-on": "https://www.educationcounts.govt.nz/topics/bes/resources/spotlight-on/spotlight-on-leadership", "links": "/site-info/links", "topics": "https://www.educationcounts.govt.nz/topics", "18-year-olds": "https://www.educationcounts.govt.nz/statistics/schooling/senior-student-attainment/18-year-olds-with-level-2-or-equivalent", "new-zealand-": "https://www.educationcounts.govt.nz/data-services/directories/list-of-nz-schools", "skip-to-sear": "#site-search-keyword", "nemp-": "https://www.educationcounts.govt.nz/data-services/data-collections/national/nemp", "latest-publi": "http://www.educationcounts.govt.nz/publications?SQ_PAINT_LAYOUT_NAME=all-chronological", "what\'s-new": "https://www.educationcounts.govt.nz/topics/bes/resources/bess-and-cases/whats-new", "nemp": "/data-services/data-collections/nemp", "m\\u0101ori-medium": "https://www.educationcounts.govt.nz/data-services/directories/maori-medium-schools", "timss": "/data-services/data-collections/timss", "school-sms-r": "https://www.educationcounts.govt.nz/data-services/collecting-information/school-sms-roll-returns-2015", "close-menu": "#secondary-nav", "q": "https://www.educationcounts.govt.nz/data-services/glossary#Q", "ncea-attainm": "https://www.educationcounts.govt.nz/statistics/schooling/senior-student-attainment/ncea-attainment", "national": "https://www.educationcounts.govt.nz/data-services/data-collections/national", "education-co": "/", "summaries-of": "https://www.educationcounts.govt.nz/topics/bes/resources/bes-programme", "data-collect": "https://www.educationcounts.govt.nz/data-services/data-collections", "programme-fo": "https://www.educationcounts.govt.nz/data-services/data-collections/international/piaac", "national-sta": "https://www.educationcounts.govt.nz/statistics/schooling/national-standards", "early-childh": "https://www.educationcounts.govt.nz/data-services/directories/early-childhood-services", "services": "https://www.educationcounts.govt.nz/statistics/early-childhood-education/services", "studylink:-s": "https://www.educationcounts.govt.nz/topics/26298/studylink-website", "site-map": "/site-info/site-map", "retention-&amp;amp;-": "https://www.educationcounts.govt.nz/statistics/tertiary_education/retention_and_achievement", "national-mon": "https://www.educationcounts.govt.nz/topics/research/nmssa", "e": "https://www.educationcounts.govt.nz/data-services/glossary#E", "school-merge": "https://www.educationcounts.govt.nz/data-services/directories/6136", "i": "https://www.educationcounts.govt.nz/data-services/glossary#I", "board-of-tru": "https://www.educationcounts.govt.nz/data-services/data-collections/boards_of_trustees", "private-scho": "https://www.educationcounts.govt.nz/data-services/directories/private-schools", "m": "https://www.educationcounts.govt.nz/data-services/glossary#M", "tertiary-edu": "https://www.educationcounts.govt.nz/statistics/tertiary_education", "\\nknow-your-r": "https://www.educationcounts.govt.nz/know-your-region", "u": "https://www.educationcounts.govt.nz/data-services/glossary#U", "school-enrol": "https://www.educationcounts.govt.nz/data-services/collecting-information/school-enrolment-zones", "y": "https://www.educationcounts.govt.nz/data-services/glossary#Y", "topics-home-": "https://www.educationcounts.govt.nz/topics", "study-awards": "https://www.educationcounts.govt.nz/topics/research/16721", "inland-reven": "https://www.educationcounts.govt.nz/topics/26298/inland-revenue-website"}'&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;savjson&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/educount/educationcounts-url.json'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;savjson&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gidict&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="n"&gt;savjson&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [12]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tagz&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;tagliz&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tagz&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;['']
+['']
+['']
+['']
+['']
+['know-your-region']
+['find-an-els']
+['find-school']
+['topics']
+['topics']
+['topics/BES']
+['topics/ict_themes']
+['topics/international-education']
+['topics/ministry-of-education-library']
+['topics/31351']
+['topics/pasifika_education']
+['topics/national-education']
+['topics/research']
+['topics/26298']
+['indicators']
+['publications']
+['statistics']
+['statistics']
+['statistics/early-childhood-education']
+['statistics/early-childhood-education/annual-ece-summary-reports']
+['statistics/early-childhood-education/participation']
+['statistics/early-childhood-education/services']
+['statistics/early-childhood-education/finances']
+['statistics/early-childhood-education/staffing']
+['statistics/early-childhood-education/language-use-in-ece']
+['statistics/schooling']
+['statistics/schooling/student-numbers']
+['statistics/schooling/number-of-schools']
+['statistics/schooling/national-standards/National_Standards']
+['statistics/schooling/nga-whanaketanga-rumaki-maori-achievement-results']
+['statistics/schooling/senior-student-attainment']
+['statistics/schooling/teaching_staff']
+['statistics/schooling/resourcing']
+['statistics/schooling/board_of_trustees']
+['statistics/tertiary-education']
+['statistics/tertiary-education/transition-from-school-to-tertiary']
+['statistics/tertiary-education/participation']
+['statistics/tertiary-education/retention_and_achievement']
+['statistics/tertiary-education/research']
+['statistics/tertiary-education/resources']
+['statistics/tertiary-education/financial_performance']
+['statistics/tertiary-education/financial_support_for_students']
+['statistics/tertiary-education/life_after_study']
+['statistics/tertiary-education/summary_tables']
+['statistics/tertiary-education/university-rankings']
+['statistics/maori-education']
+['statistics/maori-education/maori-in-schooling']
+['statistics/maori-education/tertiary-education']
+['statistics/pasifika-education']
+['statistics/pasifika-education/progress_against_pasifika_education_plan_targets']
+['statistics/archived/pasifika-in-schooling']
+['statistics/pasifika-education/tertiary-education']
+['statistics/international-education']
+['statistics/international-education/students-international-learning2']
+['statistics/international-education/international-students-in-new-zealand']
+['statistics/international-education/internationalisation-of-education-providers-in-nz2']
+['statistics/international-education/benefits-of-international-education-for-nz2']
+['statistics/special-education']
+['statistics/special-education/ongoing-resourcing-scheme']
+['data-services']
+['data-services']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/glossary']
+['data-services/collecting-information']
+['data-services/collecting-information/code-sets-and-classifications']
+['data-services/collecting-information/collection-forms']
+['data-services/collecting-information/guidelines']
+['data-services/collecting-information/school-enrolment-zones']
+['data-services/collecting-information/school-sms-roll-returns-2015']
+['data-services/collecting-information/sms_roll_returns']
+['data-services/data-collections/national']
+['data-services/data-collections/ece_staff_return']
+['data-services/data-collections/boards_of_trustees']
+['data-services/data-collections/ecesmc']
+['data-services/data-collections/integrated_student_loan_dataset']
+['school/running-a-school/reporting']
+['data-services/data-collections/nemp']
+['data-services/data-collections/reading-recovery-electronic-returns']
+['data-services/data-collections/rtlit']
+['data-services/data-collections/school_leavers']
+['data-services/data-collections/school-roll-return']
+['data-services/data-collections/school-statistics-monitoring-committee']
+['data-services/data-collections/sdr']
+['data-services/data-collections/student_engagement']
+['data-services/data-collections/teacher_census']
+['data-services/data-collections/tertiary_enrolment_data']
+['data-services/data-collections/international']
+['data-services/data-collections/all']
+['data-services/data-collections/iccs_data']
+['data-services/data-collections/piaac']
+['data-services/data-collections/pirls']
+['data-services/data-collections/pisa']
+['data-services/data-collections/talis']
+['data-services/data-collections/timss']
+['data-services/directories']
+['data-services/directories']
+['data-services/directories']
+['topics/national-education']
+['statistics/schooling/national-standards']
+['publications']
+['data-services/data-collections']
+['topics/bes']
+['theMinistry/EducationInitiatives/InvestingInEducationalSuccess.aspx']
+['know-your-region']
+['find-school']
+['find-an-els']
+['topics']
+['indicators']
+['publications']
+['statistics']
+['data-services']
+['']
+['']
+['know-your-region']
+['find-school']
+['find-an-els']
+['topics']
+['topics/bes']
+['topics/bes/developing-mathematical-inquiry-communities']
+['topics/bes/Whats-New']
+['topics/bes/Whats-New/deakerberryman-interview']
+['topics/bes/Whats-New/full-set-of-bess']
+['topics/bes/Whats-New/bes-exemplars']
+['topics/bes/Whats-New/developing-communities-of-mathematical-inquiry']
+['topics/bes/resources']
+['topics/bes/resources/bes-exemplars']
+['topics/bes/resources/bes-exemplars/full-set-of-bess2']
+['topics/bes/resources/bes-exemplars/bess-and-cases']
+['topics/bes/resources/bes-exemplars/whats-new']
+['topics/bes/resources/bess-and-cases']
+['topics/bes/resources/bess-and-cases/key_accordion']
+['topics/bes/resources/bess-and-cases/whats-new']
+['topics/bes/resources/bess-and-cases/bes-exemplars']
+['topics/bes/resources/bes-programme']
+['topics/bes/resources/bes-programme/bes-exemplars']
+['topics/bes/resources/bes-programme/full-set-of-bess']
+['topics/bes/resources/spotlight-on']
+['topics/bes/resources/spotlight-on/spotlight-on-counter-bullying-pedagogies']
+['topics/bes/resources/spotlight-on/spotlight-on-mathematics-pangarau']
+['topics/bes/resources/spotlight-on/spotlight-on-leadership']
+['topics/bes/resources/spotlight-on/the-use-of-evidence-in-policy']
+['topics/bes/useful-links-and-publications']
+['topics/bes/useful-links-and-publications/bes-exemplars']
+['topics/bes/about-bes']
+['topics/ict_themes']
+['topics/international-education']
+['topics/ministry-of-education-library']
+['topics/ministry-of-education-library/education-library']
+['topics/31351']
+['topics/pasifika_education']
+['topics/national-education']
+['topics/national-education/ece-participation-statistics2']
+['topics/national-education/18-year-olds-with-a-minimum-of-ncea-level-2-or-equivalent']
+['topics/national-education/school-leavers-with-ncea-level-2-or-above']
+['topics/national-education/national-standards2']
+['topics/national-education/nga-whanaketanga']
+['topics/national-education/public-achievement-information']
+['topics/research']
+['topics/research/52109']
+['topics/research/all']
+['topics/research/iccs_data']
+['topics/research/nmssa']
+['topics/research/piaac']
+['topics/research/pirls']
+['topics/research/pisa']
+['topics/research/6858']
+['topics/research/6858/6578']
+['topics/research/16721']
+['topics/research/talis']
+['topics/research/timss']
+['topics/research/research_division']
+['topics/26298']
+['topics/26298/ministry-of-education-student-loans']
+['topics/26298/statistics-nz-student-loans']
+['topics/26298/studylink-website']
+['topics/26298/inland-revenue-website']
+['indicators']
+['publications']
+['publications/series']
+['publications/ECE']
+['publications/schooling']
+['publications/80898']
+['publications/special_education']
+['publications/maori']
+['publications/maori/105966']
+['publications/maori/english-medium-education']
+['publications/maori/maori-medium-and-english-medium']
+['publications/pasifika']
+['publications/international']
+['publications/ict']
+['publications/curriculum']
+['publications/literacy']
+['publications/numeracy']
+['statistics']
+['statistics/early-childhood-education']
+['statistics/early-childhood-education/annual-ece-summary-reports']
+['statistics/early-childhood-education/participation']
+['statistics/early-childhood-education/services']
+['statistics/early-childhood-education/finances']
+['statistics/early-childhood-education/staffing']
+['statistics/early-childhood-education/language-use-in-ece']
+['statistics/schooling']
+['statistics/schooling/student-numbers']
+['statistics/schooling/number-of-schools']
+['statistics/schooling/national-standards']
+['statistics/schooling/nga-whanaketanga-rumaki-maori-achievement-results']
+['statistics/schooling/senior-student-attainment']
+['statistics/schooling/senior-student-attainment/school-leavers2']
+['statistics/schooling/senior-student-attainment/ncea-attainment']
+['statistics/schooling/senior-student-attainment/18-year-olds-with-level-2-or-equivalent']
+['statistics/schooling/teaching_staff']
+['statistics/schooling/resourcing']
+['statistics/schooling/board_of_trustees']
+['statistics/tertiary_education']
+['statistics/tertiary_education/transition-from-school-to-tertiary']
+['statistics/tertiary_education/participation']
+['statistics/tertiary_education/retention_and_achievement']
+['statistics/tertiary_education/research']
+['statistics/tertiary_education/resources']
+['statistics/tertiary_education/financial_performance']
+['statistics/tertiary_education/financial_support_for_students']
+['statistics/tertiary_education/life_after_study']
+['statistics/tertiary_education/summary_tables']
+['statistics/tertiary_education/university-rankings']
+['statistics/maori-education']
+['statistics/maori-education/maori-in-schooling']
+['statistics/maori-education/maori-in-schooling/6040']
+['statistics/maori-education/maori-in-schooling/participation-and-attainment-of-maori-students-in-national-certificate-of-educational-achievement']
+['statistics/maori-education/tertiary-education']
+['statistics/pasifika-education']
+['statistics/pasifika-education/progress_against_pasifika_education_plan_targets']
+['statistics/pasifika-education/pasifika-in-schooling']
+['statistics/pasifika-education/tertiary-education']
+['statistics/international-education']
+['statistics/international-education/international-students-in-new-zealand']
+['statistics/international-education/internationalisation-of-education-providers-in-nz2']
+['statistics/international-education/benefits-of-international-education-for-nz2']
+['statistics/international-education/students-international-learning2']
+['statistics/special-education']
+['statistics/special-education/ongoing-resourcing-scheme']
+['data-services']
+['data-services/collecting-information']
+['data-services/collecting-information/code-sets-and-classifications']
+['data-services/collecting-information/collection-forms']
+['data-services/collecting-information/guidelines']
+['data-services/collecting-information/school-enrolment-zones']
+['data-services/collecting-information/school-sms-roll-returns-2015']
+['data-services/collecting-information/sms_roll_returns']
+['data-services/data-collections']
+['data-services/data-collections/all']
+['data-services/data-collections/ece_staff_return']
+['data-services/data-collections/boards_of_trustees']
+['data-services/data-collections/ecesmc']
+['data-services/data-collections/iccs_data']
+['data-services/data-collections/integrated_student_loan_dataset']
+['data-services/data-collections/nemp']
+['data-services/data-collections/piaac']
+['data-services/data-collections/pirls']
+['data-services/data-collections/pisa']
+['data-services/data-collections/reading-recovery-electronic-returns']
+['data-services/data-collections/rtlit']
+['data-services/data-collections/school_leavers']
+['data-services/data-collections/school-roll-return']
+['data-services/data-collections/school-statistics-monitoring-committee']
+['data-services/data-collections/sdr']
+['data-services/data-collections/student_engagement']
+['data-services/data-collections/talis']
+['data-services/data-collections/teacher_census']
+['data-services/data-collections/tertiary_enrolment_data']
+['data-services/data-collections/timss']
+['data-services/data-collections/national']
+['data-services/data-collections/national/ece_staff_return']
+['data-services/data-collections/national/boards_of_trustees']
+['data-services/data-collections/national/ecesmc']
+['data-services/data-collections/national/integrated_student_loan_dataset']
+['data-services/data-collections/national/nemp']
+['data-services/data-collections/national/reading-recovery-electronic-returns']
+['data-services/data-collections/national/rtlit']
+['data-services/data-collections/national/school_leavers']
+['data-services/data-collections/national/school-roll-return']
+['data-services/data-collections/national/school-statistics-monitoring-committee']
+['data-services/data-collections/national/sdr']
+['data-services/data-collections/national/student_engagement']
+['data-services/data-collections/national/teacher_census']
+['data-services/data-collections/national/tertiary_enrolment_data']
+['data-services/data-collections/international']
+['data-services/data-collections/international/all']
+['data-services/data-collections/international/iccs_data']
+['data-services/data-collections/international/piaac']
+['data-services/data-collections/international/pirls']
+['data-services/data-collections/international/pisa']
+['data-services/data-collections/international/talis']
+['data-services/data-collections/international/timss']
+['data-services/directories']
+['data-services/directories/early-childhood-services']
+['data-services/directories/early-childhood-services/ministry-of-education-20-hours-ece']
+['data-services/directories/maori-medium-schools']
+['data-services/directories/maori-medium-schools/te-kete-ipurangi']
+['data-services/directories/list-of-nz-schools']
+['data-services/directories/private-schools']
+['data-services/directories/6136']
+['data-services/directories/6136/directories']
+['data-services/directories/list-of-tertiary-providers']
+['data-services/glossary']
+['site-info/site-map']
+['site-info/contact-us']
+['site-info/about-this-site']
+['site-info/accessibility']
+['site-info/privacy']
+['site-info/links']
+['']
+['']
+['']
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [13]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#[x.strip() for x in o.split(',')]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [13]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [14]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tagz&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;taglisz&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;tagz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tagz&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;tagz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;','&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+    &lt;span class="n"&gt;tagliz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;tagz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tagz&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;tagz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;','&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [15]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;tagliz&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[15]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;[[''],
+ [''],
+ [''],
+ [''],
+ [''],
+ ['know-your-region'],
+ ['find-an-els'],
+ ['find-school'],
+ ['topics'],
+ ['topics'],
+ ['topics/BES'],
+ ['topics/ict_themes'],
+ ['topics/international-education'],
+ ['topics/ministry-of-education-library'],
+ ['topics/31351'],
+ ['topics/pasifika_education'],
+ ['topics/national-education'],
+ ['topics/research'],
+ ['topics/26298'],
+ ['indicators'],
+ ['publications'],
+ ['statistics'],
+ ['statistics'],
+ ['statistics/early-childhood-education'],
+ ['statistics/early-childhood-education/annual-ece-summary-reports'],
+ ['statistics/early-childhood-education/participation'],
+ ['statistics/early-childhood-education/services'],
+ ['statistics/early-childhood-education/finances'],
+ ['statistics/early-childhood-education/staffing'],
+ ['statistics/early-childhood-education/language-use-in-ece'],
+ ['statistics/schooling'],
+ ['statistics/schooling/student-numbers'],
+ ['statistics/schooling/number-of-schools'],
+ ['statistics/schooling/national-standards/National_Standards'],
+ ['statistics/schooling/nga-whanaketanga-rumaki-maori-achievement-results'],
+ ['statistics/schooling/senior-student-attainment'],
+ ['statistics/schooling/teaching_staff'],
+ ['statistics/schooling/resourcing'],
+ ['statistics/schooling/board_of_trustees'],
+ ['statistics/tertiary-education'],
+ ['statistics/tertiary-education/transition-from-school-to-tertiary'],
+ ['statistics/tertiary-education/participation'],
+ ['statistics/tertiary-education/retention_and_achievement'],
+ ['statistics/tertiary-education/research'],
+ ['statistics/tertiary-education/resources'],
+ ['statistics/tertiary-education/financial_performance'],
+ ['statistics/tertiary-education/financial_support_for_students'],
+ ['statistics/tertiary-education/life_after_study'],
+ ['statistics/tertiary-education/summary_tables'],
+ ['statistics/tertiary-education/university-rankings'],
+ ['statistics/maori-education'],
+ ['statistics/maori-education/maori-in-schooling'],
+ ['statistics/maori-education/tertiary-education'],
+ ['statistics/pasifika-education'],
+ ['statistics/pasifika-education/progress_against_pasifika_education_plan_targets'],
+ ['statistics/archived/pasifika-in-schooling'],
+ ['statistics/pasifika-education/tertiary-education'],
+ ['statistics/international-education'],
+ ['statistics/international-education/students-international-learning2'],
+ ['statistics/international-education/international-students-in-new-zealand'],
+ ['statistics/international-education/internationalisation-of-education-providers-in-nz2'],
+ ['statistics/international-education/benefits-of-international-education-for-nz2'],
+ ['statistics/special-education'],
+ ['statistics/special-education/ongoing-resourcing-scheme'],
+ ['data-services'],
+ ['data-services'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/glossary'],
+ ['data-services/collecting-information'],
+ ['data-services/collecting-information/code-sets-and-classifications'],
+ ['data-services/collecting-information/collection-forms'],
+ ['data-services/collecting-information/guidelines'],
+ ['data-services/collecting-information/school-enrolment-zones'],
+ ['data-services/collecting-information/school-sms-roll-returns-2015'],
+ ['data-services/collecting-information/sms_roll_returns'],
+ ['data-services/data-collections/national'],
+ ['data-services/data-collections/ece_staff_return'],
+ ['data-services/data-collections/boards_of_trustees'],
+ ['data-services/data-collections/ecesmc'],
+ ['data-services/data-collections/integrated_student_loan_dataset'],
+ ['school/running-a-school/reporting'],
+ ['data-services/data-collections/nemp'],
+ ['data-services/data-collections/reading-recovery-electronic-returns'],
+ ['data-services/data-collections/rtlit'],
+ ['data-services/data-collections/school_leavers'],
+ ['data-services/data-collections/school-roll-return'],
+ ['data-services/data-collections/school-statistics-monitoring-committee'],
+ ['data-services/data-collections/sdr'],
+ ['data-services/data-collections/student_engagement'],
+ ['data-services/data-collections/teacher_census'],
+ ['data-services/data-collections/tertiary_enrolment_data'],
+ ['data-services/data-collections/international'],
+ ['data-services/data-collections/all'],
+ ['data-services/data-collections/iccs_data'],
+ ['data-services/data-collections/piaac'],
+ ['data-services/data-collections/pirls'],
+ ['data-services/data-collections/pisa'],
+ ['data-services/data-collections/talis'],
+ ['data-services/data-collections/timss'],
+ ['data-services/directories'],
+ ['data-services/directories'],
+ ['data-services/directories'],
+ ['topics/national-education'],
+ ['statistics/schooling/national-standards'],
+ ['publications'],
+ ['data-services/data-collections'],
+ ['topics/bes'],
+ ['theMinistry/EducationInitiatives/InvestingInEducationalSuccess.aspx'],
+ ['know-your-region'],
+ ['find-school'],
+ ['find-an-els'],
+ ['topics'],
+ ['indicators'],
+ ['publications'],
+ ['statistics'],
+ ['data-services'],
+ [''],
+ [''],
+ ['know-your-region'],
+ ['find-school'],
+ ['find-an-els'],
+ ['topics'],
+ ['topics/bes'],
+ ['topics/bes/developing-mathematical-inquiry-communities'],
+ ['topics/bes/Whats-New'],
+ ['topics/bes/Whats-New/deakerberryman-interview'],
+ ['topics/bes/Whats-New/full-set-of-bess'],
+ ['topics/bes/Whats-New/bes-exemplars'],
+ ['topics/bes/Whats-New/developing-communities-of-mathematical-inquiry'],
+ ['topics/bes/resources'],
+ ['topics/bes/resources/bes-exemplars'],
+ ['topics/bes/resources/bes-exemplars/full-set-of-bess2'],
+ ['topics/bes/resources/bes-exemplars/bess-and-cases'],
+ ['topics/bes/resources/bes-exemplars/whats-new'],
+ ['topics/bes/resources/bess-and-cases'],
+ ['topics/bes/resources/bess-and-cases/key_accordion'],
+ ['topics/bes/resources/bess-and-cases/whats-new'],
+ ['topics/bes/resources/bess-and-cases/bes-exemplars'],
+ ['topics/bes/resources/bes-programme'],
+ ['topics/bes/resources/bes-programme/bes-exemplars'],
+ ['topics/bes/resources/bes-programme/full-set-of-bess'],
+ ['topics/bes/resources/spotlight-on'],
+ ['topics/bes/resources/spotlight-on/spotlight-on-counter-bullying-pedagogies'],
+ ['topics/bes/resources/spotlight-on/spotlight-on-mathematics-pangarau'],
+ ['topics/bes/resources/spotlight-on/spotlight-on-leadership'],
+ ['topics/bes/resources/spotlight-on/the-use-of-evidence-in-policy'],
+ ['topics/bes/useful-links-and-publications'],
+ ['topics/bes/useful-links-and-publications/bes-exemplars'],
+ ['topics/bes/about-bes'],
+ ['topics/ict_themes'],
+ ['topics/international-education'],
+ ['topics/ministry-of-education-library'],
+ ['topics/ministry-of-education-library/education-library'],
+ ['topics/31351'],
+ ['topics/pasifika_education'],
+ ['topics/national-education'],
+ ['topics/national-education/ece-participation-statistics2'],
+ ['topics/national-education/18-year-olds-with-a-minimum-of-ncea-level-2-or-equivalent'],
+ ['topics/national-education/school-leavers-with-ncea-level-2-or-above'],
+ ['topics/national-education/national-standards2'],
+ ['topics/national-education/nga-whanaketanga'],
+ ['topics/national-education/public-achievement-information'],
+ ['topics/research'],
+ ['topics/research/52109'],
+ ['topics/research/all'],
+ ['topics/research/iccs_data'],
+ ['topics/research/nmssa'],
+ ['topics/research/piaac'],
+ ['topics/research/pirls'],
+ ['topics/research/pisa'],
+ ['topics/research/6858'],
+ ['topics/research/6858/6578'],
+ ['topics/research/16721'],
+ ['topics/research/talis'],
+ ['topics/research/timss'],
+ ['topics/research/research_division'],
+ ['topics/26298'],
+ ['topics/26298/ministry-of-education-student-loans'],
+ ['topics/26298/statistics-nz-student-loans'],
+ ['topics/26298/studylink-website'],
+ ['topics/26298/inland-revenue-website'],
+ ['indicators'],
+ ['publications'],
+ ['publications/series'],
+ ['publications/ECE'],
+ ['publications/schooling'],
+ ['publications/80898'],
+ ['publications/special_education'],
+ ['publications/maori'],
+ ['publications/maori/105966'],
+ ['publications/maori/english-medium-education'],
+ ['publications/maori/maori-medium-and-english-medium'],
+ ['publications/pasifika'],
+ ['publications/international'],
+ ['publications/ict'],
+ ['publications/curriculum'],
+ ['publications/literacy'],
+ ['publications/numeracy'],
+ ['statistics'],
+ ['statistics/early-childhood-education'],
+ ['statistics/early-childhood-education/annual-ece-summary-reports'],
+ ['statistics/early-childhood-education/participation'],
+ ['statistics/early-childhood-education/services'],
+ ['statistics/early-childhood-education/finances'],
+ ['statistics/early-childhood-education/staffing'],
+ ['statistics/early-childhood-education/language-use-in-ece'],
+ ['statistics/schooling'],
+ ['statistics/schooling/student-numbers'],
+ ['statistics/schooling/number-of-schools'],
+ ['statistics/schooling/national-standards'],
+ ['statistics/schooling/nga-whanaketanga-rumaki-maori-achievement-results'],
+ ['statistics/schooling/senior-student-attainment'],
+ ['statistics/schooling/senior-student-attainment/school-leavers2'],
+ ['statistics/schooling/senior-student-attainment/ncea-attainment'],
+ ['statistics/schooling/senior-student-attainment/18-year-olds-with-level-2-or-equivalent'],
+ ['statistics/schooling/teaching_staff'],
+ ['statistics/schooling/resourcing'],
+ ['statistics/schooling/board_of_trustees'],
+ ['statistics/tertiary_education'],
+ ['statistics/tertiary_education/transition-from-school-to-tertiary'],
+ ['statistics/tertiary_education/participation'],
+ ['statistics/tertiary_education/retention_and_achievement'],
+ ['statistics/tertiary_education/research'],
+ ['statistics/tertiary_education/resources'],
+ ['statistics/tertiary_education/financial_performance'],
+ ['statistics/tertiary_education/financial_support_for_students'],
+ ['statistics/tertiary_education/life_after_study'],
+ ['statistics/tertiary_education/summary_tables'],
+ ['statistics/tertiary_education/university-rankings'],
+ ['statistics/maori-education'],
+ ['statistics/maori-education/maori-in-schooling'],
+ ['statistics/maori-education/maori-in-schooling/6040'],
+ ['statistics/maori-education/maori-in-schooling/participation-and-attainment-of-maori-students-in-national-certificate-of-educational-achievement'],
+ ['statistics/maori-education/tertiary-education'],
+ ['statistics/pasifika-education'],
+ ['statistics/pasifika-education/progress_against_pasifika_education_plan_targets'],
+ ['statistics/pasifika-education/pasifika-in-schooling'],
+ ['statistics/pasifika-education/tertiary-education'],
+ ['statistics/international-education'],
+ ['statistics/international-education/international-students-in-new-zealand'],
+ ['statistics/international-education/internationalisation-of-education-providers-in-nz2'],
+ ['statistics/international-education/benefits-of-international-education-for-nz2'],
+ ['statistics/international-education/students-international-learning2'],
+ ['statistics/special-education'],
+ ['statistics/special-education/ongoing-resourcing-scheme'],
+ ['data-services'],
+ ['data-services/collecting-information'],
+ ['data-services/collecting-information/code-sets-and-classifications'],
+ ['data-services/collecting-information/collection-forms'],
+ ['data-services/collecting-information/guidelines'],
+ ['data-services/collecting-information/school-enrolment-zones'],
+ ['data-services/collecting-information/school-sms-roll-returns-2015'],
+ ['data-services/collecting-information/sms_roll_returns'],
+ ['data-services/data-collections'],
+ ['data-services/data-collections/all'],
+ ['data-services/data-collections/ece_staff_return'],
+ ['data-services/data-collections/boards_of_trustees'],
+ ['data-services/data-collections/ecesmc'],
+ ['data-services/data-collections/iccs_data'],
+ ['data-services/data-collections/integrated_student_loan_dataset'],
+ ['data-services/data-collections/nemp'],
+ ['data-services/data-collections/piaac'],
+ ['data-services/data-collections/pirls'],
+ ['data-services/data-collections/pisa'],
+ ['data-services/data-collections/reading-recovery-electronic-returns'],
+ ['data-services/data-collections/rtlit'],
+ ['data-services/data-collections/school_leavers'],
+ ['data-services/data-collections/school-roll-return'],
+ ['data-services/data-collections/school-statistics-monitoring-committee'],
+ ['data-services/data-collections/sdr'],
+ ['data-services/data-collections/student_engagement'],
+ ['data-services/data-collections/talis'],
+ ['data-services/data-collections/teacher_census'],
+ ['data-services/data-collections/tertiary_enrolment_data'],
+ ['data-services/data-collections/timss'],
+ ['data-services/data-collections/national'],
+ ['data-services/data-collections/national/ece_staff_return'],
+ ['data-services/data-collections/national/boards_of_trustees'],
+ ['data-services/data-collections/national/ecesmc'],
+ ['data-services/data-collections/national/integrated_student_loan_dataset'],
+ ['data-services/data-collections/national/nemp'],
+ ['data-services/data-collections/national/reading-recovery-electronic-returns'],
+ ['data-services/data-collections/national/rtlit'],
+ ['data-services/data-collections/national/school_leavers'],
+ ['data-services/data-collections/national/school-roll-return'],
+ ['data-services/data-collections/national/school-statistics-monitoring-committee'],
+ ['data-services/data-collections/national/sdr'],
+ ['data-services/data-collections/national/student_engagement'],
+ ['data-services/data-collections/national/teacher_census'],
+ ['data-services/data-collections/national/tertiary_enrolment_data'],
+ ['data-services/data-collections/international'],
+ ['data-services/data-collections/international/all'],
+ ['data-services/data-collections/international/iccs_data'],
+ ['data-services/data-collections/international/piaac'],
+ ['data-services/data-collections/international/pirls'],
+ ['data-services/data-collections/international/pisa'],
+ ['data-services/data-collections/international/talis'],
+ ['data-services/data-collections/international/timss'],
+ ['data-services/directories'],
+ ['data-services/directories/early-childhood-services'],
+ ['data-services/directories/early-childhood-services/ministry-of-education-20-hours-ece'],
+ ['data-services/directories/maori-medium-schools'],
+ ['data-services/directories/maori-medium-schools/te-kete-ipurangi'],
+ ['data-services/directories/list-of-nz-schools'],
+ ['data-services/directories/private-schools'],
+ ['data-services/directories/6136'],
+ ['data-services/directories/6136/directories'],
+ ['data-services/directories/list-of-tertiary-providers'],
+ ['data-services/glossary'],
+ ['site-info/site-map'],
+ ['site-info/contact-us'],
+ ['site-info/about-this-site'],
+ ['site-info/accessibility'],
+ ['site-info/privacy'],
+ ['site-info/links'],
+ [''],
+ [''],
+ ['']]&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [15]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [15]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [16]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;urldict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [17]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;edu&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c"&gt;#print ed.text.replace(' ', '-')&lt;/span&gt;
+    &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urlparse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="c"&gt;#change this path so that &lt;/span&gt;
+    &lt;span class="c"&gt;#&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;
+    &lt;span class="c"&gt;#print ed.text&lt;/span&gt;
+    
+    
+    &lt;span class="c"&gt;#print ed.attrs['href']&lt;/span&gt;
+    &lt;span class="n"&gt;urldict&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;' '&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'-'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;]})&lt;/span&gt;
+    
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;/
+
+
+
+
+/know-your-region
+/find-an-els
+/find-school
+/topics
+/topics
+/topics/BES
+/topics/ict_themes
+/topics/international-education
+/topics/ministry-of-education-library
+/topics/31351
+/topics/pasifika_education
+/topics/national-education
+/topics/research
+/topics/26298
+/indicators
+/publications
+/statistics
+/statistics
+/statistics/early-childhood-education
+/statistics/early-childhood-education/annual-ece-summary-reports
+/statistics/early-childhood-education/participation
+/statistics/early-childhood-education/services
+/statistics/early-childhood-education/finances
+/statistics/early-childhood-education/staffing
+/statistics/early-childhood-education/language-use-in-ece
+/statistics/schooling
+/statistics/schooling/student-numbers
+/statistics/schooling/number-of-schools
+/statistics/schooling/national-standards/National_Standards
+/statistics/schooling/nga-whanaketanga-rumaki-maori-achievement-results
+/statistics/schooling/senior-student-attainment
+/statistics/schooling/teaching_staff
+/statistics/schooling/resourcing
+/statistics/schooling/board_of_trustees
+/statistics/tertiary-education
+/statistics/tertiary-education/transition-from-school-to-tertiary
+/statistics/tertiary-education/participation
+/statistics/tertiary-education/retention_and_achievement
+/statistics/tertiary-education/research
+/statistics/tertiary-education/resources
+/statistics/tertiary-education/financial_performance
+/statistics/tertiary-education/financial_support_for_students
+/statistics/tertiary-education/life_after_study
+/statistics/tertiary-education/summary_tables
+/statistics/tertiary-education/university-rankings
+/statistics/maori-education
+/statistics/maori-education/maori-in-schooling
+/statistics/maori-education/tertiary-education
+/statistics/pasifika-education
+/statistics/pasifika-education/progress_against_pasifika_education_plan_targets
+/statistics/archived/pasifika-in-schooling
+/statistics/pasifika-education/tertiary-education
+/statistics/international-education
+/statistics/international-education/students-international-learning2
+/statistics/international-education/international-students-in-new-zealand
+/statistics/international-education/internationalisation-of-education-providers-in-nz2
+/statistics/international-education/benefits-of-international-education-for-nz2
+/statistics/special-education
+/statistics/special-education/ongoing-resourcing-scheme
+/data-services
+/data-services
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/glossary
+/data-services/collecting-information
+/data-services/collecting-information/code-sets-and-classifications
+/data-services/collecting-information/collection-forms
+/data-services/collecting-information/guidelines
+/data-services/collecting-information/school-enrolment-zones
+/data-services/collecting-information/school-sms-roll-returns-2015
+/data-services/collecting-information/sms_roll_returns
+/data-services/data-collections/national
+/data-services/data-collections/ece_staff_return
+/data-services/data-collections/boards_of_trustees
+/data-services/data-collections/ecesmc
+/data-services/data-collections/integrated_student_loan_dataset
+/school/running-a-school/reporting
+/data-services/data-collections/nemp
+/data-services/data-collections/reading-recovery-electronic-returns
+/data-services/data-collections/rtlit
+/data-services/data-collections/school_leavers
+/data-services/data-collections/school-roll-return
+/data-services/data-collections/school-statistics-monitoring-committee
+/data-services/data-collections/sdr
+/data-services/data-collections/student_engagement
+/data-services/data-collections/teacher_census
+/data-services/data-collections/tertiary_enrolment_data
+/data-services/data-collections/international
+/data-services/data-collections/all
+/data-services/data-collections/iccs_data
+/data-services/data-collections/piaac
+/data-services/data-collections/pirls
+/data-services/data-collections/pisa
+/data-services/data-collections/talis
+/data-services/data-collections/timss
+/data-services/directories
+/data-services/directories
+/data-services/directories
+/topics/national-education
+/statistics/schooling/national-standards
+/publications
+/data-services/data-collections
+/topics/bes
+/theMinistry/EducationInitiatives/InvestingInEducationalSuccess.aspx
+/know-your-region
+/find-school
+/find-an-els
+/topics
+/indicators
+/publications
+/statistics
+/data-services
+/
+
+/know-your-region
+/find-school
+/find-an-els
+/topics
+/topics/bes
+/topics/bes/developing-mathematical-inquiry-communities
+/topics/bes/Whats-New
+/topics/bes/Whats-New/deakerberryman-interview
+/topics/bes/Whats-New/full-set-of-bess
+/topics/bes/Whats-New/bes-exemplars
+/topics/bes/Whats-New/developing-communities-of-mathematical-inquiry
+/topics/bes/resources
+/topics/bes/resources/bes-exemplars
+/topics/bes/resources/bes-exemplars/full-set-of-bess2
+/topics/bes/resources/bes-exemplars/bess-and-cases
+/topics/bes/resources/bes-exemplars/whats-new
+/topics/bes/resources/bess-and-cases
+/topics/bes/resources/bess-and-cases/key_accordion
+/topics/bes/resources/bess-and-cases/whats-new
+/topics/bes/resources/bess-and-cases/bes-exemplars
+/topics/bes/resources/bes-programme
+/topics/bes/resources/bes-programme/bes-exemplars
+/topics/bes/resources/bes-programme/full-set-of-bess
+/topics/bes/resources/spotlight-on
+/topics/bes/resources/spotlight-on/spotlight-on-counter-bullying-pedagogies
+/topics/bes/resources/spotlight-on/spotlight-on-mathematics-pangarau
+/topics/bes/resources/spotlight-on/spotlight-on-leadership
+/topics/bes/resources/spotlight-on/the-use-of-evidence-in-policy
+/topics/bes/useful-links-and-publications
+/topics/bes/useful-links-and-publications/bes-exemplars
+/topics/bes/about-bes
+/topics/ict_themes
+/topics/international-education
+/topics/ministry-of-education-library
+/topics/ministry-of-education-library/education-library
+/topics/31351
+/topics/pasifika_education
+/topics/national-education
+/topics/national-education/ece-participation-statistics2
+/topics/national-education/18-year-olds-with-a-minimum-of-ncea-level-2-or-equivalent
+/topics/national-education/school-leavers-with-ncea-level-2-or-above
+/topics/national-education/national-standards2
+/topics/national-education/nga-whanaketanga
+/topics/national-education/public-achievement-information
+/topics/research
+/topics/research/52109
+/topics/research/all
+/topics/research/iccs_data
+/topics/research/nmssa
+/topics/research/piaac
+/topics/research/pirls
+/topics/research/pisa
+/topics/research/6858
+/topics/research/6858/6578
+/topics/research/16721
+/topics/research/talis
+/topics/research/timss
+/topics/research/research_division
+/topics/26298
+/topics/26298/ministry-of-education-student-loans
+/topics/26298/statistics-nz-student-loans
+/topics/26298/studylink-website
+/topics/26298/inland-revenue-website
+/indicators
+/publications
+/publications/series
+/publications/ECE
+/publications/schooling
+/publications/80898
+/publications/special_education
+/publications/maori
+/publications/maori/105966
+/publications/maori/english-medium-education
+/publications/maori/maori-medium-and-english-medium
+/publications/pasifika
+/publications/international
+/publications/ict
+/publications/curriculum
+/publications/literacy
+/publications/numeracy
+/statistics
+/statistics/early-childhood-education
+/statistics/early-childhood-education/annual-ece-summary-reports
+/statistics/early-childhood-education/participation
+/statistics/early-childhood-education/services
+/statistics/early-childhood-education/finances
+/statistics/early-childhood-education/staffing
+/statistics/early-childhood-education/language-use-in-ece
+/statistics/schooling
+/statistics/schooling/student-numbers
+/statistics/schooling/number-of-schools
+/statistics/schooling/national-standards
+/statistics/schooling/nga-whanaketanga-rumaki-maori-achievement-results
+/statistics/schooling/senior-student-attainment
+/statistics/schooling/senior-student-attainment/school-leavers2
+/statistics/schooling/senior-student-attainment/ncea-attainment
+/statistics/schooling/senior-student-attainment/18-year-olds-with-level-2-or-equivalent
+/statistics/schooling/teaching_staff
+/statistics/schooling/resourcing
+/statistics/schooling/board_of_trustees
+/statistics/tertiary_education
+/statistics/tertiary_education/transition-from-school-to-tertiary
+/statistics/tertiary_education/participation
+/statistics/tertiary_education/retention_and_achievement
+/statistics/tertiary_education/research
+/statistics/tertiary_education/resources
+/statistics/tertiary_education/financial_performance
+/statistics/tertiary_education/financial_support_for_students
+/statistics/tertiary_education/life_after_study
+/statistics/tertiary_education/summary_tables
+/statistics/tertiary_education/university-rankings
+/statistics/maori-education
+/statistics/maori-education/maori-in-schooling
+/statistics/maori-education/maori-in-schooling/6040
+/statistics/maori-education/maori-in-schooling/participation-and-attainment-of-maori-students-in-national-certificate-of-educational-achievement
+/statistics/maori-education/tertiary-education
+/statistics/pasifika-education
+/statistics/pasifika-education/progress_against_pasifika_education_plan_targets
+/statistics/pasifika-education/pasifika-in-schooling
+/statistics/pasifika-education/tertiary-education
+/statistics/international-education
+/statistics/international-education/international-students-in-new-zealand
+/statistics/international-education/internationalisation-of-education-providers-in-nz2
+/statistics/international-education/benefits-of-international-education-for-nz2
+/statistics/international-education/students-international-learning2
+/statistics/special-education
+/statistics/special-education/ongoing-resourcing-scheme
+/data-services
+/data-services/collecting-information
+/data-services/collecting-information/code-sets-and-classifications
+/data-services/collecting-information/collection-forms
+/data-services/collecting-information/guidelines
+/data-services/collecting-information/school-enrolment-zones
+/data-services/collecting-information/school-sms-roll-returns-2015
+/data-services/collecting-information/sms_roll_returns
+/data-services/data-collections
+/data-services/data-collections/all
+/data-services/data-collections/ece_staff_return
+/data-services/data-collections/boards_of_trustees
+/data-services/data-collections/ecesmc
+/data-services/data-collections/iccs_data
+/data-services/data-collections/integrated_student_loan_dataset
+/data-services/data-collections/nemp
+/data-services/data-collections/piaac
+/data-services/data-collections/pirls
+/data-services/data-collections/pisa
+/data-services/data-collections/reading-recovery-electronic-returns
+/data-services/data-collections/rtlit
+/data-services/data-collections/school_leavers
+/data-services/data-collections/school-roll-return
+/data-services/data-collections/school-statistics-monitoring-committee
+/data-services/data-collections/sdr
+/data-services/data-collections/student_engagement
+/data-services/data-collections/talis
+/data-services/data-collections/teacher_census
+/data-services/data-collections/tertiary_enrolment_data
+/data-services/data-collections/timss
+/data-services/data-collections/national
+/data-services/data-collections/national/ece_staff_return
+/data-services/data-collections/national/boards_of_trustees
+/data-services/data-collections/national/ecesmc
+/data-services/data-collections/national/integrated_student_loan_dataset
+/data-services/data-collections/national/nemp
+/data-services/data-collections/national/reading-recovery-electronic-returns
+/data-services/data-collections/national/rtlit
+/data-services/data-collections/national/school_leavers
+/data-services/data-collections/national/school-roll-return
+/data-services/data-collections/national/school-statistics-monitoring-committee
+/data-services/data-collections/national/sdr
+/data-services/data-collections/national/student_engagement
+/data-services/data-collections/national/teacher_census
+/data-services/data-collections/national/tertiary_enrolment_data
+/data-services/data-collections/international
+/data-services/data-collections/international/all
+/data-services/data-collections/international/iccs_data
+/data-services/data-collections/international/piaac
+/data-services/data-collections/international/pirls
+/data-services/data-collections/international/pisa
+/data-services/data-collections/international/talis
+/data-services/data-collections/international/timss
+/data-services/directories
+/data-services/directories/early-childhood-services
+/data-services/directories/early-childhood-services/ministry-of-education-20-hours-ece
+/data-services/directories/maori-medium-schools
+/data-services/directories/maori-medium-schools/te-kete-ipurangi
+/data-services/directories/list-of-nz-schools
+/data-services/directories/private-schools
+/data-services/directories/6136
+/data-services/directories/6136/directories
+/data-services/directories/list-of-tertiary-providers
+/data-services/glossary
+/site-info/site-map
+/site-info/contact-us
+/site-info/about-this-site
+/site-info/accessibility
+/site-info/privacy
+/site-info/links
+
+
+
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [18]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;urld&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;urldict&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;urld&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;
+Senior-Student-Attainment
+key_accordion
+Student-Numbers
+Research
+School-SMS-Roll-Returns
+What's-New
+SOIK-(Student-Outcome-Information-Kits)
+Education-Library
+Te-Kete-Ipurangi
+Statistics:-18-year-olds
+School-Roll-Return
+Pasifika-Tertiary-Education
+Education-Counts-Logo
+Code-Sets-&amp;amp;-Classifications
+Resources
+Financial-Support-for-Students
+Ongoing-Resourcing-Scheme
+About-BES
+Early-Childhood-Education-Statistics-Monitoring-Committee
+Contact-us
+Investing-in-Educational-Success
+Services
+Developing-Mathematical-Inquiry-Communities
+e-Learning
+Life-after-Study
+Site-map
+V
+D
+e-Learning-Research-&amp;amp;-Evaluation
+Educational-Directories
+H
+Directories
+Summary-Tables
+L
+StudyLink:-Student-Loan
+Public-Achievement-Information-(PAI)
+
+Know-your-region
+An-online-tool-where-you-can-find-education-data-for-different-regions-or-territorial-authority.-Using-this-tool-you-can-access-data-on-student-population,-student-engagement-and-student-achievement.
+
+T
+Single-Data-Return
+BES-What-Works-Spotlights
+Private-Schools
+X
+Students'-international-learning
+Early-Learning-Services-Home-
+Close-Menu
+Latest-Publications
+Links
+Study-Awards-in-Māori-&amp;amp;-Pasifika-Education-Research-2015
+Transition-from-School-to-Tertiary
+BESs-&amp;amp;-BES-Cases
+Annual-ECE-Census-Reports
+Resourcing
+Financial-Performance
+Statistics:-ECE-Participation
+
+Indicators
+Education-Sector-Indicators-are-established-measures-used-to-determine-how-well-a-result-has-been-achieved-in-a-particular-area-of-interest.-For-example,-the-rate-of-formal-school-qualifications-helps-quantify-whether-students-are-succeeding-at-school.
+
+School-Leavers
+Collection-Forms
+Internationalisation-of-students-in-NZ
+Number-of-Schools
+SDR-(Single-Data-Return)
+
+Find-an-Early-Learning-Service
+An-online-tool-where-you-can-search-for-a-particular-early-learning-service/centre-in-New-Zealand-and-find-its-profile,-including-contact-details.
+
+Accessibility
+Find-a-School-Home-
+Māori
+School-Statistics-Monitoring-Committee
+International-Education
+Board-of-Trustees
+Early-Childhood-Education-Statistics-Monitoring-Committee-(ECESMC)
+
+Statistics
+Provides-you-access-to-statistical-information-about-education-and-education-services.
+
+Inland-Revenue:-Student-Loans
+Legal-&amp;amp;-Privacy
+International-students
+Indicators
+International
+Pasifika
+Spotlight-on-Mathematics/Pāngarau
+Staffing
+Early-Childhood-Directory
+RT:Lit
+Data-Collections
+Curriculum
+PISA-(Programme-for-International-Student-Assessment)
+Māori-medium-Education
+Glossary
+Publications-Home-
+Māori-in-Schooling
+Finances
+Integrated-Student-Loan-Dataset
+C
+Tertiary-Enrolment-&amp;amp;-Completions-(TSEC)
+ICCS
+G
+K
+O
+Indicators-Home-
+S
+Statistics:-School-Leavers
+W
+Annual-Early-Childhood-Education-Child-&amp;amp;-Staff-Return
+
+Publications
+Provides-you-access-to-research-publications-and-publications-with-a-data-or-quantitative-information-focus.
+
+Data-Collections---National
+PIRLS-(Progress-in-International-Reading-Literacy-Study)
+Māori-Tertiary-Education
+Q
+Full-Set-of-BESs
+Benefits-for-New-Zealand
+School-Roll-Return-Forms
+Topics
+Guidelines
+Data-Services
+PISA
+Scroll-to-top-of-page
+Māori-Education
+International-students-in-NZ
+Statistics-NZ:-Student-Loans
+U
+Annual-ECE-Child-&amp;amp;-Staff-Return
+Ngā-Whanaketanga-Rumaki-Māori
+Pasifika-Education-Targets
+Spotlight-on-Leadership
+Retention-&amp;amp;-Achievement
+Numeracy
+Home
+The-Use-of-Evidence-in-Policy
+Statistics
+Developing-Communities-of-Mathematical-Inquiry
+Early-Learning-Services
+Ongoing-Resourcing-Scheme-(ORS)
+BES-Exemplars
+Spotlight-on-Counter-Bullying-Pedagogies
+Skip-to-content
+Ministry-of-Education:-20-Hours-ECE
+Collecting-Information
+TIMSS-(Trends-in-International-Mathematics-&amp;amp;-Science-Study)
+Early-Childhood-Education
+National-Standards-&amp;amp;-Ngā-Whanaketanga-Rumaki-Māori
+
+Topics
+Topics-are-compilations-of-information-around-a-specific-theme.-Themes-may-combine-Education-Sector-Indicators,-research-and-evaluation,-and-statistical-information.
+
+Know-your-Region-Home-
+Tertiary-Education
+Teacher-Census
+Transition:-School-to-Tertiary
+18-year-olds
+B
+Useful-links-&amp;amp;-publications
+F
+Special-Education
+Student-Loans
+J
+
+Find-a-school
+An-online-tool-where-you-can-search-for-a-particular-school-in-New-Zealand-and-find-its-profile,-including-contact-details.-You-can-also-access-student-population,-student-engagement-and-student-achievement-data-for-the-school.
+
+N
+New-Zealand-Schools
+R
+NEMP
+Summaries-of-BESs
+Z
+BESs-&amp;amp;-cases
+Annual-ECE-Census
+ALL
+RT:-Lit
+TALIS-(Teaching-&amp;amp;-Learning-International-Survey)
+BES-Programme
+NEMP-
+National-Standards
+Directories-Homepage
+National
+Tertiary
+Statistics-Home-
+Know-your-Region
+Ministry-of-Education:-Student-Loans
+Ministry-of-Education:-PAI
+University-Rankings
+Skip-to-Secondary-Navigation-Menu
+Teaching-Staff
+Schooling
+Māori-in-NCEA
+International-Civic-&amp;amp;-Citizenship-Education-Study-(ICCS)
+English-medium-Education
+Directories-(includes-Schools-Directory)
+Data-Collections---International
+Skip-to-Primary-Navigation-Menu
+Student-Engagement
+ALL-(Adult-Literacy-&amp;amp;-Life-Skills-Survey)
+School-Enrolment-Zones
+NCEA-Attainment
+Tertiary-Providers
+Boards-of-Trustees
+Data-Services-Home-
+Programme-for-the-International-Assessment-of-Adult-Competencies-(PIAAC)
+Pasifika-in-Schooling
+Pasifika-Education
+Tertiary-Enrolment-&amp;amp;-Completions
+Benefits-of-international-education-for-NZ
+About-this-site
+BES-(What-Works-Evidence)
+TIMSS
+PIAAC
+Reading-Recovery-Electronic-Returns
+Literacy
+A
+E
+Māori-medium-&amp;amp;-English-medium
+School-SMS-Roll-Returns-2015
+I
+M
+Deaker/Berryman-Interview
+Language-use-in-ECE
+The-Research-Division---Wahanga-Mahi-Rangahau
+English-Medium:-Student-Achievement-in-NZ-Information-Kit
+Publications
+Topics-Home-
+Y
+
+Data-Services
+Provides-information-to-assist-you-to-understand-and-use-other-information-provided-on-the-website.-Information-includes,-a-glossary,-data-dictionaries,-descriptions-of-data-sources,-etc.
+
+Internationalisation
+Find-a-School
+SMS-Vendors
+Māori-Medium-Schools
+PIRLS
+School-Mergers
+P
+Series
+Research-Record
+National-Monitoring-Study-of-Student-Achievement-(NMSSA)
+Skip-to-search
+Participation
+TALIS
+Māori-Language
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [19]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;fixdict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [19]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [20]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;edulen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;edu&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [21]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;edulen&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[21]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;342&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [22]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#urldict.update({edu.text.replace(' ', '-') :  edu.attrs['href']})&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [23]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;opeducount&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/educount/educationcounts-url.json'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'r'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;opcondz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;opeducount&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [24]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;diccon&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;opcondz&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [25]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;diccon&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[25]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;{u'': u'http://www.newzealand.govt.nz',
+ u'\ndata-servic': u'https://www.educationcounts.govt.nz/data-services',
+ u'\nfind-a-scho': u'https://www.educationcounts.govt.nz/find-school',
+ u'\nfind-an-ear': u'https://www.educationcounts.govt.nz/find-an-els',
+ u'\nindicators\n': u'https://www.educationcounts.govt.nz/indicators',
+ u'\nknow-your-r': u'https://www.educationcounts.govt.nz/know-your-region',
+ u'\npublication': u'https://www.educationcounts.govt.nz/publications',
+ u'\nstatistics\n': u'https://www.educationcounts.govt.nz/statistics',
+ u'\ntopics\ntopi': u'https://www.educationcounts.govt.nz/topics',
+ u'18-year-olds': u'https://www.educationcounts.govt.nz/statistics/schooling/senior-student-attainment/18-year-olds-with-level-2-or-equivalent',
+ u'a': u'https://www.educationcounts.govt.nz/data-services/glossary#A',
+ u'about-bes': u'https://www.educationcounts.govt.nz/topics/bes/about-bes',
+ u'about-this-s': u'/site-info/about-this-site',
+ u'accessibilit': u'/site-info/accessibility',
+ u'all': u'/data-services/data-collections/all',
+ u'all-(adult-l': u'https://www.educationcounts.govt.nz/data-services/data-collections/international/all',
+ u'annual-early': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/ece_staff_return',
+ u'annual-ece-c': u'https://www.educationcounts.govt.nz/statistics/early-childhood-education/annual-ece-summary-reports',
+ u'b': u'https://www.educationcounts.govt.nz/data-services/glossary#B',
+ u'benefits-for': u'https://www.educationcounts.govt.nz/statistics/international-education/benefits-of-international-education-for-nz2',
+ u'benefits-of-': u'https://www.educationcounts.govt.nz/statistics/international-education/benefits-of-international-education-for-nz2',
+ u'bes-(what-wo': u'/topics/bes',
+ u'bes-exemplar': u'https://www.educationcounts.govt.nz/topics/bes/useful-links-and-publications/bes-exemplars',
+ u'bes-programm': u'https://www.educationcounts.govt.nz/topics/bes',
+ u'bes-what-wor': u'https://www.educationcounts.govt.nz/topics/bes/resources/spotlight-on',
+ u'bess-&amp;amp;-bes-c': u'https://www.educationcounts.govt.nz/topics/bes/resources/bess-and-cases',
+ u'bess-&amp;amp;-cases': u'https://www.educationcounts.govt.nz/topics/bes/resources/bes-exemplars/bess-and-cases',
+ u'board-of-tru': u'https://www.educationcounts.govt.nz/data-services/data-collections/boards_of_trustees',
+ u'boards-of-tr': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/boards_of_trustees',
+ u'c': u'https://www.educationcounts.govt.nz/data-services/glossary#C',
+ u'close-menu': u'#secondary-nav',
+ u'code-sets-&amp;amp;-': u'https://www.educationcounts.govt.nz/data-services/collecting-information/code-sets-and-classifications',
+ u'collecting-i': u'https://www.educationcounts.govt.nz/data-services/collecting-information',
+ u'collection-f': u'https://www.educationcounts.govt.nz/data-services/collecting-information/collection-forms',
+ u'contact-us': u'/site-info/contact-us',
+ u'curriculum': u'https://www.educationcounts.govt.nz/publications/curriculum',
+ u'd': u'https://www.educationcounts.govt.nz/data-services/glossary#D',
+ u'data-collect': u'https://www.educationcounts.govt.nz/data-services/data-collections',
+ u'data-service': u'https://www.educationcounts.govt.nz/data-services',
+ u'deaker/berry': u'https://www.educationcounts.govt.nz/topics/bes/Whats-New/deakerberryman-interview',
+ u'developing-c': u'https://www.educationcounts.govt.nz/topics/bes/Whats-New/developing-communities-of-mathematical-inquiry',
+ u'developing-m': u'https://www.educationcounts.govt.nz/topics/bes/developing-mathematical-inquiry-communities',
+ u'directories': u'https://www.educationcounts.govt.nz/data-services/directories',
+ u'directories-': u'https://www.educationcounts.govt.nz/data-services/directories/6136/directories',
+ u'e': u'https://www.educationcounts.govt.nz/data-services/glossary#E',
+ u'e-learning': u'https://www.educationcounts.govt.nz/publications/ict',
+ u'e-learning-r': u'https://www.educationcounts.govt.nz/topics/ict_themes',
+ u'early-childh': u'https://www.educationcounts.govt.nz/data-services/directories/early-childhood-services',
+ u'early-learni': u'https://www.educationcounts.govt.nz/find-an-els',
+ u'education-co': u'/',
+ u'education-li': u'https://www.educationcounts.govt.nz/topics/ministry-of-education-library/education-library',
+ u'educational-': u'https://www.educationcounts.govt.nz/data-services/directories',
+ u'english-medi': u'https://www.educationcounts.govt.nz/publications/maori/english-medium-education',
+ u'f': u'https://www.educationcounts.govt.nz/data-services/glossary#F',
+ u'finances': u'https://www.educationcounts.govt.nz/statistics/early-childhood-education/finances',
+ u'financial-pe': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/financial_performance',
+ u'financial-su': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/financial_support_for_students',
+ u'find-a-schoo': u'https://www.educationcounts.govt.nz/find-school',
+ u'full-set-of-': u'https://www.educationcounts.govt.nz/topics/bes/resources/bes-programme/full-set-of-bess',
+ u'g': u'https://www.educationcounts.govt.nz/data-services/glossary#G',
+ u'glossary': u'https://www.educationcounts.govt.nz/data-services/glossary',
+ u'guidelines': u'https://www.educationcounts.govt.nz/data-services/collecting-information/guidelines',
+ u'h': u'https://www.educationcounts.govt.nz/data-services/glossary#H',
+ u'home': u'/',
+ u'i': u'https://www.educationcounts.govt.nz/data-services/glossary#I',
+ u'iccs': u'/data-services/data-collections/iccs_data',
+ u'indicators': u'https://www.educationcounts.govt.nz/indicators',
+ u'indicators-h': u'https://www.educationcounts.govt.nz/indicators',
+ u'inland-reven': u'https://www.educationcounts.govt.nz/topics/26298/inland-revenue-website',
+ u'integrated-s': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/integrated_student_loan_dataset',
+ u'internationa': u'https://www.educationcounts.govt.nz/data-services/data-collections/international/iccs_data',
+ u'investing-in': u'http://www.minedu.govt.nz/theMinistry/EducationInitiatives/InvestingInEducationalSuccess.aspx',
+ u'j': u'https://www.educationcounts.govt.nz/data-services/glossary#J',
+ u'k': u'https://www.educationcounts.govt.nz/data-services/glossary#K',
+ u'key_accordio': u'https://www.educationcounts.govt.nz/topics/bes/resources/bess-and-cases/key_accordion',
+ u'know-your-re': u'https://www.educationcounts.govt.nz/know-your-region',
+ u'l': u'https://www.educationcounts.govt.nz/data-services/glossary#L',
+ u'language-use': u'https://www.educationcounts.govt.nz/statistics/early-childhood-education/language-use-in-ece',
+ u'latest-publi': u'http://www.educationcounts.govt.nz/publications?SQ_PAINT_LAYOUT_NAME=all-chronological',
+ u'legal-&amp;amp;-priv': u'/site-info/privacy',
+ u'life-after-s': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/life_after_study',
+ u'links': u'/site-info/links',
+ u'literacy': u'https://www.educationcounts.govt.nz/publications/literacy',
+ u'm': u'https://www.educationcounts.govt.nz/data-services/glossary#M',
+ u'ministry-of-': u'https://www.educationcounts.govt.nz/data-services/directories/early-childhood-services/ministry-of-education-20-hours-ece',
+ u'm\u0101ori': u'https://www.educationcounts.govt.nz/publications/maori',
+ u'm\u0101ori-educat': u'https://www.educationcounts.govt.nz/statistics/maori-education',
+ u'm\u0101ori-in-nce': u'https://www.educationcounts.govt.nz/statistics/maori-education/maori-in-schooling/participation-and-attainment-of-maori-students-in-national-certificate-of-educational-achievement',
+ u'm\u0101ori-in-sch': u'https://www.educationcounts.govt.nz/statistics/maori-education/maori-in-schooling',
+ u'm\u0101ori-langua': u'https://www.educationcounts.govt.nz/statistics/maori-education/maori-in-schooling/6040',
+ u'm\u0101ori-medium': u'https://www.educationcounts.govt.nz/data-services/directories/maori-medium-schools',
+ u'm\u0101ori-tertia': u'https://www.educationcounts.govt.nz/statistics/maori-education/tertiary-education',
+ u'n': u'https://www.educationcounts.govt.nz/data-services/glossary#N',
+ u'national': u'https://www.educationcounts.govt.nz/data-services/data-collections/national',
+ u'national-mon': u'https://www.educationcounts.govt.nz/topics/research/nmssa',
+ u'national-sta': u'https://www.educationcounts.govt.nz/statistics/schooling/national-standards',
+ u'ncea-attainm': u'https://www.educationcounts.govt.nz/statistics/schooling/senior-student-attainment/ncea-attainment',
+ u'nemp': u'/data-services/data-collections/nemp',
+ u'nemp-': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/nemp',
+ u'new-zealand-': u'https://www.educationcounts.govt.nz/data-services/directories/list-of-nz-schools',
+ u'ng\u0101-whanaket': u'https://www.educationcounts.govt.nz/statistics/schooling/nga-whanaketanga-rumaki-maori-achievement-results',
+ u'number-of-sc': u'https://www.educationcounts.govt.nz/statistics/schooling/number-of-schools',
+ u'numeracy': u'https://www.educationcounts.govt.nz/publications/numeracy',
+ u'o': u'https://www.educationcounts.govt.nz/data-services/glossary#O',
+ u'ongoing-reso': u'https://www.educationcounts.govt.nz/statistics/special-education/ongoing-resourcing-scheme',
+ u'p': u'https://www.educationcounts.govt.nz/data-services/glossary#P',
+ u'participatio': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/participation',
+ u'pasifika': u'https://www.educationcounts.govt.nz/publications/pasifika',
+ u'pasifika-edu': u'https://www.educationcounts.govt.nz/statistics/pasifika-education/progress_against_pasifika_education_plan_targets',
+ u'pasifika-in-': u'https://www.educationcounts.govt.nz/statistics/pasifika-education/pasifika-in-schooling',
+ u'pasifika-ter': u'https://www.educationcounts.govt.nz/statistics/pasifika-education/tertiary-education',
+ u'piaac': u'/data-services/data-collections/piaac',
+ u'pirls': u'/data-services/data-collections/pirls',
+ u'pirls-(progr': u'https://www.educationcounts.govt.nz/data-services/data-collections/international/pirls',
+ u'pisa': u'/data-services/data-collections/pisa',
+ u'pisa-(progra': u'https://www.educationcounts.govt.nz/data-services/data-collections/international/pisa',
+ u'private-scho': u'https://www.educationcounts.govt.nz/data-services/directories/private-schools',
+ u'programme-fo': u'https://www.educationcounts.govt.nz/data-services/data-collections/international/piaac',
+ u'public-achie': u'https://www.educationcounts.govt.nz/topics/national-education',
+ u'publications': u'https://www.educationcounts.govt.nz/publications',
+ u'q': u'https://www.educationcounts.govt.nz/data-services/glossary#Q',
+ u'r': u'https://www.educationcounts.govt.nz/data-services/glossary#R',
+ u'reading-reco': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/reading-recovery-electronic-returns',
+ u'research': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/research',
+ u'research-rec': u'https://www.educationcounts.govt.nz/topics/research/52109',
+ u'resources': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/resources',
+ u'resourcing': u'https://www.educationcounts.govt.nz/statistics/schooling/resourcing',
+ u'retention-&amp;amp;-': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/retention_and_achievement',
+ u'rt:-lit': u'https://www.educationcounts.govt.nz/data-services/data-collections/rtlit',
+ u'rt:lit': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/rtlit',
+ u's': u'https://www.educationcounts.govt.nz/data-services/glossary#S',
+ u'school-enrol': u'https://www.educationcounts.govt.nz/data-services/collecting-information/school-enrolment-zones',
+ u'school-leave': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/school_leavers',
+ u'school-merge': u'https://www.educationcounts.govt.nz/data-services/directories/6136',
+ u'school-roll-': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/school-roll-return',
+ u'school-sms-r': u'https://www.educationcounts.govt.nz/data-services/collecting-information/school-sms-roll-returns-2015',
+ u'school-stati': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/school-statistics-monitoring-committee',
+ u'schooling': u'https://www.educationcounts.govt.nz/statistics/schooling',
+ u'scroll-to-to': u'#masthead',
+ u'sdr-(single-': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/sdr',
+ u'senior-stude': u'https://www.educationcounts.govt.nz/statistics/schooling/senior-student-attainment',
+ u'series': u'https://www.educationcounts.govt.nz/publications/series',
+ u'services': u'https://www.educationcounts.govt.nz/statistics/early-childhood-education/services',
+ u'single-data-': u'https://www.educationcounts.govt.nz/data-services/data-collections/sdr',
+ u'site-map': u'/site-info/site-map',
+ u'skip-to-cont': u'#content',
+ u'skip-to-prim': u'#primary-nav',
+ u'skip-to-sear': u'#site-search-keyword',
+ u'skip-to-seco': u'#secondary-nav',
+ u'sms-vendors': u'https://www.educationcounts.govt.nz/data-services/collecting-information/sms_roll_returns',
+ u'soik-(studen': u'https://www.educationcounts.govt.nz/topics/research/6858',
+ u'special-educ': u'https://www.educationcounts.govt.nz/statistics/special-education',
+ u'spotlight-on': u'https://www.educationcounts.govt.nz/topics/bes/resources/spotlight-on/spotlight-on-leadership',
+ u'staffing': u'https://www.educationcounts.govt.nz/statistics/early-childhood-education/staffing',
+ u'statistics': u'https://www.educationcounts.govt.nz/statistics',
+ u'statistics-h': u'https://www.educationcounts.govt.nz/statistics',
+ u'statistics-n': u'https://www.educationcounts.govt.nz/topics/26298/statistics-nz-student-loans',
+ u'statistics:-': u'https://www.educationcounts.govt.nz/topics/national-education/school-leavers-with-ncea-level-2-or-above',
+ u'student-enga': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/student_engagement',
+ u'student-loan': u'https://www.educationcounts.govt.nz/topics/26298',
+ u'student-numb': u'https://www.educationcounts.govt.nz/statistics/schooling/student-numbers',
+ u"students'-in": u'https://www.educationcounts.govt.nz/statistics/international-education/students-international-learning2',
+ u'study-awards': u'https://www.educationcounts.govt.nz/topics/research/16721',
+ u'studylink:-s': u'https://www.educationcounts.govt.nz/topics/26298/studylink-website',
+ u'summaries-of': u'https://www.educationcounts.govt.nz/topics/bes/resources/bes-programme',
+ u'summary-tabl': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/summary_tables',
+ u't': u'https://www.educationcounts.govt.nz/data-services/glossary#T',
+ u'talis': u'/data-services/data-collections/talis',
+ u'talis-(teach': u'https://www.educationcounts.govt.nz/data-services/data-collections/international/talis',
+ u'te-kete-ipur': u'https://www.educationcounts.govt.nz/data-services/directories/maori-medium-schools/te-kete-ipurangi',
+ u'teacher-cens': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/teacher_census',
+ u'teaching-sta': u'https://www.educationcounts.govt.nz/statistics/schooling/teaching_staff',
+ u'tertiary': u'https://www.educationcounts.govt.nz/publications/80898',
+ u'tertiary-edu': u'https://www.educationcounts.govt.nz/statistics/tertiary_education',
+ u'tertiary-enr': u'https://www.educationcounts.govt.nz/data-services/data-collections/national/tertiary_enrolment_data',
+ u'tertiary-pro': u'https://www.educationcounts.govt.nz/data-services/directories/list-of-tertiary-providers',
+ u'the-research': u'https://www.educationcounts.govt.nz/topics/research/research_division',
+ u'the-use-of-e': u'https://www.educationcounts.govt.nz/topics/bes/resources/spotlight-on/the-use-of-evidence-in-policy',
+ u'timss': u'/data-services/data-collections/timss',
+ u'timss-(trend': u'https://www.educationcounts.govt.nz/data-services/data-collections/international/timss',
+ u'topics': u'https://www.educationcounts.govt.nz/topics',
+ u'topics-home-': u'https://www.educationcounts.govt.nz/topics',
+ u'transition-f': u'https://www.educationcounts.govt.nz/statistics/tertiary-education/transition-from-school-to-tertiary',
+ u'transition:-': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/transition-from-school-to-tertiary',
+ u'u': u'https://www.educationcounts.govt.nz/data-services/glossary#U',
+ u'university-r': u'https://www.educationcounts.govt.nz/statistics/tertiary_education/university-rankings',
+ u'useful-links': u'https://www.educationcounts.govt.nz/topics/bes/useful-links-and-publications',
+ u'v': u'https://www.educationcounts.govt.nz/data-services/glossary#V',
+ u'w': u'https://www.educationcounts.govt.nz/data-services/glossary#W',
+ u"what's-new": u'https://www.educationcounts.govt.nz/topics/bes/resources/bess-and-cases/whats-new',
+ u'x': u'https://www.educationcounts.govt.nz/data-services/glossary#X',
+ u'y': u'https://www.educationcounts.govt.nz/data-services/glossary#Y',
+ u'z': u'https://www.educationcounts.govt.nz/data-services/glossary#Z'}&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [26]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;'P'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="s"&gt;'Python'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;'YES'&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;'NO'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;YES
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [27]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;edu&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c"&gt;#print ed&lt;/span&gt;
+    &lt;span class="c"&gt;#print ed.attrs['href']&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;'https://'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+        &lt;span class="c"&gt;#print ed.attrs['href']&lt;/span&gt;
+        &lt;span class="c"&gt;#print 'no'&lt;/span&gt;
+        &lt;span class="n"&gt;requrlz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+        &lt;span class="n"&gt;edcountz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bs4&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;requrlz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c"&gt;#edftxt = edcountz.text&lt;/span&gt;
+        &lt;span class="c"&gt;#edftxt.&lt;/span&gt;
+        &lt;span class="n"&gt;edfa&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;edcountz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;findAll&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'a'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;edur&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;edcountz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;edfa&lt;/span&gt;
+        &lt;span class="c"&gt;#for edfq in edfa:&lt;/span&gt;
+        &lt;span class="c"&gt;#    if '.xls' in edfq.attrs['href']:&lt;/span&gt;
+        &lt;span class="c"&gt;#        print ed&lt;/span&gt;
+    
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_text output_error"&gt;
+&lt;pre&gt;
+&lt;span class="ansicyan"&gt;  File &lt;/span&gt;&lt;span class="ansigreen"&gt;"&amp;lt;ipython-input-27-487eaf1b5c9c&amp;gt;"&lt;/span&gt;&lt;span class="ansicyan"&gt;, line &lt;/span&gt;&lt;span class="ansigreen"&gt;12&lt;/span&gt;
+&lt;span class="ansiyellow"&gt;    edur = edcountz.&lt;/span&gt;
+&lt;span class="ansigrey"&gt;                    ^&lt;/span&gt;
+&lt;span class="ansired"&gt;SyntaxError&lt;/span&gt;&lt;span class="ansired"&gt;:&lt;/span&gt; invalid syntax
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [27]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [28]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;doc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dominate&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'EducationCounts'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'stylesheet'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'style.css'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'text/javascript'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'script.js'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c"&gt;#str(str2)&lt;/span&gt;
+    
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'header'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'EducationCounts'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'imgs/getsdrawn-bw.png'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'imgs/getsdrawn-bw.png'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="c"&gt;#p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))&lt;/span&gt;
+        &lt;span class="c"&gt;#h1('Updated ', strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))&lt;/span&gt;
+        &lt;span class="c"&gt;#p(panz)&lt;/span&gt;
+        &lt;span class="c"&gt;#p(bodycom)&lt;/span&gt;
+    
+    
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'body'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ol&lt;/span&gt;&lt;span class="p"&gt;()):&lt;/span&gt;
+        &lt;span class="c"&gt;#for tagz in tagliz:&lt;/span&gt;
+        &lt;span class="c"&gt;#    for ta in tagz:&lt;/span&gt;
+        &lt;span class="c"&gt;#        p(ta)&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;edu&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="c"&gt;#print ed.text.replace(' ', '-')&lt;/span&gt;
+            &lt;span class="c"&gt;#print ed.attrs['href']&lt;/span&gt;
+            &lt;span class="c"&gt;#print ed.text[:22]&lt;/span&gt;
+            &lt;span class="n"&gt;gied&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;
+            &lt;span class="n"&gt;gifz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gied&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;' '&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'-'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;giflow&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gifz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="n"&gt;gidict&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;giflow&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;]})&lt;/span&gt;
+            &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urlparse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+            
+            &lt;span class="n"&gt;requrlz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+            &lt;span class="n"&gt;edcountz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bs4&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;requrlz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="c"&gt;#edlinkhr = edcountz.attrs['href']&lt;/span&gt;
+            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;giflow&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'href'&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;ecountz&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+            
+            
+            &lt;span class="c"&gt;#change this path so that each element of the &lt;/span&gt;
+            &lt;span class="c"&gt;#path can be used as TAGS&lt;/span&gt;
+            &lt;span class="c"&gt;#&lt;/span&gt;
+            &lt;span class="c"&gt;#print o.path&lt;/span&gt;
+            &lt;span class="c"&gt;#tapen = (o.path.replace('/', ', ')[1:])&lt;/span&gt;
+            &lt;span class="n"&gt;tapen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+            &lt;span class="c"&gt;#gidict.update({ed.attrs['href'] : o.path[1:]})&lt;/span&gt;
+            &lt;span class="c"&gt;#print [tagz.strip() for tagz in tagz.split(',')]&lt;/span&gt;
+            &lt;span class="n"&gt;tagliz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;tapen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tapen&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;tapen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;','&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+
+    
+    
+                
+            &lt;span class="c"&gt;#print rdz.url&lt;/span&gt;
+            &lt;span class="c"&gt;#if '.jpg' in rdz.url:&lt;/span&gt;
+            &lt;span class="c"&gt;#    img(rdz.urlz)&lt;/span&gt;
+            &lt;span class="c"&gt;#else:&lt;/span&gt;
+            &lt;span class="c"&gt;#    a(rdz.urlz)&lt;/span&gt;
+            &lt;span class="c"&gt;#h1(str(rdz.author))&lt;/span&gt;
+            
+            &lt;span class="c"&gt;#li(img(i.lower(), src='%s' % i))&lt;/span&gt;
+
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'body'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'EducationCounts-url is open source'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'https://github.com/getsdrawn/getsdrawndotcom'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'https://reddit.com/r/redditgetsdrawn'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;#print doc&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_text output_error"&gt;
+&lt;pre&gt;
+&lt;span class="ansired"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ansired"&gt;MissingSchema&lt;/span&gt;                             Traceback (most recent call last)
+&lt;span class="ansigreen"&gt;&amp;lt;ipython-input-28-2b6d71455596&amp;gt;&lt;/span&gt; in &lt;span class="ansicyan"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;&lt;span class="ansiblue"&gt;()&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     32&lt;/span&gt;             o &lt;span class="ansiyellow"&gt;=&lt;/span&gt; urlparse&lt;span class="ansiyellow"&gt;(&lt;/span&gt;ed&lt;span class="ansiyellow"&gt;.&lt;/span&gt;attrs&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'href'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     33&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;---&amp;gt; 34&lt;/span&gt;&lt;span class="ansiyellow"&gt;             &lt;/span&gt;requrlz &lt;span class="ansiyellow"&gt;=&lt;/span&gt; requests&lt;span class="ansiyellow"&gt;.&lt;/span&gt;get&lt;span class="ansiyellow"&gt;(&lt;/span&gt;ed&lt;span class="ansiyellow"&gt;.&lt;/span&gt;attrs&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'href'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     35&lt;/span&gt;             edcountz &lt;span class="ansiyellow"&gt;=&lt;/span&gt; bs4&lt;span class="ansiyellow"&gt;.&lt;/span&gt;BeautifulSoup&lt;span class="ansiyellow"&gt;(&lt;/span&gt;requrlz&lt;span class="ansiyellow"&gt;.&lt;/span&gt;title&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     36&lt;/span&gt;             &lt;span class="ansired"&gt;#edlinkhr = edcountz.attrs['href']&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/requests/api.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;get&lt;/span&gt;&lt;span class="ansiblue"&gt;(url, **kwargs)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     63&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     64&lt;/span&gt;     kwargs&lt;span class="ansiyellow"&gt;.&lt;/span&gt;setdefault&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiblue"&gt;'allow_redirects'&lt;/span&gt;&lt;span class="ansiyellow"&gt;,&lt;/span&gt; True&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;---&amp;gt; 65&lt;/span&gt;&lt;span class="ansiyellow"&gt;     &lt;/span&gt;&lt;span class="ansigreen"&gt;return&lt;/span&gt; request&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiblue"&gt;'get'&lt;/span&gt;&lt;span class="ansiyellow"&gt;,&lt;/span&gt; url&lt;span class="ansiyellow"&gt;,&lt;/span&gt; &lt;span class="ansiyellow"&gt;**&lt;/span&gt;kwargs&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     66&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     67&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/requests/api.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;request&lt;/span&gt;&lt;span class="ansiblue"&gt;(method, url, **kwargs)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     47&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     48&lt;/span&gt;     session &lt;span class="ansiyellow"&gt;=&lt;/span&gt; sessions&lt;span class="ansiyellow"&gt;.&lt;/span&gt;Session&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;---&amp;gt; 49&lt;/span&gt;&lt;span class="ansiyellow"&gt;     &lt;/span&gt;response &lt;span class="ansiyellow"&gt;=&lt;/span&gt; session&lt;span class="ansiyellow"&gt;.&lt;/span&gt;request&lt;span class="ansiyellow"&gt;(&lt;/span&gt;method&lt;span class="ansiyellow"&gt;=&lt;/span&gt;method&lt;span class="ansiyellow"&gt;,&lt;/span&gt; url&lt;span class="ansiyellow"&gt;=&lt;/span&gt;url&lt;span class="ansiyellow"&gt;,&lt;/span&gt; &lt;span class="ansiyellow"&gt;**&lt;/span&gt;kwargs&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     50&lt;/span&gt;     &lt;span class="ansired"&gt;# By explicitly closing the session, we avoid leaving sockets open which&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     51&lt;/span&gt;     &lt;span class="ansired"&gt;# can trigger a ResourceWarning in some cases, and look like a memory leak&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/requests/sessions.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;request&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    445&lt;/span&gt;             hooks &lt;span class="ansiyellow"&gt;=&lt;/span&gt; hooks&lt;span class="ansiyellow"&gt;,&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    446&lt;/span&gt;         )
+&lt;span class="ansigreen"&gt;--&amp;gt; 447&lt;/span&gt;&lt;span class="ansiyellow"&gt;         &lt;/span&gt;prep &lt;span class="ansiyellow"&gt;=&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;prepare_request&lt;span class="ansiyellow"&gt;(&lt;/span&gt;req&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    448&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    449&lt;/span&gt;         proxies &lt;span class="ansiyellow"&gt;=&lt;/span&gt; proxies &lt;span class="ansigreen"&gt;or&lt;/span&gt; &lt;span class="ansiyellow"&gt;{&lt;/span&gt;&lt;span class="ansiyellow"&gt;}&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/requests/sessions.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;prepare_request&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, request)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    376&lt;/span&gt;             auth&lt;span class="ansiyellow"&gt;=&lt;/span&gt;merge_setting&lt;span class="ansiyellow"&gt;(&lt;/span&gt;auth&lt;span class="ansiyellow"&gt;,&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;auth&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;,&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    377&lt;/span&gt;             cookies&lt;span class="ansiyellow"&gt;=&lt;/span&gt;merged_cookies&lt;span class="ansiyellow"&gt;,&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 378&lt;/span&gt;&lt;span class="ansiyellow"&gt;             &lt;/span&gt;hooks&lt;span class="ansiyellow"&gt;=&lt;/span&gt;merge_hooks&lt;span class="ansiyellow"&gt;(&lt;/span&gt;request&lt;span class="ansiyellow"&gt;.&lt;/span&gt;hooks&lt;span class="ansiyellow"&gt;,&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;hooks&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;,&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    379&lt;/span&gt;         )
+&lt;span class="ansigreen"&gt;    380&lt;/span&gt;         &lt;span class="ansigreen"&gt;return&lt;/span&gt; p&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/requests/models.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;prepare&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, method, url, headers, files, data, params, auth, cookies, hooks, json)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    301&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    302&lt;/span&gt;         self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;prepare_method&lt;span class="ansiyellow"&gt;(&lt;/span&gt;method&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 303&lt;/span&gt;&lt;span class="ansiyellow"&gt;         &lt;/span&gt;self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;prepare_url&lt;span class="ansiyellow"&gt;(&lt;/span&gt;url&lt;span class="ansiyellow"&gt;,&lt;/span&gt; params&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    304&lt;/span&gt;         self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;prepare_headers&lt;span class="ansiyellow"&gt;(&lt;/span&gt;headers&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    305&lt;/span&gt;         self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;prepare_cookies&lt;span class="ansiyellow"&gt;(&lt;/span&gt;cookies&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python2.7/dist-packages/requests/models.pyc&lt;/span&gt; in &lt;span class="ansicyan"&gt;prepare_url&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, url, params)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    358&lt;/span&gt;         &lt;span class="ansigreen"&gt;if&lt;/span&gt; &lt;span class="ansigreen"&gt;not&lt;/span&gt; scheme&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    359&lt;/span&gt;             raise MissingSchema("Invalid URL {0!r}: No schema supplied. "
+&lt;span class="ansigreen"&gt;--&amp;gt; 360&lt;/span&gt;&lt;span class="ansiyellow"&gt;                                 "Perhaps you meant http://{0}?".format(url))
+&lt;/span&gt;&lt;span class="ansigreen"&gt;    361&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    362&lt;/span&gt;         &lt;span class="ansigreen"&gt;if&lt;/span&gt; &lt;span class="ansigreen"&gt;not&lt;/span&gt; host&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansired"&gt;MissingSchema&lt;/span&gt;: Invalid URL u'/': No schema supplied. Perhaps you meant http:///?&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [29]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;docre&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c"&gt;#s = docre.decode('ascii', 'ignore')&lt;/span&gt;
+&lt;span class="n"&gt;yourstring&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;docre&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'ascii'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'ignore'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'ascii'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;indfil&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/educount/index.html'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;mkind&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;indfil&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;mkind&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;yourstring&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;mkind&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><guid>http://wcmckee.com/posts/educounts.html</guid><pubDate>Sun, 12 Jul 2015 04:31:02 GMT</pubDate></item><item><title>educount</title><link>http://wcmckee.com/posts/educount.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -55523,335 +57820,4 @@ e receipts.&lt;/p&gt;
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/productsell.html</guid><pubDate>Mon, 02 Mar 2015 03:47:40 GMT</pubDate></item><item><title>productadd</title><link>http://wcmckee.com/posts/productadd.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2&gt;Product Add&lt;/h2&gt;
-
-&lt;p&gt;Script to add a new product to list of them. Location is /home/wcmckee/sellcoffee/products.&lt;/p&gt;
-&lt;p&gt;Better to have a file for products or a folder? Might be easier to have a folder.
-Each product has rsa key - public and private key.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [31]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-&lt;span class="c"&gt;#from passlib.hash import pbkdf2_sha256&lt;/span&gt;
-&lt;span class="c"&gt;#import crypt, getpass, spwd&lt;/span&gt;
-&lt;span class="c"&gt;#from Crypto.PublicKey import RSA&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [32]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;prodirz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/sellcoffee/products/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [33]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;prolis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prodirz&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [34]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;prolis&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;['debian', 'internet', 'tea', 'coke']
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [35]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;prodoadd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Name of product to add: '&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;Name of product to add: deb
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [36]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;prodirc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prodirz&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;prodoadd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [37]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prodirc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [42]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;opmeta&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prodirc&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'/'&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;  &lt;span class="n"&gt;prodoadd&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'-amount'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;opmeta&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'0'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;opmeta&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [38]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#switching to folders for each product. Inside folder has rsa&lt;/span&gt;
-&lt;span class="c"&gt;#and rsa.public.&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [39]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#opnewp = open(prodirz + prodoadd, 'w')&lt;/span&gt;
-
-&lt;span class="c"&gt;##opnewp.write('0')&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [43]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#new_key = RSA.generate(2048, e=65537)&lt;/span&gt;
-&lt;span class="c"&gt;#public_key = new_key.publickey().exportKey("PEM")&lt;/span&gt;
-&lt;span class="c"&gt;#private_key = new_key.exportKey("PEM")&lt;/span&gt;
-&lt;span class="c"&gt;#print private_key &lt;/span&gt;
-&lt;span class="c"&gt;#sapriv = open(prodirc + '/' + prodoadd, 'w')&lt;/span&gt;
-&lt;span class="c"&gt;#sapriv.write(private_key)&lt;/span&gt;
-&lt;span class="c"&gt;#sapriv.close()&lt;/span&gt;
-
-&lt;span class="c"&gt;#print public_key &lt;/span&gt;
-&lt;span class="c"&gt;#papriv =  open(prodirc + '/' +  prodoadd + '.pub', 'w')&lt;/span&gt;
-&lt;span class="c"&gt;#papriv.write(public_key)&lt;/span&gt;
-&lt;span class="c"&gt;#papriv.close()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [41]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#dict that has all the product details. When it was first&lt;/span&gt;
-&lt;span class="c"&gt;#created. Price. &lt;/span&gt;
-&lt;span class="c"&gt;#amount sold. This value will be zero when a product is created&lt;/span&gt;
-&lt;span class="c"&gt;#but add 1 with productsell script. &lt;/span&gt;
-&lt;span class="c"&gt;#Store amount sold data in dict&lt;/span&gt;
-&lt;span class="c"&gt;#or just a file called productname-amountsold.&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#opnewp.close()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for prol in prolis:&lt;/span&gt;
-&lt;span class="c"&gt;#    print prol&lt;/span&gt;
-&lt;span class="c"&gt;#    adprod = open(prodirz + prol + '.meta', 'w')&lt;/span&gt;
-&lt;span class="c"&gt;#    adprod.write(&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;debian
-internet
-python
-coffee
-tired
-snake
-vogals
-sleep
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#adprod = open(pro&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/productadd.html</guid><pubDate>Mon, 02 Mar 2015 03:46:58 GMT</pubDate></item></channel></rss>
+</description><guid>http://wcmckee.com/posts/productsell.html</guid><pubDate>Mon, 02 Mar 2015 03:47:40 GMT</pubDate></item></channel></rss>
