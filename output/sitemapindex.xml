@@ -10,10 +10,18 @@
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/rss.xml</loc>
+<<<<<<< HEAD
   <lastmod>2015-07-19</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/sitemap.xml</loc>
   <lastmod>2015-07-19</lastmod>
+=======
+  <lastmod>2015-07-12</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://wcmckee.com/sitemap.xml</loc>
+  <lastmod>2015-07-12</lastmod>
+>>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
  </sitemap>
 </sitemapindex>

@@ -6,7 +6,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://wcmckee.com/2015/index.html</loc>
+<<<<<<< HEAD
   <lastmod>2015-07-19</lastmod>
+=======
+  <lastmod>2015-07-12</lastmod>
+>>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
  </url>
  <url>
   <loc>http://wcmckee.com/archive.html</loc>
@@ -22,6 +26,7 @@
  </url>
  <url>
   <loc>http://wcmckee.com/index-1.html</loc>
+<<<<<<< HEAD
   <lastmod>2015-07-19</lastmod>
  </url>
  <url>
@@ -31,6 +36,17 @@
  <url>
   <loc>http://wcmckee.com/index.html</loc>
   <lastmod>2015-07-19</lastmod>
+=======
+  <lastmod>2015-07-12</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/index-2.html</loc>
+  <lastmod>2015-07-12</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/index.html</loc>
+  <lastmod>2015-07-12</lastmod>
+>>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
  </url>
  <url>
   <loc>http://wcmckee.com/listings/index.html</loc>
@@ -54,7 +70,23 @@
  </url>
  <url>
   <loc>http://wcmckee.com/posts/drawnuseconfig.html</loc>
+<<<<<<< HEAD
   <lastmod>2015-07-19</lastmod>
+=======
+  <lastmod>2015-07-05</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/posts/education-counts-url.html</loc>
+  <lastmod>2015-07-12</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/posts/educount.html</loc>
+  <lastmod>2015-07-12</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/posts/educounts.html</loc>
+  <lastmod>2015-07-12</lastmod>
+>>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
  </url>
  <url>
   <loc>http://wcmckee.com/posts/getsdrawn.html</loc>
@@ -67,6 +99,10 @@
  <url>
   <loc>http://wcmckee.com/posts/lockacc.html</loc>
   <lastmod>2015-03-07</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/posts/minedujob.html</loc>
+  <lastmod>2015-07-12</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/nikeditfiles.html</loc>
