@@ -17,7 +17,7 @@ article: http://ogp.me/ns/article#
 
 
 
-        <link rel="next" href="index-2.html" type="text/html">
+        <link rel="next" href="index-3.html" type="text/html">
 
     
         <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
@@ -81,19 +81,11 @@ article: http://ogp.me/ns/article#
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
-<<<<<<< HEAD
         <h1 class="p-name entry-title"><a href="posts/rdminjob.html" class="u-url">rdminjob</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/rdminjob.html" rel="bookmark"><time class="published dt-published" datetime="2015-07-19T03:33:34+00:00" itemprop="datePublished" title="Publication date">2015-07-19 03:33</time></a></p>
+            <p class="dateline"><a href="posts/rdminjob.html" rel="bookmark"><time class="published dt-published" datetime="2015-07-19T06:40:41+00:00" itemprop="datePublished" title="Publication date">2015-07-19 06:40</time></a></p>
                 <p class="commentline">            <a href="posts/rdminjob.html#disqus_thread" data-disqus-identifier="cache/posts/rdminjob.html">Comments</a>
-=======
-        <h1 class="p-name entry-title"><a href="posts/minedujob.html" class="u-url">minedujob</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/minedujob.html" rel="bookmark"><time class="published dt-published" datetime="2015-07-12T10:04:22+00:00" itemprop="datePublished" title="Publication date">2015-07-12 10:04</time></a></p>
-                <p class="commentline">            <a href="posts/minedujob.html#disqus_thread" data-disqus-identifier="cache/posts/minedujob.html">Comments</a>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 
         </p>
@@ -129,44 +121,20 @@ article: http://ogp.me/ns/article#
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<<<<<<< HEAD
 <h4>Read Min Job</h4>
 
 <p>Python script to read the json file generated from minedujob.</p>
 <p>The key 'lidocend' is good things to have for the job. It is a series of ['blahbhal'],</p>
-=======
-<h4>minedujob</h4>
-
-<p>Python script to fetch random job from Ministry Of Education and convert it into a json object. 
-Merge data in from DigitalNZ</p>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">opwse</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/github/wcmckee.com/output/minedujobs/index.json'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-=======
-<div class="prompt input_prompt">In [167]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">untangle</span>
-<span class="kn">import</span> <span class="nn">xmltodict</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">bs4</span>
-<span class="kn">import</span> <span class="nn">dominate</span>
-<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">pydnz</span> <span class="kn">import</span> <span class="n">Dnz</span>
-<span class="kn">import</span> <span class="nn">arrow</span>
-<span class="kn">import</span> <span class="nn">bs4</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -176,17 +144,10 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">jsloaop</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">opwse</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-=======
-<div class="prompt input_prompt">In [168]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">dnz</span> <span class="o">=</span> <span class="n">Dnz</span><span class="p">(</span><span class="s">'keyhere'</span><span class="p">)</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -196,7 +157,6 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -227,46 +187,20 @@ Merge data in from DigitalNZ</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">jsloaop</span>
-=======
-<div class="prompt input_prompt">In [169]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">jobreq</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://jobs.minedu.govt.nz/jobtools/job_rss?o1=17584&amp;k2=A52B3674BC046465&amp;source=JobRSS&amp;medium=JobRSS'</span><span class="p">)</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [170]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">jobtxta</span> <span class="o">=</span> <span class="n">jobreq</span><span class="o">.</span><span class="n">text</span>
-</pre></div>
+<div class="output_wrapper">
+<div class="output">
 
-<<<<<<< HEAD
+
 <div class="output_area">
 <div class="prompt output_prompt">Out[30]:</div>
-=======
-</div>
-</div>
-</div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [171]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">obj</span> <span class="o">=</span> <span class="n">untangle</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">jobtxta</span><span class="p">)</span>
-</pre></div>
 
-<<<<<<< HEAD
 <div class="output_text output_subarea output_execute_result">
 <pre>{u'0': {u'Business Unit': u'',
   u'Category': u'Special Education',
@@ -683,39 +617,20 @@ Merge data in from DigitalNZ</p>
    [u'Ability to plan and manage time effectively to meet goals and outcomes'],
    [u'A current New Zealand driver\u2019s licence.']],
   u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222579155&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'}}</pre>
-=======
-</div>
-</div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [172]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">dicjobz</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">jobtxta</span><span class="p">)</span>
-</pre></div>
 
-</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#listed = list()</span>
-=======
-<div class="prompt input_prompt">In [173]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ranldicj</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dicjobz</span><span class="p">[</span><span class="s">'rss'</span><span class="p">][</span><span class="s">'channel'</span><span class="p">][</span><span class="s">'item'</span><span class="p">])</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -725,46 +640,21 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#for jsran in range(lejsp):</span>
     <span class="c">#print jsloaop.values()[jsran]['lidocend']</span>
     <span class="c">#listed.append(jsloaop.values()[jsran]['lidocend'])</span>
-=======
-<div class="prompt input_prompt">In [174]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ranldicj</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[174]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>27</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -774,12 +664,6 @@ Merge data in from DigitalNZ</p>
         <span class="c">#print li</span>
         <span class="c">#for wq in li:</span>
             <span class="c">#print wq</span>
-=======
-<div class="prompt input_prompt">In [175]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">randicz</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ranldicj</span><span class="p">)</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -789,7 +673,6 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -800,48 +683,19 @@ Merge data in from DigitalNZ</p>
         <span class="c">#print jsl</span>
         <span class="c">#for jl in jsl:</span>
             <span class="c">#print jl</span>
-=======
-<div class="prompt input_prompt">In [176]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">randicz</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[176]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>15</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#print (jsloaop[0])</span>
-=======
-<div class="prompt input_prompt">In [177]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">dicrs</span> <span class="o">=</span> <span class="n">dicjobz</span><span class="p">[</span><span class="s">'rss'</span><span class="p">][</span><span class="s">'channel'</span><span class="p">][</span><span class="s">'item'</span><span class="p">][</span><span class="n">randicz</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -851,22 +705,6 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [178]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">dicrts</span> <span class="o">=</span> <span class="n">dicrs</span><span class="p">[</span><span class="s">'title'</span><span class="p">]</span>
-<span class="n">dicrtq</span> <span class="o">=</span> <span class="n">dicrs</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [44]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -933,12 +771,6 @@ Merge data in from DigitalNZ</p>
         <span class="n">a</span><span class="p">(</span><span class="s">'https://wcmckee.com'</span><span class="p">)</span>
 
 <span class="c">#print doc</span>
-=======
-<div class="prompt input_prompt">In [179]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">artim</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">dicrtq</span><span class="p">[</span><span class="s">'pubDate'</span><span class="p">])</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -948,7 +780,6 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [45]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -959,31 +790,12 @@ Merge data in from DigitalNZ</p>
 <span class="n">mkind</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">indfil</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
 <span class="n">mkind</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yourstring</span><span class="p">)</span>
 <span class="n">mkind</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-=======
-<div class="prompt input_prompt">In [180]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">artim</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-=======
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2015-07-12
-</pre>
-</div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1000,7 +812,6 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
 <div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1014,12 +825,6 @@ Merge data in from DigitalNZ</p>
     
     <span class="c">#print randa['Date Advertised']</span>
     <span class="c">#print randa['time-advertised']</span>
-=======
-<div class="prompt input_prompt">In [181]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">artim</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -1032,7 +837,6 @@ Merge data in from DigitalNZ</p>
 
 <div class="output_area">
 <div class="prompt"></div>
-<<<<<<< HEAD
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansired">---------------------------------------------------------------------------</span>
@@ -1049,11 +853,6 @@ Merge data in from DigitalNZ</p>
 </div>
 
 </div>
-=======
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>09:39:49.250847
-</pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 
 </div>
@@ -1064,11 +863,11 @@ Merge data in from DigitalNZ</p>
     </article>
     <article class="h-entry post-text">
     <header>
-        <h1 class="p-name entry-title"><a href="posts/drawnuseconfig.html" class="u-url">drawnuseconfig</a></h1>
+        <h1 class="p-name entry-title"><a href="posts/minedujob.html" class="u-url">minedujob</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/drawnuseconfig.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-21T06:59:58+00:00" itemprop="datePublished" title="Publication date">2015-03-21 06:59</time></a></p>
-                <p class="commentline">            <a href="posts/drawnuseconfig.html#disqus_thread" data-disqus-identifier="cache/posts/drawnuseconfig.html">Comments</a>
+            <p class="dateline"><a href="posts/minedujob.html" rel="bookmark"><time class="published dt-published" datetime="2015-07-12T10:04:22+00:00" itemprop="datePublished" title="Publication date">2015-07-12 10:04</time></a></p>
+                <p class="commentline">            <a href="posts/minedujob.html#disqus_thread" data-disqus-identifier="cache/posts/minedujob.html">Comments</a>
 
 
         </p>
@@ -1083,47 +882,296 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2>Drawn Use Config</h2>
+<h4>minedujob</h4>
 
-<p>This script uses the config file created with configdraw to run the getsdrawndotcom script.</p>
-<p>This script must open and read the config file created with configdraw. It then uses the var in the config file to run the getsdrawndotcom script</p>
+<p>Python script to fetch random job from Ministry Of Education and convert it into a json object. 
+Merge data in from DigitalNZ</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [65]:</div>
+<div class="prompt input_prompt">In [167]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">configparser</span>
-<span class="kn">import</span> <span class="nn">os</span> 
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">re</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">untangle</span>
+<span class="kn">import</span> <span class="nn">xmltodict</span>
 <span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">praw</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">bs4</span>
 <span class="kn">import</span> <span class="nn">dominate</span>
-<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span> 
+<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pydnz</span> <span class="kn">import</span> <span class="n">Dnz</span>
 <span class="kn">import</span> <span class="nn">arrow</span>
-<span class="kn">import</span> <span class="nn">getpass</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-=======
-<div class="prompt input_prompt">In [182]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">artim</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
+<span class="kn">import</span> <span class="nn">bs4</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-=======
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [168]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dnz</span> <span class="o">=</span> <span class="n">Dnz</span><span class="p">(</span><span class="s">'keyhere'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [169]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">jobreq</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://jobs.minedu.govt.nz/jobtools/job_rss?o1=17584&amp;k2=A52B3674BC046465&amp;source=JobRSS&amp;medium=JobRSS'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [170]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">jobtxta</span> <span class="o">=</span> <span class="n">jobreq</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [171]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">obj</span> <span class="o">=</span> <span class="n">untangle</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">jobtxta</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [172]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dicjobz</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">jobtxta</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [173]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ranldicj</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dicjobz</span><span class="p">[</span><span class="s">'rss'</span><span class="p">][</span><span class="s">'channel'</span><span class="p">][</span><span class="s">'item'</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [174]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ranldicj</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[174]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>27</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [175]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">randicz</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ranldicj</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [176]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">randicz</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[176]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [177]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dicrs</span> <span class="o">=</span> <span class="n">dicjobz</span><span class="p">[</span><span class="s">'rss'</span><span class="p">][</span><span class="s">'channel'</span><span class="p">][</span><span class="s">'item'</span><span class="p">][</span><span class="n">randicz</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [178]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">dicrts</span> <span class="o">=</span> <span class="n">dicrs</span><span class="p">[</span><span class="s">'title'</span><span class="p">]</span>
+<span class="n">dicrtq</span> <span class="o">=</span> <span class="n">dicrs</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [179]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">artim</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">dicrtq</span><span class="p">[</span><span class="s">'pubDate'</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [180]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">artim</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2015-07-12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [181]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">artim</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>09:39:49.250847
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [182]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">artim</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -1134,53 +1182,26 @@ Merge data in from DigitalNZ</p>
 
 <div class="output_text output_subarea output_execute_result">
 <pre>6</pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">confidg</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">()</span>
-</pre></div>
 
 </div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">confidg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">'/home/wcmckee/gotdrawn/config.cfg'</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [183]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">msjobdic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[41]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>['/home/wcmckee/gotdrawn/config.cfg']</pre>
-=======
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1199,221 +1220,10 @@ Merge data in from DigitalNZ</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">subredlookup</span> <span class="o">=</span>  <span class="n">confidg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">,</span> <span class="s">'subbreddit'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">dirpathz</span> <span class="o">=</span> <span class="n">confidg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">,</span> <span class="s">'dirpath'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">outputfold</span> <span class="o">=</span> <span class="n">confidg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">,</span> <span class="s">'outputfolder'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">outputfile</span> <span class="o">=</span> <span class="n">confidg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">,</span> <span class="s">'outputfile'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [46]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">outfoldstr</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">outputfold</span><span class="p">)</span>
-
-<span class="c">#If this is true - makes/checks for date folders.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#The value is True but it's not working. </span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [48]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="n">outfoldstr</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s">'Going to output folders for imgs'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s">'Not going to output folders'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Not going to output folders
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [49]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="n">outputfile</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s">'Going to output filename date'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s">'Not going to output filename date'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Not going to output filename date
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [50]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="nb">str</span><span class="p">(</span><span class="n">outputfile</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[50]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'False'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [51]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">outputfile</span>
-<span class="c">#if this is true it just makes the files with date in </span>
-<span class="c">#filename</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[51]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>u'False'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [52]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">subredlookup</span>
-=======
 <div class="prompt input_prompt">In [185]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">msjobdic</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -57610,13 +57420,6 @@ e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [153]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ausec</span> <span class="o">=</span><span class="n">autc</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%S'</span><span class="p">)</span>
-</pre></div>
-=======
 <div class="prompt input_prompt">In [85]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -58359,7 +58162,6 @@ Grace
 <div class="output_wrapper">
 <div class="output">
 
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 <div class="output_area">
 <div class="prompt"></div>
@@ -58368,18 +58170,13 @@ Grace
 </pre>
 </div>
 </div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [154]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="nb">str</span><span class="p">(</span><span class="n">autc</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
-=======
 <div class="prompt input_prompt">In [63]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -58398,7 +58195,6 @@ Grace
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span> <span class="n">i</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58410,54 +58206,25 @@ Grace
 
 
 <div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[154]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'2015-03-02'</pre>
-=======
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0
 1
 2
 </pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</div>
-
-</div>
-
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [155]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">auall</span> <span class="o">=</span> <span class="n">authr</span> <span class="o">+</span> <span class="n">aumin</span> <span class="o">+</span> <span class="n">ausec</span>
-</pre></div>
-
-</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [169]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">fzaq</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">autc</span><span class="o">.</span><span class="n">date</span><span class="p">())</span> <span class="o">+</span> <span class="s">'-'</span> <span class="o">+</span> <span class="n">auall</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">x</span> <span class="o">=</span> <span class="s">'infinity'</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58467,17 +58234,10 @@ Grace
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [170]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">fzaq</span>
-=======
 <div class="prompt input_prompt">In [66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="nb">print</span> <span class="n">x</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58489,18 +58249,10 @@ Grace
 
 
 <div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[170]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'2015-03-02-033801'</pre>
-=======
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>infinity
 </pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 </div>
 
@@ -58510,34 +58262,16 @@ Grace
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [157]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">hrsaledict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">auall</span> <span class="p">:</span> <span class="n">amount</span><span class="p">})</span>
-=======
 <div class="prompt input_prompt">In [69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="nb">print</span> <span class="n">x</span><span class="o">+</span><span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">]</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [158]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">locdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'product'</span> <span class="p">:</span> <span class="n">sellwhat</span><span class="p">,</span> <span class="s">'amount'</span> <span class="p">:</span> <span class="n">amount</span><span class="p">,</span> <span class="s">'time'</span><span class="p">:</span> <span class="n">auall</span><span class="p">,</span> <span class="s">'date'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">autc</span><span class="o">.</span><span class="n">date</span><span class="p">())})</span> 
-</pre></div>
-
-=======
 <div class="output_wrapper">
 <div class="output">
 
@@ -58548,26 +58282,19 @@ Grace
 <pre>infinitynames =['Alex', 'Stephanie', 'Grace']
 </pre>
 </div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [159]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">lcojson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">locdict</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">random</span>
     
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58577,17 +58304,10 @@ Grace
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [160]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">lcojson</span>
-=======
 <div class="prompt input_prompt">In [76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58599,19 +58319,11 @@ Grace
 
 
 <div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[160]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'{"date": "2015-03-02", "product": "python", "amount": 5, "time": "033801"}'</pre>
-=======
 <div class="prompt output_prompt">Out[76]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>109</pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 
 </div>
@@ -58622,17 +58334,10 @@ Grace
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [161]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58644,19 +58349,11 @@ Grace
 
 
 <div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[161]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'J1\x1b\xd8\x04\xd2X'</pre>
-=======
 <div class="prompt output_prompt">Out[77]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>160</pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 
 </div>
@@ -58667,17 +58364,10 @@ Grace
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">fzaq</span>
-=======
 <div class="prompt input_prompt">In [82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">x</span> <span class="o">=</span> <span class="s">'do you know what you are doing? '</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58687,29 +58377,6 @@ Grace
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">salcoj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/archive/'</span> <span class="o">+</span> <span class="n">fzaq</span> <span class="o">+</span> <span class="s">'.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-
-<span class="n">salcoj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">lcojson</span><span class="p">)</span>
-
-<span class="n">salcoj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [101]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">hrsaledict</span>
-=======
 <div class="prompt input_prompt">In [79]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -58728,7 +58395,6 @@ Grace
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
     <span class="nb">print</span> <span class="n">i</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58742,13 +58408,9 @@ Grace
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<<<<<<< HEAD
-<pre>{'015242': 2}
-=======
 <pre>mum
 harold
 chris
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre>
 </div>
 </div>
@@ -58759,78 +58421,21 @@ chris
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [102]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#7 character unique id for each transaction</span>
-<span class="c">#More than 1 product type sale transaction.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [75]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#Add another product? Y/n Question after the amount of product.</span>
-<span class="c">#</span>
-=======
 <div class="prompt input_prompt">In [86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
     <span class="nb">print</span> <span class="n">x</span><span class="o">+</span><span class="n">i</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<<<<<<< HEAD
-</div>
-    </div>
-  </div>
-
-    </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/productadd.html" class="u-url">productadd</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/productadd.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-02T03:46:58+00:00" itemprop="datePublished" title="Publication date">2015-03-02 03:46</time></a></p>
-                <p class="commentline">            <a href="posts/productadd.html#disqus_thread" data-disqus-identifier="cache/posts/productadd.html">Comments</a>
+<div class="output_wrapper">
+<div class="output">
 
 
-        </p>
-</div>
-    </header>
-    <div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-=======
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
@@ -58839,35 +58444,18 @@ do you know what you are doing? harold
 do you know what you are doing? chris
 </pre>
 </div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2>Product Add</h2>
-
-<p>Script to add a new product to list of them. Location is /home/wcmckee/sellcoffee/products.</p>
-<p>Better to have a file for products or a folder? Might be easier to have a folder.
-Each product has rsa key - public and private key.</p>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
-<span class="c">#from passlib.hash import pbkdf2_sha256</span>
-<span class="c">#import crypt, getpass, spwd</span>
-<span class="c">#from Crypto.PublicKey import RSA</span>
-=======
 <div class="prompt input_prompt">In [90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">colour</span><span class="o">=</span><span class="p">[</span><span class="s">'red'</span><span class="p">,</span> <span class="s">'orange'</span><span class="p">,</span> <span class="s">'yellow'</span><span class="p">,</span> <span class="s">'green'</span><span class="p">,</span> <span class="s">'blue'</span><span class="p">,</span> <span class="s">'indigo'</span><span class="p">,</span> <span class="s">'violet'</span><span class="p">]</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58877,25 +58465,16 @@ Each product has rsa key - public and private key.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">prodirz</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/products/'</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [91]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="nb">print</span> <span class="n">colour</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-=======
 <div class="output_wrapper">
 <div class="output">
 
@@ -58906,35 +58485,19 @@ Each product has rsa key - public and private key.</p>
 <pre>['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
 </pre>
 </div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">prolis</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">prodirz</span><span class="p">)</span>
-</pre></div>
 
-</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">prolis</span>
-=======
 <div class="prompt input_prompt">In [94]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">colour</span><span class="p">:</span>
     <span class="nb">print</span> <span class="n">s</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -58948,10 +58511,6 @@ Each product has rsa key - public and private key.</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<<<<<<< HEAD
-<pre>['debian', 'internet', 'tea', 'coke']
-</pre>
-=======
 <pre>red
 orange
 yellow
@@ -58964,11 +58523,9 @@ violet
 </div>
 
 </div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
+
 </div>
-<<<<<<< HEAD
-=======
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [100]:</div>
@@ -58976,8 +58533,8 @@ violet
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">x</span> <span class="o">=</span> <span class="s">'awash in '</span>
 </pre></div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
+</div>
 </div>
 </div>
 
@@ -58987,13 +58544,9 @@ violet
 <div class="prompt input_prompt">In [98]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<<<<<<< HEAD
-<div class=" highlight hl-ipython2"><pre><span class="n">prodoadd</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Name of product to add: '</span><span class="p">)</span>
-=======
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">colour</span><span class="p">:</span>
     <span class="nb">print</span> <span class="n">s</span>
     
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59007,9 +58560,6 @@ violet
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<<<<<<< HEAD
-<pre>Name of product to add: deb
-=======
 <pre>red
 orange
 yellow
@@ -59017,7 +58567,6 @@ green
 blue
 indigo
 violet
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre>
 </div>
 </div>
@@ -59028,17 +58577,10 @@ violet
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">prodirc</span> <span class="o">=</span> <span class="p">(</span><span class="n">prodirz</span> <span class="o">+</span> <span class="n">prodoadd</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [101]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="nb">print</span> <span class="n">x</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59063,39 +58605,17 @@ violet
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">prodirc</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [102]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">colour</span><span class="p">:</span>
     <span class="nb">print</span> <span class="n">x</span><span class="o">+</span><span class="n">s</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">opmeta</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">prodirc</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span>  <span class="n">prodoadd</span> <span class="o">+</span> <span class="s">'-amount'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-
-<span class="n">opmeta</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'0'</span><span class="p">)</span>
-
-<span class="n">opmeta</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-=======
 <div class="output_wrapper">
 <div class="output">
 
@@ -59112,26 +58632,18 @@ awash in indigo
 awash in violet
 </pre>
 </div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#switching to folders for each product. Inside folder has rsa</span>
-<span class="c">#and rsa.public.</span>
-=======
 <div class="prompt input_prompt">In [109]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="n">y</span> <span class="o">=</span> <span class="s">'but not '</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59141,51 +58653,20 @@ awash in violet
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#opnewp = open(prodirz + prodoadd, 'w')</span>
-
-<span class="c">##opnewp.write('0')</span>
-=======
 <div class="prompt input_prompt">In [110]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">colour</span><span class="p">:</span>
     <span class="nb">print</span> <span class="n">y</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">s</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#new_key = RSA.generate(2048, e=65537)</span>
-<span class="c">#public_key = new_key.publickey().exportKey("PEM")</span>
-<span class="c">#private_key = new_key.exportKey("PEM")</span>
-<span class="c">#print private_key </span>
-<span class="c">#sapriv = open(prodirc + '/' + prodoadd, 'w')</span>
-<span class="c">#sapriv.write(private_key)</span>
-<span class="c">#sapriv.close()</span>
-
-<span class="c">#print public_key </span>
-<span class="c">#papriv =  open(prodirc + '/' +  prodoadd + '.pub', 'w')</span>
-<span class="c">#papriv.write(public_key)</span>
-<span class="c">#papriv.close()</span>
-</pre></div>
-=======
 <div class="output_wrapper">
 <div class="output">
 
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 <div class="output_area">
 <div class="prompt"></div>
@@ -59207,42 +58688,17 @@ but not awash in violet
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#dict that has all the product details. When it was first</span>
-<span class="c">#created. Price. </span>
-<span class="c">#amount sold. This value will be zero when a product is created</span>
-<span class="c">#but add 1 with productsell script. </span>
-<span class="c">#Store amount sold data in dict</span>
-<span class="c">#or just a file called productname-amountsold.</span>
-=======
 <div class="prompt input_prompt">In [117]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">colour</span><span class="p">:</span>
     <span class="nb">print</span> <span class="n">y</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">s</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-=======
 <div class="output_wrapper">
 <div class="output">
 
@@ -59258,19 +58714,8 @@ But Not awash in blue
 But Not awash in indigo
 But Not awash in violet
 </pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 </div>
-<<<<<<< HEAD
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#opnewp.close()</span>
-</pre></div>
-=======
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 </div>
 </div>
@@ -59278,21 +58723,11 @@ But Not awash in violet
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#for prol in prolis:</span>
-<span class="c">#    print prol</span>
-<span class="c">#    adprod = open(prodirz + prol + '.meta', 'w')</span>
-<span class="c">#    adprod.write(</span>
-=======
 <div class="prompt input_prompt">In [119]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">colour</span><span class="p">:</span>
     <span class="nb">print</span> <span class="n">y</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59306,16 +58741,6 @@ But Not awash in violet
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<<<<<<< HEAD
-<pre>debian
-internet
-python
-coffee
-tired
-snake
-vogals
-sleep
-=======
 <pre>but not awash in RED
 but not awash in ORANGE
 but not awash in YELLOW
@@ -59323,7 +58748,6 @@ but not awash in GREEN
 but not awash in BLUE
 but not awash in INDIGO
 but not awash in VIOLET
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre>
 </div>
 </div>
@@ -59334,17 +58758,10 @@ but not awash in VIOLET
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-=======
 <div class="prompt input_prompt">In [127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre> 
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59357,11 +58774,7 @@ but not awash in VIOLET
 <div class="prompt input_prompt">In [122]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<<<<<<< HEAD
-<div class=" highlight hl-ipython2"><pre><span class="c">#adprod = open(pro</span>
-=======
 <div class=" highlight hl-ipython3"><pre> 
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59389,19 +58802,11 @@ but not awash in VIOLET
     </article>
     <article class="h-entry post-text">
     <header>
-<<<<<<< HEAD
-        <h1 class="p-name entry-title"><a href="posts/wcusersdata.html" class="u-url">wcusersdata</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/wcusersdata.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-01T01:54:01+00:00" itemprop="datePublished" title="Publication date">2015-03-01 01:54</time></a></p>
-                <p class="commentline">            <a href="posts/wcusersdata.html#disqus_thread" data-disqus-identifier="cache/posts/wcusersdata.html">Comments</a>
-=======
         <h1 class="p-name entry-title"><a href="posts/productreceipt.html" class="u-url">productreceipt</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
             <p class="dateline"><a href="posts/productreceipt.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-03T03:54:49+00:00" itemprop="datePublished" title="Publication date">2015-03-03 03:54</time></a></p>
                 <p class="commentline">            <a href="posts/productreceipt.html#disqus_thread" data-disqus-identifier="cache/posts/productreceipt.html">Comments</a>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 
         </p>
@@ -59416,41 +58821,18 @@ but not awash in VIOLET
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<<<<<<< HEAD
-<p>wcUsersData</p>
-<p>Script to get users logged into the system.</p>
-<p>Saves the output of users as the hostname of the system.
-Convert to a dict and json object, merging with other hostname output.</p>
-<p>Runs script every min and if user is found then - time from their account</p>
-<p>File with, usernames, time remaining on user.</p>
-<p>time file is a json object.
-{'username' : 'wcmckee', 'time' : 320 }</p>
-<p>time is amount of time left on account.</p>
-<p>script to check this object and if 0 - lock account. ELSE, allow login.</p>
-<p>Script to add time to acoun,, auto add time to certain groups/user a day.</p>
-<p>username 45</p>
-=======
 <p>Product Receipt</p>
 <p>Adds together items and content from sellcofee/archive</p>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">socket</span>
-=======
 <div class="prompt input_prompt">In [39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">dominate</span>
 <span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span> 
@@ -59465,44 +58847,10 @@ Convert to a dict and json object, merging with other hostname output.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">usertimedict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">lisho</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">ish</span> <span class="ow">in</span> <span class="n">lisho</span><span class="p">:</span>
-    <span class="n">usertimedict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">ish</span> <span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
-=======
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">arctdir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/archive/'</span><span class="p">)</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59512,17 +58860,10 @@ Convert to a dict and json object, merging with other hostname output.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">usertimedict</span>
-=======
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">arctdir</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59534,42 +58875,6 @@ Convert to a dict and json object, merging with other hostname output.</p>
 
 
 <div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[9]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{'blag': 0,
- 'blah': 0,
- 'charle': 0,
- 'checkthis': 0,
- 'clittle': 0,
- 'figlet': 0,
- 'gerty': 0,
- 'jblog': 0,
- 'jchick': 0,
- 'joecheck': 0,
- 'joeman': 0,
- 'joemanz': 0,
- 'pjohns': 0,
- 'poi': 0,
- 'point': 0,
- 'poiu': 0,
- 'pytest': 0,
- 'qwe': 0,
- 'red': 0,
- 'signinlca.py': 0,
- 'sjohns': 0,
- 'ssung': 0,
- 'tnow': 0,
- 'wblack': 0,
- 'wcm': 0,
- 'wcmckee': 0,
- 'webmck': 0,
- 'wez': 0,
- 'wkee': 0,
- 'wmen': 0}</pre>
-=======
 <div class="prompt output_prompt">Out[31]:</div>
 
 
@@ -59592,13 +58897,10 @@ Convert to a dict and json object, merging with other hostname output.</p>
 </pre></div>
 
 </div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 </div>
 
 </div>
-<<<<<<< HEAD
-=======
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [33]:</div>
@@ -59606,20 +58908,14 @@ Convert to a dict and json object, merging with other hostname output.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">finlis</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">addtime</span> <span class="o">=</span> <span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s">'add how much time: '</span><span class="p">))</span>
-=======
 <div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -59628,7 +58924,6 @@ Convert to a dict and json object, merging with other hostname output.</p>
     <span class="n">opli</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">arctdir</span> <span class="o">+</span> <span class="n">li</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
     <span class="n">oprd</span> <span class="o">=</span> <span class="n">opli</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="n">finlis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">oprd</span><span class="p">)</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59642,12 +58937,8 @@ Convert to a dict and json object, merging with other hostname output.</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<<<<<<< HEAD
-<pre>add how much time: 15
-=======
 <pre>2015-03-03-032826.json
 2015-03-03-032821.json
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre>
 </div>
 </div>
@@ -59658,80 +58949,23 @@ Convert to a dict and json object, merging with other hostname output.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#letim = len(addtime)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#letim</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">addtime</span>
-=======
 <div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#Merge together sales by time.</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'15'</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="nb">type</span><span class="p">(</span><span class="n">addtime</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#deblis = </span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59743,13 +58977,6 @@ Convert to a dict and json object, merging with other hostname output.</p>
 
 
 <div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[14]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>str</pre>
-=======
 <div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
@@ -59758,7 +58985,6 @@ Convert to a dict and json object, merging with other hostname output.</p>
 <span class="ansigrey">             ^</span>
 <span class="ansired">SyntaxError</span><span class="ansired">:</span> invalid syntax
 </pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
 </div>
 
@@ -59768,12 +58994,6 @@ Convert to a dict and json object, merging with other hostname output.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">intime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">addtime</span><span class="p">)</span>
-=======
 <div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -59786,27 +59006,14 @@ Convert to a dict and json object, merging with other hostname output.</p>
     <span class="k">print</span> <span class="n">newjs</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span>
     <span class="k">print</span> <span class="n">newjs</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span>
     <span class="k">print</span> <span class="n">newjs</span><span class="p">[</span><span class="s">'amount'</span><span class="p">]</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<<<<<<< HEAD
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">ish</span> <span class="ow">in</span> <span class="n">lisho</span><span class="p">:</span>
-    <span class="n">usertimedict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">ish</span> <span class="p">:</span> <span class="n">intime</span><span class="p">})</span>
-</pre></div>
-=======
 <div class="output_wrapper">
 <div class="output">
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 
 <div class="output_area">
@@ -59832,17 +59039,10 @@ debian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">usertimedict</span>
-=======
 <div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">finlis</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -59854,57 +59054,6 @@ debian
 
 
 <div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[17]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{'blag': 15,
- 'blah': 15,
- 'charle': 15,
- 'checkthis': 15,
- 'clittle': 15,
- 'figlet': 15,
- 'gerty': 15,
- 'jblog': 15,
- 'jchick': 15,
- 'joecheck': 15,
- 'joeman': 15,
- 'joemanz': 15,
- 'pjohns': 15,
- 'poi': 15,
- 'point': 15,
- 'poiu': 15,
- 'pytest': 15,
- 'qwe': 15,
- 'red': 15,
- 'signinlca.py': 15,
- 'sjohns': 15,
- 'ssung': 15,
- 'tnow': 15,
- 'wblack': 15,
- 'wcm': 15,
- 'wcmckee': 15,
- 'webmck': 15,
- 'wez': 15,
- 'wkee': 15,
- 'wmen': 15}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">myhn</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
-</pre></div>
-=======
 <div class="prompt output_prompt">Out[41]:</div>
 
 
@@ -59914,7 +59063,6 @@ debian
 </div>
 
 </div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 </div>
 </div>
@@ -59922,22 +59070,6 @@ debian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#Edit just one person</span>
-
-<span class="n">edione</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Which user to edit time: '</span><span class="p">)</span>
-<span class="n">timedi</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'How much time to add: '</span><span class="p">)</span>
-
-<span class="n">usertimedict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">edione</span> <span class="p">:</span> <span class="n">timedi</span><span class="p">})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-=======
 <div class="prompt input_prompt">In [40]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -59959,7 +59091,6 @@ debian
         <span class="c">#p(bodycom)</span>
     
     
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
 <span class="k">with</span> <span class="n">doc</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ol</span><span class="p">()):</span>
@@ -59982,16 +59113,6 @@ debian
             <span class="c">#prrdz.close()</span>
 
 
-<<<<<<< HEAD
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Which user to edit time: point
-How much time to add: 100
-</pre>
-</div>
-</div>
-=======
                 
             <span class="c">#print rdz.url</span>
             <span class="c">#if '.jpg' in rdz.url:</span>
@@ -60001,7 +59122,6 @@ How much time to add: 100
             <span class="c">#h1(str(rdz.author))</span>
             
             <span class="c">#li(img(i.lower(), src='%s' % i))</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 
     <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
         <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span>
@@ -60009,30 +59129,7 @@ How much time to add: 100
         <span class="n">a</span><span class="p">(</span><span class="s">'https://github.com/wcmckee/lcacoffee'</span><span class="p">)</span>
         <span class="c">#a('https://reddit.com/r/redditgetsdrawn')</span>
 
-<<<<<<< HEAD
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">jstim</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">usertimedict</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">jstim</span>
-=======
 <span class="k">print</span> <span class="n">doc</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </pre></div>
 
 </div>
@@ -60044,13 +59141,6 @@ How much time to add: 100
 
 
 <div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[21]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'{"wcmckee": 15, "joemanz": 15, "point": 15, "qwe": 15, "wkee": 15, "checkthis": 15, "poiu": 15, "blah": 15, "charle": 15, "poi": 15, "tnow": 15, "clittle": 15, "wblack": 15, "ssung": 15, "wmen": 15, "blag": 15, "signinlca.py": 15, "sjohns": 15, "gerty": 15, "webmck": 15, "joeman": 15, "joecheck": 15, "jchick": 15, "pytest": 15, "jblog": 15, "pjohns": 15, "wez": 15, "figlet": 15, "wcm": 15, "red": 15}'</pre>
-=======
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;!DOCTYPE html&gt;
@@ -60084,9 +59174,7 @@ How much time to add: 100
   &lt;/body&gt;
 &lt;/html&gt;
 </pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
 </div>
-
 </div>
 
 </div>
@@ -60095,15 +59183,6 @@ How much time to add: 100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">opus</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/hostnames/'</span> <span class="o">+</span> <span class="n">myhn</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-
-<span class="n">opus</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">jstim</span><span class="p">)</span>
-<span class="n">opus</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-=======
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -60114,490 +59193,6 @@ How much time to add: 100
 <span class="n">mkind</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">indfil</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
 <span class="n">mkind</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yourstring</span><span class="p">)</span>
 <span class="n">mkind</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<<<<<<< HEAD
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">rdopuw</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/hostnames/localhost'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">rdopuw</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{"wcmckee": 15, "joemanz": 15, "point": 15, "qwe": 15, "wkee": 15, "checkthis": 15, "poiu": 15, "blah": 15, "charle": 15, "poi": 15, "tnow": 15, "clittle": 15, "wblack": 15, "ssung": 15, "wmen": 15, "blag": 15, "signinlca.py": 15, "sjohns": 15, "gerty": 15, "webmck": 15, "joeman": 15, "joecheck": 15, "jchick": 15, "pytest": 15, "jblog": 15, "pjohns": 15, "wez": 15, "figlet": 15, "wcm": 15, "red": 15}
-</pre>
-</div>
-</div>
-=======
-    </div>
-  </div>
-
-    </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/nikeditfiles.html" class="u-url">nikeditfiles</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/nikeditfiles.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-03T00:09:51+00:00" itemprop="datePublished" title="Publication date">2015-03-03 00:09</time></a></p>
-                <p class="commentline">            <a href="posts/nikeditfiles.html#disqus_thread" data-disqus-identifier="cache/posts/nikeditfiles.html">Comments</a>
-
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-
-        </p>
-</div>
-    </header>
-    <div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<<<<<<< HEAD
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">edione</span>
-</pre></div>
-=======
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Nik Edit Files</p>
-<p>Edit blog files</p>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-
-</div>
-</div>
-</div>
-<<<<<<< HEAD
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[33]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'point'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">limedi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">timedi</span><span class="p">)</span>
-=======
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [64]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">nikola</span>
-
-<span class="kn">import</span> <span class="nn">dominate</span>
-<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span> 
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strftime</span>
-<span class="kn">import</span> <span class="nn">time</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">limedi</span>
-=======
-<div class="prompt input_prompt">In [66]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[35]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>15</pre>
-</div>
-<<<<<<< HEAD
-=======
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [67]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">prodir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/products/'</span><span class="p">)</span>
-</pre></div>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">osscm</span> <span class="o">=</span> <span class="p">(</span><span class="s">'users &gt; '</span> <span class="o">+</span> <span class="n">myhn</span> <span class="o">+</span> <span class="s">'.txt'</span><span class="p">)</span>
-=======
-<div class="prompt input_prompt">In [68]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">prodlis</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/products/'</span><span class="p">)</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">osscm</span>
-=======
-<div class="prompt input_prompt">In [69]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#Display index.html page that has products list, price, sales</span>
-<span class="c">#etc.</span>
-
-<span class="n">prodlis</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[11]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'users &gt; naplesyellow.txt'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-=======
-<div class="prompt output_prompt">Out[69]:</div>
-
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-
-<div class="output_text output_subarea output_execute_result">
-<pre>['debian']</pre>
-</div>
-
-</div>
-<<<<<<< HEAD
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-=======
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">osscm</span><span class="p">)</span>
-=======
-<div class="prompt input_prompt">In [70]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#(prodir + rdz + '/' + rdz + '-price')</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<<<<<<< HEAD
-<div class="prompt output_prompt">Out[13]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
-=======
-<div class="prompt output_prompt">Out[70]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'/home/wcmckee/sellcoffee/products/internet/internet-price'</pre>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ophos</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/'</span> <span class="o">+</span> <span class="n">myhn</span> <span class="o">+</span> <span class="s">'.txt'</span><span class="p">)</span>
-=======
-<div class="prompt input_prompt">In [70]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<<<<<<< HEAD
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">ophos</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-=======
-<div class="prompt input_prompt">In [70]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<<<<<<< HEAD
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'noby wcmckee wcmckee wcmckee wcmckee wcmckee\n'</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">ophos</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-=======
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">doc</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'BroBeur CyberCafe products'</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="n">doc</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
-    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">'stylesheet'</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">'style.css'</span><span class="p">)</span>
-    <span class="n">script</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span><span class="s">'text/javascript'</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">'script.js'</span><span class="p">)</span>
-    <span class="c">#str(str2)</span>
-    
-    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
-        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'header'</span><span class="p">)</span>
-        <span class="n">h1</span><span class="p">(</span><span class="s">'BroBeur CyberCafe products'</span><span class="p">)</span>
-        <span class="n">h3</span><span class="p">(</span><span class="s">'BroBeur CyberCafe Products'</span><span class="p">)</span>
-        <span class="c">#p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))</span>
-        <span class="c">#p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))</span>
-        <span class="n">p</span><span class="p">(</span><span class="s">'Updated '</span><span class="p">,</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S +0000"</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">()))</span>
-        <span class="c">#p(panz)</span>
-        <span class="c">#p(bodycom)</span>
-    
-    
-
-<span class="k">with</span> <span class="n">doc</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ol</span><span class="p">()):</span>
-        <span class="k">for</span> <span class="n">rdz</span> <span class="ow">in</span> <span class="n">prodlis</span><span class="p">:</span>
-            <span class="c">#h1(rdz.title)</span>
-            <span class="c">#a(rdz.url)</span>
-            <span class="c">#p(img(rdz, src='%s' % rdz))</span>
-            <span class="c">#print rdz</span>
-            <span class="c">#p(img(rdz, src = rdz))</span>
-            <span class="n">h3</span><span class="p">(</span><span class="n">rdz</span><span class="p">)</span>
-            <span class="n">oprdz</span> <span class="o">=</span> <span class="nb">open</span><span class="p">((</span><span class="n">prodir</span> <span class="o">+</span> <span class="n">rdz</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">rdz</span> <span class="o">+</span> <span class="s">'-id'</span><span class="p">),</span> <span class="s">'r'</span><span class="p">)</span>
-            <span class="n">p</span><span class="p">(</span><span class="s">'id: '</span> <span class="o">+</span> <span class="n">oprdz</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-            <span class="n">oprdz</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-            
-            <span class="n">prrdz</span> <span class="o">=</span> <span class="nb">open</span><span class="p">((</span><span class="n">prodir</span> <span class="o">+</span> <span class="n">rdz</span> <span class="o">+</span> <span class="s">'/'</span> <span class="o">+</span> <span class="n">rdz</span> <span class="o">+</span> <span class="s">'-price'</span><span class="p">),</span> <span class="s">'r'</span><span class="p">)</span>
-            <span class="n">p</span><span class="p">(</span><span class="s">'price: '</span> <span class="o">+</span> <span class="n">prrdz</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-            <span class="n">prrdz</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-
-                
-            <span class="c">#print rdz.url</span>
-            <span class="c">#if '.jpg' in rdz.url:</span>
-            <span class="c">#    img(rdz.urlz)</span>
-            <span class="c">#else:</span>
-            <span class="c">#    a(rdz.urlz)</span>
-            <span class="c">#h1(str(rdz.author))</span>
-            
-            <span class="c">#li(img(i.lower(), src='%s' % i))</span>
-
-    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
-        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span>
-        <span class="n">p</span><span class="p">(</span><span class="s">'sellcoffee is open source'</span><span class="p">)</span>
-        <span class="n">a</span><span class="p">(</span><span class="s">'https://github.com/wcmckee/lcacoffee'</span><span class="p">)</span>
-        <span class="c">#a('https://reddit.com/r/redditgetsdrawn')</span>
-
-<span class="k">print</span> <span class="n">doc</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<<<<<<< HEAD
-<div class=" highlight hl-ipython2"><pre> 
-=======
-<div class=" highlight hl-ipython2"><pre><span class="n">docre</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
-<span class="c">#s = docre.decode('ascii', 'ignore')</span>
-<span class="n">yourstring</span> <span class="o">=</span> <span class="n">docre</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">,</span> <span class="s">'ignore'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">)</span>
-<span class="n">indfil</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/index.html'</span><span class="p">)</span>
-<span class="n">mkind</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">indfil</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-<span class="n">mkind</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yourstring</span><span class="p">)</span>
-<span class="n">mkind</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
->>>>>>> e8575ec84cd4dd2c273e795add41037f77d8d84c
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
 </pre></div>
 
 </div>
@@ -60614,7 +59209,7 @@ How much time to add: 100
         <nav class="postindexpager">
         <ul class="pager">
             <li class="next">
-                <a href="index-2.html" rel="next">Older posts</a>
+                <a href="index-3.html" rel="next">Older posts</a>
             </li>
         </ul>
         </nav>
