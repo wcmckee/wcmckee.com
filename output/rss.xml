@@ -1,5 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link href="http://wcmckee.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 19 Jul 2015 06:41:20 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>rdminjob</title><link>http://wcmckee.com/posts/rdminjob.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link href="http://wcmckee.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 26 Jul 2015 13:33:20 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>libedugov</title><link>http://wcmckee.com/posts/libedugov.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Library Education Govt&lt;/p&gt;
+&lt;p&gt;Script to deal with rss xml feed of library.education.govt.nz&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [25]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;xmltodict&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;reqlib&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'https://library.education.govt.nz/rss/highlights'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;reqlibt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;reqlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;libtd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xmltodict&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reqlibt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;rslen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;libtd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'rss'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'channel'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'item'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#rslen&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;10&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;wrapdict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [19]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#print (libtd['rss']['channel']['item'][0])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;OrderedDict([(u'title', u'Best schools in Auckland: 24 things to know before you choose a school'), (u'link', u'https://library.education.govt.nz/blogs/best-schools-auckland-24-things-know-you-choose-school'), (u'description', u'&amp;lt;div class="field field-name-body field-type-text-with-summary field-label-hidden"&amp;gt;&amp;lt;div class="field-items"&amp;gt;&amp;lt;div class="field-item even" property="content:encoded"&amp;gt;&amp;lt;p&amp;gt;By Simon Wilson&amp;lt;br /&amp;gt;\n\tMetro Jul/August 2015: 40-49 &amp;lt;em&amp;gt;(article)&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;\n&amp;lt;p&amp;gt;&amp;lt;span style="color: rgb(48, 48, 48); line-height: 20px;"&amp;gt;Presents tables comparing Auckland secondary schools. Looks at school leaver qualifications and NCEA results, including University Entrance and Scholarship rates. Takes into account school decile, and whether Cambridge exams or the International Baccalaureate are offered as well as or instead of NCEA. Shows the new 2015 deciles.&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;\n&amp;lt;p&amp;gt;&amp;lt;a href="http://library.education.govt.nz/cgi-bin/koha/opac-reserve.pl?biblionumber=51571" style="line-height: 18.5714282989502px; color: rgb(0, 120, 206); outline: dotted thin; outline-offset: -2px; background-color: rgb(255, 255, 255);"&amp;gt;Request item&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;\n&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;'), (u'pubDate', u'Wed, 01 Jul 2015 20:46:34 +0000'), (u'dc:creator', u'tim.admin'), (u'guid', OrderedDict([(u'@isPermaLink', u'false'), ('#text', u'10833 at https://library.education.govt.nz')]))])
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [30]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;libi&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rslen&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;msjobdic&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;#print (libtd['rss']['channel']['item'][libi]['title'])&lt;/span&gt;
+    &lt;span class="n"&gt;msjobdic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s"&gt;'title'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;libtd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'rss'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'channel'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'item'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;libi&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'title'&lt;/span&gt;&lt;span class="p"&gt;])})&lt;/span&gt;
+    &lt;span class="n"&gt;msjobdic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s"&gt;'link'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;libtd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'rss'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'channel'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'item'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;libi&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'link'&lt;/span&gt;&lt;span class="p"&gt;])})&lt;/span&gt;
+    &lt;span class="n"&gt;soupdes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bs4&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;libtd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'rss'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'channel'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'item'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;libi&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'description'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    
+    &lt;span class="n"&gt;msjobdic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s"&gt;'description'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;soupdes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="n"&gt;msjobdic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s"&gt;'jsonlen'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;libi&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="c"&gt;#findict = dict()&lt;/span&gt;
+    
+    &lt;span class="c"&gt;#wrapdict.update({'title' : (libtd['rss']['channel']['item'][libi]['title'])})&lt;/span&gt;
+    &lt;span class="c"&gt;#totlen = len(libi)&lt;/span&gt;
+    &lt;span class="c"&gt;#for tes in range(totlen):&lt;/span&gt;
+    &lt;span class="c"&gt;#    wrapdict.update({'title' : txtspli[tes][1]})&lt;/span&gt;
+    &lt;span class="c"&gt;#findict.update({txtspli[0][0] : txtspli[0][1]})&lt;/span&gt;
+    &lt;span class="n"&gt;msjobz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;msjobdic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;msjobz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msjobdic&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    
+    &lt;span class="n"&gt;wrapdict&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;libi&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;msjobz&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="c"&gt;#jsmsdob = json.dumps(wrapdict)&lt;/span&gt;
+    
+    
+    &lt;span class="c"&gt;#jslibi.update({rslen : msjobz})&lt;/span&gt;
+    &lt;span class="c"&gt;#jsmsdob = json.dumps(wrapdict)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;Best schools in Auckland: 24 things to know before you choose a school
+Tauira: Māori methods of learning and teaching
+Dangerous liaisons
+Bully beef
+Could do better
+What Candy Crush Saga teaches us about motivating employees
+Influential Aucklanders in education
+Explaining the achievement gap between indigenous and non-indigenous students: an analysis of PISA 2009 results for Australia and New Zealand
+Panel-beaters don't have to learn Shakespeare
+Leaders as decision architects
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [32]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;savjslib&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapdict&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [35]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;savjfin&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/github/wcmckee.com/output/moelib/index.json'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;savjfin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;savjslib&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;savjfin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><guid>http://wcmckee.com/posts/libedugov.html</guid><pubDate>Sun, 26 Jul 2015 13:32:54 GMT</pubDate></item><item><title>rdminjob</title><link>http://wcmckee.com/posts/rdminjob.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
@@ -58420,387 +58675,4 @@ but not awash in VIOLET
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/Alex.html</guid><pubDate>Sat, 07 Mar 2015 08:38:17 GMT</pubDate></item><item><title>productreceipt</title><link>http://wcmckee.com/posts/productreceipt.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Product Receipt&lt;/p&gt;
-&lt;p&gt;Adds together items and content from sellcofee/archive&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [39]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;dominate&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dominate.tags&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; 
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;gmtime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strftime&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [30]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;arctdir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/sellcoffee/archive/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [31]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;arctdir&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[31]:&lt;/div&gt;
-
-
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;'/home/wcmckee/sellcoffee/archive/'&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [32]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;lisar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arctdir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [33]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;finlis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [34]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lisar&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt;
-    &lt;span class="n"&gt;opli&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arctdir&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'r'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;oprd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;opli&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="n"&gt;finlis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;oprd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;2015-03-03-032826.json
-2015-03-03-032821.json
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [35]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#Merge together sales by time.&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [36]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#deblis = &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_text output_error"&gt;
-&lt;pre&gt;
-&lt;span class="ansicyan"&gt;  File &lt;/span&gt;&lt;span class="ansigreen"&gt;"&amp;lt;ipython-input-36-a5468364108c&amp;gt;"&lt;/span&gt;&lt;span class="ansicyan"&gt;, line &lt;/span&gt;&lt;span class="ansigreen"&gt;1&lt;/span&gt;
-&lt;span class="ansiyellow"&gt;    deblis =&lt;/span&gt;
-&lt;span class="ansigrey"&gt;             ^&lt;/span&gt;
-&lt;span class="ansired"&gt;SyntaxError&lt;/span&gt;&lt;span class="ansired"&gt;:&lt;/span&gt; invalid syntax
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [37]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;fi&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;finlis&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="c"&gt;#print fi&lt;/span&gt;
-    &lt;span class="n"&gt;newjs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;newjs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'product'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;newjs&lt;/span&gt;
-    &lt;span class="c"&gt;#print newjs['cost']&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;newjs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'time'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;newjs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'date'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;newjs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'amount'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;portrait
-{u'date': u'2015-03-03', u'product': u'portrait', u'amount': 2, u'time': u'032826'}
-032826
-2015-03-03
-2
-debian
-{u'date': u'2015-03-03', u'product': u'debian', u'amount': 5, u'time': u'032821'}
-032821
-2015-03-03
-5
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [41]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;finlis&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[41]:&lt;/div&gt;
-
-
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;['{"date": "2015-03-03", "product": "portrait", "amount": 2, "time": "032826"}',
- '{"date": "2015-03-03", "product": "debian", "amount": 5, "time": "032821"}']&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [40]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;doc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dominate&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'BroBeur CyberCafe Transactions'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'stylesheet'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'style.css'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'text/javascript'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'script.js'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="c"&gt;#str(str2)&lt;/span&gt;
-    
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'header'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'BroBeur CyberCafe Transactions'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;h3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'BroBeur CyberCafe Transactions'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c"&gt;#p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))&lt;/span&gt;
-        &lt;span class="c"&gt;#p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Updated '&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"%a, &lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt; %b %Y %H:%M:%S +0000"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gmtime&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
-        &lt;span class="c"&gt;#p(panz)&lt;/span&gt;
-        &lt;span class="c"&gt;#p(bodycom)&lt;/span&gt;
-    
-    
-
-&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'body'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ol&lt;/span&gt;&lt;span class="p"&gt;()):&lt;/span&gt;
-        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;fi&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;finlis&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="c"&gt;#print fi&lt;/span&gt;
-            &lt;span class="n"&gt;newjs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fi&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newjs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'product'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-            &lt;span class="c"&gt;#print newjs&lt;/span&gt;
-            &lt;span class="c"&gt;#print newjs['cost']&lt;/span&gt;
-            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newjs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'time'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newjs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'date'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newjs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'amount'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-            &lt;span class="c"&gt;#print newjs['cost']&lt;/span&gt;
-            &lt;span class="c"&gt;#oprdz = open((prodir + rdz + '/' + rdz + '-id'), 'r')&lt;/span&gt;
-            &lt;span class="c"&gt;#p('id: ' + oprdz.read())&lt;/span&gt;
-            &lt;span class="c"&gt;#oprdz.close()&lt;/span&gt;
-            
-            &lt;span class="c"&gt;#prrdz = open((prodir + rdz + '/' + rdz + '-price'), 'r')&lt;/span&gt;
-            &lt;span class="c"&gt;#p('price: ' + prrdz.read())&lt;/span&gt;
-            &lt;span class="c"&gt;#prrdz.close()&lt;/span&gt;
-
-
-                
-            &lt;span class="c"&gt;#print rdz.url&lt;/span&gt;
-            &lt;span class="c"&gt;#if '.jpg' in rdz.url:&lt;/span&gt;
-            &lt;span class="c"&gt;#    img(rdz.urlz)&lt;/span&gt;
-            &lt;span class="c"&gt;#else:&lt;/span&gt;
-            &lt;span class="c"&gt;#    a(rdz.urlz)&lt;/span&gt;
-            &lt;span class="c"&gt;#h1(str(rdz.author))&lt;/span&gt;
-            
-            &lt;span class="c"&gt;#li(img(i.lower(), src='%s' % i))&lt;/span&gt;
-
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'body'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'sellcoffee is open source'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'https://github.com/wcmckee/lcacoffee'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c"&gt;#a('https://reddit.com/r/redditgetsdrawn')&lt;/span&gt;
-
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;title&amp;gt;BroBeur CyberCafe Transactions&amp;lt;/title&amp;gt;
-    &amp;lt;link href="style.css" rel="stylesheet"&amp;gt;&amp;lt;script src="script.js" type="text/javascript"&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;div class="header"&amp;gt;
-      &amp;lt;h1&amp;gt;BroBeur CyberCafe products&amp;lt;/h1&amp;gt;
-      &amp;lt;h3&amp;gt;BroBeur CyberCafe Products&amp;lt;/h3&amp;gt;
-      &amp;lt;p&amp;gt;Updated Tue, 03 Mar 2015 03:37:48 +0000&amp;lt;/p&amp;gt;
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body&amp;gt;
-    &amp;lt;div id="body"&amp;gt;
-      &amp;lt;ol&amp;gt;
-        &amp;lt;h1&amp;gt;portrait&amp;lt;/h1&amp;gt;
-        &amp;lt;p&amp;gt;032826&amp;lt;/p&amp;gt;
-        &amp;lt;p&amp;gt;2015-03-03&amp;lt;/p&amp;gt;
-        &amp;lt;p&amp;gt;2&amp;lt;/p&amp;gt;
-        &amp;lt;h1&amp;gt;debian&amp;lt;/h1&amp;gt;
-        &amp;lt;p&amp;gt;032821&amp;lt;/p&amp;gt;
-        &amp;lt;p&amp;gt;2015-03-03&amp;lt;/p&amp;gt;
-        &amp;lt;p&amp;gt;5&amp;lt;/p&amp;gt;
-      &amp;lt;/ol&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class="body"&amp;gt;
-      &amp;lt;p&amp;gt;sellcoffee is open source&amp;lt;/p&amp;gt;
-      &amp;lt;a&amp;gt;https://github.com/wcmckee/lcacoffee&amp;lt;/a&amp;gt;
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;docre&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="c"&gt;#s = docre.decode('ascii', 'ignore')&lt;/span&gt;
-&lt;span class="n"&gt;yourstring&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;docre&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'ascii'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'ignore'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'ascii'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;indfil&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/sellreceipt/index.html'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;mkind&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;indfil&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;mkind&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;yourstring&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;mkind&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/productreceipt.html</guid><pubDate>Tue, 03 Mar 2015 03:54:49 GMT</pubDate></item></channel></rss>
+</description><guid>http://wcmckee.com/posts/Alex.html</guid><pubDate>Sat, 07 Mar 2015 08:38:17 GMT</pubDate></item></channel></rss>
