@@ -169,7 +169,7 @@ COMPILERS = {
 # INDEX_PATH = ""
 
 # Create per-month archives instead of per-year
-# CREATE_MONTHLY_ARCHIVE = False
+CREATE_MONTHLY_ARCHIVE = True
 # Create one large archive instead of per-year
 # CREATE_SINGLE_ARCHIVE = False
 # Final locations for the archives are:
@@ -184,7 +184,7 @@ COMPILERS = {
 # RSS_PATH = ""
 
 # Number of posts in RSS feeds
-# FEED_LENGTH = 10
+FEED_LENGTH = 10
 
 # Slug the Tag URL easier for users to type, special characters are
 # often removed or replaced as well.
@@ -322,7 +322,7 @@ THEME = "ipython"
 # READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
 
 # A HTML fragment describing the license, for the sidebar.
-LICENSE = "This work is licensed under a Creative Commons Attribution 4.0 International License"
+LICENSE = '''<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.'''
 # I recommend using the Creative Commons' wizard:
 # http://creativecommons.org/choose/
 # LICENSE = """
@@ -469,7 +469,7 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
 # RSS_LINK is a HTML fragment to link the RSS or Atom feeds. If set to None,
 # the base.tmpl will use the feed Nikola generates. However, you may want to
 # change it for a feedburner feed or something else.
-# RSS_LINK = None
+#RSS_LINK = None
 
 # Show only teasers in the RSS feed? Default to True
 # RSS_TEASERS = True
