@@ -184,7 +184,7 @@ COMPILERS = {
 # RSS_PATH = ""
 
 # Number of posts in RSS feeds
-# FEED_LENGTH = 10
+FEED_LENGTH = 10
 
 # Slug the Tag URL easier for users to type, special characters are
 # often removed or replaced as well.
@@ -322,14 +322,13 @@ THEME = "ipython"
 # READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
 
 # A HTML fragment describing the license, for the sidebar.
-LICENSE = "This work is licensed under a Creative Commons Attribution 4.0 International License"
 # I recommend using the Creative Commons' wizard:
 # http://creativecommons.org/choose/
-# LICENSE = """
-# <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/ar/">
-# <img alt="Creative Commons License BY-NC-SA"
-# style="border-width:0; margin-bottom:12px;"
-# src="http://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>"""
+LICENSE = """
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons Attribution 4.0 International License"
+style="border-width:0; margin-bottom:12px;"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>"""
 
 # A small copyright notice for the page footer (in HTML).
 # Default is ''
