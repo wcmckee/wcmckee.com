@@ -3,40 +3,27 @@
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Code IPython Notebook by WCMCKEE">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>wcmckee (old posts, page 3) | wcmckee</title>
-
-                <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-
-      <link rel="canonical" href="http://wcmckee.com/index-3.html">
-
-
-
-        <link rel="prev" href="index.html" type="text/html">
-        <link rel="next" href="index-2.html" type="text/html">
-
-    
-        <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
-
-    
-
-
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Code IPython Notebook by WCMCKEE">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wcmckee (old posts, page 3) | wcmckee</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="http://wcmckee.com/index-3.html">
+<link rel="prev" href="index.html" type="text/html">
+<link rel="next" href="index-2.html" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -48,9 +35,9 @@ article: http://ogp.me/ns/article#
             </a>
         </div>
 <!-- /.navbar-header -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
             <ul class="nav navbar-nav">
-                                <li>
+<li>
 <a href="archive.html">Archives</a>
                 </li>
 <li>
@@ -62,27 +49,419 @@ article: http://ogp.me/ns/article#
                 
             </li>
 </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                
-            </ul>
-        </div>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
-</nav>
-
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
             
 <div class="postindex">
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/nikeditfiles.html" class="u-url">nikeditfiles</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/productreceipt.html" class="u-url">productreceipt</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/productreceipt.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-03T03:54:49+00:00" itemprop="datePublished" title="Publication date">2015-03-03 03:54</time></a></p>
+                <p class="commentline">            <a href="posts/productreceipt.html#disqus_thread" data-disqus-identifier="cache/posts/productreceipt.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Product Receipt</p>
+<p>Adds together items and content from sellcofee/archive</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">dominate</span>
+<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span> 
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strftime</span>
+<span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">arctdir</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/sellcoffee/archive/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">arctdir</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[31]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'/home/wcmckee/sellcoffee/archive/'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">lisar</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">arctdir</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">finlis</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">lisar</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">li</span>
+    <span class="n">opli</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">arctdir</span> <span class="o">+</span> <span class="n">li</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="n">oprd</span> <span class="o">=</span> <span class="n">opli</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">finlis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">oprd</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2015-03-03-032826.json
+2015-03-03-032821.json
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Merge together sales by time.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#deblis = </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansicyan">  File </span><span class="ansigreen">"&lt;ipython-input-36-a5468364108c&gt;"</span><span class="ansicyan">, line </span><span class="ansigreen">1</span>
+<span class="ansiyellow">    deblis =</span>
+<span class="ansigrey">             ^</span>
+<span class="ansired">SyntaxError</span><span class="ansired">:</span> invalid syntax
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">finlis</span><span class="p">:</span>
+    <span class="c">#print fi</span>
+    <span class="n">newjs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">newjs</span><span class="p">[</span><span class="s">'product'</span><span class="p">]</span>
+    <span class="k">print</span> <span class="n">newjs</span>
+    <span class="c">#print newjs['cost']</span>
+    <span class="k">print</span> <span class="n">newjs</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span>
+    <span class="k">print</span> <span class="n">newjs</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span>
+    <span class="k">print</span> <span class="n">newjs</span><span class="p">[</span><span class="s">'amount'</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>portrait
+{u'date': u'2015-03-03', u'product': u'portrait', u'amount': 2, u'time': u'032826'}
+032826
+2015-03-03
+2
+debian
+{u'date': u'2015-03-03', u'product': u'debian', u'amount': 5, u'time': u'032821'}
+032821
+2015-03-03
+5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">finlis</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[41]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['{"date": "2015-03-03", "product": "portrait", "amount": 2, "time": "032826"}',
+ '{"date": "2015-03-03", "product": "debian", "amount": 5, "time": "032821"}']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">doc</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'BroBeur CyberCafe Transactions'</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">doc</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
+    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">'stylesheet'</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">'style.css'</span><span class="p">)</span>
+    <span class="n">script</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span><span class="s">'text/javascript'</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">'script.js'</span><span class="p">)</span>
+    <span class="c">#str(str2)</span>
+    
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'header'</span><span class="p">)</span>
+        <span class="n">h1</span><span class="p">(</span><span class="s">'BroBeur CyberCafe Transactions'</span><span class="p">)</span>
+        <span class="n">h3</span><span class="p">(</span><span class="s">'BroBeur CyberCafe Transactions'</span><span class="p">)</span>
+        <span class="c">#p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))</span>
+        <span class="c">#p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">'Updated '</span><span class="p">,</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S +0000"</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">()))</span>
+        <span class="c">#p(panz)</span>
+        <span class="c">#p(bodycom)</span>
+    
+    
+
+<span class="k">with</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ol</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">finlis</span><span class="p">:</span>
+            <span class="c">#print fi</span>
+            <span class="n">newjs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span>
+            <span class="n">h1</span><span class="p">(</span><span class="n">newjs</span><span class="p">[</span><span class="s">'product'</span><span class="p">])</span>
+            <span class="c">#print newjs</span>
+            <span class="c">#print newjs['cost']</span>
+            <span class="n">p</span><span class="p">(</span><span class="n">newjs</span><span class="p">[</span><span class="s">'time'</span><span class="p">])</span>
+            <span class="n">p</span><span class="p">(</span><span class="n">newjs</span><span class="p">[</span><span class="s">'date'</span><span class="p">])</span>
+            <span class="n">p</span><span class="p">(</span><span class="n">newjs</span><span class="p">[</span><span class="s">'amount'</span><span class="p">])</span>
+            <span class="c">#print newjs['cost']</span>
+            <span class="c">#oprdz = open((prodir + rdz + '/' + rdz + '-id'), 'r')</span>
+            <span class="c">#p('id: ' + oprdz.read())</span>
+            <span class="c">#oprdz.close()</span>
+            
+            <span class="c">#prrdz = open((prodir + rdz + '/' + rdz + '-price'), 'r')</span>
+            <span class="c">#p('price: ' + prrdz.read())</span>
+            <span class="c">#prrdz.close()</span>
+
+
+                
+            <span class="c">#print rdz.url</span>
+            <span class="c">#if '.jpg' in rdz.url:</span>
+            <span class="c">#    img(rdz.urlz)</span>
+            <span class="c">#else:</span>
+            <span class="c">#    a(rdz.urlz)</span>
+            <span class="c">#h1(str(rdz.author))</span>
+            
+            <span class="c">#li(img(i.lower(), src='%s' % i))</span>
+
+    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
+        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">(</span><span class="s">'sellcoffee is open source'</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">(</span><span class="s">'https://github.com/wcmckee/lcacoffee'</span><span class="p">)</span>
+        <span class="c">#a('https://reddit.com/r/redditgetsdrawn')</span>
+
+<span class="k">print</span> <span class="n">doc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;BroBeur CyberCafe Transactions&lt;/title&gt;
+    &lt;link href="style.css" rel="stylesheet"&gt;&lt;script src="script.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;div class="header"&gt;
+      &lt;h1&gt;BroBeur CyberCafe products&lt;/h1&gt;
+      &lt;h3&gt;BroBeur CyberCafe Products&lt;/h3&gt;
+      &lt;p&gt;Updated Tue, 03 Mar 2015 03:37:48 +0000&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="body"&gt;
+      &lt;ol&gt;
+        &lt;h1&gt;portrait&lt;/h1&gt;
+        &lt;p&gt;032826&lt;/p&gt;
+        &lt;p&gt;2015-03-03&lt;/p&gt;
+        &lt;p&gt;2&lt;/p&gt;
+        &lt;h1&gt;debian&lt;/h1&gt;
+        &lt;p&gt;032821&lt;/p&gt;
+        &lt;p&gt;2015-03-03&lt;/p&gt;
+        &lt;p&gt;5&lt;/p&gt;
+      &lt;/ol&gt;
+    &lt;/div&gt;
+    &lt;div class="body"&gt;
+      &lt;p&gt;sellcoffee is open source&lt;/p&gt;
+      &lt;a&gt;https://github.com/wcmckee/lcacoffee&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">docre</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<span class="c">#s = docre.decode('ascii', 'ignore')</span>
+<span class="n">yourstring</span> <span class="o">=</span> <span class="n">docre</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">,</span> <span class="s">'ignore'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">)</span>
+<span class="n">indfil</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/sellreceipt/index.html'</span><span class="p">)</span>
+<span class="n">mkind</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">indfil</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">mkind</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yourstring</span><span class="p">)</span>
+<span class="n">mkind</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/nikeditfiles.html" class="u-url">nikeditfiles</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
             <p class="dateline"><a href="posts/nikeditfiles.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-03T00:09:51+00:00" itemprop="datePublished" title="Publication date">2015-03-03 00:09</time></a></p>
@@ -91,8 +470,7 @@ article: http://ogp.me/ns/article#
 
         </p>
 </div>
-    </header>
-    <div class="e-content entry-content">
+    </header><div class="e-content entry-content">
     <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -357,62 +735,27 @@ article: http://ogp.me/ns/article#
     </div>
     </article>
 </div>
-        <nav class="postindexpager">
-        <ul class="pager">
-            <li class="previous">
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
                 <a href="index.html" rel="prev">Newer posts</a>
             </li>
             <li class="next">
                 <a href="index-2.html" rel="next">Older posts</a>
             </li>
-        </ul>
-        </nav>
-
-               <script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-
-        </div>
+        </ul></nav><script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
         <!--End of body content-->
 
-        <footer>
-            Contents © 2015         <a href="mailto:will@artcontrol.me">wcmckee</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         This work is licensed under a Creative Commons Attribution 4.0 International License
+        <footer id="footer">
+            Contents © 2015         <a href="mailto:will@artcontrol.me">wcmckee</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
             
         </footer>
-    </div>
+</div>
 </div>
 
-            <script src="assets/js/all-nocdn.js"></script>
-    
-<!-- Social buttons -->
-<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
-<a class="addthis_button_more">Share</a>
-<ul>
-<li>
-<a class="addthis_button_facebook"></a>
-</li>
-<li>
-<a class="addthis_button_google_plusone_share"></a>
-</li>
-<li>
-<a class="addthis_button_linkedin"></a>
-</li>
-<li>
-<a class="addthis_button_twitter"></a>
-</li>
-</ul>
-</div>
-<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
-<!-- End of social buttons -->
-
-
-    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <!-- fancy dates -->
-    <script>
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script>
-    <!-- end fancy dates -->
-
-
+    </script><!-- end fancy dates -->
 </body>
 </html>
