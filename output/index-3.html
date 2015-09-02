@@ -60,7 +60,322 @@ article: http://ogp.me/ns/article#
         <div class="row">
             
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/william.html" class="u-url">william</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/configdraw.html" class="u-url">configdraw</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/configdraw.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-21T06:59:21+00:00" itemprop="datePublished" title="Publication date">2015-03-21 06:59</time></a></p>
+                <p class="commentline">            <a href="posts/configdraw.html#disqus_thread" data-disqus-identifier="cache/posts/configdraw.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Config Draw</h2>
+<h4>Configuration file Getsdrawn</h4>
+<p>Script to create and edit the getsdrawndotcom config file.</p>
+<p>Things this config file does:</p>
+<p>Change the folder where the files saved.</p>
+<p>Change folder date system (/home/wcmckee/blah/2015/02/20/username.png) or file date system (/home/wcmckee/blah/username-2015-02-20.png)</p>
+<p>Specify which subreddit (or multi) to download from</p>
+<p>ANYMORE CONFIGS NEEDED?</p>
+<p>Config max/min size of files downloaded?</p>
+<p>Config how often to run the script.</p>
+<p>Configfig where logo is, use multi logos (switch hour etc)</p>
+<p>Config css. Background color etc.</p>
+<p>Need to write another script that will open up this config file and use it to run gotdrawn script.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">configparser</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">'/home/wcmckee/gotdrawn/config.cfg'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[58]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['/home/wcmckee/gotdrawn/config.cfg']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">DuplicateSectionError</span>                     Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-59-b2645fc4635c&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span>config<span class="ansiyellow">.</span>add_section<span class="ansiyellow">(</span><span class="ansiblue">'subredinfo'</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/lib/python2.7/dist-packages/configparser.pyc</span> in <span class="ansicyan">add_section</span><span class="ansiblue">(self, section)</span>
+<span class="ansigreen">    669</span> <span class="ansiyellow"></span>
+<span class="ansigreen">    670</span>         <span class="ansigreen">if</span> section <span class="ansigreen">in</span> self<span class="ansiyellow">.</span>_sections<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 671</span><span class="ansiyellow">             </span><span class="ansigreen">raise</span> DuplicateSectionError<span class="ansiyellow">(</span>section<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    672</span>         self<span class="ansiyellow">.</span>_sections<span class="ansiyellow">[</span>section<span class="ansiyellow">]</span> <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>_dict<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    673</span>         self<span class="ansiyellow">.</span>_proxies<span class="ansiyellow">[</span>section<span class="ansiyellow">]</span> <span class="ansiyellow">=</span> SectionProxy<span class="ansiyellow">(</span>self<span class="ansiyellow">,</span> section<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansired">DuplicateSectionError</span>: Section 'subredinfo' already exists</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">whatsub</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'What subreddit: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>What subreddit: redditgetsdrawn
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">inputfol</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Dir where to save (/home/username/ + : '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dir where to save (/home/username/ + : testingdir
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">outfilda</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Output folder date y/n: '</span><span class="p">)</span>
+
+<span class="n">outfilez</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Output file date y/n: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Output folder date y/n: y
+Output file date y/n: y
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">outfilq</span> <span class="o">=</span> <span class="s">''</span>
+<span class="n">outfilez</span> <span class="o">=</span> <span class="s">''</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">if</span> <span class="s">'y'</span> <span class="ow">in</span> <span class="n">outfilda</span><span class="p">:</span>
+    <span class="n">outfilq</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'Not outputing folder'</span><span class="p">)</span>
+    <span class="n">outfilq</span> <span class="o">=</span> <span class="bp">False</span>
+    
+<span class="k">if</span> <span class="s">'y'</span> <span class="ow">in</span> <span class="n">outfilez</span><span class="p">:</span>
+    <span class="n">outfilez</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">outfilez</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">,</span> <span class="s">'subbreddit'</span><span class="p">,</span> <span class="n">whatsub</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">,</span> <span class="s">'dirpath'</span><span class="p">,</span> <span class="n">inputfol</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">,</span> <span class="s">'outputfolder'</span><span class="p">,</span> <span class="n">outfilq</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">'subredinfo'</span><span class="p">,</span> <span class="s">'outputfile'</span><span class="p">,</span> <span class="n">outfilez</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/gotdrawn/config.cfg'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">configfile</span><span class="p">:</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configfile</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/william.html" class="u-url">william</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
             <p class="dateline"><a href="posts/william.html" rel="bookmark"><time class="published dt-published" datetime="2015-03-07T08:43:15+00:00" itemprop="datePublished" title="Publication date">2015-03-07 08:43</time></a></p>
