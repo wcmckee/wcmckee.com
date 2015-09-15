@@ -6,6 +6,10 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://wcmckee.com/categories/cv.xml</loc>
+  <lastmod>2015-09-15T23:29:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://wcmckee.com/categories/json.xml</loc>
   <lastmod>2015-09-09T11:27:00Z</lastmod>
  </sitemap>
@@ -26,6 +30,10 @@
   <lastmod>2015-09-09T11:43:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://wcmckee.com/categories/resume.xml</loc>
+  <lastmod>2015-09-15T23:29:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://wcmckee.com/categories/rsync.xml</loc>
   <lastmod>2015-09-09T11:43:00Z</lastmod>
  </sitemap>
@@ -39,10 +47,10 @@
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/rss.xml</loc>
-  <lastmod>2015-09-09T11:43:00Z</lastmod>
+  <lastmod>2015-09-15T23:29:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/sitemap.xml</loc>
-  <lastmod>2015-09-09T11:43:00Z</lastmod>
+  <lastmod>2015-09-15T23:29:00Z</lastmod>
  </sitemap>
 </sitemapindex>

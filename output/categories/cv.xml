@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee (cv)</title><link>http://wcmckee.com/</link><description></description><atom:link rel="self" href="http://wcmckee.com/categories/cv.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 15 Sep 2015 23:29:35 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>resume</title><link>http://wcmckee.com/posts/resume.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;William C Mckee
+Email: will (at) artcontrol.me
+Phone: 0223721475&lt;/p&gt;
+&lt;p&gt;Art, Code, Photograhy, Video, Teacher, Public Speaker.&lt;/p&gt;
+&lt;p&gt;Education&lt;/p&gt;
+&lt;p&gt;Diploma with Honors in Art and Creativity. The Learning Connexion. July 2010 - December 2012.&lt;/p&gt;
+&lt;p&gt;Studied Drawing and Design. Palmerston North School Of Design. October 2008 - July 2010.&lt;/p&gt;
+&lt;p&gt;Studied Applied Visual Imaging. Palmerston North UCOL. 2008 - 2009.&lt;/p&gt;
+&lt;p&gt;NCEA Level 2. Horowhenua College, Levin. 2002 - 2006&lt;/p&gt;
+&lt;p&gt;Work&lt;/p&gt;
+&lt;p&gt;Education Support Worker, Ministry of Education. Working at Whaihanga Early Learning Centre. October 2014 - December 2014.&lt;/p&gt;
+&lt;p&gt;Video Game Development tutor. Chalkle. September 2013.&lt;/p&gt;
+&lt;p&gt;Casual Life modeling. The Learning Connection. 2011 - 2012.&lt;/p&gt;
+&lt;p&gt;Mail Delivery. Kiwi Mail. 2005.&lt;/p&gt;
+&lt;p&gt;Volunteer&lt;/p&gt;
+&lt;p&gt;KiwiPyCon2015. September 2015. AV team - recording talks.&lt;/p&gt;
+&lt;p&gt;KiwiJam2015. July 2015. Event Photographer.&lt;/p&gt;
+&lt;p&gt;linux.conf.au. January 10-16 2015. AV team - recording talks. &lt;a href="http://linux.conf.au/"&gt;http://linux.conf.au/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Te Whare O Te Ata (Fairfield Community Centre). February 2014 - September 2014. Working with children on IT and art. Learning Linux sysadmin. &lt;a href="http://fairfield.org.nz/"&gt;http://fairfield.org.nz/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Python Weekly Classes. 2014. Te Whare O Te Ata. Wednesday night programming and computer help.&lt;/p&gt;
+&lt;p&gt;Whaihanga Early Learning Centre. 2014. Volunteer helper. Art, building with blocks and morning walks.&lt;/p&gt;
+&lt;p&gt;SeniorNet, Levin. 2013. Helped elderly with their digital devices.&lt;/p&gt;
+&lt;p&gt;Company Branding Shop. 2010. Screen printing. &lt;a href="http://shirt.co.nz"&gt;http://shirt.co.nz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Speaker&lt;/p&gt;
+&lt;p&gt;Hamilton Python User Group. September 2015. Talk on KiwiPyCon2015.&lt;/p&gt;
+&lt;p&gt;KiwiPyCon2015. September 2015. Lightning talk on GetsDrawn.&lt;/p&gt;
+&lt;p&gt;Hamilton Python User Group. August 2015. Talk on Dominate library.&lt;/p&gt;
+&lt;p&gt;linux.conf.au. Jan 2015. Lightning Talk at astro miniconf regarding IPython Notebook. &lt;a href="http://bit.ly/15zGtNC"&gt;http://bit.ly/15zGtNC&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hamilton Computer Club. 2013 - 2014. Member and speaker Feb 2014 on Python programming language.&lt;/p&gt;
+&lt;p&gt;Hamilton Linux Users Group. 2014. Speaker on GoDot Game Engine.&lt;/p&gt;
+&lt;p&gt;Kiwi PyCon 2013. Lightning Talk regarding lastfm api. &lt;a href="http://bit.ly/18dgBJb"&gt;http://bit.ly/18dgBJb&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Projects&lt;/p&gt;
+&lt;p&gt;ArtControl.me: The Art Of William Mckee. 2010 - 2015. Blog for uploading and discussing artwork. Pencil Drawing, Digital Painting. Life drawing, portraits, street scenes, landscapes. &lt;a href="http://artcontrol.me"&gt;http://artcontrol.me&lt;/a&gt; CC:BY licence.&lt;/p&gt;
+&lt;p&gt;BroBeur Studios: Video Game Development. 2012 - 2013. 13 game on Google Play Store. Majority solo, created between 48 hours and 7days. Collab with others in small 2-4 people teams. Involve in Global Game Jam 2013, 2014, 2015. &lt;a href="http://brobeur.com"&gt;http://brobeur.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;FreshFigure Photography. 2012 - 2013. Stock Photography site to host photography. Street and landscapes. Photography used by Horowhenua Mail, March 2013. CC:BY licence.&lt;/p&gt;
+&lt;p&gt;WCMCKEE: Web and Software Development. 2011 - Ongoing. Python programming. Web scalping, data processing, website generation, point of sale, cyber cafe management system. Sites generatored include &lt;a href="http://getsdrawn.com"&gt;http://getsdrawn.com&lt;/a&gt; and LCA Signin (digital signin/out system). &lt;a href="http://wcmckee.com"&gt;http://wcmckee.com&lt;/a&gt; MIT licence. Github: &lt;a href="https://github.com/wcmckee/"&gt;https://github.com/wcmckee/&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><category>cv</category><category>resume</category><guid>http://wcmckee.com/posts/resume.html</guid><pubDate>Tue, 15 Sep 2015 23:27:56 GMT</pubDate></item></channel></rss>
