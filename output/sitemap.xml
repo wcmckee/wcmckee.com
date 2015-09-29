@@ -7,27 +7,55 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://wcmckee.com/2015/index.html</loc>
-  <lastmod>2015-09-15T23:29:00Z</lastmod>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/archive.html</loc>
   <lastmod>2015-09-09T11:27:00Z</lastmod>
  </url>
  <url>
+  <loc>http://wcmckee.com/categories/creative-commons.html</loc>
+  <lastmod>2015-09-26T23:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/categories/csv.html</loc>
+  <lastmod>2015-09-26T23:21:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://wcmckee.com/categories/cv.html</loc>
   <lastmod>2015-09-15T23:29:00Z</lastmod>
  </url>
  <url>
+  <loc>http://wcmckee.com/categories/data.html</loc>
+  <lastmod>2015-09-26T23:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/categories/excel.html</loc>
+  <lastmod>2015-09-26T23:21:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/categories/hamilton.html</loc>
+  <lastmod>2015-09-26T23:21:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://wcmckee.com/categories/index.html</loc>
-  <lastmod>2015-09-15T23:29:00Z</lastmod>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/json.html</loc>
   <lastmod>2015-09-09T11:27:00Z</lastmod>
  </url>
  <url>
+  <loc>http://wcmckee.com/categories/library.html</loc>
+  <lastmod>2015-09-26T23:21:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://wcmckee.com/categories/nikola.html</loc>
-  <lastmod>2015-09-09T11:43:00Z</lastmod>
+  <lastmod>2015-09-26T23:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/categories/numpy.html</loc>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/os.html</loc>
@@ -35,11 +63,11 @@
  </url>
  <url>
   <loc>http://wcmckee.com/categories/pandas.html</loc>
-  <lastmod>2015-09-09T11:27:00Z</lastmod>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/python.html</loc>
-  <lastmod>2015-09-09T11:43:00Z</lastmod>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/resume.html</loc>
@@ -51,7 +79,7 @@
  </url>
  <url>
   <loc>http://wcmckee.com/categories/twitter.html</loc>
-  <lastmod>2015-09-09T11:27:00Z</lastmod>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/galleries/index.html</loc>
@@ -67,11 +95,11 @@
  </url>
  <url>
   <loc>http://wcmckee.com/index-3.html</loc>
-  <lastmod>2015-09-15T23:29:00Z</lastmod>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index.html</loc>
-  <lastmod>2015-09-15T23:29:00Z</lastmod>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/listings/index.html</loc>
@@ -92,6 +120,10 @@
  <url>
   <loc>http://wcmckee.com/posts/brobeurtweet.html</loc>
   <lastmod>2015-09-09T11:27:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/posts/ccslis.html</loc>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/configdraw.html</loc>
@@ -122,6 +154,10 @@
   <lastmod>2015-09-09T11:27:00Z</lastmod>
  </url>
  <url>
+  <loc>http://wcmckee.com/posts/hamcompmentor.html</loc>
+  <lastmod>2015-09-26T23:48:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://wcmckee.com/posts/lcacoffee.html</loc>
   <lastmod>2015-09-09T11:27:00Z</lastmod>
  </url>
@@ -143,11 +179,11 @@
  </url>
  <url>
   <loc>http://wcmckee.com/posts/nikoladu.html</loc>
-  <lastmod>2015-09-09T11:43:00Z</lastmod>
+  <lastmod>2015-09-26T23:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/niktrans.html</loc>
-  <lastmod>2015-09-15T23:29:00Z</lastmod>
+  <lastmod>2015-09-29T20:29:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/pgguserdel.html</loc>
@@ -179,7 +215,7 @@
  </url>
  <url>
   <loc>http://wcmckee.com/posts/resume.html</loc>
-  <lastmod>2015-09-15T23:29:00Z</lastmod>
+  <lastmod>2015-09-26T23:48:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/revcoffee.html</loc>

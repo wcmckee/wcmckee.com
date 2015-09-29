@@ -174,18 +174,23 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1>NikTrans</h1><p>Python script to create Nikola sites from a list of schools. Edits conf.py file for site name and licence.</p>
+<p>Hamilton Computer Mentor</p>
+<p>Script to parse xls file of Hamilton Computer Mentor Data</p>
+<p>I want to skiprows on the excelfile when it open it like i do with read_excel. Other option is to get the excel file sheets saved off as</p>
+<p>Script to write the excel file. It knows the date and time (fridays 1-3 for me). It knows my name (william). It asks for input on the help I provided, and amount of people assisted.</p>
+<p>Clean up current data. reduced date down to set, need to join times and date, recreate the data entry.</p>
+<p>Make it a json object.</p>
+<p>update for a login. name, date/time,</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<div class=" highlight hl-ipython3"><pre> 
 </pre></div>
 
 </div>
@@ -198,378 +203,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;python3 nikoladu.py&#39;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">&#39;/home/wcmckee/nik1/&#39;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;nikola build&#39;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;rsync -azP /home/wcmckee/nik1/* wcmckee@wcmckee.com:/home/wcmckee/github/wcmckee.com/output/minedujobs&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">opccschho</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschool/cctru.json&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">opcz</span> <span class="o">=</span> <span class="n">opccschho</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">rssch</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">opcz</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">filrma</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">rs</span> <span class="ow">in</span> <span class="n">rssch</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">hythsc</span> <span class="o">=</span> <span class="p">(</span><span class="n">rs</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">))</span>
-    <span class="n">hylow</span> <span class="o">=</span> <span class="n">hythsc</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">hybrac</span> <span class="o">=</span> <span class="n">hylow</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;(&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">hybaec</span> <span class="o">=</span> <span class="n">hybrac</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">filrma</span> <span class="o">+</span> <span class="n">hybaec</span><span class="p">)</span>
-    
-    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;nikola init -q &#39;</span> <span class="o">+</span> <span class="n">filrma</span> <span class="o">+</span> <span class="n">hybaec</span><span class="p">)</span>
-    
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>I want to open each of the conf.py files and replace the nanme of the site with hythsc.lower</p>
-<p>Dir /home/wcmckee/ccschol has all the schools folders. Need to replace in conf.py Demo Name 
-with folder name of school.</p>
-<p>Schools name missing characters - eg ardmore</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">lisschol</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">findwat</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;LICENSE = &quot;&quot;&quot;&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">replacetext</span><span class="p">(</span><span class="n">findtext</span><span class="p">,</span> <span class="n">replacetext</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">lisol</span> <span class="ow">in</span> <span class="n">lisschol</span><span class="p">:</span>
-        <span class="n">filereaz</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span> <span class="o">+</span> <span class="n">hybaec</span> <span class="o">+</span> <span class="s">&#39;/conf.py&#39;</span><span class="p">)</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
-        <span class="n">filedata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-        <span class="n">newdata</span> <span class="o">=</span> <span class="n">filedata</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">findtext</span><span class="p">,</span> <span class="s">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">replacetext</span> <span class="o">+</span> <span class="s">&#39;&quot;&#39;</span><span class="p">)</span>
-        <span class="c">#print (newdata)</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">replacetext</span><span class="p">(</span><span class="s">&#39;LICENSE = &quot;&quot;&quot;&#39;</span><span class="p">,</span> <span class="s">&#39;LICENSE = &quot;&quot;&quot;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons Attribution 4.0 International License&quot; style=&quot;border-width:0; margin-bottom:12px;&quot; src=&quot;https://i.creativecommons.org/l/by/4.0/88x31.png&quot;&gt;&lt;/a&gt;&quot;&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">licfil</span> <span class="o">=</span> <span class="s">&#39;LICENSE = &quot;&quot;&quot;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons Attribution 4.0 International License&quot; style=&quot;border-width:0; margin-bottom:12px;&quot; src=&quot;https://i.creativecommons.org/l/by/4.0/88x31.png&quot;&gt;&lt;/a&gt;&quot;&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">opwcm</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;/home/wcmckee/github/wcm.com/conf.py&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisol</span> <span class="ow">in</span> <span class="n">lisschol</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">lisol</span><span class="p">)</span>
-    <span class="n">rdwcm</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">opwcm</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
-    
-    <span class="n">filewcm</span> <span class="o">=</span> <span class="n">rdwcm</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">newdata</span> <span class="o">=</span> <span class="n">filewcm</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;wcmckee&#39;</span><span class="p">,</span> <span class="n">lisol</span><span class="p">)</span>
-
-    <span class="n">rdwcm</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="c">#print (newdata)</span>
-    
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span> <span class="o">+</span> <span class="n">lisol</span> <span class="o">+</span> <span class="s">&#39;/conf.py&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>te-wharekura-o-maniapoto
-ardmore
-shotover-school
-hobsonville-point-secondary-school
-south-hornby
-thorndon
-leigh-school
-st-josephs-upper-hutt
-green-bay
-oaklands-
-hampden-street
-rangiora-borough
-pegasus-bay
-te-pa-o-rakaihautu
-paparoa-street
-te-one
-kaikohe-west
-thorrington
-grey-lynn
-ohoka
-westlake-girls-high-school
-merrin
-stonefields-school
-sylvia-park-school
-roydvale
-marlborough-primary
-ward
-raphael-house
-whau-valley
-taipa-area-school-
-pukekohe-intermediate
-ashburton-intermediate
-onewhero-area
-rawhiti
-horowhenua-college
-our-lady-star-of-the-sea-sumner
-taradale-intermediate
-eastern-hutt
-st-marys-catholic-tauranga
-windwhistle
-northcote-college
-diamond-harbour
-barton-rural
-orewa-college
-ebbett-park
-shirley-intermediate
-sumner
-arrowtown
-taupaki-school
-yaldhurst-model
-nelson-park
-wellington-high-school
-redwood-tawa
-somerfield
-marewa
-albany-senior-high-school
-middleton-grange-school
-kaingaroa-chatham-islands
-cheviot-area
-okaihau-college
-runanga
-hutt-valley-high-school
-our-lady-of-victoriea
-burnside-high-school
-hillpark
-tkkm-o-te-atihaunui-a-paparangi
-tawa-intermediate
-auckland-girls-grammar-school
-broadfield
-westmere
-kaikoura-suburban
-whangaparaoa-college
-our-lady-of-snows-methven
-waikato-diocesan
-warrington-school
-banks-avenue
-cobham-intermediate
-st-patrick’s-bryndwr
-hobsonville-point-primary-school
-te-hihi
-st-patrick’s-kaiapoi
-springston-school
-nayland-college
-elmwood-normal
-pakuranga-heights-school
-sacred-heart-catholic
-eskdale
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">rdlin</span> <span class="ow">in</span> <span class="n">rdwcm</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
-    <span class="c">#print (rdlin)</span>
-    <span class="k">if</span> <span class="s">&#39;BLOG_TITLE&#39;</span> <span class="ow">in</span> <span class="n">rdlin</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">rdlin</span><span class="p">)</span>
-        
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">ValueError</span>                                Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-18-46372e43ced8&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span><span class="ansigreen">for</span> rdlin <span class="ansigreen">in</span> rdwcm<span class="ansiyellow">.</span>readlines<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">      2</span>     <span class="ansired">#print (rdlin)</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
-<span class="ansigreen">      3</span>     <span class="ansigreen">if</span> <span class="ansiblue">&apos;BLOG_TITLE&apos;</span> <span class="ansigreen">in</span> rdlin<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">      4</span>         print <span class="ansiyellow">(</span>rdlin<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">      5</span> <span class="ansiyellow"></span>
-
-<span class="ansired">ValueError</span>: I/O operation on closed file.</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisol</span> <span class="ow">in</span> <span class="n">lisschol</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">lisol</span><span class="p">)</span>
-    <span class="n">hythsc</span> <span class="o">=</span> <span class="p">(</span><span class="n">lisol</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">))</span>
-    <span class="n">hylow</span> <span class="o">=</span> <span class="n">hythsc</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">hybrac</span> <span class="o">=</span> <span class="n">hylow</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;(&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">hybaec</span> <span class="o">=</span> <span class="n">hybrac</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">filereaz</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span> <span class="o">+</span> <span class="n">hybaec</span> <span class="o">+</span> <span class="s">&#39;/conf.py&#39;</span><span class="p">)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">filedata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="n">newdata</span> <span class="o">=</span> <span class="n">filedata</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;LICENCE = &quot;&quot;&quot;&#39;</span><span class="p">,</span> <span class="n">licfil</span> <span class="p">)</span>
-    <span class="c">#print (newdata)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 
 </div>
@@ -582,22 +217,7 @@ eskdale
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisol</span> <span class="ow">in</span> <span class="n">lisschol</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">lisol</span><span class="p">)</span>
-    <span class="n">hythsc</span> <span class="o">=</span> <span class="p">(</span><span class="n">lisol</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">))</span>
-    <span class="n">hylow</span> <span class="o">=</span> <span class="n">hythsc</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">hybrac</span> <span class="o">=</span> <span class="n">hylow</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;(&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">hybaec</span> <span class="o">=</span> <span class="n">hybrac</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">filereaz</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span> <span class="o">+</span> <span class="n">hybaec</span> <span class="o">+</span> <span class="s">&#39;/conf.py&#39;</span><span class="p">)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">filedata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="n">newdata</span> <span class="o">=</span> <span class="n">filedata</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&quot;Demo Site&quot;&#39;</span><span class="p">,</span> <span class="s">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">hybaec</span> <span class="o">+</span> <span class="s">&#39;&quot;&#39;</span><span class="p">)</span>
-    <span class="c">#print (newdata)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">menfor</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">&#39;/home/wcmckee/Desktop/mentorform.xlsx&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -610,45 +230,7 @@ eskdale
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisol</span> <span class="ow">in</span> <span class="n">lisschol</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">lisol</span><span class="p">)</span>
-    <span class="n">hythsc</span> <span class="o">=</span> <span class="p">(</span><span class="n">lisol</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">))</span>
-    <span class="n">hylow</span> <span class="o">=</span> <span class="n">hythsc</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">hybrac</span> <span class="o">=</span> <span class="n">hylow</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;(&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">hybaec</span> <span class="o">=</span> <span class="n">hybrac</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">filereaz</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span> <span class="o">+</span> <span class="n">hybaec</span> <span class="o">+</span> <span class="s">&#39;/conf.py&#39;</span><span class="p">)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">filedata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="n">newdata</span> <span class="o">=</span> <span class="n">filedata</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&quot;Demo Site&quot;&#39;</span><span class="p">,</span> <span class="s">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">hybaec</span> <span class="o">+</span> <span class="s">&#39;&quot;&#39;</span><span class="p">)</span>
-    <span class="c">#print (newdata)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Perform Nikola build of all the sites in ccschol folder</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">buildnik</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&#39;Build school sites y/N &#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">shenam</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s">&#39;/home/wcmckee/Desktop/mentorform.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -661,11 +243,7 @@ eskdale
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisol</span> <span class="ow">in</span> <span class="n">lisschol</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">lisol</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span> <span class="o">+</span> <span class="n">lisol</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s">&#39;y&#39;</span> <span class="ow">in</span> <span class="n">buildnik</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&#39;nikola build&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">menlis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -678,7 +256,7 @@ eskdale
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">makerst</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/home/wcmckee/ccs&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">blahmen</span> <span class="o">=</span><span class="n">menfor</span><span class="o">.</span><span class="n">Mentor</span><span class="o">.</span><span class="n">get_values</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -691,23 +269,879 @@ eskdale
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">rs</span> <span class="ow">in</span> <span class="n">rssch</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">hythsc</span> <span class="o">=</span> <span class="p">(</span><span class="n">rs</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">))</span>
-    <span class="n">hylow</span> <span class="o">=</span> <span class="n">hythsc</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="n">hybrac</span> <span class="o">=</span> <span class="n">hylow</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;(&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">)</span>
-    <span class="n">hybaec</span> <span class="o">=</span> <span class="n">hybrac</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-    
-    <span class="c">#print (hylow())</span>
-    <span class="n">filereaz</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;/home/wcmckee/ccschol/&#39;</span> <span class="o">+</span> <span class="n">hybaec</span> <span class="o">+</span> <span class="s">&#39;/conf.py&#39;</span><span class="p">)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">filedata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    
+<div class=" highlight hl-ipython3"><pre><span class="n">lisitem</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+</pre></div>
 
-    <span class="n">newdata</span> <span class="o">=</span> <span class="n">filedata</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;Demo Site&quot;</span><span class="p">,</span> <span class="n">hybaec</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filereaz</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">setitem</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">lisitem</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">setitem</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lisppl</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">blst</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">blahmen</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">blst</span><span class="p">)</span>
+    <span class="n">lisppl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">blst</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisp</span> <span class="ow">in</span> <span class="n">lisppl</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lisp</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">tidaf</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">menfor</span><span class="o">.</span><span class="n">Time</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">tidaf</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">datpan</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">menfor</span><span class="o">.</span><span class="n">Date</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">retpan</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tidaf</span> <span class="o">+</span> <span class="n">datpan</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">tidap</span> <span class="o">=</span> <span class="n">tidaf</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datpan</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">tidap</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">tidap</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="p">(</span><span class="n">tidap</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">tidate</span> <span class="o">=</span> <span class="n">tidap</span><span class="o">.</span><span class="n">Date</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">tival</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">tidate</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">tival</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">tiv</span> <span class="ow">in</span> <span class="n">tival</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tiv</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">ti</span> <span class="ow">in</span> <span class="n">tival</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ti</span><span class="p">)</span>
+    <span class="n">pantimes</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ti</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">datpan</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">men</span> <span class="ow">in</span> <span class="n">menfor</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">men</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">mef</span> <span class="ow">in</span> <span class="n">menfor</span><span class="o">.</span><span class="n">Comments</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mef</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">bla</span> <span class="ow">in</span> <span class="n">blahmen</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">bla</span><span class="p">)</span>
+    <span class="n">lisitem</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bla</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">menlis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menfor</span><span class="o">.</span><span class="n">Mentor</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">menlis</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">shn</span> <span class="o">=</span> <span class="n">shenam</span><span class="o">.</span><span class="n">sheet_names</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">shelist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">shn</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">sh</span> <span class="ow">in</span> <span class="n">shn</span><span class="p">:</span>
+    <span class="c">#print(sh)</span>
+    <span class="n">shelist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">shenam</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">sh</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">hamlend</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shelist</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">hamlend</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lisshez</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">li</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lish</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hamlend</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lisshez</span><span class="p">[</span><span class="n">lish</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisz</span> <span class="ow">in</span> <span class="n">lisshez</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lisz</span><span class="o">.</span><span class="n">to_html</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">shl</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hamlend</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">shelist</span><span class="p">[</span><span class="n">shl</span><span class="p">])</span>
+    <span class="n">lisshez</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">shelist</span><span class="p">[</span><span class="n">shl</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lisshez</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lenlis</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lisshez</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lisho</span> <span class="o">=</span> <span class="n">lisshez</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lide</span> <span class="o">=</span> <span class="n">lisho</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lide</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lel</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lenlis</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">lisshez</span><span class="p">[</span><span class="n">lel</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">liszer</span> <span class="o">=</span> <span class="n">lisshez</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lisk</span> <span class="ow">in</span> <span class="n">liszer</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lisk</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">mentim</span> <span class="o">=</span> <span class="n">menfor</span><span class="o">.</span><span class="n">Time</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">menvals</span> <span class="o">=</span> <span class="n">mentim</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lismev</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">mev</span> <span class="ow">in</span> <span class="n">menvals</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mev</span><span class="p">)</span>
+    <span class="n">lismev</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mev</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lisde</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">lismev</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lisfix</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">lisde</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="ow">is</span><span class="p">(</span><span class="n">lisde</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">a</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">ilre</span> <span class="ow">in</span> <span class="n">lisde</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">ilre</span><span class="p">)</span>
+    <span class="c">#print(type(ilre))</span>
+    <span class="c">#print (ilre[:])</span>
+    <span class="c">#lisfix.append(ilre)</span>
+    <span class="c">#il = (ilre.replace(&#39; &#39;, &#39;&#39;))</span>
+    <span class="c">#print(il)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">lis</span> <span class="ow">in</span> <span class="n">lisfix</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lis</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">allibs</span> <span class="o">=</span> <span class="n">menfor</span><span class="o">.</span><span class="n">Library</span><span class="o">.</span><span class="n">valuesal</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">albs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">allibs</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">albs</span>
 </pre></div>
 
 </div>
