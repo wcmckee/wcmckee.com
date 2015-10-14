@@ -59,7 +59,440 @@ article: http://ogp.me/ns/article#
         <div class="row">
             
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/parseduxml.html" class="u-url">parseduxml</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/hamentorwrite.html" class="u-url">hamentorwrite</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/hamentorwrite.html" rel="bookmark"><time class="published dt-published" datetime="2015-10-14T02:31:35+00:00" itemprop="datePublished" title="Publication date">2015-10-14 02:31</time></a></p>
+                <p class="commentline">            <a href="posts/hamentorwrite.html#disqus_thread" data-disqus-identifier="cache/posts/hamentorwrite.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4>Hamilton Mentor Write</h4>
+<p>Script to write login of Hamilton Computer Mentors.</p>
+<p>Config file contains default hours (start time, end time), name, library, 
+Looks up date. Asks for amount of people helped, type of help (tags - choose from popular choices), device helped with (tags - choose from popular choices), and comments.</p>
+<p>Could the config file just be a json object?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">arrow</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">arnow</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [71]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">thedate</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">arnow</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [72]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="nb">str</span><span class="p">(</span><span class="n">arnow</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[72]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'15:21:22.687083'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [73]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">startime</span> <span class="o">=</span> <span class="p">(</span><span class="s">'13:00:00'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">endtime</span> <span class="o">=</span> <span class="p">(</span><span class="s">'15:00:00'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">myname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Name: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name: William
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [76]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">mylib</span> <span class="o">=</span> <span class="p">(</span><span class="s">'GP'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">typehelp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Type of help given: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Type of help given: helped with cv
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [78]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">devtype</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Device: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Device: tablet
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [79]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">fincomments</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Comments: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Comments: today i helped lots of people
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [80]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">anodict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">defdict</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span> <span class="p">:</span> <span class="n">myname</span><span class="p">,</span> <span class="s">'startdatetime'</span> <span class="p">:</span> <span class="n">thedate</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="n">startime</span><span class="p">,</span> <span class="s">'enddatetime'</span> <span class="p">:</span> <span class="n">thedate</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="n">endtime</span><span class="p">,</span> 
+           <span class="s">'library'</span> <span class="p">:</span> <span class="s">'GP'</span><span class="p">,</span> <span class="s">'help count'</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">pplhelped</span><span class="p">),</span> <span class="s">'help'</span> <span class="p">:</span> <span class="n">typehelp</span><span class="p">,</span> <span class="s">'device'</span> <span class="p">:</span> <span class="n">devtype</span><span class="p">,</span> 
+           <span class="s">'comments'</span><span class="p">:</span> <span class="n">fincomments</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [82]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">valddict</span> <span class="o">=</span> <span class="n">defdict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [83]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">valddict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[83]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>dict_values(['GP', 'tablet', 3, 'William', 'helped with cv', '2015-10-14 13:00:00', 'today i helped lots of people', '2015-10-14 15:00:00'])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What I want to do is take this dict and create columns out of the keys and rows of values under the column.</p>
+<p>Could this perhaps works as an api - saving the latest as 0.</p>
+<p>Create a json file that the json object is saved to. This script opens the json file and appends the new json object to it. It counts how many are already in the json file and assigns a +1 to it.</p>
+<p>For now could just check hamcommen for amount of json objects and create a new +1</p>
+<p>Not happy with creating lots of .json files in the folder, but whatever this will do for now.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [84]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lishamcomen</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'/home/wcmckee/hamcommen/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [85]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lecomen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lishamcomen</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">newlecom</span> <span class="o">=</span> <span class="n">lecomen</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [90]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">wthamcom</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/hamcommen/index'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">newlecom</span><span class="p">)</span> <span class="o">+</span> <span class="s">'.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [91]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">wthamcom</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">defdict</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[91]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>222</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [93]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">wthamcom</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/parseduxml.html" class="u-url">parseduxml</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
             <p class="dateline"><a href="posts/parseduxml.html" rel="bookmark"><time class="published dt-published" datetime="2015-10-06T13:42:21+00:00" itemprop="datePublished" title="Publication date">2015-10-06 13:42</time></a></p>
@@ -4676,783 +5109,6 @@ Leaders as decision architects
 </pre></div>
 
 </div>
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/rdminjob.html" class="u-url">rdminjob</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/rdminjob.html" rel="bookmark"><time class="published dt-published" datetime="2015-07-19T06:40:41+00:00" itemprop="datePublished" title="Publication date">2015-07-19 06:40</time></a></p>
-                <p class="commentline">            <a href="posts/rdminjob.html#disqus_thread" data-disqus-identifier="cache/posts/rdminjob.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">bs4</span>
-<span class="c">#import github</span>
-<span class="c">#from github import Github</span>
-<span class="c">#import git</span>
-<span class="c">#import tweepy</span>
-<span class="c">#import random</span>
-<span class="kn">import</span> <span class="nn">dominate</span>
-<span class="kn">from</span> <span class="nn">dominate.tags</span> <span class="kn">import</span> <span class="o">*</span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4>Read Min Job</h4>
-<p>Python script to read the json file generated from minedujob.</p>
-<p>The key 'lidocend' is good things to have for the job. It is a series of ['blahbhal'],</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">opwse</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/github/wcmckee.com/output/minedujobs/index.json'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">jsloaop</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">opwse</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">lejsp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">jsloaop</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#ranlej = random.randint(0, lejsp)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">jsloaop</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[30]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{u'0': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'17-JUL-15',
-  u'Job Reference': u'EDU/1171431',
-  u'Job Title': u'Practice Leader',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Practice Leader SES jd.docx',
-  u'jsonlen': u'0',
-  u'lidocend': [[u'demonstrated knowledge of the national and international evidence base for effective inclusive educational approaches, with a focus on curriculum and teaching pedagogy, for children and young people requiring additional support for learning.'],
-   [u'demonstrated skills and experience in leading and supporting complex change to influence practice of educators and specialist staff.'],
-   [u'to be a powerful role model with ability to \xa0influence and quickly develop high credibility throughout New Zealand'],
-   [u'have demonstrated ability to build strong working relationships and effective networks with key internal and external stakeholders'],
-   [u'strong\xa0 written and verbal communication skills']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222580001&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'1': {u'Business Unit': u'',
-  u'Category': u'Speech Language Therapist',
-  u'Date Advertised': u'17-JUL-15',
-  u'Job Reference': u'EDU/1170246',
-  u'Job Title': u'Speech Language Therapist',
-  u'Job Type': u'Full Time',
-  u'Location': u'Rotorua',
-  u'Summary': u'',
-  u'jsonlen': u'1',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222579994&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'10': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'14-JUL-15',
-  u'Job Reference': u'EDU/1170564',
-  u'Job Title': u'Practice Advisor Speech and Language',
-  u'Job Type': u'Full Time',
-  u'Location': u'Auckland',
-  u'Summary': u'',
-  u'doc': u'Practice Advisor Speech and Language jd.docx',
-  u'email': u'northern.recruitment@minedu.govt.nz',
-  u'jsonlen': u'10',
-  u'lidocend': [[u'Have a high level of conceptual and analytical capability'],
-   [u'Demonstrate ability to build strong working relationships and effective networks with key internal stakeholders'],
-   [u'Demonstrate ability to manage conflict and negotiate agreements through good interpersonal and relationship skills and the ability to influence and persuade'],
-   [u'Have the ability to develop innovative and effective solutions to complex and diverse problems'],
-   [u'Have a tertiary qualification in Speech-Language Therapy and significant experience in education contexts']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578866&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'11': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'13-JUL-15',
-  u'Job Reference': u'EDU/1170463',
-  u'Job Title': u'Senior Advisor',
-  u'Job Type': u'Full Time',
-  u'Location': u'Unspecified',
-  u'Summary': u'',
-  u'jsonlen': u'11',
-  u'lidocend': [[u'Using your\xa0evaluative skills to work with data and information to solve complex\xa0problems and make decisions'],
-   [u'Working\xa0with others to support and implement change initiatives']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578699&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'12': {u'Business Unit': u'',
-  u'Category': u'Administration/Support Services',
-  u'Date Advertised': u'10-JUL-15',
-  u'Job Reference': u'EDU/1170142',
-  u'Job Title': u'Shared Services Executive Support Officer',
-  u'Job Type': u'Full Time',
-  u'Location': u'Hamilton',
-  u'Summary': u'',
-  u'doc': u'Executive Support Officer JD.docx',
-  u'jsonlen': u'12',
-  u'lidocend': [[u'Experience as a personal/executive assistant at a senior level in a similar business support role.'],
-   [u'A high level of interpersonal, organisational and time management skills.'],
-   [u'An ability to carry out a variety of support services with diplomacy and confidentiality.'],
-   [u'Ability to build and maintain strong relationships across a diverse group of contacts.'],
-   [u'Strong oral and written communication skills, excellent grammar essential.'],
-   [u'An ability to work in a challenging and changing environment.'],
-   [u'An ability to work under pressure and manage conflicting demands.'],
-   [u'A can-do attitude with the ability to prioritise.'],
-   [u'A good sense of humour.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578415&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'13': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169948',
-  u'Job Title': u'Regional Technology Coordinator',
-  u'Job Type': u'Fixed Term Part Time',
-  u'Location': u'Unspecified',
-  u'Summary': u'',
-  u'doc': u'Regional Assistive Technology Coordinator jd.docx',
-  u'jsonlen': u'13',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578178&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'14': {u'Business Unit': u'',
-  u'Category': u'Speech Language Therapist',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169953',
-  u'Job Title': u'Speech Language Therapist',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'jsonlen': u'14',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578168&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'15': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169947',
-  u'Job Title': u'Service Manager',
-  u'Job Type': u'Full Time',
-  u'Location': u'Otago',
-  u'Summary': u'',
-  u'doc': u'Service Manager JD.docx',
-  u'email': u'gary.mcclintock@education.govt.nz',
-  u'jsonlen': u'15',
-  u'lidocend': [[u'The ability to effectively cope with change and to be \xa0\xa0\xa0\xa0 able to decide and act in situations without having the total picture.'],
-   [u'The ability to create a working environment for your \xa0\xa0\xa0\xa0 team which promotes a high level of motivation, innovation and engagement.'],
-   [u'The ability to\xa0effectively mentor and coach \xa0\xa0\xa0\xa0 professionals.'],
-   [u'The ability to analyse data, balance conflicting \xa0\xa0\xa0\xa0 factors, information and views and develop strategies in order to meet \xa0\xa0\xa0\xa0 Ministry objectives, including annually funded delivery targets.'],
-   [u'Strong written and oral communication skills.'],
-   [u'Excellent leadership and interpersonal skills.'],
-   [u'A tertiary qualification in education/ and or special \xa0\xa0\xa0\xa0 education.'],
-   [u'Significant applicable experience in Education.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578166&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'16': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169946',
-  u'Job Title': u'Practice Advisors',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'jsonlen': u'16',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578149&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'17': {u'Business Unit': u'',
-  u'Category': u'Research &amp; Analysis',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169861',
-  u'Job Title': u'Senior Data Analyst',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Senior Data Analyst JD ELI.docx',
-  u'jsonlen': u'17',
-  u'lidocend': [[u'Advise, promote, teach and role model best practice to resolve data quality problems with providers of data'],
-   [u'Contribute to the ongoing improvements to ELI system including validations, rules, communications and system changes'],
-   [u'Have substantial experience working with data and reporting tools, such as R, SAP Business Objects, SAS and SQL'],
-   [u'Excellent communication and relationship management skills']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578067&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'18': {u'Business Unit': u'',
-  u'Category': u'IT &amp; computing',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169857',
-  u'Job Title': u'Strategic ICT Business Advisor',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Strategic ICT Business Advisor JD.docx',
-  u'jsonlen': u'18',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222578047&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'19': {u'Business Unit': u'',
-  u'Category': u'Policy/Advisory',
-  u'Date Advertised': u'07-JUL-15',
-  u'Job Reference': u'EDU/1163590',
-  u'Job Title': u'Analyst / Senior / Chief Policy Analysts',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Generic Chief Policy Analyst jd - Nov 2013.docx',
-  u'jsonlen': u'19',
-  u'lidocend': [[u'Provide \u2018challenge and support\u2019 in developing key policy'],
-   [u'Develop high quality advice for Ministers'],
-   [u'Leading the Ministry\u2019s development and implementation of Vote Education Budget strategy'],
-   [u'Working across the Social Sector to deliver integrated advice and make better use of evidence to inform investment decisions'],
-   [u'Leading major policy projects in the Education Work Programme'],
-   [u'strong analytical skills'],
-   [u'excellent written communication skills'],
-   [u'the ability to collaborate on and/or lead major pieces of work with others, both internally and externally'],
-   [u'the ability to nurture relationships whilst exerting effective challenge and influence'],
-   [u'the ability to see connections across various areas of work'],
-   [u'experience of government or public service environments'],
-   [u'commitment, enthusiasm and a positive attitude.'],
-   [u'the ability to lead complex processes from conception to delivery'],
-   [u'financial literacy and comfort working with numerical information'],
-   [u'experience in working with Ministers and senior management to translate vision into policy and practice.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222577685&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'2': {u'Business Unit': u'',
-  u'Category': u'Psychologist',
-  u'Date Advertised': u'16-JUL-15',
-  u'Job Reference': u'EDU/1171038',
-  u'Job Title': u'Psychologist',
-  u'Job Type': u'Full Time',
-  u'Location': u'Canterbury',
-  u'Summary': u'',
-  u'doc': u'psychologist jd.docx',
-  u'jsonlen': u'2',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222579701&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'20': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'06-JUL-15',
-  u'Job Reference': u'EDU/1169250',
-  u'Job Title': u'Programme Leader, Year 9 Plus',
-  u'Job Type': u'Fixed Term Full Time',
-  u'Location': u'Gisborne',
-  u'Summary': u'',
-  u'doc': u'Year 9 Programme Leader jd.docx',
-  u'jsonlen': u'20',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222577329&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'21': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'03-JUL-15',
-  u'Job Reference': u'EDU/1168877',
-  u'Job Title': u'Senior Education Advisors',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'jsonlen': u'21',
-  u'lidocend': [[u'Using your evaluative\xa0skills to work with data and information to solve complex problems and make\xa0decisions'],
-   [u'Working with\xa0others to support and implement change initiatives'],
-   [u'An understanding of the Pasifika Education Plan and successful experience of\xa0working with Pasifika students and communities.'],
-   [u'Knowledge and\xa0successful experience in leadership and curriculum development at\xa0secondary school level.'],
-   [u'Strategies\xa0and initiatives that support student attendance and retention.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222576979&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'22': {u'Business Unit': u'',
-  u'Category': u'Administration/Support Services',
-  u'Date Advertised': u'02-JUL-15',
-  u'Job Reference': u'EDU/1168705',
-  u'Job Title': u'Executive Support Officer',
-  u'Job Type': u'Full Time',
-  u'Location': u'Whangarei',
-  u'Summary': u'',
-  u'jsonlen': u'22',
-  u'lidocend': [[u'Senior administration experience'],
-   [u'Proven time management skills'],
-   [u'Work well under pressure'],
-   [u'A positive can do attitude'],
-   [u'A good sense of humour'],
-   [u'Advanced knowledge of the Microsoft Suite'],
-   [u'Commitment, knowledge and experience in working in Te Reo M\u0101ori']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222576690&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'23': {u'Business Unit': u'',
-  u'Category': u'Policy/Advisory',
-  u'Date Advertised': u'01-JUL-15',
-  u'Job Reference': u'EDU/1168569',
-  u'Job Title': u'Senior Advisor',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Senior Advisor School Support JD.docx',
-  u'jsonlen': u'23',
-  u'lidocend': [[u'provision of expert advice and support'],
-   [u'monitoring, evaluation, assessment and reporting of performance indicators in the specific areas assigned'],
-   [u'provision of Ministerial advice and support \u2013 including media replies, cabinet papers, briefing and speech notes, parliamentary questions and official information requests.'],
-   [u'ability to relate well to all kinds of people'],
-   [u'ability to translate operational policy into implementation plans'],
-   [u'effective and appropriate engagement through a partnership approach with M\u0101ori'],
-   [u'ability to draft communications that are consistently clear and well structured.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222576526&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'24': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'01-JUL-15',
-  u'Job Reference': u'EDU/1168506',
-  u'Job Title': u'Psychologist - Gisborne',
-  u'Job Type': u'Full Time',
-  u'Location': u'Gisborne',
-  u'Summary': u'',
-  u'jsonlen': u'24',
-  u'lidocend': [[u'enjoy being part of a high performing, multi-disciplinary team that is committed to ongoing improvement;'],
-   [u'excel at building relationships with children, wh\u0101nau, educators and community agencies;'],
-   [u'enjoy and are able to work bi-culturally within a family friendly, supportive environment \u2026']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222576478&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'25': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'30-JUN-15',
-  u'Job Reference': u'EDU/1167913',
-  u'Job Title': u'Speech Language Therapist - Gisborne',
-  u'Job Type': u'Full Time',
-  u'Location': u'Gisborne',
-  u'Summary': u'',
-  u'doc': u'Speech Language Therapist jd (new format) September 2011.docx',
-  u'jsonlen': u'25',
-  u'lidocend': [[u'enjoy being part of a high performing, multi-disciplinary team that is committed to ongoing improvement;'],
-   [u'excel at building relationships with children, wh\u0101nau, educators and community agencies;'],
-   [u'enjoy and are able to work bi-culturally within a family friendly, supportive environment \u2026']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222575788&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'26': {u'Business Unit': u'',
-  u'Category': u'IT &amp; computing',
-  u'Date Advertised': u'25-JUN-15',
-  u'Job Reference': u'EDU/1167527',
-  u'Job Title': u'Continuous Service Improvement Manager',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Continuous Service IMprovement Manager jd.docx',
-  u'jsonlen': u'26',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222575326&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'3': {u'Business Unit': u'',
-  u'Category': u'Project/Programme Management',
-  u'Date Advertised': u'16-JUL-15',
-  u'Job Reference': u'EDU/1170844',
-  u'Job Title': u'Delivery Manager',
-  u'Job Type': u'Fixed Term Full Time',
-  u'Location': u'Canterbury',
-  u'Summary': u'',
-  u'doc': u'Delivery Manager JD CSR.docx',
-  u'jsonlen': u'3',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222579674&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'4': {u'Business Unit': u'',
-  u'Category': u'Research &amp; Analysis',
-  u'Date Advertised': u'16-JUL-15',
-  u'Job Reference': u'EDU/1169260',
-  u'Job Title': u'Analyst',
-  u'Job Type': u'Full Time',
-  u'Location': u'Rotorua',
-  u'Summary': u'',
-  u'doc': u'Analyst SES Rotorua jd.docx',
-  u'jsonlen': u'4',
-  u'lidocend': [[u'Developing\xa0and maintaining databases and information systems'],
-   [u'Reporting\xa0on performance and contributing to programme evaluation'],
-   [u'Maintaining effective relationship with internal and external stakeholders; and'],
-   [u'Ensuring\xa0\xa0activity in the regional office is aligned with national activity'],
-   [u'Demonstrated analytical skills'],
-   [u'Have a detailed understanding of analytical theory'],
-   [u'Experience with research and analysis. This will include the ability to analyse and critique research and evaluation.\xa0'],
-   [u'The ability to interpret and communicate complex information in a way that makes it accessible'],
-   [u'A background in supporting and implementing databases and other systems for data collection and analysis are essential to be successful in this role.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222577335&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'5': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'16-JUL-15',
-  u'Job Reference': u'EDU/1171066',
-  u'Job Title': u'Senior Advisor',
-  u'Job Type': u'Part Time',
-  u'Location': u'Bay of Plenty',
-  u'Summary': u'',
-  u'doc': u'Senior Advisor JD Sector Enablement and Support.docx',
-  u'jsonlen': u'5',
-  u'lidocend': [[u'Strong analytical skills and the ability to work with student achievement data to determine needs and priorities, \xa0\xa0\xa0\xa0 and monitor results.'],
-   [u'The ability to contribute to Ministry\xa0goals for all priority learners and to work collaboratively with schools and their communities.'],
-   [u'Well developed interpersonal and relationship skills.'],
-   [u'Experience in developing and implementing projects.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222579573&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'6': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'15-JUL-15',
-  u'Job Reference': u'EDU/1170995',
-  u'Job Title': u'Senior Advisor (Literacy)',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Senior Advisor Curriculum Teaching and Learning JD.docx',
-  u'jsonlen': u'6',
-  u'lidocend': [[u'Understanding of how the school sector operates as a system to achieve student learning outcomes at the school, network and systems level'],
-   [u'Understanding of key levers that contribute to literacy learning and the evidence for this, most notably effective teaching, effective leadership, assessment and qualifications'],
-   [u'Understanding of effective literacy teaching pedagogy, National Standards, Literacy Learning Progressions and English Language Learning Progressions'],
-   [u'Experience in supporting students at learning at key transition points'],
-   [u'Knowledge of engaging parent, family and whanau in supporting their child\u2019s literacy learning, including the development of clear and easy to understand reports to parents'],
-   [u'Ability to use an evidence base to identify what works to lift literacy achievement, in particular for those students not making expected progress'],
-   [u'Excellent oral and written communication, including the ability to present complex issues clearly and concisely'],
-   [u'An understanding of cultural values, aspirations and particular needs of M\u0101ori.\xa0 An understanding of the principles of the Treaty of Waitangi, and their implications for policy development is highly desirable']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222579242&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'7': {u'Business Unit': u'',
-  u'Category': u'Policy/Advisory',
-  u'Date Advertised': u'15-JUL-15',
-  u'Job Reference': u'EDU/1170951',
-  u'Job Title': u'RTLB Advisor',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Advisor RTLB jd.docx',
-  u'jsonlen': u'7',
-  u'lidocend': [[u'Knowledge of and experience with the Resource Teacher:Learning and Behaviour service'],
-   [u'Strong project management skills'],
-   [u'Strong skills in analysis and use of data and information relevant to special education;'],
-   [u'Excellent communication skills.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222579241&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'8': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'15-JUL-15',
-  u'Job Reference': u'EDU/1169259',
-  u'Job Title': u'Student Achievement Function Practitioner English Medium',
-  u'Job Type': u'Full Time',
-  u'Location': u'Bay of Plenty',
-  u'Summary': u'',
-  u'doc': u'SAF jd.docx',
-  u'jsonlen': u'8',
-  u'lidocend': [[u'Permanent position'],
-   [u'have proven experience in working together with kura and schools and their communities to drive an inquiry-based change process through to accelerated progress and achievement for students;'],
-   [u'can work with kura and schools to create urgency for accelerating achievement'],
-   [u'know how to monitor and review change so that it can be sustained, replicated and adapted;'],
-   [u'knowledge and experience in primary or secondary schooling'],
-   [u'can support schools to infuse students\u2019 identity, language and culture within their learning environment;'],
-   [u'have credibility to work within M\u0101ori, Pasifika and Special Education contexts;'],
-   [u'have experience working within a project management framework;'],
-   [u'ideally you will have a successful leadership background in an education setting; and'],
-   [u'Te Reo M\u0101ori or/and Pasifika language would be an advantage to your application.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222577455&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'},
- u'9': {u'Business Unit': u'',
-  u'Category': u'Psychologist',
-  u'Date Advertised': u'15-JUL-15',
-  u'Job Reference': u'EDU/1170935',
-  u'Job Title': u'Psychologist',
-  u'Job Type': u'Full Time',
-  u'Location': u'Bay of Plenty',
-  u'Summary': u'',
-  u'doc': u'psychologist jd.docx',
-  u'jsonlen': u'9',
-  u'lidocend': [[u'Knowledge and experience in curriculum adaptation and differentiation'],
-   [u'Recent successful experience in engaging students who have challenging \xa0learning and/or behaviour in school, preschool and community settings'],
-   [u'Understanding of the Treaty of Waitangi and ability to work in a way that delivers equitable outcomes for Maori.'],
-   [u'Demonstrated ability to engage in culturally respectful ways with Maori students and whanau'],
-   [u'Ability to plan and manage time effectively to meet goals and outcomes'],
-   [u'A current New Zealand driver\u2019s licence.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;in_jnCounter=222579155&amp;in_jobDate=All&amp;in_searchbox=YES&amp;in_summary=S#utm_source=JobRSS&amp;utm_medium=JobRSS'}}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#listed = list()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#for jsran in range(lejsp):</span>
-    <span class="c">#print jsloaop.values()[jsran]['lidocend']</span>
-    <span class="c">#listed.append(jsloaop.values()[jsran]['lidocend'])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#for lis in listed:</span>
-    <span class="c">#print lis</span>
-    <span class="c">#for li in lis:</span>
-        <span class="c">#print li</span>
-        <span class="c">#for wq in li:</span>
-            <span class="c">#print wq</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#for jsran in range(lejsp):</span>
-    <span class="c">#print jsloaop.values()[jsran]['Category']</span>
-    
-    <span class="c">#for jsl in jsloaop.values()[jsran]['lidocend']:</span>
-        <span class="c">#print jsl</span>
-        <span class="c">#for jl in jsl:</span>
-            <span class="c">#print jl</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#print (jsloaop[0])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">doc</span> <span class="o">=</span> <span class="n">dominate</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'Ministry of Education Jobs'</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="n">doc</span><span class="o">.</span><span class="n">head</span><span class="p">:</span>
-    <span class="n">link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s">'stylesheet'</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s">'style.css'</span><span class="p">)</span>
-    <span class="n">script</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span><span class="s">'text/javascript'</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">'script.js'</span><span class="p">)</span>
-    <span class="c">#str(str2)</span>
-    
-    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
-        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'header'</span><span class="p">)</span>
-        <span class="n">h1</span><span class="p">(</span><span class="s">'Ministry of Education Jobs'</span><span class="p">)</span>
-        <span class="n">p</span><span class="p">(</span><span class="n">img</span><span class="p">(</span><span class="s">'logo.png'</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s">'logo.png'</span><span class="p">))</span>
-
-        <span class="c">#p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))</span>
-        <span class="c">#p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))</span>
-        <span class="c">#h1('Updated ', strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))</span>
-        <span class="c">#p(panz)</span>
-        <span class="c">#p(bodycom)</span>
-    
-    
-
-<span class="k">with</span> <span class="n">doc</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'body'</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">jsran</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lejsp</span><span class="p">):</span>
-            <span class="n">h3</span><span class="p">(</span><span class="n">jsloaop</span><span class="o">.</span><span class="n">values</span><span class="p">()[</span><span class="n">jsran</span><span class="p">][</span><span class="s">'Job Title'</span><span class="p">])</span>
-            <span class="n">p</span><span class="p">(</span><span class="n">jsloaop</span><span class="o">.</span><span class="n">values</span><span class="p">()[</span><span class="n">jsran</span><span class="p">][</span><span class="s">'Category'</span><span class="p">])</span>
-            <span class="n">p</span><span class="p">(</span><span class="n">jsloaop</span><span class="o">.</span><span class="n">values</span><span class="p">()[</span><span class="n">jsran</span><span class="p">][</span><span class="s">'Job Type'</span><span class="p">])</span>
-            <span class="n">p</span><span class="p">(</span><span class="n">jsloaop</span><span class="o">.</span><span class="n">values</span><span class="p">()[</span><span class="n">jsran</span><span class="p">][</span><span class="s">'Date Advertised'</span><span class="p">])</span>
-
-            <span class="c">#p(jsloaop.values()[jsran]['email'])</span>
-
-            <span class="k">for</span> <span class="n">jsl</span> <span class="ow">in</span> <span class="n">jsloaop</span><span class="o">.</span><span class="n">values</span><span class="p">()[</span><span class="n">jsran</span><span class="p">][</span><span class="s">'lidocend'</span><span class="p">]:</span>
-        <span class="c">#print jsl</span>
-                <span class="k">for</span> <span class="n">jl</span> <span class="ow">in</span> <span class="n">jsl</span><span class="p">:</span>
-                    <span class="n">p</span><span class="p">(</span><span class="n">jl</span><span class="p">)</span>
-        <span class="c">#&lt;a href="mailto:name@email.com"&gt;Link text&lt;/a&gt;</span>
-        
-        
-        <span class="c">#for rdz in reliz:</span>
-            <span class="c">#h1(rdz.title)</span>
-            <span class="c">#a(rdz.url)</span>
-            <span class="c">#p(img(rdz, src='%s' % rdz))</span>
-            <span class="c">#print rdz</span>
-            <span class="c">#p(img(rdz, src = rdz))</span>
-            <span class="c">#p(rdz)</span>
-
-
-                
-            <span class="c">#print rdz.url</span>
-            <span class="c">#if '.jpg' in rdz.url:</span>
-            <span class="c">#    img(rdz.urlz)</span>
-            <span class="c">#else:</span>
-            <span class="c">#    a(rdz.urlz)</span>
-            <span class="c">#h1(str(rdz.author))</span>
-            
-            <span class="c">#li(img(i.lower(), src='%s' % i))</span>
-
-    <span class="k">with</span> <span class="n">div</span><span class="p">():</span>
-        <span class="n">attr</span><span class="p">(</span><span class="n">cls</span><span class="o">=</span><span class="s">'body'</span><span class="p">)</span>
-        <span class="n">p</span><span class="p">(</span><span class="s">'MinistryOfEducationJobs is open source'</span><span class="p">)</span>
-        <span class="n">a</span><span class="p">(</span><span class="s">'https://github.com/wcmckee/ece-display'</span><span class="p">)</span>
-        <span class="n">a</span><span class="p">(</span><span class="s">'https://wcmckee.com'</span><span class="p">)</span>
-
-<span class="c">#print doc</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">docre</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
-<span class="c">#s = docre.decode('ascii', 'ignore')</span>
-<span class="n">yourstring</span> <span class="o">=</span> <span class="n">docre</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">,</span> <span class="s">'ignore'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">)</span>
-<span class="n">indfil</span> <span class="o">=</span> <span class="p">(</span><span class="s">'/home/wcmckee/github/wcmckee.com/output/minedujobs/index.html'</span><span class="p">)</span>
-<span class="n">mkind</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">indfil</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-<span class="n">mkind</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yourstring</span><span class="p">)</span>
-<span class="n">mkind</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#noranch = jsloaop[0]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#for les in range(0, lejsp):</span>
-    <span class="c">#print les</span>
-    <span class="c">#randa = jsloaop[str(les)]</span>
-    <span class="c">#print randa['title']</span>
-    
-    <span class="c">#print randa['Category']</span>
-    <span class="c">#print randa['Location']</span>
-    
-    <span class="c">#print randa['Date Advertised']</span>
-    <span class="c">#print randa['time-advertised']</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-20-b7e41bbc324e&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">      2</span>     <span class="ansired">#print les</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
-<span class="ansigreen">      3</span>     randa <span class="ansiyellow">=</span> jsloaop<span class="ansiyellow">[</span>str<span class="ansiyellow">(</span>les<span class="ansiyellow">)</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
-<span class="ansigreen">----&gt; 4</span><span class="ansiyellow">     </span><span class="ansigreen">print</span> randa<span class="ansiyellow">[</span><span class="ansiblue">'title'</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
-<span class="ansigreen">      5</span> <span class="ansiyellow"></span>
-<span class="ansigreen">      6</span>     <span class="ansigreen">print</span> randa<span class="ansiyellow">[</span><span class="ansiblue">'Category'</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
-
-<span class="ansired">KeyError</span>: 'title'</pre>
-</div>
-</div>
-
 </div>
 </div>
 

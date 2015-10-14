@@ -7,11 +7,15 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://wcmckee.com/2015/index.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/archive.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/categories/arrow.html</loc>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/blog.html</loc>
@@ -43,15 +47,19 @@
  </url>
  <url>
   <loc>http://wcmckee.com/categories/index.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/categories/job.html</loc>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/json.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/library.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/moe.html</loc>
@@ -67,7 +75,7 @@
  </url>
  <url>
   <loc>http://wcmckee.com/categories/os.html</loc>
-  <lastmod>2015-10-02T04:56:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/pandas.html</loc>
@@ -75,7 +83,7 @@
  </url>
  <url>
   <loc>http://wcmckee.com/categories/python.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/requests.html</loc>
@@ -107,11 +115,11 @@
  </url>
  <url>
   <loc>http://wcmckee.com/index-3.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/listings/index.html</loc>
@@ -170,6 +178,10 @@
   <lastmod>2015-10-06T13:45:00Z</lastmod>
  </url>
  <url>
+  <loc>http://wcmckee.com/posts/hamentorwrite.html</loc>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://wcmckee.com/posts/lcacoffee.html</loc>
   <lastmod>2015-10-06T13:45:00Z</lastmod>
  </url>
@@ -199,7 +211,7 @@
  </url>
  <url>
   <loc>http://wcmckee.com/posts/parseduxml.html</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/pgguserdel.html</loc>

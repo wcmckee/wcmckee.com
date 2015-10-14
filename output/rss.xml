@@ -1,5 +1,418 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link rel="self" type="application/rss+xml" href="http://wcmckee.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Tue, 06 Oct 2015 13:45:55 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>parseduxml</title><link>http://wcmckee.com/posts/parseduxml.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link rel="self" href="http://wcmckee.com/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Wed, 14 Oct 2015 02:32:40 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>hamentorwrite</title><link>http://wcmckee.com/posts/hamentorwrite.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4&gt;Hamilton Mentor Write&lt;/h4&gt;&lt;p&gt;Script to write login of Hamilton Computer Mentors.&lt;/p&gt;
+&lt;p&gt;Config file contains default hours (start time, end time), name, library, 
+Looks up date. Asks for amount of people helped, type of help (tags - choose from popular choices), device helped with (tags - choose from popular choices), and comments.&lt;/p&gt;
+&lt;p&gt;Could the config file just be a json object?&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [69]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;arrow&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [70]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;arnow&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;arrow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [71]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;thedate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arnow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [72]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arnow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[72]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;'15:21:22.687083'&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [73]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;startime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'13:00:00'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [74]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;endtime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'15:00:00'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [75]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;myname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Name: '&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;Name: William
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [76]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;mylib&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'GP'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [77]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;typehelp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Type of help given: '&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;Type of help given: helped with cv
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [78]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;devtype&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Device: '&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;Device: tablet
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [79]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;fincomments&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Comments: '&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;Comments: today i helped lots of people
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [80]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;anodict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [81]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;defdict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;'name'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;myname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'startdatetime'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;thedate&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;startime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'enddatetime'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;thedate&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;' '&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;endtime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+           &lt;span class="s"&gt;'library'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;'GP'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'help count'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pplhelped&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;'help'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;typehelp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'device'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;devtype&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+           &lt;span class="s"&gt;'comments'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;fincomments&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [82]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;valddict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;defdict&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [83]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;valddict&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[83]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;dict_values(['GP', 'tablet', 3, 'William', 'helped with cv', '2015-10-14 13:00:00', 'today i helped lots of people', '2015-10-14 15:00:00'])&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;What I want to do is take this dict and create columns out of the keys and rows of values under the column.&lt;/p&gt;
+&lt;p&gt;Could this perhaps works as an api - saving the latest as 0.&lt;/p&gt;
+&lt;p&gt;Create a json file that the json object is saved to. This script opens the json file and appends the new json object to it. It counts how many are already in the json file and assigns a +1 to it.&lt;/p&gt;
+&lt;p&gt;For now could just check hamcommen for amount of json objects and create a new +1&lt;/p&gt;
+&lt;p&gt;Not happy with creating lots of .json files in the folder, but whatever this will do for now.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [84]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;lishamcomen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/hamcommen/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [85]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;lecomen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lishamcomen&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [86]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;newlecom&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;lecomen&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [90]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;wthamcom&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/hamcommen/index'&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newlecom&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'.json'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [91]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;wthamcom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;defdict&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[91]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;222&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [93]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;wthamcom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><category>arrow</category><category>job</category><category>json</category><category>library</category><category>os</category><category>python</category><guid>http://wcmckee.com/posts/hamentorwrite.html</guid><pubDate>Wed, 14 Oct 2015 02:31:35 GMT</pubDate></item><item><title>parseduxml</title><link>http://wcmckee.com/posts/parseduxml.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -4492,766 +4905,4 @@ Leaders as decision architects
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/libedugov.html</guid><pubDate>Sun, 26 Jul 2015 13:32:54 GMT</pubDate></item><item><title>rdminjob</title><link>http://wcmckee.com/posts/rdminjob.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [25]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt;
-&lt;span class="c"&gt;#import github&lt;/span&gt;
-&lt;span class="c"&gt;#from github import Github&lt;/span&gt;
-&lt;span class="c"&gt;#import git&lt;/span&gt;
-&lt;span class="c"&gt;#import tweepy&lt;/span&gt;
-&lt;span class="c"&gt;#import random&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;dominate&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dominate.tags&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4&gt;Read Min Job&lt;/h4&gt;&lt;p&gt;Python script to read the json file generated from minedujob.&lt;/p&gt;
-&lt;p&gt;The key 'lidocend' is good things to have for the job. It is a series of ['blahbhal'],&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [26]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;opwse&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/github/wcmckee.com/output/minedujobs/index.json'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'r'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [27]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;jsloaop&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;opwse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [28]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;lejsp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jsloaop&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [29]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#ranlej = random.randint(0, lejsp)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [30]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;jsloaop&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[30]:&lt;/div&gt;
-
-
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;{u'0': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'17-JUL-15',
-  u'Job Reference': u'EDU/1171431',
-  u'Job Title': u'Practice Leader',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Practice Leader SES jd.docx',
-  u'jsonlen': u'0',
-  u'lidocend': [[u'demonstrated knowledge of the national and international evidence base for effective inclusive educational approaches, with a focus on curriculum and teaching pedagogy, for children and young people requiring additional support for learning.'],
-   [u'demonstrated skills and experience in leading and supporting complex change to influence practice of educators and specialist staff.'],
-   [u'to be a powerful role model with ability to \xa0influence and quickly develop high credibility throughout New Zealand'],
-   [u'have demonstrated ability to build strong working relationships and effective networks with key internal and external stakeholders'],
-   [u'strong\xa0 written and verbal communication skills']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222580001&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'1': {u'Business Unit': u'',
-  u'Category': u'Speech Language Therapist',
-  u'Date Advertised': u'17-JUL-15',
-  u'Job Reference': u'EDU/1170246',
-  u'Job Title': u'Speech Language Therapist',
-  u'Job Type': u'Full Time',
-  u'Location': u'Rotorua',
-  u'Summary': u'',
-  u'jsonlen': u'1',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222579994&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'10': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'14-JUL-15',
-  u'Job Reference': u'EDU/1170564',
-  u'Job Title': u'Practice Advisor Speech and Language',
-  u'Job Type': u'Full Time',
-  u'Location': u'Auckland',
-  u'Summary': u'',
-  u'doc': u'Practice Advisor Speech and Language jd.docx',
-  u'email': u'northern.recruitment@minedu.govt.nz',
-  u'jsonlen': u'10',
-  u'lidocend': [[u'Have a high level of conceptual and analytical capability'],
-   [u'Demonstrate ability to build strong working relationships and effective networks with key internal stakeholders'],
-   [u'Demonstrate ability to manage conflict and negotiate agreements through good interpersonal and relationship skills and the ability to influence and persuade'],
-   [u'Have the ability to develop innovative and effective solutions to complex and diverse problems'],
-   [u'Have a tertiary qualification in Speech-Language Therapy and significant experience in education contexts']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578866&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'11': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'13-JUL-15',
-  u'Job Reference': u'EDU/1170463',
-  u'Job Title': u'Senior Advisor',
-  u'Job Type': u'Full Time',
-  u'Location': u'Unspecified',
-  u'Summary': u'',
-  u'jsonlen': u'11',
-  u'lidocend': [[u'Using your\xa0evaluative skills to work with data and information to solve complex\xa0problems and make decisions'],
-   [u'Working\xa0with others to support and implement change initiatives']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578699&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'12': {u'Business Unit': u'',
-  u'Category': u'Administration/Support Services',
-  u'Date Advertised': u'10-JUL-15',
-  u'Job Reference': u'EDU/1170142',
-  u'Job Title': u'Shared Services Executive Support Officer',
-  u'Job Type': u'Full Time',
-  u'Location': u'Hamilton',
-  u'Summary': u'',
-  u'doc': u'Executive Support Officer JD.docx',
-  u'jsonlen': u'12',
-  u'lidocend': [[u'Experience as a personal/executive assistant at a senior level in a similar business support role.'],
-   [u'A high level of interpersonal, organisational and time management skills.'],
-   [u'An ability to carry out a variety of support services with diplomacy and confidentiality.'],
-   [u'Ability to build and maintain strong relationships across a diverse group of contacts.'],
-   [u'Strong oral and written communication skills, excellent grammar essential.'],
-   [u'An ability to work in a challenging and changing environment.'],
-   [u'An ability to work under pressure and manage conflicting demands.'],
-   [u'A can-do attitude with the ability to prioritise.'],
-   [u'A good sense of humour.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578415&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'13': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169948',
-  u'Job Title': u'Regional Technology Coordinator',
-  u'Job Type': u'Fixed Term Part Time',
-  u'Location': u'Unspecified',
-  u'Summary': u'',
-  u'doc': u'Regional Assistive Technology Coordinator jd.docx',
-  u'jsonlen': u'13',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578178&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'14': {u'Business Unit': u'',
-  u'Category': u'Speech Language Therapist',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169953',
-  u'Job Title': u'Speech Language Therapist',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'jsonlen': u'14',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578168&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'15': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169947',
-  u'Job Title': u'Service Manager',
-  u'Job Type': u'Full Time',
-  u'Location': u'Otago',
-  u'Summary': u'',
-  u'doc': u'Service Manager JD.docx',
-  u'email': u'gary.mcclintock@education.govt.nz',
-  u'jsonlen': u'15',
-  u'lidocend': [[u'The ability to effectively cope with change and to be \xa0\xa0\xa0\xa0 able to decide and act in situations without having the total picture.'],
-   [u'The ability to create a working environment for your \xa0\xa0\xa0\xa0 team which promotes a high level of motivation, innovation and engagement.'],
-   [u'The ability to\xa0effectively mentor and coach \xa0\xa0\xa0\xa0 professionals.'],
-   [u'The ability to analyse data, balance conflicting \xa0\xa0\xa0\xa0 factors, information and views and develop strategies in order to meet \xa0\xa0\xa0\xa0 Ministry objectives, including annually funded delivery targets.'],
-   [u'Strong written and oral communication skills.'],
-   [u'Excellent leadership and interpersonal skills.'],
-   [u'A tertiary qualification in education/ and or special \xa0\xa0\xa0\xa0 education.'],
-   [u'Significant applicable experience in Education.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578166&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'16': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169946',
-  u'Job Title': u'Practice Advisors',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'jsonlen': u'16',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578149&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'17': {u'Business Unit': u'',
-  u'Category': u'Research &amp;amp; Analysis',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169861',
-  u'Job Title': u'Senior Data Analyst',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Senior Data Analyst JD ELI.docx',
-  u'jsonlen': u'17',
-  u'lidocend': [[u'Advise, promote, teach and role model best practice to resolve data quality problems with providers of data'],
-   [u'Contribute to the ongoing improvements to ELI system including validations, rules, communications and system changes'],
-   [u'Have substantial experience working with data and reporting tools, such as R, SAP Business Objects, SAS and SQL'],
-   [u'Excellent communication and relationship management skills']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578067&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'18': {u'Business Unit': u'',
-  u'Category': u'IT &amp;amp; computing',
-  u'Date Advertised': u'09-JUL-15',
-  u'Job Reference': u'EDU/1169857',
-  u'Job Title': u'Strategic ICT Business Advisor',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Strategic ICT Business Advisor JD.docx',
-  u'jsonlen': u'18',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222578047&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'19': {u'Business Unit': u'',
-  u'Category': u'Policy/Advisory',
-  u'Date Advertised': u'07-JUL-15',
-  u'Job Reference': u'EDU/1163590',
-  u'Job Title': u'Analyst / Senior / Chief Policy Analysts',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Generic Chief Policy Analyst jd - Nov 2013.docx',
-  u'jsonlen': u'19',
-  u'lidocend': [[u'Provide \u2018challenge and support\u2019 in developing key policy'],
-   [u'Develop high quality advice for Ministers'],
-   [u'Leading the Ministry\u2019s development and implementation of Vote Education Budget strategy'],
-   [u'Working across the Social Sector to deliver integrated advice and make better use of evidence to inform investment decisions'],
-   [u'Leading major policy projects in the Education Work Programme'],
-   [u'strong analytical skills'],
-   [u'excellent written communication skills'],
-   [u'the ability to collaborate on and/or lead major pieces of work with others, both internally and externally'],
-   [u'the ability to nurture relationships whilst exerting effective challenge and influence'],
-   [u'the ability to see connections across various areas of work'],
-   [u'experience of government or public service environments'],
-   [u'commitment, enthusiasm and a positive attitude.'],
-   [u'the ability to lead complex processes from conception to delivery'],
-   [u'financial literacy and comfort working with numerical information'],
-   [u'experience in working with Ministers and senior management to translate vision into policy and practice.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222577685&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'2': {u'Business Unit': u'',
-  u'Category': u'Psychologist',
-  u'Date Advertised': u'16-JUL-15',
-  u'Job Reference': u'EDU/1171038',
-  u'Job Title': u'Psychologist',
-  u'Job Type': u'Full Time',
-  u'Location': u'Canterbury',
-  u'Summary': u'',
-  u'doc': u'psychologist jd.docx',
-  u'jsonlen': u'2',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222579701&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'20': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'06-JUL-15',
-  u'Job Reference': u'EDU/1169250',
-  u'Job Title': u'Programme Leader, Year 9 Plus',
-  u'Job Type': u'Fixed Term Full Time',
-  u'Location': u'Gisborne',
-  u'Summary': u'',
-  u'doc': u'Year 9 Programme Leader jd.docx',
-  u'jsonlen': u'20',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222577329&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'21': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'03-JUL-15',
-  u'Job Reference': u'EDU/1168877',
-  u'Job Title': u'Senior Education Advisors',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'jsonlen': u'21',
-  u'lidocend': [[u'Using your evaluative\xa0skills to work with data and information to solve complex problems and make\xa0decisions'],
-   [u'Working with\xa0others to support and implement change initiatives'],
-   [u'An understanding of the Pasifika Education Plan and successful experience of\xa0working with Pasifika students and communities.'],
-   [u'Knowledge and\xa0successful experience in leadership and curriculum development at\xa0secondary school level.'],
-   [u'Strategies\xa0and initiatives that support student attendance and retention.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222576979&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'22': {u'Business Unit': u'',
-  u'Category': u'Administration/Support Services',
-  u'Date Advertised': u'02-JUL-15',
-  u'Job Reference': u'EDU/1168705',
-  u'Job Title': u'Executive Support Officer',
-  u'Job Type': u'Full Time',
-  u'Location': u'Whangarei',
-  u'Summary': u'',
-  u'jsonlen': u'22',
-  u'lidocend': [[u'Senior administration experience'],
-   [u'Proven time management skills'],
-   [u'Work well under pressure'],
-   [u'A positive can do attitude'],
-   [u'A good sense of humour'],
-   [u'Advanced knowledge of the Microsoft Suite'],
-   [u'Commitment, knowledge and experience in working in Te Reo M\u0101ori']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222576690&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'23': {u'Business Unit': u'',
-  u'Category': u'Policy/Advisory',
-  u'Date Advertised': u'01-JUL-15',
-  u'Job Reference': u'EDU/1168569',
-  u'Job Title': u'Senior Advisor',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Senior Advisor School Support JD.docx',
-  u'jsonlen': u'23',
-  u'lidocend': [[u'provision of expert advice and support'],
-   [u'monitoring, evaluation, assessment and reporting of performance indicators in the specific areas assigned'],
-   [u'provision of Ministerial advice and support \u2013 including media replies, cabinet papers, briefing and speech notes, parliamentary questions and official information requests.'],
-   [u'ability to relate well to all kinds of people'],
-   [u'ability to translate operational policy into implementation plans'],
-   [u'effective and appropriate engagement through a partnership approach with M\u0101ori'],
-   [u'ability to draft communications that are consistently clear and well structured.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222576526&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'24': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'01-JUL-15',
-  u'Job Reference': u'EDU/1168506',
-  u'Job Title': u'Psychologist - Gisborne',
-  u'Job Type': u'Full Time',
-  u'Location': u'Gisborne',
-  u'Summary': u'',
-  u'jsonlen': u'24',
-  u'lidocend': [[u'enjoy being part of a high performing, multi-disciplinary team that is committed to ongoing improvement;'],
-   [u'excel at building relationships with children, wh\u0101nau, educators and community agencies;'],
-   [u'enjoy and are able to work bi-culturally within a family friendly, supportive environment \u2026']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222576478&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'25': {u'Business Unit': u'',
-  u'Category': u'Special Education',
-  u'Date Advertised': u'30-JUN-15',
-  u'Job Reference': u'EDU/1167913',
-  u'Job Title': u'Speech Language Therapist - Gisborne',
-  u'Job Type': u'Full Time',
-  u'Location': u'Gisborne',
-  u'Summary': u'',
-  u'doc': u'Speech Language Therapist jd (new format) September 2011.docx',
-  u'jsonlen': u'25',
-  u'lidocend': [[u'enjoy being part of a high performing, multi-disciplinary team that is committed to ongoing improvement;'],
-   [u'excel at building relationships with children, wh\u0101nau, educators and community agencies;'],
-   [u'enjoy and are able to work bi-culturally within a family friendly, supportive environment \u2026']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222575788&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'26': {u'Business Unit': u'',
-  u'Category': u'IT &amp;amp; computing',
-  u'Date Advertised': u'25-JUN-15',
-  u'Job Reference': u'EDU/1167527',
-  u'Job Title': u'Continuous Service Improvement Manager',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Continuous Service IMprovement Manager jd.docx',
-  u'jsonlen': u'26',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222575326&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'3': {u'Business Unit': u'',
-  u'Category': u'Project/Programme Management',
-  u'Date Advertised': u'16-JUL-15',
-  u'Job Reference': u'EDU/1170844',
-  u'Job Title': u'Delivery Manager',
-  u'Job Type': u'Fixed Term Full Time',
-  u'Location': u'Canterbury',
-  u'Summary': u'',
-  u'doc': u'Delivery Manager JD CSR.docx',
-  u'jsonlen': u'3',
-  u'lidocend': [],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222579674&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'4': {u'Business Unit': u'',
-  u'Category': u'Research &amp;amp; Analysis',
-  u'Date Advertised': u'16-JUL-15',
-  u'Job Reference': u'EDU/1169260',
-  u'Job Title': u'Analyst',
-  u'Job Type': u'Full Time',
-  u'Location': u'Rotorua',
-  u'Summary': u'',
-  u'doc': u'Analyst SES Rotorua jd.docx',
-  u'jsonlen': u'4',
-  u'lidocend': [[u'Developing\xa0and maintaining databases and information systems'],
-   [u'Reporting\xa0on performance and contributing to programme evaluation'],
-   [u'Maintaining effective relationship with internal and external stakeholders; and'],
-   [u'Ensuring\xa0\xa0activity in the regional office is aligned with national activity'],
-   [u'Demonstrated analytical skills'],
-   [u'Have a detailed understanding of analytical theory'],
-   [u'Experience with research and analysis. This will include the ability to analyse and critique research and evaluation.\xa0'],
-   [u'The ability to interpret and communicate complex information in a way that makes it accessible'],
-   [u'A background in supporting and implementing databases and other systems for data collection and analysis are essential to be successful in this role.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222577335&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'5': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'16-JUL-15',
-  u'Job Reference': u'EDU/1171066',
-  u'Job Title': u'Senior Advisor',
-  u'Job Type': u'Part Time',
-  u'Location': u'Bay of Plenty',
-  u'Summary': u'',
-  u'doc': u'Senior Advisor JD Sector Enablement and Support.docx',
-  u'jsonlen': u'5',
-  u'lidocend': [[u'Strong analytical skills and the ability to work with student achievement data to determine needs and priorities, \xa0\xa0\xa0\xa0 and monitor results.'],
-   [u'The ability to contribute to Ministry\xa0goals for all priority learners and to work collaboratively with schools and their communities.'],
-   [u'Well developed interpersonal and relationship skills.'],
-   [u'Experience in developing and implementing projects.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222579573&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'6': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'15-JUL-15',
-  u'Job Reference': u'EDU/1170995',
-  u'Job Title': u'Senior Advisor (Literacy)',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Senior Advisor Curriculum Teaching and Learning JD.docx',
-  u'jsonlen': u'6',
-  u'lidocend': [[u'Understanding of how the school sector operates as a system to achieve student learning outcomes at the school, network and systems level'],
-   [u'Understanding of key levers that contribute to literacy learning and the evidence for this, most notably effective teaching, effective leadership, assessment and qualifications'],
-   [u'Understanding of effective literacy teaching pedagogy, National Standards, Literacy Learning Progressions and English Language Learning Progressions'],
-   [u'Experience in supporting students at learning at key transition points'],
-   [u'Knowledge of engaging parent, family and whanau in supporting their child\u2019s literacy learning, including the development of clear and easy to understand reports to parents'],
-   [u'Ability to use an evidence base to identify what works to lift literacy achievement, in particular for those students not making expected progress'],
-   [u'Excellent oral and written communication, including the ability to present complex issues clearly and concisely'],
-   [u'An understanding of cultural values, aspirations and particular needs of M\u0101ori.\xa0 An understanding of the principles of the Treaty of Waitangi, and their implications for policy development is highly desirable']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222579242&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'7': {u'Business Unit': u'',
-  u'Category': u'Policy/Advisory',
-  u'Date Advertised': u'15-JUL-15',
-  u'Job Reference': u'EDU/1170951',
-  u'Job Title': u'RTLB Advisor',
-  u'Job Type': u'Full Time',
-  u'Location': u'Wellington',
-  u'Summary': u'',
-  u'doc': u'Advisor RTLB jd.docx',
-  u'jsonlen': u'7',
-  u'lidocend': [[u'Knowledge of and experience with the Resource Teacher:Learning and Behaviour service'],
-   [u'Strong project management skills'],
-   [u'Strong skills in analysis and use of data and information relevant to special education;'],
-   [u'Excellent communication skills.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222579241&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'8': {u'Business Unit': u'',
-  u'Category': u'Education',
-  u'Date Advertised': u'15-JUL-15',
-  u'Job Reference': u'EDU/1169259',
-  u'Job Title': u'Student Achievement Function Practitioner English Medium',
-  u'Job Type': u'Full Time',
-  u'Location': u'Bay of Plenty',
-  u'Summary': u'',
-  u'doc': u'SAF jd.docx',
-  u'jsonlen': u'8',
-  u'lidocend': [[u'Permanent position'],
-   [u'have proven experience in working together with kura and schools and their communities to drive an inquiry-based change process through to accelerated progress and achievement for students;'],
-   [u'can work with kura and schools to create urgency for accelerating achievement'],
-   [u'know how to monitor and review change so that it can be sustained, replicated and adapted;'],
-   [u'knowledge and experience in primary or secondary schooling'],
-   [u'can support schools to infuse students\u2019 identity, language and culture within their learning environment;'],
-   [u'have credibility to work within M\u0101ori, Pasifika and Special Education contexts;'],
-   [u'have experience working within a project management framework;'],
-   [u'ideally you will have a successful leadership background in an education setting; and'],
-   [u'Te Reo M\u0101ori or/and Pasifika language would be an advantage to your application.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222577455&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'},
- u'9': {u'Business Unit': u'',
-  u'Category': u'Psychologist',
-  u'Date Advertised': u'15-JUL-15',
-  u'Job Reference': u'EDU/1170935',
-  u'Job Title': u'Psychologist',
-  u'Job Type': u'Full Time',
-  u'Location': u'Bay of Plenty',
-  u'Summary': u'',
-  u'doc': u'psychologist jd.docx',
-  u'jsonlen': u'9',
-  u'lidocend': [[u'Knowledge and experience in curriculum adaptation and differentiation'],
-   [u'Recent successful experience in engaging students who have challenging \xa0learning and/or behaviour in school, preschool and community settings'],
-   [u'Understanding of the Treaty of Waitangi and ability to work in a way that delivers equitable outcomes for Maori.'],
-   [u'Demonstrated ability to engage in culturally respectful ways with Maori students and whanau'],
-   [u'Ability to plan and manage time effectively to meet goals and outcomes'],
-   [u'A current New Zealand driver\u2019s licence.']],
-  u'link': u'http://jobs.minedu.govt.nz/jobtools/jncustomsearch.viewFullSingle?in_organid=17584&amp;amp;in_jnCounter=222579155&amp;amp;in_jobDate=All&amp;amp;in_searchbox=YES&amp;amp;in_summary=S#utm_source=JobRSS&amp;amp;utm_medium=JobRSS'}}&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [31]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#listed = list()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [32]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for jsran in range(lejsp):&lt;/span&gt;
-    &lt;span class="c"&gt;#print jsloaop.values()[jsran]['lidocend']&lt;/span&gt;
-    &lt;span class="c"&gt;#listed.append(jsloaop.values()[jsran]['lidocend'])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [33]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for lis in listed:&lt;/span&gt;
-    &lt;span class="c"&gt;#print lis&lt;/span&gt;
-    &lt;span class="c"&gt;#for li in lis:&lt;/span&gt;
-        &lt;span class="c"&gt;#print li&lt;/span&gt;
-        &lt;span class="c"&gt;#for wq in li:&lt;/span&gt;
-            &lt;span class="c"&gt;#print wq&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [34]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for jsran in range(lejsp):&lt;/span&gt;
-    &lt;span class="c"&gt;#print jsloaop.values()[jsran]['Category']&lt;/span&gt;
-    
-    &lt;span class="c"&gt;#for jsl in jsloaop.values()[jsran]['lidocend']:&lt;/span&gt;
-        &lt;span class="c"&gt;#print jsl&lt;/span&gt;
-        &lt;span class="c"&gt;#for jl in jsl:&lt;/span&gt;
-            &lt;span class="c"&gt;#print jl&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [35]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#print (jsloaop[0])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [44]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;doc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dominate&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'Ministry of Education Jobs'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'stylesheet'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'style.css'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'text/javascript'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'script.js'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="c"&gt;#str(str2)&lt;/span&gt;
-    
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'header'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'Ministry of Education Jobs'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'logo.png'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'logo.png'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-
-        &lt;span class="c"&gt;#p(img('imgs/getsdrawn-bw.png', src='imgs/getsdrawn-bw.png'))&lt;/span&gt;
-        &lt;span class="c"&gt;#p(img('imgs/15/01/02/ReptileLover82-reference.png', src= 'imgs/15/01/02/ReptileLover82-reference.png'))&lt;/span&gt;
-        &lt;span class="c"&gt;#h1('Updated ', strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))&lt;/span&gt;
-        &lt;span class="c"&gt;#p(panz)&lt;/span&gt;
-        &lt;span class="c"&gt;#p(bodycom)&lt;/span&gt;
-    
-    
-
-&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'body'&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;jsran&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lejsp&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-            &lt;span class="n"&gt;h3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jsloaop&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="n"&gt;jsran&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'Job Title'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jsloaop&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="n"&gt;jsran&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'Category'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jsloaop&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="n"&gt;jsran&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'Job Type'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-            &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jsloaop&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="n"&gt;jsran&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'Date Advertised'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-
-            &lt;span class="c"&gt;#p(jsloaop.values()[jsran]['email'])&lt;/span&gt;
-
-            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;jsl&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;jsloaop&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="n"&gt;jsran&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'lidocend'&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
-        &lt;span class="c"&gt;#print jsl&lt;/span&gt;
-                &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;jl&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;jsl&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-                    &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jl&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c"&gt;#&amp;lt;a href="mailto:name@email.com"&amp;gt;Link text&amp;lt;/a&amp;gt;&lt;/span&gt;
-        
-        
-        &lt;span class="c"&gt;#for rdz in reliz:&lt;/span&gt;
-            &lt;span class="c"&gt;#h1(rdz.title)&lt;/span&gt;
-            &lt;span class="c"&gt;#a(rdz.url)&lt;/span&gt;
-            &lt;span class="c"&gt;#p(img(rdz, src='%s' % rdz))&lt;/span&gt;
-            &lt;span class="c"&gt;#print rdz&lt;/span&gt;
-            &lt;span class="c"&gt;#p(img(rdz, src = rdz))&lt;/span&gt;
-            &lt;span class="c"&gt;#p(rdz)&lt;/span&gt;
-
-
-                
-            &lt;span class="c"&gt;#print rdz.url&lt;/span&gt;
-            &lt;span class="c"&gt;#if '.jpg' in rdz.url:&lt;/span&gt;
-            &lt;span class="c"&gt;#    img(rdz.urlz)&lt;/span&gt;
-            &lt;span class="c"&gt;#else:&lt;/span&gt;
-            &lt;span class="c"&gt;#    a(rdz.urlz)&lt;/span&gt;
-            &lt;span class="c"&gt;#h1(str(rdz.author))&lt;/span&gt;
-            
-            &lt;span class="c"&gt;#li(img(i.lower(), src='%s' % i))&lt;/span&gt;
-
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'body'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'MinistryOfEducationJobs is open source'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'https://github.com/wcmckee/ece-display'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'https://wcmckee.com'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c"&gt;#print doc&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [45]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="n"&gt;docre&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="c"&gt;#s = docre.decode('ascii', 'ignore')&lt;/span&gt;
-&lt;span class="n"&gt;yourstring&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;docre&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'ascii'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'ignore'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'ascii'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;indfil&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/github/wcmckee.com/output/minedujobs/index.html'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;mkind&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;indfil&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;mkind&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;yourstring&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;mkind&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [41]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#noranch = jsloaop[0]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [20]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for les in range(0, lejsp):&lt;/span&gt;
-    &lt;span class="c"&gt;#print les&lt;/span&gt;
-    &lt;span class="c"&gt;#randa = jsloaop[str(les)]&lt;/span&gt;
-    &lt;span class="c"&gt;#print randa['title']&lt;/span&gt;
-    
-    &lt;span class="c"&gt;#print randa['Category']&lt;/span&gt;
-    &lt;span class="c"&gt;#print randa['Location']&lt;/span&gt;
-    
-    &lt;span class="c"&gt;#print randa['Date Advertised']&lt;/span&gt;
-    &lt;span class="c"&gt;#print randa['time-advertised']&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_text output_error"&gt;
-&lt;pre&gt;
-&lt;span class="ansired"&gt;---------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class="ansired"&gt;KeyError&lt;/span&gt;                                  Traceback (most recent call last)
-&lt;span class="ansigreen"&gt;&amp;lt;ipython-input-20-b7e41bbc324e&amp;gt;&lt;/span&gt; in &lt;span class="ansicyan"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;&lt;span class="ansiblue"&gt;()&lt;/span&gt;
-&lt;span class="ansigreen"&gt;      2&lt;/span&gt;     &lt;span class="ansired"&gt;#print les&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
-&lt;span class="ansigreen"&gt;      3&lt;/span&gt;     randa &lt;span class="ansiyellow"&gt;=&lt;/span&gt; jsloaop&lt;span class="ansiyellow"&gt;[&lt;/span&gt;str&lt;span class="ansiyellow"&gt;(&lt;/span&gt;les&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
-&lt;span class="ansigreen"&gt;----&amp;gt; 4&lt;/span&gt;&lt;span class="ansiyellow"&gt;     &lt;/span&gt;&lt;span class="ansigreen"&gt;print&lt;/span&gt; randa&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'title'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
-&lt;span class="ansigreen"&gt;      5&lt;/span&gt; &lt;span class="ansiyellow"&gt;&lt;/span&gt;
-&lt;span class="ansigreen"&gt;      6&lt;/span&gt;     &lt;span class="ansigreen"&gt;print&lt;/span&gt; randa&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'Category'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
-
-&lt;span class="ansired"&gt;KeyError&lt;/span&gt;: 'title'&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/rdminjob.html</guid><pubDate>Sun, 19 Jul 2015 06:40:41 GMT</pubDate></item></channel></rss>
+</description><guid>http://wcmckee.com/posts/libedugov.html</guid><pubDate>Sun, 26 Jul 2015 13:32:54 GMT</pubDate></item></channel></rss>

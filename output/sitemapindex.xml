@@ -6,6 +6,10 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://wcmckee.com/categories/arrow.xml</loc>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://wcmckee.com/categories/blog.xml</loc>
   <lastmod>2015-10-06T13:45:00Z</lastmod>
  </sitemap>
@@ -34,12 +38,16 @@
   <lastmod>2015-10-06T13:46:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://wcmckee.com/categories/job.xml</loc>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://wcmckee.com/categories/json.xml</loc>
-  <lastmod>2015-10-06T13:46:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/categories/library.xml</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/categories/moe.xml</loc>
@@ -55,7 +63,7 @@
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/categories/os.xml</loc>
-  <lastmod>2015-10-02T04:56:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/categories/pandas.xml</loc>
@@ -63,7 +71,7 @@
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/categories/python.xml</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/categories/requests.xml</loc>
@@ -87,10 +95,10 @@
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/rss.xml</loc>
-  <lastmod>2015-10-06T13:45:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://wcmckee.com/sitemap.xml</loc>
-  <lastmod>2015-10-06T13:46:00Z</lastmod>
+  <lastmod>2015-10-14T02:32:00Z</lastmod>
  </sitemap>
 </sitemapindex>
