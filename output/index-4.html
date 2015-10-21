@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Code IPython Notebook by WCMCKEE">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wcmckee (old posts, page 4) | wcmckee</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="http://wcmckee.com/index-4.html">
+<link rel="prev" href="index.html" type="text/html">
+<link rel="next" href="index-3.html" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://wcmckee.com/">
+
+                <span id="blog-title">wcmckee</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="archive.html">Archives</a>
+                </li>
+<li>
+<a href="categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS</a>
+                </li>
+<li>
+<a href="https://twitter.com/wcmckeedotcom">Twitter</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/libedugov.html" class="u-url">libedugov</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/libedugov.html" rel="bookmark"><time class="published dt-published" datetime="2015-07-26T13:32:54+00:00" itemprop="datePublished" title="Publication date">2015-07-26 13:32</time></a></p>
+                <p class="commentline">            <a href="posts/libedugov.html#disqus_thread" data-disqus-identifier="cache/posts/libedugov.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Library Education Govt</p>
+<p>Script to deal with rss xml feed of library.education.govt.nz</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">xmltodict</span>
+<span class="kn">import</span> <span class="nn">bs4</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">reqlib</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://library.education.govt.nz/rss/highlights'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">reqlibt</span> <span class="o">=</span> <span class="n">reqlib</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">libtd</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">reqlibt</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">rslen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">libtd</span><span class="p">[</span><span class="s">'rss'</span><span class="p">][</span><span class="s">'channel'</span><span class="p">][</span><span class="s">'item'</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#rslen</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">wrapdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#print (libtd['rss']['channel']['item'][0])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>OrderedDict([(u'title', u'Best schools in Auckland: 24 things to know before you choose a school'), (u'link', u'https://library.education.govt.nz/blogs/best-schools-auckland-24-things-know-you-choose-school'), (u'description', u'&lt;div class="field field-name-body field-type-text-with-summary field-label-hidden"&gt;&lt;div class="field-items"&gt;&lt;div class="field-item even" property="content:encoded"&gt;&lt;p&gt;By Simon Wilson&lt;br /&gt;\n\tMetro Jul/August 2015: 40-49 &lt;em&gt;(article)&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style="color: rgb(48, 48, 48); line-height: 20px;"&gt;Presents tables comparing Auckland secondary schools. Looks at school leaver qualifications and NCEA results, including University Entrance and Scholarship rates. Takes into account school decile, and whether Cambridge exams or the International Baccalaureate are offered as well as or instead of NCEA. Shows the new 2015 deciles.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;a href="http://library.education.govt.nz/cgi-bin/koha/opac-reserve.pl?biblionumber=51571" style="line-height: 18.5714282989502px; color: rgb(0, 120, 206); outline: dotted thin; outline-offset: -2px; background-color: rgb(255, 255, 255);"&gt;Request item&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;'), (u'pubDate', u'Wed, 01 Jul 2015 20:46:34 +0000'), (u'dc:creator', u'tim.admin'), (u'guid', OrderedDict([(u'@isPermaLink', u'false'), ('#text', u'10833 at https://library.education.govt.nz')]))])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">libi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rslen</span><span class="p">):</span>
+    <span class="n">msjobdic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="c">#print (libtd['rss']['channel']['item'][libi]['title'])</span>
+    <span class="n">msjobdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'title'</span> <span class="p">:</span> <span class="p">(</span><span class="n">libtd</span><span class="p">[</span><span class="s">'rss'</span><span class="p">][</span><span class="s">'channel'</span><span class="p">][</span><span class="s">'item'</span><span class="p">][</span><span class="n">libi</span><span class="p">][</span><span class="s">'title'</span><span class="p">])})</span>
+    <span class="n">msjobdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'link'</span> <span class="p">:</span> <span class="p">(</span><span class="n">libtd</span><span class="p">[</span><span class="s">'rss'</span><span class="p">][</span><span class="s">'channel'</span><span class="p">][</span><span class="s">'item'</span><span class="p">][</span><span class="n">libi</span><span class="p">][</span><span class="s">'link'</span><span class="p">])})</span>
+    <span class="n">soupdes</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">libtd</span><span class="p">[</span><span class="s">'rss'</span><span class="p">][</span><span class="s">'channel'</span><span class="p">][</span><span class="s">'item'</span><span class="p">][</span><span class="n">libi</span><span class="p">][</span><span class="s">'description'</span><span class="p">])</span>
+    
+    <span class="n">msjobdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'description'</span> <span class="p">:</span> <span class="n">soupdes</span><span class="o">.</span><span class="n">text</span><span class="p">})</span>
+    <span class="n">msjobdic</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'jsonlen'</span> <span class="p">:</span> <span class="n">libi</span><span class="p">})</span>
+    <span class="c">#findict = dict()</span>
+    
+    <span class="c">#wrapdict.update({'title' : (libtd['rss']['channel']['item'][libi]['title'])})</span>
+    <span class="c">#totlen = len(libi)</span>
+    <span class="c">#for tes in range(totlen):</span>
+    <span class="c">#    wrapdict.update({'title' : txtspli[tes][1]})</span>
+    <span class="c">#findict.update({txtspli[0][0] : txtspli[0][1]})</span>
+    <span class="n">msjobz</span> <span class="o">=</span> <span class="n">msjobdic</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">msjobz</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">msjobdic</span><span class="p">)</span>
+    
+    <span class="n">wrapdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">libi</span> <span class="p">:</span> <span class="n">msjobz</span><span class="p">})</span>
+    <span class="c">#jsmsdob = json.dumps(wrapdict)</span>
+    
+    
+    <span class="c">#jslibi.update({rslen : msjobz})</span>
+    <span class="c">#jsmsdob = json.dumps(wrapdict)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Best schools in Auckland: 24 things to know before you choose a school
+Tauira: Māori methods of learning and teaching
+Dangerous liaisons
+Bully beef
+Could do better
+What Candy Crush Saga teaches us about motivating employees
+Influential Aucklanders in education
+Explaining the achievement gap between indigenous and non-indigenous students: an analysis of PISA 2009 results for Australia and New Zealand
+Panel-beaters don't have to learn Shakespeare
+Leaders as decision architects
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">savjslib</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">wrapdict</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">savjfin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/github/wcmckee.com/output/moelib/index.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="n">savjfin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">savjslib</span><span class="p">)</span>
+<span class="n">savjfin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article>
+</div>
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="index.html" rel="prev">Newer posts</a>
+            </li>
+            <li class="next">
+                <a href="index-3.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2015         <a href="mailto:will@artcontrol.me">wcmckee</a>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons Attribution 4.0 International License" style="border-width:0; margin-bottom:12px;" src="http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg"></a>
+<br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">wcmckee.com</span> by 
+<a xmlns:cc="http://creativecommons.org/ns#" href="http://wcmckee.com" property="cc:attributionName" rel="cc:attributionURL">wcmckee</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<br>Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://wcmckee.com" rel="dct:source">http://wcmckee.com</a>.
+
+
+            
+        </footer>
+</div>
+</div>
+
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
