@@ -62,7 +62,332 @@ article: http://ogp.me/ns/article#
         <div class="row">
             
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/nzpostaddy.html" class="u-url">nzpostaddy</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/gif-pokmon.html" class="u-url">gif-pokmon</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
+            <p class="dateline"><a href="posts/gif-pokmon.html" rel="bookmark"><time class="published dt-published" datetime="2016-01-15T17:31:46+00:00" itemprop="datePublished" title="Publication date">2016-01-15 17:31</time></a></p>
+                <p class="commentline">            <a href="posts/gif-pokmon.html#disqus_thread" data-disqus-identifier="cache/posts/gif-pokmon.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>gif pokmon</p>
+<p>script to explore the pokemon api and get gifs.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">reqg</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://pokeapi.co/api/v1/pokedex/1/'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">retxt</span> <span class="o">=</span> <span class="n">reqg</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">pokload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">retxt</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">allpok</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pokload</span><span class="p">[</span><span class="s">'pokemon'</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="n">pokload</span><span class="p">[</span><span class="s">'pokemon'</span><span class="p">][</span><span class="mi">200</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{'name': 'houndour', 'resource_uri': 'api/v1/pokemon/228/'}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">allpok</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[37]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>778</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opwritj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://api.giphy.com/v1/gifs/search?q='</span> <span class="o">+</span> <span class="p">(</span><span class="n">pokload</span><span class="p">[</span><span class="s">'pokemon'</span><span class="p">][</span><span class="n">alpo</span><span class="p">][</span><span class="s">'name'</span><span class="p">])</span> <span class="o">+</span> <span class="s">'&amp;api_key=dc6zaTOxFJmzC'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">alpo</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">allpok</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pokload</span><span class="p">[</span><span class="s">'pokemon'</span><span class="p">][</span><span class="n">alpo</span><span class="p">][</span><span class="s">'name'</span><span class="p">])</span>
+    <span class="n">opwritj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://api.giphy.com/v1/gifs/search?q='</span> <span class="o">+</span> <span class="p">(</span><span class="n">pokload</span><span class="p">[</span><span class="s">'pokemon'</span><span class="p">][</span><span class="n">alpo</span><span class="p">][</span><span class="s">'name'</span><span class="p">])</span> <span class="o">+</span> <span class="s">'&amp;api_key=dc6zaTOxFJmzC'</span><span class="p">)</span>
+    <span class="n">wrijrd</span> <span class="o">=</span> <span class="n">opwritj</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">jswri</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">wrijrd</span><span class="p">)</span>
+    <span class="n">jswln</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">jswri</span><span class="p">[</span><span class="s">'data'</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">jsw</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">jswln</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s">'.gif'</span> <span class="ow">in</span> <span class="n">jswri</span><span class="p">[</span><span class="s">'data'</span><span class="p">][</span><span class="n">jsw</span><span class="p">][</span><span class="s">'images'</span><span class="p">][</span><span class="s">'downsized'</span><span class="p">][</span><span class="s">'url'</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">jswri</span><span class="p">[</span><span class="s">'data'</span><span class="p">][</span><span class="n">jsw</span><span class="p">][</span><span class="s">'images'</span><span class="p">][</span><span class="s">'downsized'</span><span class="p">][</span><span class="s">'url'</span><span class="p">])</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">jswri</span><span class="p">[</span><span class="s">'data'</span><span class="p">][</span><span class="n">jsw</span><span class="p">][</span><span class="s">'images'</span><span class="p">][</span><span class="s">'downsized'</span><span class="p">][</span><span class="s">'url'</span><span class="p">]),</span> <span class="n">stream</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/Downloads/gify/'</span> <span class="o">+</span> <span class="p">(</span><span class="n">pokload</span><span class="p">[</span><span class="s">'pokemon'</span><span class="p">][</span><span class="n">alpo</span><span class="p">][</span><span class="s">'name'</span><span class="p">])</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">jsw</span><span class="p">)</span> <span class="o">+</span> <span class="s">'.gif'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span>
+                <span class="k">del</span> <span class="n">response</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>rattata
+http://media1.giphy.com/media/vXkfATtZmC26Q/giphy.gif
+http://media0.giphy.com/media/IrMkKlhZy4hri/giphy.gif
+http://media4.giphy.com/media/jeWqeTeBS03WE/giphy.gif
+http://media3.giphy.com/media/NN4fvJBKKvrnq/giphy.gif
+http://media2.giphy.com/media/A3LyV2yV5r5cI/giphy.gif
+http://media1.giphy.com/media/6obZXFnopj9vy/giphy.gif
+http://media4.giphy.com/media/CZgC0EiQhwiM8/giphy.gif
+http://media2.giphy.com/media/10oCqxckv42wlq/giphy.gif
+http://media4.giphy.com/media/OZnzDqIzdduuY/giphy.gif
+charmander
+http://media2.giphy.com/media/PiiQ5B1XxxiX6/giphy.gif
+http://media3.giphy.com/media/V4sY8JCTxGyaI/giphy.gif
+http://media1.giphy.com/media/fJXClS1SskWPu/giphy.gif
+http://media2.giphy.com/media/11agp3tD5MPgnC/giphy.gif
+http://media2.giphy.com/media/hEpqDK5fSGeqc/giphy.gif
+http://media2.giphy.com/media/6JvWR1rDbseeQ/giphy.gif
+http://media0.giphy.com/media/EUge7PKTnkwzm/giphy.gif
+http://media1.giphy.com/media/Lk3CyavFIcr2o/giphy.gif
+http://media1.giphy.com/media/u1k1kpDZSw5sA/giphy.gif
+http://media.giphy.com/media/YmAqCTTOLHh0A/giphy-tumblr.gif
+http://media4.giphy.com/media/WJ7Tr9wi8xVe0/giphy.gif
+http://media2.giphy.com/media/kyQZBTnF1fG2A/giphy.gif
+http://media.giphy.com/media/3lttbqFYuaKsM/giphy-tumblr.gif
+http://media1.giphy.com/media/d8erhw94dHRsI/giphy.gif
+http://media.giphy.com/media/2Faz6MZP8J3zpcXBe/giphy-tumblr.gif
+http://media2.giphy.com/media/zggFOBuDFySDm/giphy.gif
+http://media3.giphy.com/media/7YmRxmyA3QA3C/giphy.gif
+http://media4.giphy.com/media/vz5JEg2WIJ8hG/giphy.gif
+http://media1.giphy.com/media/OTr3AVq8Pm2XK/giphy.gif
+http://media3.giphy.com/media/C5BvJRoI0ONs4/giphy.gif
+http://media2.giphy.com/media/4vGhTk9nDMnug/giphy.gif
+http://media4.giphy.com/media/gdh0jRFilcn4Y/giphy.gif
+http://media4.giphy.com/media/4MwcPSlM8j3IA/giphy.gif
+http://media3.giphy.com/media/d4yP1krJcfdCM/giphy.gif
+http://media4.giphy.com/media/bLiebL9q4RMK4/giphy.gif
+charmeleon
+http://media2.giphy.com/media/R0fZ5K1BspBjW/giphy.gif
+http://media1.giphy.com/media/u1k1kpDZSw5sA/giphy.gif
+http://media1.giphy.com/media/3r3bSqctriays/giphy.gif
+http://media3.giphy.com/media/7YmRxmyA3QA3C/giphy.gif
+http://media4.giphy.com/media/vz5JEg2WIJ8hG/giphy.gif
+http://media3.giphy.com/media/C5BvJRoI0ONs4/giphy.gif
+http://media1.giphy.com/media/OTr3AVq8Pm2XK/giphy.gif
+http://media4.giphy.com/media/4FPCEiIGk41cQ/giphy.gif
+http://media4.giphy.com/media/tyoOzh4nA1Fao/giphy.gif
+http://media0.giphy.com/media/Gccz9v9BmGHtu/giphy.gif
+http://media1.giphy.com/media/2LqbHgd5gwgO4/giphy.gif
+http://media4.giphy.com/media/cYmRQxMLaK9gI/giphy.gif
+http://media4.giphy.com/media/wCnNTsp817oY0/giphy.gif
+http://media1.giphy.com/media/POGOvsLHgXmpi/giphy.gif
+http://media1.giphy.com/media/OKG0r9IgZ11ba/giphy.gif
+http://media2.giphy.com/media/oecPcKjruvytG/giphy.gif
+http://media3.giphy.com/media/d4yP1krJcfdCM/giphy.gif
+http://media4.giphy.com/media/bLiebL9q4RMK4/giphy.gif
+http://media4.giphy.com/media/p25VnssgQTo4w/giphy.gif
+http://media1.giphy.com/media/IlzWt9twEUeSQ/giphy.gif
+http://media3.giphy.com/media/BM1w3GRjpTrk4/giphy.gif
+http://media4.giphy.com/media/BRwmhn51DJh8A/giphy.gif
+http://media3.giphy.com/media/DhIHKaOKB5pUA/giphy.gif
+http://media4.giphy.com/media/nBHnyQePKnES4/giphy.gif
+http://media3.giphy.com/media/tTsyn0reTC3rG/giphy.gif
+wartortle
+http://media3.giphy.com/media/APUf2KTVPMUo/giphy.gif
+http://media3.giphy.com/media/13RuvX8oKp701G/giphy.gif
+http://media1.giphy.com/media/EhTwMHUJMrc7m/giphy.gif
+http://media2.giphy.com/media/MZpmFL1wqh60g/giphy.gif
+http://media4.giphy.com/media/GVHKUACqw8480/giphy.gif
+http://media3.giphy.com/media/cHmJaZS0vw4Ny/giphy.gif
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-43-1f5c2d9799f0&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">     10</span>             response <span class="ansiyellow">=</span> requests<span class="ansiyellow">.</span>get<span class="ansiyellow">(</span><span class="ansiyellow">(</span>jswri<span class="ansiyellow">[</span><span class="ansiblue">'data'</span><span class="ansiyellow">]</span><span class="ansiyellow">[</span>jsw<span class="ansiyellow">]</span><span class="ansiyellow">[</span><span class="ansiblue">'images'</span><span class="ansiyellow">]</span><span class="ansiyellow">[</span><span class="ansiblue">'downsized'</span><span class="ansiyellow">]</span><span class="ansiyellow">[</span><span class="ansiblue">'url'</span><span class="ansiyellow">]</span><span class="ansiyellow">)</span><span class="ansiyellow">,</span> stream<span class="ansiyellow">=</span><span class="ansigreen">True</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">     11</span>             <span class="ansigreen">with</span> open<span class="ansiyellow">(</span><span class="ansiblue">'/home/wcmckee/Downloads/gify/'</span> <span class="ansiyellow">+</span> <span class="ansiyellow">(</span>pokload<span class="ansiyellow">[</span><span class="ansiblue">'pokemon'</span><span class="ansiyellow">]</span><span class="ansiyellow">[</span>alpo<span class="ansiyellow">]</span><span class="ansiyellow">[</span><span class="ansiblue">'name'</span><span class="ansiyellow">]</span><span class="ansiyellow">)</span> <span class="ansiyellow">+</span> str<span class="ansiyellow">(</span>jsw<span class="ansiyellow">)</span> <span class="ansiyellow">+</span> <span class="ansiblue">'.gif'</span><span class="ansiyellow">,</span> <span class="ansiblue">'wb'</span><span class="ansiyellow">)</span> <span class="ansigreen">as</span> out_file<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">---&gt; 12</span><span class="ansiyellow">                 </span>shutil<span class="ansiyellow">.</span>copyfileobj<span class="ansiyellow">(</span>response<span class="ansiyellow">.</span>raw<span class="ansiyellow">,</span> out_file<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">     13</span>                 <span class="ansigreen">del</span> response<span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/lib/python3.4/shutil.py</span> in <span class="ansicyan">copyfileobj</span><span class="ansiblue">(fsrc, fdst, length)</span>
+<span class="ansigreen">     64</span>     <span class="ansiblue">"""copy data from file-like object fsrc to file-like object fdst"""</span><span class="ansiyellow"></span>
+<span class="ansigreen">     65</span>     <span class="ansigreen">while</span> <span class="ansicyan">1</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">---&gt; 66</span><span class="ansiyellow">         </span>buf <span class="ansiyellow">=</span> fsrc<span class="ansiyellow">.</span>read<span class="ansiyellow">(</span>length<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">     67</span>         <span class="ansigreen">if</span> <span class="ansigreen">not</span> buf<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">     68</span>             <span class="ansigreen">break</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/local/lib/python3.4/dist-packages/requests/packages/urllib3/response.py</span> in <span class="ansicyan">read</span><span class="ansiblue">(self, amt, decode_content, cache_content)</span>
+<span class="ansigreen">    172</span>             <span class="ansigreen">else</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    173</span>                 cache_content <span class="ansiyellow">=</span> <span class="ansigreen">False</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 174</span><span class="ansiyellow">                 </span>data <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>_fp<span class="ansiyellow">.</span>read<span class="ansiyellow">(</span>amt<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    175</span>                 <span class="ansigreen">if</span> amt <span class="ansiyellow">!=</span> <span class="ansicyan">0</span> <span class="ansigreen">and</span> <span class="ansigreen">not</span> data<span class="ansiyellow">:</span>  <span class="ansired"># Platform-specific: Buggy versions of Python.</span><span class="ansiyellow"></span>
+<span class="ansigreen">    176</span>                     <span class="ansired"># Close the connection when no data is returned</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/lib/python3.4/http/client.py</span> in <span class="ansicyan">read</span><span class="ansiblue">(self, amt)</span>
+<span class="ansigreen">    498</span>             <span class="ansired"># Amount is given, so call base class version</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+<span class="ansigreen">    499</span>             <span class="ansired"># (which is implemented in terms of self.readinto)</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 500</span><span class="ansiyellow">             </span><span class="ansigreen">return</span> super<span class="ansiyellow">(</span>HTTPResponse<span class="ansiyellow">,</span> self<span class="ansiyellow">)</span><span class="ansiyellow">.</span>read<span class="ansiyellow">(</span>amt<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    501</span>         <span class="ansigreen">else</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    502</span>             <span class="ansired"># Amount is not given (unbounded read) so we must check self.length</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/lib/python3.4/http/client.py</span> in <span class="ansicyan">readinto</span><span class="ansiblue">(self, b)</span>
+<span class="ansigreen">    537</span>         <span class="ansired"># connection, and the user is reading more bytes than will be provided</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+<span class="ansigreen">    538</span>         <span class="ansired"># (for example, reading in 1k chunks)</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 539</span><span class="ansiyellow">         </span>n <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>fp<span class="ansiyellow">.</span>readinto<span class="ansiyellow">(</span>b<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    540</span>         <span class="ansigreen">if</span> <span class="ansigreen">not</span> n <span class="ansigreen">and</span> b<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    541</span>             <span class="ansired"># Ideally, we would raise IncompleteRead if the content-length</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+
+<span class="ansigreen">/usr/lib/python3.4/socket.py</span> in <span class="ansicyan">readinto</span><span class="ansiblue">(self, b)</span>
+<span class="ansigreen">    369</span>         <span class="ansigreen">while</span> <span class="ansigreen">True</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    370</span>             <span class="ansigreen">try</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">--&gt; 371</span><span class="ansiyellow">                 </span><span class="ansigreen">return</span> self<span class="ansiyellow">.</span>_sock<span class="ansiyellow">.</span>recv_into<span class="ansiyellow">(</span>b<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">    372</span>             <span class="ansigreen">except</span> timeout<span class="ansiyellow">:</span><span class="ansiyellow"></span>
+<span class="ansigreen">    373</span>                 self<span class="ansiyellow">.</span>_timeout_occurred <span class="ansiyellow">=</span> <span class="ansigreen">True</span><span class="ansiyellow"></span>
+
+<span class="ansired">KeyboardInterrupt</span>: </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/nzpostaddy.html" class="u-url">nzpostaddy</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
             <p class="dateline"><a href="posts/nzpostaddy.html" rel="bookmark"><time class="published dt-published" datetime="2015-10-21T23:09:19+00:00" itemprop="datePublished" title="Publication date">2015-10-21 23:09</time></a></p>
@@ -4568,798 +4893,6 @@ details: {'errors': [{'code': 328, 'message': 'Retweet is not permissible for th
   </div>
 
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/curschopanda.html" class="u-url">curschopanda</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">wcmckee</span></p>
-            <p class="dateline"><a href="posts/curschopanda.html" rel="bookmark"><time class="published dt-published" datetime="2015-08-03T05:22:35+00:00" itemprop="datePublished" title="Publication date">2015-08-03 05:22</time></a></p>
-                <p class="commentline">            <a href="posts/curschopanda.html#disqus_thread" data-disqus-identifier="cache/posts/curschopanda.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="e-content entry-content">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [159]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">json</span> 
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">bs4</span>
-<span class="c">#import matplotlib.pyplot as plt</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4>Current School Panda</h4>
-<p>Working with directory school data</p>
-<p>Creative Commons in all schools</p>
-<p>This script uses a csv file from Creative Commons New Zealand and csv file from Ministry of Education.</p>
-<p>The ccnz csv file contains schools names that have cc licence, type of licence,</p>
-<p>The Ministry of Education csv file contains every public school in New Zealand and info about them.</p>
-<p>Standards for website addresses - if school name ends with school then cut it from name and add to . 
-eg Horowhenua Collage
-horowhenua.collage.nz
-not 
-horowhenuacollage.school.nz</p>
-<p>Auckland Girls Grammar School</p>
-<p>aucklandgirlsgrammar.school.nz
-not
-aucklandgirlsgrammarschool.school.nz</p>
-<p>Everyschool has their own domain name and Linux server hosting the site. Private/Public keys. Static site, git repo. Nikola blog.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What made you choose that particular Creative Commons licence?</p>
-<p>I like the CC:BY licence because it offers the most freedom to people.</p>
-<p>I am not a fan of licenses that restrict commercial use. I believe everyone should be able to do what the like with my work with minimal interference.</p>
-<p>If I could I would remove non-commercial licenses.</p>
-<p>In the early days of my art blogging I would license under cc nc. This was wrong and I later changed this to a cc by licence.</p>
-<p>With my photography I once had a photo I taken in the newpaper. It made the front page. I was offered money and seeked permission. I was fine with it of course - the license allows this. At the bottom of the photo it read: PHOTO: William Mckee.
-Perfect.</p>
-<p>The only thing I ask is they attribute.</p>
-<p>I like the idea of sharealike but at the end of the I really don't care and would hate to chase down people to license it wrong. Sure, I don't like it that people could take my stuff and make it not open. I think everything should be open and free.</p>
-<p>My art site - artcontrol.me is currently down but when it was up I licenced the site under a cc:by. Elements of the site are still up - such as my YouTube channel.</p>
-<p>I attended art school in Wellington - The Learning Connexion. My focus was on drawing and painting. I taught myself programming on the bus to art school. Even when I was drawing on the easel I would be 'drawing' python code. During breaks I would often get my laptop out.</p>
-<p>I volunteered at Whaihanga Early Learning Centre. I spend the majority of my time there in the art area doing collabarth works with others. Oil Pastel, coloured pencil and pencil were my mediums of choice. Sometimes I would use paint, but it's quite messy.</p>
-<p>Copyright shouldn't be default. Apply and pay if you want copyright. CC license by default. That will sort the world.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [160]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">crcom</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/home/wcmckee/Downloads/List of CC schools - Sheet1.csv'</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Compare the schools on List of CC schools with list of all public/private schools.</p>
-<p>Why shouldn't it be default for all public schools licence to be under a Creative Commons BY license?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [161]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#crcom</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [162]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">aqcom</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/home/wcmckee/Downloads/List of CC schools - Sheet1.csv'</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [163]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">aqjsz</span> <span class="o">=</span> <span class="n">aqcom</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [164]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dicthol</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">aqjsz</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [165]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dschoz</span> <span class="o">=</span> <span class="n">dicthol</span><span class="p">[</span><span class="s">'School'</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [166]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#dicthol</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [167]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dscv</span> <span class="o">=</span> <span class="n">dschoz</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [168]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">ccschool</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [169]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">87</span><span class="p">):</span>
-    <span class="c">#print(dschoz[str(ds)])</span>
-    <span class="n">ccschool</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">dschoz</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">ds</span><span class="p">)]))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [170]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">schccd</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [171]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">scda</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s">'cc'</span> <span class="p">:</span> <span class="k">True</span><span class="p">})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [172]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">sanoc</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s">'cc'</span> <span class="p">:</span> <span class="k">False</span><span class="p">})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [173]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#schccd.update({ccs : scda})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [174]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">ccs</span> <span class="ow">in</span> <span class="n">ccschool</span><span class="p">:</span>
-    <span class="c">#These schools have a cc license. Update the list of all schools with cc and value = true.</span>
-    <span class="c">#Focus on schools that don't have cc license.</span>
-    <span class="c">#Filter schools in area that don't have cc license.</span>
-    <span class="c">#print (ccs)</span>
-    <span class="n">schccd</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">ccs</span> <span class="p">:</span> <span class="n">scda</span><span class="p">})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [175]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">ccschz</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [176]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">dsc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">87</span><span class="p">):</span>
-    <span class="c">#print (dschoz[str(dsc)])</span>
-    <span class="n">ccschz</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">dschoz</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">dsc</span><span class="p">)]))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [177]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#Append in names of schools that are missing from this dict. </span>
-<span class="c">#Something like</span>
-<span class="c">#schccd.update{school that doesnt have cc : {'cc' : False}}</span>
-<span class="c">#schccd</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Cycle through only first 89 values - stop when reaching : These are schools that have expressed an interest in CC, and may have a policy in progress.</p>
-<p>New spreadsheet for schools in progress of CC license. Where are they up to? What is the next steps?</p>
-<p>Why are schools using a license that isn't CC:BY. They really should be using the same license. CC NC is unexceptable. SA would be OK but majority of schools already have CC BY so best to go with what is common so you don't have conflicts of licenses.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [178]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">noclist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/home/wcmckee/Downloads/Directory-School-current.csv'</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [179]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">webskol</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'/home/wcmckee/Downloads/Directory-School-current.csv'</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [180]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">websjs</span> <span class="o">=</span> <span class="n">webskol</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [181]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">dictscha</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">websjs</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [182]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">numsweb</span> <span class="o">=</span> <span class="n">dictscha</span><span class="p">[</span><span class="s">'School website'</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [183]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">lenmuns</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numsweb</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [184]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#for nuran in range(lenmuns):</span>
-<span class="c">#    print (numsweb[str(nuran)])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [185]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#noclist.values[0:10]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [186]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">aqjaq</span> <span class="o">=</span> <span class="n">noclist</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [187]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">jsaqq</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">aqjaq</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [188]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">najsa</span> <span class="o">=</span> <span class="n">jsaqq</span><span class="p">[</span><span class="s">'Name'</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [189]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">alsl</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">najsa</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [190]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">allschlis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [191]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">alr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">alsl</span><span class="p">):</span>
-    <span class="n">allschlis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">najsa</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">alr</span><span class="p">)])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [192]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#allschlis</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [193]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">newlis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">allschlis</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">ccschool</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [194]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">empd</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Create restfulapi of schools thaat have cc and those that don't</p>
-<p>Merge two dicts together.
-Both are 
-{name of school : 'cc' : 'True'/'False'}</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [195]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">sstru</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">schccd</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [196]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">newl</span> <span class="ow">in</span> <span class="n">newlis</span><span class="p">:</span>
-    <span class="c">#print (newl)</span>
-    <span class="n">empd</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">newl</span> <span class="p">:</span> <span class="n">sanoc</span><span class="p">})</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [197]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">empdum</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">empd</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [203]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">trufal</span> <span class="o">=</span> <span class="n">empd</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">trufal</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">schccd</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [207]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">trfaj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">trufal</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [209]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">savjfin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/home/wcmckee/ccschool/index.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-<span class="n">savjfin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">trfaj</span><span class="p">)</span>
-<span class="n">savjfin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [200]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#savtru = open('/home/wcmckee/ccschool/cctru.json', 'w')</span>
-<span class="c">#savtru.write(sstru)</span>
-<span class="c">#savtru.close()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [148]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#for naj in najsa.values():</span>
-    <span class="c">#print (naj)</span>
-<span class="c">#    for schk in schccd.keys():</span>
-        <span class="c">#print(schk)</span>
-<span class="c">#        allschlis.append(schk)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [149]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#for i in ccschz[:]:</span>
-<span class="c">#    if i in allschlis:</span>
-<span class="c">#        ccschz.remove(i)</span>
-<span class="c">#        allschlis.remove(i)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [150]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#Cycle though some schools rather than everything. </span>
-<span class="c">#Cycle though all schools and find schools that have cc </span>
-<span class="c">#for naj in range(2543):</span>
-    <span class="c">#print(najsa[str(naj)])</span>
-<span class="c">#    for schk in schccd.keys():</span>
-<span class="c">#        if schk in (najsa[str(naj)]):</span>
-            <span class="c">#Remove these schools from the list</span>
-<span class="c">#            print (schk)</span>
-            
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
-    </div>
     </article>
 </div>
         <nav class="postindexpager"><ul class="pager">
@@ -5371,7 +4904,7 @@ Both are
         <!--End of body content-->
 
         <footer id="footer">
-            Contents © 2015         <a href="mailto:will@artcontrol.me">wcmckee</a>
+            Contents © 2016         <a href="mailto:will@artcontrol.me">wcmckee</a>
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
 <img alt="Creative Commons Attribution 4.0 International License" style="border-width:0; margin-bottom:12px;" src="http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg"></a>
 <br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">wcmckee.com</span> by 

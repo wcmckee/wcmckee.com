@@ -1,5 +1,314 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link rel="self" href="http://wcmckee.com/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Wed, 21 Oct 2015 23:10:49 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>nzpostaddy</title><link>http://wcmckee.com/posts/nzpostaddy.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>wcmckee</title><link>http://wcmckee.com/</link><description>Code IPython Notebook by WCMCKEE</description><atom:link type="application/rss+xml" href="http://wcmckee.com/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 15 Jan 2016 17:41:35 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>gif-pokmon</title><link>http://wcmckee.com/posts/gif-pokmon.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;gif pokmon&lt;/p&gt;
+&lt;p&gt;script to explore the pokemon api and get gifs.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [42]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [29]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;reqg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'http://pokeapi.co/api/v1/pokedex/1/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [30]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;retxt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;reqg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [31]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;pokload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;retxt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [32]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;allpok&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pokload&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'pokemon'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [36]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pokload&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'pokemon'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;{'name': 'houndour', 'resource_uri': 'api/v1/pokemon/228/'}
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [37]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;allpok&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[37]:&lt;/div&gt;
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;778&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;opwritj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'http://api.giphy.com/v1/gifs/search?q='&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pokload&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'pokemon'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;alpo&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'name'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'&amp;amp;api_key=dc6zaTOxFJmzC'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [43]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;alpo&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;allpok&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pokload&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'pokemon'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;alpo&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'name'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="n"&gt;opwritj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'http://api.giphy.com/v1/gifs/search?q='&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pokload&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'pokemon'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;alpo&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'name'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'&amp;amp;api_key=dc6zaTOxFJmzC'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;wrijrd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;opwritj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;
+    &lt;span class="n"&gt;jswri&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrijrd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;jswln&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jswri&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'data'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;jsw&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;jswln&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;'.gif'&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;jswri&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'data'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;jsw&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'images'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'downsized'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'url'&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jswri&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'data'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;jsw&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'images'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'downsized'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'url'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+            &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;jswri&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'data'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;jsw&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'images'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'downsized'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'url'&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt; &lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/Downloads/gify/'&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pokload&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'pokemon'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;alpo&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s"&gt;'name'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jsw&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'.gif'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'wb'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;out_file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copyfileobj&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;raw&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;out_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;del&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;rattata
+http://media1.giphy.com/media/vXkfATtZmC26Q/giphy.gif
+http://media0.giphy.com/media/IrMkKlhZy4hri/giphy.gif
+http://media4.giphy.com/media/jeWqeTeBS03WE/giphy.gif
+http://media3.giphy.com/media/NN4fvJBKKvrnq/giphy.gif
+http://media2.giphy.com/media/A3LyV2yV5r5cI/giphy.gif
+http://media1.giphy.com/media/6obZXFnopj9vy/giphy.gif
+http://media4.giphy.com/media/CZgC0EiQhwiM8/giphy.gif
+http://media2.giphy.com/media/10oCqxckv42wlq/giphy.gif
+http://media4.giphy.com/media/OZnzDqIzdduuY/giphy.gif
+charmander
+http://media2.giphy.com/media/PiiQ5B1XxxiX6/giphy.gif
+http://media3.giphy.com/media/V4sY8JCTxGyaI/giphy.gif
+http://media1.giphy.com/media/fJXClS1SskWPu/giphy.gif
+http://media2.giphy.com/media/11agp3tD5MPgnC/giphy.gif
+http://media2.giphy.com/media/hEpqDK5fSGeqc/giphy.gif
+http://media2.giphy.com/media/6JvWR1rDbseeQ/giphy.gif
+http://media0.giphy.com/media/EUge7PKTnkwzm/giphy.gif
+http://media1.giphy.com/media/Lk3CyavFIcr2o/giphy.gif
+http://media1.giphy.com/media/u1k1kpDZSw5sA/giphy.gif
+http://media.giphy.com/media/YmAqCTTOLHh0A/giphy-tumblr.gif
+http://media4.giphy.com/media/WJ7Tr9wi8xVe0/giphy.gif
+http://media2.giphy.com/media/kyQZBTnF1fG2A/giphy.gif
+http://media.giphy.com/media/3lttbqFYuaKsM/giphy-tumblr.gif
+http://media1.giphy.com/media/d8erhw94dHRsI/giphy.gif
+http://media.giphy.com/media/2Faz6MZP8J3zpcXBe/giphy-tumblr.gif
+http://media2.giphy.com/media/zggFOBuDFySDm/giphy.gif
+http://media3.giphy.com/media/7YmRxmyA3QA3C/giphy.gif
+http://media4.giphy.com/media/vz5JEg2WIJ8hG/giphy.gif
+http://media1.giphy.com/media/OTr3AVq8Pm2XK/giphy.gif
+http://media3.giphy.com/media/C5BvJRoI0ONs4/giphy.gif
+http://media2.giphy.com/media/4vGhTk9nDMnug/giphy.gif
+http://media4.giphy.com/media/gdh0jRFilcn4Y/giphy.gif
+http://media4.giphy.com/media/4MwcPSlM8j3IA/giphy.gif
+http://media3.giphy.com/media/d4yP1krJcfdCM/giphy.gif
+http://media4.giphy.com/media/bLiebL9q4RMK4/giphy.gif
+charmeleon
+http://media2.giphy.com/media/R0fZ5K1BspBjW/giphy.gif
+http://media1.giphy.com/media/u1k1kpDZSw5sA/giphy.gif
+http://media1.giphy.com/media/3r3bSqctriays/giphy.gif
+http://media3.giphy.com/media/7YmRxmyA3QA3C/giphy.gif
+http://media4.giphy.com/media/vz5JEg2WIJ8hG/giphy.gif
+http://media3.giphy.com/media/C5BvJRoI0ONs4/giphy.gif
+http://media1.giphy.com/media/OTr3AVq8Pm2XK/giphy.gif
+http://media4.giphy.com/media/4FPCEiIGk41cQ/giphy.gif
+http://media4.giphy.com/media/tyoOzh4nA1Fao/giphy.gif
+http://media0.giphy.com/media/Gccz9v9BmGHtu/giphy.gif
+http://media1.giphy.com/media/2LqbHgd5gwgO4/giphy.gif
+http://media4.giphy.com/media/cYmRQxMLaK9gI/giphy.gif
+http://media4.giphy.com/media/wCnNTsp817oY0/giphy.gif
+http://media1.giphy.com/media/POGOvsLHgXmpi/giphy.gif
+http://media1.giphy.com/media/OKG0r9IgZ11ba/giphy.gif
+http://media2.giphy.com/media/oecPcKjruvytG/giphy.gif
+http://media3.giphy.com/media/d4yP1krJcfdCM/giphy.gif
+http://media4.giphy.com/media/bLiebL9q4RMK4/giphy.gif
+http://media4.giphy.com/media/p25VnssgQTo4w/giphy.gif
+http://media1.giphy.com/media/IlzWt9twEUeSQ/giphy.gif
+http://media3.giphy.com/media/BM1w3GRjpTrk4/giphy.gif
+http://media4.giphy.com/media/BRwmhn51DJh8A/giphy.gif
+http://media3.giphy.com/media/DhIHKaOKB5pUA/giphy.gif
+http://media4.giphy.com/media/nBHnyQePKnES4/giphy.gif
+http://media3.giphy.com/media/tTsyn0reTC3rG/giphy.gif
+wartortle
+http://media3.giphy.com/media/APUf2KTVPMUo/giphy.gif
+http://media3.giphy.com/media/13RuvX8oKp701G/giphy.gif
+http://media1.giphy.com/media/EhTwMHUJMrc7m/giphy.gif
+http://media2.giphy.com/media/MZpmFL1wqh60g/giphy.gif
+http://media4.giphy.com/media/GVHKUACqw8480/giphy.gif
+http://media3.giphy.com/media/cHmJaZS0vw4Ny/giphy.gif
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_text output_error"&gt;
+&lt;pre&gt;
+&lt;span class="ansired"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ansired"&gt;KeyboardInterrupt&lt;/span&gt;                         Traceback (most recent call last)
+&lt;span class="ansigreen"&gt;&amp;lt;ipython-input-43-1f5c2d9799f0&amp;gt;&lt;/span&gt; in &lt;span class="ansicyan"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;&lt;span class="ansiblue"&gt;()&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     10&lt;/span&gt;             response &lt;span class="ansiyellow"&gt;=&lt;/span&gt; requests&lt;span class="ansiyellow"&gt;.&lt;/span&gt;get&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiyellow"&gt;(&lt;/span&gt;jswri&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'data'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;[&lt;/span&gt;jsw&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'images'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'downsized'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'url'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;,&lt;/span&gt; stream&lt;span class="ansiyellow"&gt;=&lt;/span&gt;&lt;span class="ansigreen"&gt;True&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     11&lt;/span&gt;             &lt;span class="ansigreen"&gt;with&lt;/span&gt; open&lt;span class="ansiyellow"&gt;(&lt;/span&gt;&lt;span class="ansiblue"&gt;'/home/wcmckee/Downloads/gify/'&lt;/span&gt; &lt;span class="ansiyellow"&gt;+&lt;/span&gt; &lt;span class="ansiyellow"&gt;(&lt;/span&gt;pokload&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'pokemon'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;[&lt;/span&gt;alpo&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;[&lt;/span&gt;&lt;span class="ansiblue"&gt;'name'&lt;/span&gt;&lt;span class="ansiyellow"&gt;]&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt; &lt;span class="ansiyellow"&gt;+&lt;/span&gt; str&lt;span class="ansiyellow"&gt;(&lt;/span&gt;jsw&lt;span class="ansiyellow"&gt;)&lt;/span&gt; &lt;span class="ansiyellow"&gt;+&lt;/span&gt; &lt;span class="ansiblue"&gt;'.gif'&lt;/span&gt;&lt;span class="ansiyellow"&gt;,&lt;/span&gt; &lt;span class="ansiblue"&gt;'wb'&lt;/span&gt;&lt;span class="ansiyellow"&gt;)&lt;/span&gt; &lt;span class="ansigreen"&gt;as&lt;/span&gt; out_file&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;---&amp;gt; 12&lt;/span&gt;&lt;span class="ansiyellow"&gt;                 &lt;/span&gt;shutil&lt;span class="ansiyellow"&gt;.&lt;/span&gt;copyfileobj&lt;span class="ansiyellow"&gt;(&lt;/span&gt;response&lt;span class="ansiyellow"&gt;.&lt;/span&gt;raw&lt;span class="ansiyellow"&gt;,&lt;/span&gt; out_file&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     13&lt;/span&gt;                 &lt;span class="ansigreen"&gt;del&lt;/span&gt; response&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/lib/python3.4/shutil.py&lt;/span&gt; in &lt;span class="ansicyan"&gt;copyfileobj&lt;/span&gt;&lt;span class="ansiblue"&gt;(fsrc, fdst, length)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     64&lt;/span&gt;     &lt;span class="ansiblue"&gt;"""copy data from file-like object fsrc to file-like object fdst"""&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     65&lt;/span&gt;     &lt;span class="ansigreen"&gt;while&lt;/span&gt; &lt;span class="ansicyan"&gt;1&lt;/span&gt;&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;---&amp;gt; 66&lt;/span&gt;&lt;span class="ansiyellow"&gt;         &lt;/span&gt;buf &lt;span class="ansiyellow"&gt;=&lt;/span&gt; fsrc&lt;span class="ansiyellow"&gt;.&lt;/span&gt;read&lt;span class="ansiyellow"&gt;(&lt;/span&gt;length&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     67&lt;/span&gt;         &lt;span class="ansigreen"&gt;if&lt;/span&gt; &lt;span class="ansigreen"&gt;not&lt;/span&gt; buf&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;     68&lt;/span&gt;             &lt;span class="ansigreen"&gt;break&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/local/lib/python3.4/dist-packages/requests/packages/urllib3/response.py&lt;/span&gt; in &lt;span class="ansicyan"&gt;read&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, amt, decode_content, cache_content)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    172&lt;/span&gt;             &lt;span class="ansigreen"&gt;else&lt;/span&gt;&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    173&lt;/span&gt;                 cache_content &lt;span class="ansiyellow"&gt;=&lt;/span&gt; &lt;span class="ansigreen"&gt;False&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 174&lt;/span&gt;&lt;span class="ansiyellow"&gt;                 &lt;/span&gt;data &lt;span class="ansiyellow"&gt;=&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;_fp&lt;span class="ansiyellow"&gt;.&lt;/span&gt;read&lt;span class="ansiyellow"&gt;(&lt;/span&gt;amt&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    175&lt;/span&gt;                 &lt;span class="ansigreen"&gt;if&lt;/span&gt; amt &lt;span class="ansiyellow"&gt;!=&lt;/span&gt; &lt;span class="ansicyan"&gt;0&lt;/span&gt; &lt;span class="ansigreen"&gt;and&lt;/span&gt; &lt;span class="ansigreen"&gt;not&lt;/span&gt; data&lt;span class="ansiyellow"&gt;:&lt;/span&gt;  &lt;span class="ansired"&gt;# Platform-specific: Buggy versions of Python.&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    176&lt;/span&gt;                     &lt;span class="ansired"&gt;# Close the connection when no data is returned&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/lib/python3.4/http/client.py&lt;/span&gt; in &lt;span class="ansicyan"&gt;read&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, amt)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    498&lt;/span&gt;             &lt;span class="ansired"&gt;# Amount is given, so call base class version&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    499&lt;/span&gt;             &lt;span class="ansired"&gt;# (which is implemented in terms of self.readinto)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 500&lt;/span&gt;&lt;span class="ansiyellow"&gt;             &lt;/span&gt;&lt;span class="ansigreen"&gt;return&lt;/span&gt; super&lt;span class="ansiyellow"&gt;(&lt;/span&gt;HTTPResponse&lt;span class="ansiyellow"&gt;,&lt;/span&gt; self&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;.&lt;/span&gt;read&lt;span class="ansiyellow"&gt;(&lt;/span&gt;amt&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    501&lt;/span&gt;         &lt;span class="ansigreen"&gt;else&lt;/span&gt;&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    502&lt;/span&gt;             &lt;span class="ansired"&gt;# Amount is not given (unbounded read) so we must check self.length&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/lib/python3.4/http/client.py&lt;/span&gt; in &lt;span class="ansicyan"&gt;readinto&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, b)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    537&lt;/span&gt;         &lt;span class="ansired"&gt;# connection, and the user is reading more bytes than will be provided&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    538&lt;/span&gt;         &lt;span class="ansired"&gt;# (for example, reading in 1k chunks)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 539&lt;/span&gt;&lt;span class="ansiyellow"&gt;         &lt;/span&gt;n &lt;span class="ansiyellow"&gt;=&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;fp&lt;span class="ansiyellow"&gt;.&lt;/span&gt;readinto&lt;span class="ansiyellow"&gt;(&lt;/span&gt;b&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    540&lt;/span&gt;         &lt;span class="ansigreen"&gt;if&lt;/span&gt; &lt;span class="ansigreen"&gt;not&lt;/span&gt; n &lt;span class="ansigreen"&gt;and&lt;/span&gt; b&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    541&lt;/span&gt;             &lt;span class="ansired"&gt;# Ideally, we would raise IncompleteRead if the content-length&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansigreen"&gt;/usr/lib/python3.4/socket.py&lt;/span&gt; in &lt;span class="ansicyan"&gt;readinto&lt;/span&gt;&lt;span class="ansiblue"&gt;(self, b)&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    369&lt;/span&gt;         &lt;span class="ansigreen"&gt;while&lt;/span&gt; &lt;span class="ansigreen"&gt;True&lt;/span&gt;&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    370&lt;/span&gt;             &lt;span class="ansigreen"&gt;try&lt;/span&gt;&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;--&amp;gt; 371&lt;/span&gt;&lt;span class="ansiyellow"&gt;                 &lt;/span&gt;&lt;span class="ansigreen"&gt;return&lt;/span&gt; self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;_sock&lt;span class="ansiyellow"&gt;.&lt;/span&gt;recv_into&lt;span class="ansiyellow"&gt;(&lt;/span&gt;b&lt;span class="ansiyellow"&gt;)&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    372&lt;/span&gt;             &lt;span class="ansigreen"&gt;except&lt;/span&gt; timeout&lt;span class="ansiyellow"&gt;:&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+&lt;span class="ansigreen"&gt;    373&lt;/span&gt;                 self&lt;span class="ansiyellow"&gt;.&lt;/span&gt;_timeout_occurred &lt;span class="ansiyellow"&gt;=&lt;/span&gt; &lt;span class="ansigreen"&gt;True&lt;/span&gt;&lt;span class="ansiyellow"&gt;&lt;/span&gt;
+
+&lt;span class="ansired"&gt;KeyboardInterrupt&lt;/span&gt;: &lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><category>gif</category><category>image</category><category>pokemon</category><category>requests</category><guid>http://wcmckee.com/posts/gif-pokmon.html</guid><pubDate>Fri, 15 Jan 2016 17:31:46 GMT</pubDate></item><item><title>nzpostaddy</title><link>http://wcmckee.com/posts/nzpostaddy.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -4362,783 +4671,4 @@ details: {'errors': [{'code': 328, 'message': 'Retweet is not permissible for th
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><category>python</category><category>twitter</category><guid>http://wcmckee.com/posts/brobeurtweet.html</guid><pubDate>Fri, 28 Aug 2015 21:33:21 GMT</pubDate></item><item><title>curschopanda</title><link>http://wcmckee.com/posts/curschopanda.html</link><dc:creator>wcmckee</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [159]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt; 
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt;
-&lt;span class="c"&gt;#import matplotlib.pyplot as plt&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4&gt;Current School Panda&lt;/h4&gt;&lt;p&gt;Working with directory school data&lt;/p&gt;
-&lt;p&gt;Creative Commons in all schools&lt;/p&gt;
-&lt;p&gt;This script uses a csv file from Creative Commons New Zealand and csv file from Ministry of Education.&lt;/p&gt;
-&lt;p&gt;The ccnz csv file contains schools names that have cc licence, type of licence,&lt;/p&gt;
-&lt;p&gt;The Ministry of Education csv file contains every public school in New Zealand and info about them.&lt;/p&gt;
-&lt;p&gt;Standards for website addresses - if school name ends with school then cut it from name and add to . 
-eg Horowhenua Collage
-horowhenua.collage.nz
-not 
-horowhenuacollage.school.nz&lt;/p&gt;
-&lt;p&gt;Auckland Girls Grammar School&lt;/p&gt;
-&lt;p&gt;aucklandgirlsgrammar.school.nz
-not
-aucklandgirlsgrammarschool.school.nz&lt;/p&gt;
-&lt;p&gt;Everyschool has their own domain name and Linux server hosting the site. Private/Public keys. Static site, git repo. Nikola blog.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;What made you choose that particular Creative Commons licence?&lt;/p&gt;
-&lt;p&gt;I like the CC:BY licence because it offers the most freedom to people.&lt;/p&gt;
-&lt;p&gt;I am not a fan of licenses that restrict commercial use. I believe everyone should be able to do what the like with my work with minimal interference.&lt;/p&gt;
-&lt;p&gt;If I could I would remove non-commercial licenses.&lt;/p&gt;
-&lt;p&gt;In the early days of my art blogging I would license under cc nc. This was wrong and I later changed this to a cc by licence.&lt;/p&gt;
-&lt;p&gt;With my photography I once had a photo I taken in the newpaper. It made the front page. I was offered money and seeked permission. I was fine with it of course - the license allows this. At the bottom of the photo it read: PHOTO: William Mckee.
-Perfect.&lt;/p&gt;
-&lt;p&gt;The only thing I ask is they attribute.&lt;/p&gt;
-&lt;p&gt;I like the idea of sharealike but at the end of the I really don't care and would hate to chase down people to license it wrong. Sure, I don't like it that people could take my stuff and make it not open. I think everything should be open and free.&lt;/p&gt;
-&lt;p&gt;My art site - artcontrol.me is currently down but when it was up I licenced the site under a cc:by. Elements of the site are still up - such as my YouTube channel.&lt;/p&gt;
-&lt;p&gt;I attended art school in Wellington - The Learning Connexion. My focus was on drawing and painting. I taught myself programming on the bus to art school. Even when I was drawing on the easel I would be 'drawing' python code. During breaks I would often get my laptop out.&lt;/p&gt;
-&lt;p&gt;I volunteered at Whaihanga Early Learning Centre. I spend the majority of my time there in the art area doing collabarth works with others. Oil Pastel, coloured pencil and pencil were my mediums of choice. Sometimes I would use paint, but it's quite messy.&lt;/p&gt;
-&lt;p&gt;Copyright shouldn't be default. Apply and pay if you want copyright. CC license by default. That will sort the world.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [160]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;crcom&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/Downloads/List of CC schools - Sheet1.csv'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;index_col&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;usecols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Compare the schools on List of CC schools with list of all public/private schools.&lt;/p&gt;
-&lt;p&gt;Why shouldn't it be default for all public schools licence to be under a Creative Commons BY license?&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [161]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#crcom&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [162]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;aqcom&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/Downloads/List of CC schools - Sheet1.csv'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;usecols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [163]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;aqjsz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;aqcom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_json&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [164]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;dicthol&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;aqjsz&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [165]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;dschoz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dicthol&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'School'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [166]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#dicthol&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [167]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;dscv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dschoz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [168]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;ccschool&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [169]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ds&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;87&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="c"&gt;#print(dschoz[str(ds)])&lt;/span&gt;
-    &lt;span class="n"&gt;ccschool&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;dschoz&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ds&lt;/span&gt;&lt;span class="p"&gt;)]))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [170]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;schccd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [171]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;scda&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s"&gt;'cc'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;True&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [172]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;sanoc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s"&gt;'cc'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;False&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [173]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#schccd.update({ccs : scda})&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [174]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;ccs&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;ccschool&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="c"&gt;#These schools have a cc license. Update the list of all schools with cc and value = true.&lt;/span&gt;
-    &lt;span class="c"&gt;#Focus on schools that don't have cc license.&lt;/span&gt;
-    &lt;span class="c"&gt;#Filter schools in area that don't have cc license.&lt;/span&gt;
-    &lt;span class="c"&gt;#print (ccs)&lt;/span&gt;
-    &lt;span class="n"&gt;schccd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;ccs&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scda&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [175]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;ccschz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [176]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;dsc&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;87&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="c"&gt;#print (dschoz[str(dsc)])&lt;/span&gt;
-    &lt;span class="n"&gt;ccschz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;dschoz&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dsc&lt;/span&gt;&lt;span class="p"&gt;)]))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [177]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#Append in names of schools that are missing from this dict. &lt;/span&gt;
-&lt;span class="c"&gt;#Something like&lt;/span&gt;
-&lt;span class="c"&gt;#schccd.update{school that doesnt have cc : {'cc' : False}}&lt;/span&gt;
-&lt;span class="c"&gt;#schccd&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Cycle through only first 89 values - stop when reaching : These are schools that have expressed an interest in CC, and may have a policy in progress.&lt;/p&gt;
-&lt;p&gt;New spreadsheet for schools in progress of CC license. Where are they up to? What is the next steps?&lt;/p&gt;
-&lt;p&gt;Why are schools using a license that isn't CC:BY. They really should be using the same license. CC NC is unexceptable. SA would be OK but majority of schools already have CC BY so best to go with what is common so you don't have conflicts of licenses.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [178]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;noclist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/Downloads/Directory-School-current.csv'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;usecols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [179]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;webskol&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/Downloads/Directory-School-current.csv'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;skiprows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;usecols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [180]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;websjs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;webskol&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_json&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [181]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;dictscha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;websjs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [182]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;numsweb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dictscha&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'School website'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [183]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;lenmuns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numsweb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [184]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for nuran in range(lenmuns):&lt;/span&gt;
-&lt;span class="c"&gt;#    print (numsweb[str(nuran)])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [185]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#noclist.values[0:10]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [186]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;aqjaq&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;noclist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_json&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [187]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;jsaqq&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;aqjaq&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [188]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;najsa&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;jsaqq&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'Name'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [189]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;alsl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;najsa&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [190]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;allschlis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [191]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;alr&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;alsl&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;allschlis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;najsa&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;alr&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [192]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#allschlis&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [193]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;newlis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;allschlis&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ccschool&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [194]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;empd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Create restfulapi of schools thaat have cc and those that don't&lt;/p&gt;
-&lt;p&gt;Merge two dicts together.
-Both are 
-{name of school : 'cc' : 'True'/'False'}&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [195]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;sstru&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;schccd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [196]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;newl&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;newlis&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="c"&gt;#print (newl)&lt;/span&gt;
-    &lt;span class="n"&gt;empd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;newl&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;sanoc&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [197]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;empdum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;empd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [203]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;trufal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;empd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;trufal&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;schccd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [207]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;trfaj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;trufal&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [209]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="n"&gt;savjfin&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'/home/wcmckee/ccschool/index.json'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;savjfin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;trfaj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;savjfin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [200]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#savtru = open('/home/wcmckee/ccschool/cctru.json', 'w')&lt;/span&gt;
-&lt;span class="c"&gt;#savtru.write(sstru)&lt;/span&gt;
-&lt;span class="c"&gt;#savtru.close()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [148]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for naj in najsa.values():&lt;/span&gt;
-    &lt;span class="c"&gt;#print (naj)&lt;/span&gt;
-&lt;span class="c"&gt;#    for schk in schccd.keys():&lt;/span&gt;
-        &lt;span class="c"&gt;#print(schk)&lt;/span&gt;
-&lt;span class="c"&gt;#        allschlis.append(schk)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [149]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#for i in ccschz[:]:&lt;/span&gt;
-&lt;span class="c"&gt;#    if i in allschlis:&lt;/span&gt;
-&lt;span class="c"&gt;#        ccschz.remove(i)&lt;/span&gt;
-&lt;span class="c"&gt;#        allschlis.remove(i)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [150]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span class="c"&gt;#Cycle though some schools rather than everything. &lt;/span&gt;
-&lt;span class="c"&gt;#Cycle though all schools and find schools that have cc &lt;/span&gt;
-&lt;span class="c"&gt;#for naj in range(2543):&lt;/span&gt;
-    &lt;span class="c"&gt;#print(najsa[str(naj)])&lt;/span&gt;
-&lt;span class="c"&gt;#    for schk in schccd.keys():&lt;/span&gt;
-&lt;span class="c"&gt;#        if schk in (najsa[str(naj)]):&lt;/span&gt;
-            &lt;span class="c"&gt;#Remove these schools from the list&lt;/span&gt;
-&lt;span class="c"&gt;#            print (schk)&lt;/span&gt;
-            
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>http://wcmckee.com/posts/curschopanda.html</guid><pubDate>Mon, 03 Aug 2015 05:22:35 GMT</pubDate></item></channel></rss>
+</description><category>python</category><category>twitter</category><guid>http://wcmckee.com/posts/brobeurtweet.html</guid><pubDate>Fri, 28 Aug 2015 21:33:21 GMT</pubDate></item></channel></rss>
