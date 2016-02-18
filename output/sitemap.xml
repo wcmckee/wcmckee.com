@@ -7,322 +7,330 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://wcmckee.com/2015/index.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/2016/index.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/archive.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/arrow.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/blog.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/creative-commons.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/csv.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/cv.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/data.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/excel.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/gif.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/hamilton.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/image.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/index.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/job.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/json.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/library.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/mapquestapi.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/maps.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/moe.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/nikola.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/numpy.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/nzpost.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/os.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/pandas.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/pokemon.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/python.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/requests.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/resume.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/rsync.html</loc>
-  <lastmod>2015-10-17T16:40:00Z</lastmod>
+  <lastmod>2016-01-25T19:36:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/categories/slack.html</loc>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/categories/twitter.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/galleries/index.html</loc>
-  <lastmod>2015-10-17T16:40:00Z</lastmod>
+  <lastmod>2016-01-25T19:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index-1.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index-2.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index-3.html</loc>
-  <lastmod>2016-01-15T17:38:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index-4.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/index.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/listings/index.html</loc>
-  <lastmod>2015-10-17T16:40:00Z</lastmod>
+  <lastmod>2016-01-25T19:36:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/Alex.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/GetsDrawnDotCom.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/bbknikola.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/brobeurtweet.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/ccslis.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/configdraw.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/curschopanda.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/drawnuseconfig.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/education-counts-url.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/educount.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/educounts.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://wcmckee.com/posts/fuuslack.html</loc>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/getsdrawn.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/gif-pokmon.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/hamcompmentor.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/hamentorwrite.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/lcacoffee.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/libedugov.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/lockacc.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/minedujob.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/nikeditfiles.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/nikoladu.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/niktrans.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/nzpostaddy.html</loc>
-  <lastmod>2016-01-15T17:41:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/parseduxml.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/pgguserdel.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/productadd.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/productreceipt.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/productsell.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/pygitx.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/pyguessgame.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/rdminjob.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/resume.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/revcoffee.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/salerev.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/signinlca.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/tarpipe.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/test.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/testroll.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/wain.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/wcusersdata.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/whaiout.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
  <url>
   <loc>http://wcmckee.com/posts/william.html</loc>
-  <lastmod>2016-01-15T17:39:00Z</lastmod>
+  <lastmod>2016-02-18T10:13:00Z</lastmod>
  </url>
 </urlset>

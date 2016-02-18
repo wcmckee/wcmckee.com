@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fuuslack | wcmckee</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://wcmckee.com/posts/fuuslack.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="wcmckee">
+<meta property="og:site_name" content="wcmckee">
+<meta property="og:title" content="fuuslack">
+<meta property="og:url" content="http://wcmckee.com/posts/fuuslack.html">
+<meta property="og:description" content="fuuslack
+useless crap slack stuff.
+Send messages to both Slack and Twitter.
+Would like to add messages i reply and responces but don't want
+to get in trouble with organisers.
+
+
+
+
+
+
+In [3]:
+
+    
+impor">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-02-18T10:12:26Z">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="slack">
+<meta property="article:tag" content="twitter">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://wcmckee.com/">
+
+                <span id="blog-title">wcmckee</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS</a>
+                </li>
+<li>
+<a href="https://twitter.com/wcmckeedotcom">Twitter</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="fuuslack.ipynb" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">fuuslack</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    wcmckee
+            </span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2016-02-18T10:12:26Z" itemprop="datePublished" title="2016-02-18 10:12">2016-02-18 10:12</time></a></p>
+                <p class="commentline">            <a href="fuuslack.html#disqus_thread" data-disqus-identifier="cache/posts/fuuslack.html">Comments</a>
+
+
+                    </p>
+<p class="sourceline"><a href="fuuslack.ipynb" id="sourcelink">Source</a></p>
+
+        </div>
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>fuuslack</p>
+<p>useless crap slack stuff.</p>
+<p>Send messages to both Slack and Twitter.</p>
+<p>Would like to add messages i reply and responces but don't want
+to get in trouble with organisers.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">slacker</span>
+
+<span class="kn">from</span> <span class="nn">TwitterFollowBot</span> <span class="k">import</span> <span class="n">TwitterBot</span>
+
+<span class="kn">import</span> <span class="nn">getpass</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">myusr</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">my_bot</span> <span class="o">=</span> <span class="n">TwitterBot</span><span class="p">(</span><span class="s1">'/home/'</span> <span class="o">+</span> <span class="n">myusr</span> <span class="o">+</span> <span class="s1">'/config.txt'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">opslkey</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'/home/'</span> <span class="o">+</span> <span class="n">myusr</span> <span class="o">+</span> <span class="s1">'/Downloads/slacker.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">rdops</span> <span class="o">=</span> <span class="n">opslkey</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">stslack</span> <span class="o">=</span> <span class="n">rdops</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">slack</span> <span class="o">=</span> <span class="n">slacker</span><span class="o">.</span><span class="n">Slacker</span><span class="p">(</span><span class="n">stslack</span><span class="p">)</span>
+
+<span class="c1"># Send a message to #general channel</span>
+
+<span class="c1"># Get users list</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">slack</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'members'</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lusr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">lusr</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>38</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">slms</span> <span class="o">=</span> <span class="n">slack</span><span class="o">.</span><span class="n">search</span><span class="o">.</span><span class="n">messages</span><span class="p">(</span><span class="s1">'irc'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">matlens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">slms</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'messages'</span><span class="p">][</span><span class="s1">'matches'</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">matlens</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>16</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">mlen</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">matlens</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mlen</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">slms</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'messages'</span><span class="p">][</span><span class="s1">'matches'</span><span class="p">][</span><span class="n">mlen</span><span class="p">][</span><span class="s1">'previous'</span><span class="p">][</span><span class="s1">'text'</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">90</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">slms</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'messages'</span><span class="p">][</span><span class="s1">'matches'</span><span class="p">][</span><span class="n">mlen</span><span class="p">][</span><span class="s1">'previous'</span><span class="p">][</span><span class="s1">'username'</span><span class="p">]))</span>
+    <span class="c1">#Got in trouble for tweeting others slack messages so disabling this and just </span>
+    <span class="c1">#using </span>
+    <span class="c1">#input to send messages to both slack and twitter. </span>
+    <span class="c1">#my_bot.send_tweet(slms.body['messages']['matches'][mlen]['previous']['username'] + ': ' + (slms.body['messages']['matches'][mlen]['previous']['text'][0:90]) + ' #lca2016')</span>
+
+    <span class="nb">print</span><span class="p">((</span><span class="n">slms</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'messages'</span><span class="p">][</span><span class="s1">'matches'</span><span class="p">][</span><span class="n">mlen</span><span class="p">][</span><span class="s1">'text'</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">90</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">slms</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'messages'</span><span class="p">][</span><span class="s1">'matches'</span><span class="p">][</span><span class="n">mlen</span><span class="p">][</span><span class="s1">'username'</span><span class="p">]))</span>
+
+
+
+    <span class="nb">print</span><span class="p">((</span><span class="n">slms</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'messages'</span><span class="p">][</span><span class="s1">'matches'</span><span class="p">][</span><span class="n">mlen</span><span class="p">][</span><span class="s1">'next'</span><span class="p">][</span><span class="s1">'text'</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">120</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">slms</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'messages'</span><span class="p">][</span><span class="s1">'matches'</span><span class="p">][</span><span class="n">mlen</span><span class="p">][</span><span class="s1">'next'</span><span class="p">][</span><span class="s1">'username'</span><span class="p">]))</span>
+    <span class="c1">#my_bot.send_tweet((slms.body['messages']['matches'][mlen]['username']) + ': ' + )</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+is everywhere
+kathyreid
+I thought it was one of those split brain things like IRC
+brong
+one kathyreid doesn't know what the other one knows
+brong
+1
+it's an interesting mix, I must say
+dtbell91
+A brief comment on security of gateways to xmpp and irc.
+Irc supports ssl so the server to
+dns
+johndalton: but can you speak fluent RFC 7162?
+brong
+2
+kicks &lt;@U0JT16M63|dtbell91&gt; from the channel
+mattcen
+fine, I'll go back to IRC. they didn't kick me :stuck_out_tongue:
+dtbell91
+to be fair, there ~is~ a sign on your back…
+itgrrl
+3
+I think it’s not the worst thing to let the Slack and IRC groups self-form. People might f
+tennessee
+well currently the IRC channel is 90% complaints about the slack UX :stuck_out_tongue:
+gm
+And the slack channel is comments about IRC and IRC/XMPP client integration.
+mattcen
+4
+For now, I'm not enabling it.
+itgrrl
+i’m surprised that slack even allows plaintext IRC connections...
+gm
+&lt;@U0JT16M63&gt;: I'm still upset that the rego wouldn't let me have my favourite shell set as PowerShell.
+ctudball
+5
+&lt;@U0JT16M63&gt;: Yes. I don't understand the security implications of either yet.
+itgrrl
+gateway sounds like it allows one person to connect over another technology (XMPP or IRC) 
+dtbell91
+dtbell91: Yes, two different thing.
+evmcl
+6
+I'm sure others see the inability to do those things in IRC as a feature.  :-)  We all hav
+itgrrl
+Would it be possible to turn the IRC gateway on, if it isn’t already? :simple_smile:
+parisba
+I like to use Slack from my IRC client (and disregard all the arguments :wink:
+parisba
+7
+Probably on Facebook  ;-)
+itgrrl
+&lt;@U0B0TGGS2&gt;: Sorry, I was referring to the IRC gateway to access Slack (instead of the XM
+evmcl
+I hope this works, I do enjoy using Slack personally ¯\_(ツ)_/¯
+dtbell91
+8
+&lt;@U0K0K1RMX&gt;: I have no involvement in the running of the IRC channel so can't comment on 
+itgrrl
+heh, just checked the wiki… apparently we have a facebook page? and nobody complained abou
+gm
+&lt;@U0K0JM96V&gt;: lol
+itgrrl
+9
+as for the specific complaints about “it’s not FOSS”, i think the wider community’s views 
+gm
+Okay, fair enough. I assume that's the same for the IRC gateway, which would have been my 
+evmcl
+&lt;@U0K0JM96V&gt;: I don't really buy it when ppl make that argument—the 'conversation' and info is already split between IRC
+itgrrl
+10
+hello!
+msmarymac
+re the IRC bridging above, it might be worth discussing
+gm
+Hey &lt;@U0B0TGGS2&gt;, thanks for setting this up. Any chance of turning on the XMPP gateway? Then I could use Pidgin which h
+evmcl
+11
+Hi all!
+&lt;@U0B0TGGS2&gt;, thanks for the invite!
+a.kuplev
+croy: a bouncer is basically something that you leave logged in to IRC permanently, even w
+yjmbo
+oh right
+croy
+12
+reads the email thread... hah
+brong
+FastMail moved from IRC to slack recently (we still run some ops stuff in IRC, so I have t
+brong
+followed by a decent mobile experience that doesn't fricking ding every time you change networks like andchat used to
+brong
+13
+it's worth reminding everyone, just because this isn't an 'official' conference Slack, the
+dtbell91
+much the same as it applies on IRC, Twitter, email, etc when in relation to conference eve
+dtbell91
+Yes, thanks David. Good reminder.
+itgrrl
+14
+&lt;@U0B0TGGS2&gt;: and/or slackin for auto-inviting people? &lt;https://github.com/rauchg/slackin&gt;
+glasnt
+I'll take a look at slackin when I get a chance. Not sure IRC mirroring is a good idea in 
+itgrrl
+of course VLine do free travel when I take annual leave... after all the complaining and "feedback" I've provided them o
+dtbell91
+15
+w00t!
+itgrrl
+I don’t know why I prefer Slack to IRC, but I just do.
+tennessee
+I think I’m going to be arriving midway through Monday, trying to work out if it makes sense to arrive midway through a 
+tennessee
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [172]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="p">(</span><span class="n">slms</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'messages'</span><span class="p">][</span><span class="s1">'matches'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'next'</span><span class="p">][</span><span class="s1">'text'</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[172]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>"followed by a decent mobile experience that doesn't fricking ding every time you change networks like andchat used to"</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [173]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">schli</span> <span class="o">=</span> <span class="n">slack</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [174]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">slchan</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">schli</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'channels'</span><span class="p">])):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">slchan</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">schli</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="s1">'channels'</span><span class="p">][</span><span class="n">slchan</span><span class="p">][</span><span class="s1">'name'</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+_newbies
+1
+bofs
+2
+general
+3
+random
+4
+transport
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">poswhat</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'What to post: '</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>What to post: Hopefully this is sent to both slack and twitter.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">slack</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">post_message</span><span class="p">(</span><span class="s1">'#general'</span><span class="p">,</span> <span class="n">poswhat</span><span class="p">,</span> <span class="n">as_user</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[23]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;slacker.Response at 0xb20321d0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">my_bot</span><span class="o">.</span><span class="n">send_tweet</span><span class="p">(</span><span class="n">poswhat</span> <span class="o">+</span> <span class="s1">' #lca16'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[24]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'contributors': None,
+ 'coordinates': None,
+ 'created_at': 'Thu Jan 21 11:58:19 +0000 2016',
+ 'entities': {'hashtags': [{'indices': [50, 56], 'text': 'lca16'}],
+  'symbols': [],
+  'urls': [],
+  'user_mentions': []},
+ 'favorite_count': 0,
+ 'favorited': False,
+ 'geo': None,
+ 'id': 690141371856982016,
+ 'id_str': '690141371856982016',
+ 'in_reply_to_screen_name': None,
+ 'in_reply_to_status_id': None,
+ 'in_reply_to_status_id_str': None,
+ 'in_reply_to_user_id': None,
+ 'in_reply_to_user_id_str': None,
+ 'is_quote_status': False,
+ 'lang': 'en',
+ 'place': None,
+ 'retweet_count': 0,
+ 'retweeted': False,
+ 'source': '&lt;a href="http://wcmckee.com" rel="nofollow"&gt;wcmtwet&lt;/a&gt;',
+ 'text': 'Hopefully this is sent to both slack and twitter. #lca16',
+ 'truncated': False,
+ 'user': {'contributors_enabled': False,
+  'created_at': 'Sat Sep 20 08:09:39 +0000 2014',
+  'default_profile': False,
+  'default_profile_image': False,
+  'description': 'Open Source Python Software/Web Development. AV volunteer at tech confs, and writer.',
+  'entities': {'description': {'urls': []},
+   'url': {'urls': [{'display_url': 'wcmckee.com',
+      'expanded_url': 'http://wcmckee.com',
+      'indices': [0, 23],
+      'url': 'https://t.co/KQYI4xVTZd'}]}},
+  'favourites_count': 3512,
+  'follow_request_sent': False,
+  'followers_count': 936,
+  'following': False,
+  'friends_count': 872,
+  'geo_enabled': True,
+  'has_extended_profile': True,
+  'id': 2821347210,
+  'id_str': '2821347210',
+  'is_translation_enabled': False,
+  'is_translator': False,
+  'lang': 'en',
+  'listed_count': 772,
+  'location': 'Hamilton City, New Zealand',
+  'name': 'wcmckee',
+  'notifications': False,
+  'profile_background_color': '000000',
+  'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png',
+  'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png',
+  'profile_background_tile': False,
+  'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2821347210/1442397712',
+  'profile_image_url': 'http://pbs.twimg.com/profile_images/621211385746161664/tGchJstD_normal.jpg',
+  'profile_image_url_https': 'https://pbs.twimg.com/profile_images/621211385746161664/tGchJstD_normal.jpg',
+  'profile_link_color': 'FFCC4D',
+  'profile_sidebar_border_color': '000000',
+  'profile_sidebar_fill_color': '000000',
+  'profile_text_color': '000000',
+  'profile_use_background_image': False,
+  'protected': False,
+  'screen_name': 'wcmckeedotcom',
+  'statuses_count': 23260,
+  'time_zone': 'Wellington',
+  'url': 'https://t.co/KQYI4xVTZd',
+  'utc_offset': 46800,
+  'verified': False}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/python.html" rel="tag">python</a></li>
+            <li><a class="tag p-category" href="../categories/slack.html" rel="tag">slack</a></li>
+            <li><a class="tag p-category" href="../categories/twitter.html" rel="tag">twitter</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="gif-pokmon.html" rel="prev" title="gif-pokmon">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nikolademo",
+            disqus_url="http://wcmckee.com/posts/fuuslack.html",
+        disqus_title="fuuslack",
+        disqus_identifier="cache/posts/fuuslack.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:will@artcontrol.me">wcmckee</a>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons Attribution 4.0 International License" style="border-width:0; margin-bottom:12px;" src="http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg"></a>
+<br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">wcmckee.com</span> by 
+<a xmlns:cc="http://creativecommons.org/ns#" href="http://wcmckee.com" property="cc:attributionName" rel="cc:attributionURL">wcmckee</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<br>Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://wcmckee.com" rel="dct:source">http://wcmckee.com</a>.
+
+
+            
+        </footer>
+</div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
