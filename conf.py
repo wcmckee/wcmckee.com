@@ -66,6 +66,10 @@ NAVIGATION_LINKS = {
         ('/archive.html', 'Archives'),
         ('/categories/index.html', 'Tags'),
         ('/rss.xml', 'RSS'),
+        ('http://artctrl.me', 'Art'),
+        ('http://gamejolt.com/profile/brobeur/39197', 'Games'),
+        ('https://www.flickr.com/photos/133257056@N06', 'Photography'),
+        ('https://github.com/wcmckee', 'Code'),
 	('https://twitter.com/wcmckeedotcom', 'Twitter'),
     ),
 }
