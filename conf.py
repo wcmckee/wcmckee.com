@@ -7,15 +7,15 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "wcmckee"
-BLOG_TITLE = "wcmckee"
+BLOG_TITLE = "artctrl-tech"
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://wcmckee.com/"
+SITE_URL = "http://tech.artctrl.me/"
 # This is the URL where nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://getnikola.com/"
 BLOG_EMAIL = "will@artcontrol.me"
-BLOG_DESCRIPTION = "Code IPython Notebook by WCMCKEE"
+BLOG_DESCRIPTION = "Tech Blog for artctrl"
 
 # Nikola is multilingual!
 #
@@ -149,7 +149,7 @@ COMPILERS = {
 
 # Create by default posts in one file format?
 # Set to False for two-file posts, with separate metadata.
-# ONE_FILE_POSTS = True
+ONE_FILE_POSTS = False
 
 # If this is set to True, then posts that are not translated to a language
 # LANG will not be visible at all in the pages in that language.
@@ -329,20 +329,13 @@ THEME = "ipython"
 # A HTML fragment describing the license, for the sidebar.
 # I recommend using the Creative Commons' wizard:
 # http://creativecommons.org/choose/
-LICENSE = """
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-<img alt="Creative Commons Attribution 4.0 International License"
-style="border-width:0; margin-bottom:12px;"
-src="http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg"></a>
-<br /><span xmlns:dct="http://purl.org/dc/terms/" 
-property="dct:title">wcmckee.com</span> by 
-<a xmlns:cc="http://creativecommons.org/ns#" 
-href="http://wcmckee.com" property="cc:attributionName" 
-rel="cc:attributionURL">wcmckee</a> is licensed under a <a rel="license" 
-href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" 
-href="http://wcmckee.com" rel="dct:source">http://wcmckee.com</a>.
 
+LICENSE = """
+<a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License BY"
+style="border-width:0; margin-bottom:12px;"
+src="/https://upload.wikimedia.org/wikipedia/commons/1/16/CC-BY_icon.svg"></a>
+<p>Except where otherwise noted, copyright content on this site is licensed under a Creative Commons Attribution 4.0 International Licence.</p>
 """
 
 # A small copyright notice for the page footer (in HTML).
