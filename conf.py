@@ -284,7 +284,7 @@ FEED_LENGTH = 10
 # translated
 
 # Name of the theme to use.
-THEME = "ipython"
+THEME = "custom"
 
 # Color scheme to be used for code blocks. If your theme provides
 # "assets/css/code.css" this is ignored.
